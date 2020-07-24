@@ -17,16 +17,16 @@
 
 #include <ArduinoBLE.h>
 
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEService ledService("19b10000-e8f2-537e-4f6c-d104768a1214"); // BLE LED Service
 
 // BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
-BLEByteCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
+BLEByteCharacteristic switchCharacteristic("19b10000-e8f2-537e-4f6c-d104768a1214", BLERead | BLEWrite);
 
 const int ledPin = LED_BUILTIN; // pin to use for the LED
 
 void setup() {
   Serial.begin(9600);
-  while (!Serial);
+  //while (!Serial);   // need this gone when disconected from computer
 
   // set LED pin to output mode
   pinMode(ledPin, OUTPUT);
@@ -39,7 +39,7 @@ void setup() {
   }
 
   // set advertised local name and service UUID:
-  BLE.setLocalName("LED-PORTENTA");
+  BLE.setLocalName("LED-IOT4");
   BLE.setAdvertisedService(ledService);
 
   // add the characteristic to the service
@@ -54,7 +54,7 @@ void setup() {
   // start advertising
   BLE.advertise();
 
-  Serial.println("BLE LED-PORTENTA");
+  Serial.println("BLE LED-Distance-Control");
 }
 
 void loop() {
@@ -74,10 +74,10 @@ void loop() {
       if (switchCharacteristic.written()) {
         if (switchCharacteristic.value()) {   // any value other than 0
           Serial.println("LED off");
-          digitalWrite(ledPin, HIGH);         // will turn the LED off, weird
-        } else {                              // a 0 value
+          digitalWrite(ledPin, HIGH);         // will turn the Portenta LED off, weird
+        } else {                             
           Serial.println(F("LED on"));
-          digitalWrite(ledPin, LOW);          // will turn the LED on, weird
+          digitalWrite(ledPin, LOW);          // will turn the Portenta LED on, weird
         }
       }
     }
