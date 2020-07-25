@@ -10,11 +10,13 @@ These demos are not polished or student tested they are just proof of concept.
 
 
 
-# Use at your own risk
-# By Jeremy Ellis
-# Twitter https://twitter.com/rocksetta?
-# Website https://www.rocksetta.com/
-# Portenta Youtube Playlist https://www.youtube.com/watch?v=Wl--BNbMSQA&list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw
+## Use at your own risk
+## By Jeremy Ellis
+## Twitter https://twitter.com/rocksetta?
+## Website https://www.rocksetta.com/
+## Portenta Youtube Playlist https://www.youtube.com/watch?v=Wl--BNbMSQA&list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw
+
+### Please subscribe to my youtube channel as I am just below the 1000 needed subscribers.
 
 
 
