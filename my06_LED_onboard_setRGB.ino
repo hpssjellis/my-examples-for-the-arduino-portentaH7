@@ -2,27 +2,29 @@
 
 
 /*
-  AnalogWrite for each on-board LED using the Portenta H7
-  This is needed since the onboard LED's are reverse set for LOW and HIGH to protect the board
-
-  July 27th, 2020
-  by Jeremy Ellis
-  Twitter @rocksetta
-  Website https://www.rocksetta.com
-
-  RGB idea by Daniel Danaie
-
-  example usage
-  LED_onboard_setRGB(255, 0, 0);  // set LED to red
-
-  or
-  
-  LED_onboard_analogWrite(LEDB, 0, previousMillisB, ledStateB); Turns the onBoard Blue LED fully off
-  LED_onboard_analogWrite(LEDB, 255, previousMillisB, ledStateB); Turns the onBoard Blue LED fully on
-
-  Note because of the sensitive timer used you can not use this code with delay(1000);
-
-*/
+ * LED_onboard_setRGB 
+ * creates an AnalogWrite for each on-board LED using the Portenta H7
+ * This is needed since the onboard LED's are reverse set for LOW and HIGH to protect the board
+ * The long function name helps with auto-fill if ever used with the new Arduino Pro IDE.
+ *
+ * July 27th, 2020
+ * by Jeremy Ellis
+ * Twitter @rocksetta
+ * Website https://www.rocksetta.com
+ *
+ * setRGB idea by Daniel Danaie 
+ *
+ * example usage
+ * LED_onboard_setRGB(255, 0, 0);  // set LED to red
+ *
+ * or
+ * 
+ * LED_onboard_analogWrite(LEDB, 0, previousMillisB, ledStateB); Turns the onBoard Blue LED fully off
+ * LED_onboard_analogWrite(LEDB, 255, previousMillisB, ledStateB); Turns the onBoard Blue LED fully on
+ *
+ * Note because of the sensitive timer used you can not use this code with delay(1000);
+ *
+ */
 
 
 
