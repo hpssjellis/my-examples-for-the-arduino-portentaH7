@@ -38,3 +38,30 @@ So Far:
 
 
 
+
+
+
+
+
+
+
+
+
+
+.
+
+
+
+
+
+.
+
+
+
+
+
+## Other sites with good examples about Portenta
+
+https://github.com/trimchess/portenta_basics
+
+
