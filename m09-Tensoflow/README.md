@@ -21,6 +21,10 @@ https://create.arduino.cc/projecthub/user1382012/magic-wand-29fa3b
 since I don't have an accelerometer connected to the Portenta, I am not really interested in this yet. Presntly I will just test the Heloow_world. A bit of a concern is that the Heloo_world works fine on the Nano 33 BLE sense using the regular Nano board manager, but I am having some issues using the mBED version for the Nano 33 BLE. The port finding and labelling is not working. 
 
 
+NOPE: HEOLLO_WORLD DOES NOT COMPILE ON THE PORTENTA, SAME KIND OF ISSUE AS THE NANO 33 ble USING THE MBED BOARD. CAN'T FIND THE CORRECT PORT AFTER UPLOAD.
+
+
+
 A few other TensorflowLT tutorials for a camera connected arduino are here
 
 https://github.com/arduino/ArduinoTensorFlowLiteTutorials
