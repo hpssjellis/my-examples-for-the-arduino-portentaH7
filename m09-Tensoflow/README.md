@@ -5,6 +5,9 @@ in this directory I will show whatever I can get working on the Portenta, howeve
 that cell phone to the microcontroller using a web socket. I am in the process of converting this concept to arduino boards.
 
 
-My web socket TensorflowJS solution
+My toy car web socket TensorflowJS solution of Machine Learning using microcontrollers youtube video is at
+
 https://www.youtube.com/watch?v=61jYk4a8wkE
+
+Please remember to subscribe as that is important to creators.
 
