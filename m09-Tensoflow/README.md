@@ -21,4 +21,12 @@ https://create.arduino.cc/projecthub/user1382012/magic-wand-29fa3b
 since I don't have an accelerometer connected to the Portenta, not really interested in this yet. Presntly I will just test the Heloow_world
 
 
+A few other tutorials for a camera connected arduino are here
+
+https://github.com/arduino/ArduinoTensorFlowLiteTutorials
+
+
+
+
+
 
