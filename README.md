@@ -29,7 +29,7 @@ So Far:
 
 2a. my02-dual-core.ino Proud of this. I have taken the Pro Tutorial and made it more smooth. This code can be flashed to either core and randomly sets blue and green onboard LED flashing. This is the way to write dual core code.  Pro Tutorial at  https://www.arduino.cc/pro/hardware/product/portenta-h7 then go to there tutorials
 
-2b. my02-dual-core-advanced.ino   The M4 core cannot print to Serial, so this advanced example uses RPC to send a print command from the M4 core to the M7 core to print to serial. Note must change a compiler directive -fexceptions added to the cflags.txt and cxxflags.txt files in the board location 
+2b. my02-dual-core-RPC.ino An advanced program.  The M4 core cannot print to Serial, so this advanced example uses RPC (Remote Procedure Call) to send a print command from the M4 core to the M7 core to print to serial. Note: You must change a compiler directive for the M4 core, add -fexceptions to the cflags.txt and cxxflags.txt files in the board location 
 
 AppData\Local\Arduino15\packages\arduino-beta\hardware\mbed\1.2.2\variants\PORTENTA_H7_M4
 
