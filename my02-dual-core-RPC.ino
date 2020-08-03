@@ -1,12 +1,11 @@
 /*
- * my02-Dual-Core for the Portenta H7
+ * my02-Dual-Core-RPC for the Portenta H7
  *
  * This code can be loaded on either core.
  * The M7 core will initialize the M4 core
  * The M7 will flash Blue randomly (under 6 seconds)
  * The M7 core will serial print its own messges
  * The M7 core will serial print messages it receives from the M4 core
- * 
  * The M4 will flash Green randomly (under 6 seconds)
  *
  * Note: The M4 core will not compile unless -fexceptions is added 
