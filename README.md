@@ -49,7 +49,7 @@ AppData\Local\Arduino15\packages\arduino-beta\hardware\mbed\1.2.2\variants\PORTE
 
 8. [my08-mbed-blink.ino](my08-mbed-blink.ino)   starting to use the mbed compiler, fairly different from arduino code.
 
-9. [my09-tensorflow-machine-learning-link.md](my09-tensorflow-machine-learning-link.md) not getting this working yet. Sorry.
+9. [my09-tensorflow-machine-learning-link.md](my09-tensorflow-machine-learning-link.md) This is still kind of flakey. Read my opinions in that folder. I did get the TensorflowLite Hello_world working on the serial-plotter
 
 
 
