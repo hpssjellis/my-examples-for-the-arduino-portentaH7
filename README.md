@@ -1,5 +1,5 @@
 ## my-examples-for-the-arduino-portentaH7
-My examples fir the new Arduino Pro board the Portenta H7
+My examples for the new Arduino Pro board the Portenta H7
 
 
 As of July 24th, 2020 this site is just to get the PortentaH7 working how I like it to work. This is not my Arduino Robotics teaching site. That site is at 
