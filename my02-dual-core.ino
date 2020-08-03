@@ -17,7 +17,7 @@ int myLED;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
-   randomSeed(analogRead(0));
+   randomSeed(analogRead(A0));
   #ifdef CORE_CM7  
      LL_RCC_ForceCM4Boot();  
      myLED = LEDB; // on-board blue LED
