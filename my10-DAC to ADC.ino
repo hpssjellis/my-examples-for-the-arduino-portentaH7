@@ -9,7 +9,7 @@
  * Connect Pin A6 (DAC) to Pin 3 (D3)
  *   
  *
- *  Update Feb 7th, 2020
+ *  Update August 3rd, 2020
  *
  *  analogWriteResolution(10) assumed default for DAC 0 - 1023 --> 0 to 3.3 Volts
  *  
