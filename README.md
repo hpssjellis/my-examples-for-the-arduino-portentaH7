@@ -53,7 +53,7 @@ AppData\Local\Arduino15\packages\arduino-beta\hardware\mbed\1.2.2\variants\PORTE
 
 
 
-10. [my10-DAC to ADC.ino](my10-DAC to ADC.ino] Testing the DAC pin at A6 as it sends from 0.0 to 1.0 to both A0 for analogRead (from 0 to 1023) and D6 for digitalRead (from 0 to 1). 
+10. [my10-DAC to ADC.ino](my10-DAC to ADC.ino) Testing the DAC pin at A6 as it sends from 0.0 to 1.0 to both A0 for analogRead (from 0 to 1023) and D6 for digitalRead (from 0 to 1). 
 
 
 
