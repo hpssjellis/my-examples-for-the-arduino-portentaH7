@@ -4,7 +4,18 @@
 1. [a01-tensorflowLite-hello_world.md](a01-tensorflowLite-hello_world.md) shows how to get the default example working by changing LED_BUILTIN to pin 5 a PWM pin
 
 
-2. [a02-EloquentTinyML-to-M4.ino](a02-EloquentTinyML-to-M4.ino) This loads to both the M7 core and the M4 core. The serial plotter only works for the M7 core. On either core the LED connected to D5 pulses. reminder to have it work on the M4 core you need in a blank setup ```bootM4();```
+2. [a02-EloquentTinyML-to-M4.ino](a02-EloquentTinyML-to-M4.ino) This loads to both the M7 core and the M4 core. The serial plotter only works for the M7 core. On either core the LED connected to D5 pulses. reminder to have it work on the M4 core you need in a blank setup the following code
+
+```
+void setup() {
+  bootM4();
+}
+
+void loop() {
+ 
+}
+
+```
 
 
 I have made 100's of Machine Learning models using [TensorflowJS](https://www.tensorflow.org/js) my examples [here](http://rocksetta.com/tensorflowjs) and my personal opinion is that they are not yet ready for microcontrols. 
