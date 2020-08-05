@@ -4,7 +4,7 @@
 1. [a01-tensorflowLite-hello_world.md](a01-tensorflowLite-hello_world.md) shows how to get the default example working by changing LED_BUILTIN to pin 5 a PWM pin
 
 
-2. [a02-EloquentTinyML-to-M4.ino](a02-EloquentTinyML-to-M4.ino) This loads to both the M7 core and the M4 core. The serial plotter only works for the M7 core. On either core the LED connected to D5 pulses. reminder to have it work on the M4 core you need in a blank setup the following code
+2. [a02-EloquentTinyML-to-M4.ino](a02-EloquentTinyML-to-M4.ino) This loads to both the M7 core and the M4 core. The serial plotter only works for the M7 core. On either core the LED connected with a resistor from D5 to ground pulses. Reminder to have it work on the M4 core you need in a blank setup the following code
 
 ```
 void setup() {
