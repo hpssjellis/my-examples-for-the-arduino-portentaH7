@@ -52,6 +52,7 @@ So Far:
 
 10. [my10-DAC to ADC.ino](my10-DAC to ADC.ino) Testing the DAC pin at A6 as it sends from 0.0 to 1.0 to both A0 for analogRead (from 0 to 1023) and D6 for digitalRead (from 0 to 1). 
 
+11. [my11-dual-clean.ino](my11-dual-clean.ino) To solve an issue when working on dual cores. sometimes you need to clean both cores before you can upload new code to both cores. Think about it!
 
 
 .
