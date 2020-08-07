@@ -6,6 +6,7 @@ The playlist of all my Portenta Videos and other interesting videos at [https://
 
 [![particle.io photon high school robotics](image-video/portenta02.jpg)](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
 
+#### Please subscribe to my youtube channel as I am just below the 1000 needed subscribers.
 
 
 
@@ -24,8 +25,8 @@ https://github.com/hpssjellis/arduino-high-school-robotics-course  which will co
 #### By Jeremy Ellis
 #### Twitter https://twitter.com/rocksetta
 #### Website https://www.rocksetta.com/
-#### [Portenta Youtube Playlist](https://www.youtube.com/watch?v=Wl--BNbMSQA&list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
-#### Please subscribe to my youtube channel as I am just below the 1000 needed subscribers.
+#### [Portenta Youtube Playlist](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
+
 
 
 
