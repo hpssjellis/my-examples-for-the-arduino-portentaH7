@@ -1,6 +1,8 @@
 /*
  * Machine Learning for the PortentaH7
  * uses the EloquentTinyML library
+ * Note: uses version 0.0.2 of EloquentTinyML
+ * may not work with a newer version
  * 
  * Connect an LED to D5 thorugh a resistor to Ground
  * 
