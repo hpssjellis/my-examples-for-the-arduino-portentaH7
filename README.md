@@ -2,6 +2,17 @@
 My examples for the new Arduino Pro board the Portenta H7
 
 
+The playlist of all my Portenta Videos and other interesting videos at [https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
+
+[![particle.io photon high school robotics](http://img.youtube.com/vi/zRZJHMFL0p4/0.jpg)](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
+
+
+
+
+
+
+
+
 As of July 24th, 2020 this site is just to get the PortentaH7 working how I like it to work. This is not my Arduino Robotics teaching site. That site is at 
 
 https://github.com/hpssjellis/arduino-high-school-robotics-course  which will contain final student tested arduino programs.
