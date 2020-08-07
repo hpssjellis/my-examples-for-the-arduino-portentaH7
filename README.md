@@ -16,9 +16,11 @@ The playlist of all my Portenta Videos and other interesting videos at
 
 
 
-As of July 24th, 2020 this site is just to get the PortentaH7 working how I like it to work. This is not my Arduino Robotics teaching site. That site is at 
+As of July 24th, 2020 this site is just to get the PortentaH7 working how I like it to work. 
 
-https://github.com/hpssjellis/arduino-high-school-robotics-course  which will contain final student tested arduino programs.
+My Arduino Robotics teaching will eventually contain student tested Arduino teaching programs with instructional videos. 
+
+https://github.com/hpssjellis/arduino-high-school-robotics-course  
 
 
 
@@ -27,7 +29,7 @@ https://github.com/hpssjellis/arduino-high-school-robotics-course  which will co
 #### By Jeremy Ellis
 #### Twitter https://twitter.com/rocksetta
 #### Website https://www.rocksetta.com/
-#### [Portenta Youtube Playlist](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
+#### [My Portenta Youtube Playlist](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
 
 
 
@@ -36,7 +38,7 @@ https://github.com/hpssjellis/arduino-high-school-robotics-course  which will co
 
 
 
-So Far:
+So Far what is working:
 
 0. [my00-dual-clean.ino](my00-dual-clean.ino) To solve an issue when working on dual cores. Sometimes you need to clean both cores before you can upload new code to both cores. Think about it!
 
