@@ -24,6 +24,8 @@ https://github.com/hpssjellis/arduino-high-school-robotics-course  which will co
 
 So Far:
 
+0. [my11-dual-clean.ino](my11-dual-clean.ino) To solve an issue when working on dual cores. Sometimes you need to clean both cores before you can upload new code to both cores. Think about it!
+
 1. [my01-BlinkM7.ino](my01-BlinkM7.ino) Get the Portenta H7 Blinking with it's weird on board LED's connected to 3V3 so you have to send LOW to turn it on. Great for the board health (can't send 5V to it and break the LED), but crappy for anyone use to HIGH turns LED's on.
 
 2. "A" [my02a-dual-core.ino](my02-dual-core.ino) Proud of this. I have taken the Pro Tutorial and made it more smooth. This code can be flashed to either core and randomly sets blue and green onboard LED flashing. This is the way to write dual core code.  Pro Tutorial at  https://www.arduino.cc/pro/hardware/product/portenta-h7 then go to there tutorials
@@ -59,7 +61,7 @@ So Far:
 
 10. [my10-DAC to ADC.ino](my10-DAC to ADC.ino) Testing the DAC pin at A6 as it sends from 0.0 to 1.0 to both A0 for analogRead (from 0 to 1023) and D6 for digitalRead (from 0 to 1). 
 
-11. [my11-dual-clean.ino](my11-dual-clean.ino) To solve an issue when working on dual cores. sometimes you need to clean both cores before you can upload new code to both cores. Think about it!
+
 
 
 .
