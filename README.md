@@ -35,7 +35,7 @@ https://github.com/hpssjellis/arduino-high-school-robotics-course  which will co
 
 So Far:
 
-0. [my11-dual-clean.ino](my11-dual-clean.ino) To solve an issue when working on dual cores. Sometimes you need to clean both cores before you can upload new code to both cores. Think about it!
+0. [my00-dual-clean.ino](my00-dual-clean.ino) To solve an issue when working on dual cores. Sometimes you need to clean both cores before you can upload new code to both cores. Think about it!
 
 1. [my01-BlinkM7.ino](my01-BlinkM7.ino) Get the Portenta H7 Blinking with it's weird on board LED's connected to 3V3 so you have to send LOW to turn it on. Great for the board health (can't send 5V to it and break the LED), but crappy for anyone use to HIGH turns LED's on.
 
