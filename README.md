@@ -82,7 +82,7 @@ So Far what is working:
 
 .
 
-
+![bothPinout.png](bothPinout.png)
 
 
 
