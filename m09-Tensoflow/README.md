@@ -17,7 +17,9 @@ void loop() {
 
 ```
 
-Note: The [tflite-models](tflite-models) folder has several models that have not yet been tried on the Portenta. 
+Note: The [tflite-models](tflite-models) folder has several models that have not yet been tried on the Portenta. These may get deleted
+
+3. [lite-for-arduino](lite-for-arduino) This folder actually has the converted to header file TensorflowLite pre-compiled models. Presently untested so proceed with caution.
 
 
 
