@@ -17,6 +17,10 @@ void loop() {
 
 ```
 
+Note: The [tflite-models](tflite-models) folder has several models that have not yet been tried on the Portenta. 
+
+
+
 
 # My Opinion that may change soon.
 
