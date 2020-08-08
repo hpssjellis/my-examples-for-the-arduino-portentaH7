@@ -34,10 +34,12 @@ cd myArduino
 
 ```
 
-upload your file to the directory. I drag and drop
-Note expecting your file to be called name_model.tflite Change the collowing code if the name is different
+upload your .tflit file to the directory. I drag and drop
 
 Convert your file to a .h header file
+Note: expecting your file to be called name_model.tflite Change the following code if the name is different
+
+
 
 ``` xxd -i name_model.tflite name_model.h ```
 
