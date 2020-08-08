@@ -82,7 +82,8 @@ So Far what is working:
 
 .
 
-![bothPinout.png](bothPinout.png)
+![image-video/bothPinout.png]image-video/(bothPinout.png)
+
 
 
 
