@@ -1,6 +1,10 @@
 /*  
  *   my11-servo.ino
  *
+ * Note: Needs Servo version above 0.0.2 or you need to make these changes
+ * https://forum.arduino.cc/index.php?topic=691668.msg4700186#msg4700186
+ *
+ *
  * MUST HAVE A 6 VOLT EXTERNAL BATTERY
  * Note: REMEMBER 2 WIRES GO TO THE SERVO GROUND (Battery Neg and Board GND)
  * Servos run from 0 to 180 degrees, test 20 - 160 first
