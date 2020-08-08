@@ -34,7 +34,7 @@ cd myArduino
 
 ```
 
-upload your .tflit file to the directory. I drag and drop
+upload your .tflite file to the directory. I drag and drop
 
 Convert your file to a .h header file
 Note: expecting your file to be called name_model.tflite Change the following code if the name is different
