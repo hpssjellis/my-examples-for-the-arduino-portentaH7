@@ -80,7 +80,14 @@ So Far what is working:
 
 11. [my11-servo.ino](my11-servo.ino) Basic servo functionality. Will need Servo.h greater than 0.0.2 or make the changes stated [here](https://forum.arduino.cc/index.php?topic=691668.msg4700186#msg4700186) on the Arduino forum.
 
-.
+12. [my12-serial1-crash.ino](my12-serial1-crash.ino). The portenta sends crash information through the Serial1 RX and TX pins. This program allows you to load a serial1 monitoring programon another 3.3V arduino (Note: must use protective resistors if using an older 5V arduino). The easier approach is to connect a TTL USB cable to Gnd, RX and TX but I don't have one of those cables.
+
+
+
+
+
+
+
 
 ## Portenta H7 Pinout documentation:
 Lots more info in this pdf file: https://content.arduino.cc/assets/Pinout-PortentaH7_latest.pdf
