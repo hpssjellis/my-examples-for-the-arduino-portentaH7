@@ -1,3 +1,5 @@
+#pragma once
+
 // Keep model aligned to 8 bytes to guarantee aligned 64-bit accesses.
 alignas(8) const unsigned char g_magic_wand_model_data[] = {
     0x1c, 0x00, 0x00, 0x00, 0x54, 0x46, 0x4c, 0x33, 0x00, 0x00, 0x12, 0x00,
