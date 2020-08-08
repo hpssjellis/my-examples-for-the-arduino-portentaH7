@@ -10,4 +10,7 @@ For simplicity I have combined the .h and .c files into one .h file when I find 
 
 
 
+# Presently no idea if any of these other than the sine_model.h work. Use3 at your own risk!
+
+
 
