@@ -82,6 +82,9 @@ So Far what is working:
 
 .
 
+## Portenta H7 Pinout documentation:
+Lots more info in this pdf file: https://content.arduino.cc/assets/Pinout-PortentaH7_latest.pdf
+
 ![image-video/bothPinout.png](image-video/bothPinout.png)
 
 
