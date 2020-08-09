@@ -27,7 +27,7 @@ cd myFolder
 pwd
 ```
 
-9. Drag your TensorflowJS model into your new folder say it was called "model.json"
+9. Drag your TensorflowJS model into your new folder say it was called "model.json" then a file is also expected that is called "model.weights.bin"
 
 10. Convert the TensorflowJS model.json to keras 
 
