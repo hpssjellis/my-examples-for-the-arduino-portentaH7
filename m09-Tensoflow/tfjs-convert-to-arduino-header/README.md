@@ -8,7 +8,7 @@
 
 4. Check if xxd installed ``` xxd -h ```
 
-5. Check if tflite_convert installed ```tflite_convert --help```
+5. Check if tflite_converter is installed ```tflite_convert --help```
 
 6. make a new directory ```mkdir a-folder-name```
 
