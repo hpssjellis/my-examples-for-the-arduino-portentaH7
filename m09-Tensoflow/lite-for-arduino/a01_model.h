@@ -1,9 +1,31 @@
 /*
-*This is one of my Tensorflowjs model converted files so hopefully I can make it work
-* The code looks like it takes 2 inputs, has 3 hidden units and 1 output
+* This is one of my Tensorflowjs model converted files so hopefully I can make it work
+* The code looks like it takes 2 inputs, has a layer of 3 hidden units and 1 output
+* This model determines xOR like in ciruits
 *
+* if the 2 inputs are off the output is off
+* If either input is on the output is on
+* If both inputs are on the output is off
 *
+* This was the easiest model I could think of
 *
+* Here is the Javascript code that defines this Tensorflowjs Model
+* model4949 = tf.sequential(); // make it global
+*
+* model4949.add(tf.layers.dense({ units: 3, name: 'hiddenLayer',  activation: 'sigmoid' , inputShape: [2] }) );  
+* model4949.add(tf.layers.dense({ units: 1, name: 'outputLayer', activation: 'sigmoid' }) );                                            
+* model4949.compile({loss: 'meanSquaredError', optimizer: 'rmsprop'});
+*
+* const training_data = tf.tensor2d([[0,0],[0,1],[1,0],[1,1]]);   // array defines shape
+* const target_data = tf.tensor2d([0,1,1,0],[4,1]);               // needs shape defined
+*
+* I have skipped the training code.
+*
+* And this does the prediction
+* const myPredictArray = await model4949.predict(training_data).data()
+*
+* The code is at 
+* https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/blob/master/m09-Tensoflow/tfjs-convert-to-arduino-header/easy-tfjs-create-and-save.html
 *
 */
 
