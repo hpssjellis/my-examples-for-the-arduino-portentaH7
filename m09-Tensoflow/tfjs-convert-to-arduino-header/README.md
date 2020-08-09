@@ -1,5 +1,8 @@
 # Warning: Your favorite Machine Learning model will probably not convert to a format that will work on an Arduino. Also it will probably be too big! Sorry.
 
+
+## Note: As of Aug 9th, 2020 I am still working on getting this fully working.
+
 1. Login to Github, since Gitpod needs you to be logged in.
 
 2. Open a fresh Gitpod   https://gitpod.io/#
