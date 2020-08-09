@@ -1,6 +1,6 @@
 
 
-1. Login to github, since Gitpod needs this.
+1. Login to Github, since Gitpod needs you to be logged in.
 
 2. Open a fresh Gitpod   https://gitpod.io/#
 
