@@ -4,7 +4,7 @@
 
 2. Open a fresh Gitpod   https://gitpod.io/#
 
-3. ``` pip install tf-nightly ```
+3. Install Tensorflow nightly build ``` pip install tf-nightly ```
 
 4. Check if xxd installed ``` xxd -h ````
 
