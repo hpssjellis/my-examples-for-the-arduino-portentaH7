@@ -31,7 +31,7 @@ pwd
 
 10. Convert the TensorflowJS model.json to keras 
 ```
-tensorflowjs_converter --input_format=tfjs_layers_model --output_format=keras_saved_model /workspace/tensorflow/a-folder-name /workspace/tensorflow/a-folder-name/myOut
+tensorflowjs_converter --input_format=tfjs_layers_model --output_format=keras_saved_model /workspace/tensorflow/a-folder-name/model.json /workspace/tensorflow/a-folder-name/
 ```
 
 10. convert the keras model to tensorflowlite 
