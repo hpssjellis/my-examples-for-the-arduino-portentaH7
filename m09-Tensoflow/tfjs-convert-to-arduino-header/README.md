@@ -1,4 +1,4 @@
-# W\rning: Your favorite Machine Learning model will probably not convert to a format that will work on an Arduino. Also it will probably be too big! Sorry.
+# Warning: Your favorite Machine Learning model will probably not convert to a format that will work on an Arduino. Also it will probably be too big! Sorry.
 
 1. Login to Github, since Gitpod needs you to be logged in.
 
