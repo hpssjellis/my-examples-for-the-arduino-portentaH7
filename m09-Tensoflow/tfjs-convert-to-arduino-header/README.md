@@ -3,6 +3,16 @@
 
 ## Note: As of Aug 9th, 2020 I am still working on getting this fully working.
 
+
+
+Note: The above webpage that makes a TensorflowJS file can be viewed directly from this Github byu following this link
+
+https://hpssjellis.github.io/my-examples-for-the-arduino-portentaH7/m09-Tensoflow/tfjs-convert-to-arduino-header/easy-tfjs-create-and-save.html
+
+It is not a well made webpage, but it shows how to design a Machine Learning model using Version 2 of Tensorflowjs and how to save the .json and .bin files to your computer.
+
+
+
 1. Login to Github, since Gitpod needs you to be logged in.
 
 2. Open my repsoitory for Tensorflow to Arduino   https://gitpod.io/#github.com/hpssjellis/gitpod-tensorflowjs-to-arduino
