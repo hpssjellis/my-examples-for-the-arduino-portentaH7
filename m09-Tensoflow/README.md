@@ -1,4 +1,4 @@
-# Machine Learning on Microcontrolers
+# Machine Learning on Micro-controllers. Specifically the new $100 Dual Core Arduino Portenta H7
 
 
 1. [a01-tensorflowLite-hello_world.md](a01-tensorflowLite-hello_world.md) shows how to get the default example working by changing LED_BUILTIN to pin 5 a PWM pin
