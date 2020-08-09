@@ -10,3 +10,7 @@ https://pypi.org/project/musicnn-keras/
 
 
 https://github.com/titu1994/Keras-Classification-Models
+
+https://github.com/tensorflow/models/tree/master/official
+
+https://machinelearningmastery.com/save-load-keras-deep-learning-models/
