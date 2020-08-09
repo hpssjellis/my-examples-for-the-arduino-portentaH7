@@ -56,8 +56,11 @@ So either of the top commands should save a "saved_model.pb" file in the same di
 
 
 11. convert the keras model to tensorflowlite 
+
+Not sure why but it doesn't seem to like the name of the saved_model.pb file. Anyway for me the below command worked.
+
 ``` 
-tflite_convert --keras_model_file /workspace/gitpod-tensorflowjs-to-arduino/myFolder --output_file /workspace/gitpod-tensorflowjs-to-arduino/myFolder/model.tflite
+tflite_convert --keras_model_file ./ --output_file ./model.tflite
 ```
 
 11. convert that new file to an Arduino style header file 
