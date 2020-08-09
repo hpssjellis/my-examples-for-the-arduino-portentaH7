@@ -6,7 +6,7 @@
 
 3. Install Tensorflow nightly build ``` pip install tf-nightly ```
 
-4. Check if xxd installed ``` xxd -h ````
+4. Check if xxd installed ``` xxd -h ```
 
 5. Check if tflite_convert installed ```tflite_convert --help```
 
