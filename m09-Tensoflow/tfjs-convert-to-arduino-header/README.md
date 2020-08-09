@@ -40,7 +40,7 @@ tensorflowjs_converter --input_format=tfjs_layers_model --output_format=keras_sa
 
 ```
 
-10b. If that messes up try the wizard
+10b. If that messes up try the wizard. The problem is the path and pwd is the command that tells you the whole path
 
 ```
 tensorflowjs_wizard --dryrun
@@ -50,14 +50,24 @@ then try
 tensorflowjs_wizard
 ```
 
-10. convert the keras model to tensorflowlite 
+
+
+11. convert the keras model to tensorflowlite 
 ``` 
-tflite_convert --keras_model_file model.keras --output_file model.tflite 
+tflite_convert --keras_model_file /workspace/gitpod-tensorflowjs-to-arduino/myFolder --output_file /workspace/gitpod-tensorflowjs-to-arduino/myFolder/model.tflite
 ```
 
 11. convert that new file to an Arduino style header file ```xxd -i model.tflite model.h```
 
 12. Copy your model.h file into the support files location of your Arduino IDE.
+
+
+might want to add at the top of the header .h file
+
+```
+#pragma once
+```
+
 
 
 
