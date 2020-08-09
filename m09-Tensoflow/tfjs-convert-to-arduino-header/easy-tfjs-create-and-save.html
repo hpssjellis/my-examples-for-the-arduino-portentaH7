@@ -1,0 +1,103 @@
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.1.0"> </script> 
+
+ 
+
+Batches <input id="myInNumber" type="number" value="3000"><br> 
+
+Click this first. Wait the few minutes for it to build and train. Then click the below save to downloads. More info here to convert this file to Arduino useable <a href="https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/tree/master/m09-Tensoflow/tfjs-convert-to-arduino-header">here</a><br><br>
+ 
+<input id="myButton4949" type="button" value="Tensorflowjs xOr using layers" onclick="{
+ const startTime2 = new Date().getTime()
+ document.getElementById('myDiv4949').innerHTML = '<br>'
+ document.getElementById('myButton4949').style.backgroundColor = 'red'  
+                                                                            
+                                                                            
+  async function myGo() {
+    model4949 = tf.sequential(); // make it global
+
+
+    model4949.add(tf.layers.dense({ units: 3, name: 'hiddenLayer',  activation: 'sigmoid' , inputShape: [2] }) );  
+    model4949.add(tf.layers.dense({ units: 1, name: 'outputLayer', activation: 'sigmoid' }) );    
+                                        
+    model4949.compile({loss: 'meanSquaredError', optimizer: 'rmsprop'});
+
+    const training_data = tf.tensor2d([[0,0],[0,1],[1,0],[1,1]]);   // array defines shape
+    const target_data = tf.tensor2d([0,1,1,0],[4,1]);               // needs shape defined
+
+  //  var h = await model.fit(training_data, target_data, {epochs: document.getElementById('myInNumber').value});
+
+										     
+    for (let myLoop = 1; myLoop <= document.getElementById('myInNumber').value; myLoop++) {                                                                                 
+        var myFit = await model4949.fit(training_data, target_data, {epochs: 1});
+        if (myLoop % 100 == 0){   
+             await tf.nextFrame();   // This allows the GUI to update but only every 100 batches      
+             document.getElementById('myDiv4949').innerHTML  =  'Loss after Batch ' + myLoop + ' : ' + myFit.history.loss[0].toFixed(5) +'<br><br>'                                                                           
+        }
+                                                                   
+    }										     
+										     
+										     
+										     
+
+
+    const myPredictArray = await model4949.predict(training_data).data()
+                                                                                    
+    document.getElementById('myDiv4949').innerHTML += '[0,0] = ' + myPredictArray[0].toFixed(4) +'<br>'
+    document.getElementById('myDiv4949').innerHTML += '[1,0] = ' + myPredictArray[1].toFixed(4) +'<br>'
+    document.getElementById('myDiv4949').innerHTML += '[0,1] = ' + myPredictArray[2].toFixed(4) +'<br>'
+    document.getElementById('myDiv4949').innerHTML += '[1,1] = ' + myPredictArray[3].toFixed(4) +'<br>'
+										     
+    const endTime2 = new Date().getTime()
+    document.getElementById('myDiv4949').innerHTML += 'Duration ' + ((endTime2-startTime2)/1000).toFixed(0) +' seconds <br>'											     
+										     
+    document.getElementById('myButton4949').style.backgroundColor = 'lightgray'                                                             
+    myWeights = []
+    myWeights = model4949.getWeights()
+//myWeights[0].print('verbose')
+ //   myWeights[1].print('verbose')
+ //   myWeights[2].print('verbose')
+ //   myWeights[3].print('verbose')
+    document.getElementById('myText01').value = myWeights
+   
+										     
+										     
+  }
+
+  setTimeout(function(){  myGo() }, 10);   // wait a bit for the GUI to update
+
+}"><br><br>
+Local or Download file name <input type="text" id="myFileName" value="model"> 
+CAREFUL HERE. this generates 2 files onto your computer a readable .json file and a .bin file of weights. You have to tell the browser when it complains to allow both files to be downloaded. Also for each file check that you are saving it to the same folder. 	<br>	
+	
+	
+	
+	
+	
+<input id="myLocal5858" type="button" value="Save to local storage" onclick="{
+   ( async function (){									    
+       const saveResults = await model4949.save('localstorage://'+document.getElementById('myFileName').value)								    
+       alert(JSON.stringify(saveResults))
+   })()  // inline async function									    
+}">
+	
+<input id="myFile5858" type="button" value="Save to downloads" onclick="{	
+   ( async function (){									    
+          const saveResults2 = await model4949.save('downloads://'+document.getElementById('myFileName').value);							    
+          alert(JSON.stringify(saveResults2))
+   })()  // inline async function								     
+}"><br>	
+	
+	
+<input id="myFile5858" type="button" value="View Saved local storage" onclick="{	
+   ( async function (){									    
+ 
+	 document.getElementById('myDiv4949').innerHTML = Object.keys(await tf.io.listModels())							
+								
+								
+   })()  // inline async function								     
+}">  View file system saved files <input type="file" size="80"> <br>	
+	
+	
+<br><br>
+
+<div id='myDiv4949'>...</div><br>
