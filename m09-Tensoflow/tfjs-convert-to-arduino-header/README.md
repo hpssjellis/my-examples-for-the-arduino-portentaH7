@@ -60,9 +60,12 @@ So either of the top commands should save a "saved_model.pb" file in the same di
 tflite_convert --keras_model_file /workspace/gitpod-tensorflowjs-to-arduino/myFolder --output_file /workspace/gitpod-tensorflowjs-to-arduino/myFolder/model.tflite
 ```
 
-11. convert that new file to an Arduino style header file ```xxd -i model.tflite model.h```
+11. convert that new file to an Arduino style header file 
+```
+xxd -i model.tflite model.h
+```
 
-12. Copy your model.h file into the support files location of your Arduino IDE.
+12. Copy your model.h file into the support files location of your Arduino IDE. You can freely change the name of this .h file.
 
 
 might want to add at the top of the header .h file
