@@ -10,7 +10,7 @@ pip install tf-nightly
 pip install tensorflowjs
 ```
 
-4. Check if xxd installed ``` xxd -h ```
+4. Check if xxd installed ``` xxd --help ```
 
 5. Check if tflite_converter is installed ```tflite_convert --help```
 
