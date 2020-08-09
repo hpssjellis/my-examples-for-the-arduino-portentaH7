@@ -5,7 +5,7 @@
 
 1. Login to Github, since Gitpod needs you to be logged in.
 
-2. Open a fresh Gitpod   https://gitpod.io/#
+2. Open my repsoitory for Tensorflow to Arduino   https://gitpod.io/#github.com/hpssjellis/gitpod-tensorflowjs-to-arduino
 
 3. Install Tensorflow nightly build and Tensorflowjs
 ``` 
