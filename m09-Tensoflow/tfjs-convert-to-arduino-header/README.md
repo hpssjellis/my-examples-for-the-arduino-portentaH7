@@ -36,11 +36,7 @@ The format is tensorflowjs_converter --input_format=  --output_format= path-to-i
 help is at https://github.com/tensorflow/tfjs/tree/master/tfjs-converter
 
 ```
-tensorflowjs_converter \
---input_format=tfjs_layers_model \
---output_format=keras_saved_model \
-/workspace/gitpod-tensorflowjs-to-arduino/myFolder \
-/workspace/gitpod-tensorflowjs-to-arduino/myFolder 
+tensorflowjs_converter --input_format=tfjs_layers_model --output_format=keras_saved_model /workspace/gitpod-tensorflowjs-to-arduino/myFolder/model.json /workspace/gitpod-tensorflowjs-to-arduino/myFolder
 
 ```
 
