@@ -19,19 +19,39 @@ pip install tensorflowjs
 
 6. Check if tensorflowjs_converter is installed ```tensorflowjs_converter --help```
 
-7. make a new directory ```mkdir a-folder-name```
+7. make a new directory ```mkdir myFolder```
 
 8. go to that folder find it's path and copy the path
 ```
-cd a-folder-name
+cd myFolder
 pwd
 ```
 
 9. Drag your TensorflowJS model into your new folder say it was called "model.json"
 
 10. Convert the TensorflowJS model.json to keras 
+
+The format is tensorflowjs_converter --input_format=  --output_format= path-to-input-folder path-to-output-folder
+
+help is at https://github.com/tensorflow/tfjs/tree/master/tfjs-converter
+
 ```
-tensorflowjs_converter --input_format=tfjs_layers_model --output_format=keras_saved_model /workspace/tensorflow/a-folder-name/model.json /workspace/tensorflow/a-folder-name/
+tensorflowjs_converter \
+--input_format=tfjs_layers_model \
+--output_format=keras_saved_model \
+/workspace/gitpod-tensorflowjs-to-arduino/myFolder \
+/workspace/gitpod-tensorflowjs-to-arduino/myFolder 
+
+```
+
+10b. If that messes up try the wizard
+
+```
+tensorflowjs_wizard --dryrun
+
+then try 
+
+tensorflowjs_wizard
 ```
 
 10. convert the keras model to tensorflowlite 
