@@ -35,8 +35,10 @@ The format is tensorflowjs_converter --input_format=  --output_format= path-to-i
 
 help is at https://github.com/tensorflow/tfjs/tree/master/tfjs-converter
 
+Using ./  for the latest folder makes things much easier and you don't need the full path using the pwd command
+
 ```
-tensorflowjs_converter --input_format=tfjs_layers_model --output_format=keras_saved_model /workspace/gitpod-tensorflowjs-to-arduino/myFolder/model.json /workspace/gitpod-tensorflowjs-to-arduino/myFolder
+tensorflowjs_converter --input_format=tfjs_layers_model --output_format=keras_saved_model ./model.json ./
 
 ```
 
