@@ -50,6 +50,7 @@ then try
 tensorflowjs_wizard
 ```
 
+So either of the top commands should save a "saved_model.pb" file in the same directory. The next command seem to know what the file is called.
 
 
 11. convert the keras model to tensorflowlite 
