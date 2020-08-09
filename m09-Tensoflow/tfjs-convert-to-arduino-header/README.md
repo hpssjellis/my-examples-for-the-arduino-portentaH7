@@ -18,13 +18,17 @@ pip install tensorflowjs
 
 7. make a new directory ```mkdir a-folder-name```
 
-8. go to that folder ```cd a-folder-name```
+8. go to that folder find it's path and copy the path
+```
+cd a-folder-name
+pwd
+```
 
 9. Drag your TensorflowJS model into your new folder say it was called "model.json"
 
 10. Convert the TensorflowJS model.json to keras 
 ```
-tensorflowjs_converter --input_format=tfjs_layers_model --output_format=keras_saved_model 
+tensorflowjs_converter --input_format=tfjs_layers_model --output_format=keras_saved_model /workspace/tensorflow/a-folder-name /workspace/tensorflow/a-folder-name/myOut
 ```
 
 10. convert the keras model to tensorflowlite 
