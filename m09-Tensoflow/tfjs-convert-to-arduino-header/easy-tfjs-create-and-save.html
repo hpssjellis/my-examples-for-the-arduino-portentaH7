@@ -18,9 +18,10 @@ Click this first. Wait the few minutes for it to build and train. Then click the
 										      										      
     model4949.add(tf.layers.dense({inputShape: [2],  units: 10, activation: 'sigmoid',}) );  // 2 inputs to 10 hidden layer nodes
     model4949.add(tf.layers.dense({inputShape: [10], units: 1,  activation: 'sigmoid',}) );  // from the 10 hidden layer nodes to 1 output layer 
-                                        
-    model4949.compile({loss: 'meanSquaredError', optimizer: 'rmsprop'});
-
+    const myOptimizer = tf.train.sgd(0.5); 
+										      
+    model4949.compile({optimizer: myOptimizer, loss: 'meanSquaredError'});    
+										      
     const training_data = tf.tensor2d([[0,0],[0,1],[1,0],[1,1]]);   // array defines shape
     const target_data = tf.tensor2d([0,1,1,0],[4,1]);               // needs shape defined
 
