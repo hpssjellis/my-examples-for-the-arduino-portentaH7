@@ -60,7 +60,7 @@ Click this first. Wait the few minutes for it to build and train. Then click the
  //   myWeights[3].print('verbose')
     document.getElementById('myText01').value = myWeights
 										      
-document.getElementById('myDiv4949').innerHTML = JSON.stringify(JSON.parse(model4949), null, 3)   
+document.getElementById('myDiv4949').innerHTML += JSON.stringify(JSON.parse(model4949.getWeights()), null, 3)   
    
 										     
 										     
