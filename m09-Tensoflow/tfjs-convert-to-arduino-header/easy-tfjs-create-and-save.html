@@ -15,10 +15,9 @@ Click this first. Wait the few minutes for it to build and train. Then click the
                                                                             
   async function myGo() {
     model4949 = tf.sequential(); // make it global
-
-
-    model4949.add(tf.layers.dense({ units: 8, name: 'hiddenLayer',  activation: 'sigmoid' , inputShape: [2] }) );  
-    model4949.add(tf.layers.dense({ units: 1, name: 'outputLayer', activation: 'sigmoid' }) );    
+										      										      
+    model4949.add(tf.layers.dense({inputShape: [2],  units: 10, activation: 'sigmoid',}) );  // 2 inputs to 10 hidden layer nodes
+    model4949.add(tf.layers.dense({inputShape: [10], units: 1,  activation: 'sigmoid',}) );  // from the 10 hidden layer nodes to 1 output layer 
                                         
     model4949.compile({loss: 'meanSquaredError', optimizer: 'rmsprop'});
 
@@ -27,7 +26,7 @@ Click this first. Wait the few minutes for it to build and train. Then click the
 
   //  var h = await model.fit(training_data, target_data, {epochs: document.getElementById('myInNumber').value});
 
-										     
+/*										     
     for (let myLoop = 1; myLoop <= document.getElementById('myInNumber').value; myLoop++) {                                                                                 
         var myFit = await model4949.fit(training_data, target_data, {epochs: 1});
         if (myLoop % 100 == 0){   
@@ -36,8 +35,19 @@ Click this first. Wait the few minutes for it to build and train. Then click the
         }
                                                                    
     }										     
-										     
-										     
+*/										     
+
+    var myFit = await  model4949.fit(xTrainingData, yTrainingTarget, {
+        batchSize : 4,
+        epochs    : document.getElementById('myInNumber').value,                                                                      
+        callbacks:  { 
+          onEpochEnd: async (epoch, logs) => {                                                                                         
+            document.getElementById('myDiv4949').innerHTML = 'Epoch # ' + (epoch+1) + '/' +document.getElementById('myInNumber').value+ ', Loss: ' + logs.loss + '<br><br>'
+            await tf.nextFrame();  // This improves UI responsiveness during training.  
+          }    // end onEpochEnd callback 
+        }      // end all callbacks                                                              
+      })       // end model.fit   										      
+										      
 										     
 
 
