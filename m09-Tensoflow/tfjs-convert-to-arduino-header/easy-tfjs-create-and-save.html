@@ -37,7 +37,7 @@ Click this first. Wait the few minutes for it to build and train. Then click the
     }										     
 */										     
 
-    var myFit = await  model4949.fit(xTrainingData, yTrainingTarget, {
+    var myFit = await  model4949.fit(training_data,  target_data, {
         batchSize : 4,
         epochs    : document.getElementById('myInNumber').value,                                                                      
         callbacks:  { 
