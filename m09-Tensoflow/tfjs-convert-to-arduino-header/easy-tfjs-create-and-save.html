@@ -17,7 +17,7 @@ Click this first. Wait the few minutes for it to build and train. Then click the
     model4949 = tf.sequential(); // make it global
 
 
-    model4949.add(tf.layers.dense({ units: 3, name: 'hiddenLayer',  activation: 'sigmoid' , inputShape: [2] }) );  
+    model4949.add(tf.layers.dense({ units: 8, name: 'hiddenLayer',  activation: 'sigmoid' , inputShape: [2] }) );  
     model4949.add(tf.layers.dense({ units: 1, name: 'outputLayer', activation: 'sigmoid' }) );    
                                         
     model4949.compile({loss: 'meanSquaredError', optimizer: 'rmsprop'});
