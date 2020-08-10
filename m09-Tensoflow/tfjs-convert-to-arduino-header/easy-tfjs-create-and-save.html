@@ -1,6 +1,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.1.0"> </script> 
 
-<textarea type="text" id="myText01" rows="30" cols="80" wrap="false"></textarea><br> 
+<textarea type="text" id="myText01" rows="30" cols="80" wrap="false"></textarea>
+<textarea type="text" id="myText02" rows="30" cols="80" wrap="false"></textarea><br> 
 
 Batches <input id="myInNumber" type="number" value="3000"><br> 
 
@@ -77,6 +78,15 @@ CAREFUL HERE. this generates 2 files onto your computer a readable .json file an
    ( async function (){									    
        const saveResults = await model4949.save('localstorage://'+document.getElementById('myFileName').value)								    
        alert(JSON.stringify(saveResults))
+   })()  // inline async function									    
+}">
+
+	
+	
+<input id="myLocal5858" type="button" value="Show Data" onclick="{
+   ( async function (){									    
+       const saveResults = await model4949.save('localstorage://'+document.getElementById('myFileName').value)								    
+           document.getElementById('myText01').value = JSON.stringify(saveResults)
    })()  // inline async function									    
 }">
 	
