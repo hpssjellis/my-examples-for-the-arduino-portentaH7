@@ -86,7 +86,20 @@ CAREFUL HERE. this generates 2 files onto your computer a readable .json file an
 <input id="myLocal5858" type="button" value="Show Data" onclick="{
    ( async function (){									    
        const saveResults = await model4949.save('localstorage://'+document.getElementById('myFileName').value)								    
-           document.getElementById('myText01').value = JSON.stringify(saveResults)
+           document.getElementById('myText02').value = JSON.stringify(saveResults)
+   })()  // inline async function									    
+}">
+
+	
+<input id="myLocal5858" type="button" value="Show Weights" onclick="{
+   ( async function (){									    
+    myWeights = []
+    myWeights = model4949.getWeights()
+//myWeights[0].print('verbose')
+ //   myWeights[1].print('verbose')
+ //   myWeights[2].print('verbose')
+ //   myWeights[3].print('verbose')
+    document.getElementById('myText02').value = myWeights
    })()  // inline async function									    
 }">
 	
