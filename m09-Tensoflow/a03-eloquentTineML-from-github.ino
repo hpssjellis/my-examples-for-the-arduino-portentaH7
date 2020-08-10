@@ -19,10 +19,9 @@
  * 
  * will need to upload the following to the M7 core to load the M4 core
  * 
- *  
- 
-int myCounter; 
- 
+ * FOLLOWING CODE IS COMMENTED OUT!
+ * So you can copy it to another file.
+
 void setup() {
   #ifdef CORE_CM7  
      bootM4();
@@ -40,6 +39,10 @@ void loop() {
  * created Aug 6th, 2020
  * 
 */
+
+
+
+
 #include <EloquentTinyML.h>
 // sine_model.h contains the array you exported from the previous step with xxd or tinymlgen
 #include "sine_model.h"
@@ -51,12 +54,12 @@ void loop() {
 
 Eloquent::TinyML::TfLite<NUMBER_OF_INPUTS, NUMBER_OF_OUTPUTS, TENSOR_ARENA_SIZE> ml;
 
+int myCounter;
 
 void setup() {
     Serial.begin(115200);
     ml.begin(sine_model);
 }
-
 
 void loop() {
     myCounter +=1;
@@ -70,8 +73,10 @@ void loop() {
     float input[1] = { x };
     float predicted = ml.predict(input);
 
-    // presently serial only works on the M7 core
-    Serial.println("sin(" +String(x)+ ") = " + String(y) + "\t predicted: " + String(predicted) );
+    // presently the serial monitor only works on the M7 core
+    #ifdef CORE_CM7      
+       Serial.println("sin(" +String(x)+ ") = " + String(y) + "\t predicted: " + String(predicted) );
+    #endif
 
     // y=1 LED is fully on. The LED's brightness can range from 0-255.
     int brightness = (int)(127.5f * (predicted+1));
