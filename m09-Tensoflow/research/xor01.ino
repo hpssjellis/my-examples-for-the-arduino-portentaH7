@@ -48,8 +48,9 @@ void loop() {
 // from other examples  constexpr int kTensorArenaSize = 60 * 1024;
 
 
-#define TENSOR_ARENA_SIZE 2*1024   
-//#define TENSOR_ARENA_SIZE 8*1024   // ???
+//#define TENSOR_ARENA_SIZE 2*1024   
+#define TENSOR_ARENA_SIZE 8*1024   // ???
+//#define TENSOR_ARENA_SIZE 60*1024  
 
 
 Eloquent::TinyML::TfLite<NUMBER_OF_INPUTS, NUMBER_OF_OUTPUTS, TENSOR_ARENA_SIZE> ml;
