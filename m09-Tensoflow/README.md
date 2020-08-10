@@ -68,7 +68,11 @@ A few other TensorflowLiTe tutorials for a camera connected arduino are here
 https://github.com/arduino/ArduinoTensorFlowLiteTutorials
 
 
+Useful reference  https://www.tensorflow.org/lite/guide/ops_compatibility
 
+TFLite Ops page  https://www.tensorflow.org/mlir/tfl_ops
+
+This might be the latest supported ops   https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/all_ops_resolver.cc
 
 
 
