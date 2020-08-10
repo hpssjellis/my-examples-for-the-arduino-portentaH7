@@ -59,6 +59,8 @@ Click this first. Wait the few minutes for it to build and train. Then click the
  //   myWeights[2].print('verbose')
  //   myWeights[3].print('verbose')
     document.getElementById('myText01').value = myWeights
+										      
+document.getElementById('myDiv4949').innerHTML = JSON.stringify(JSON.parse(model4949), null, 3)   
    
 										     
 										     
@@ -77,18 +79,15 @@ CAREFUL HERE. this generates 2 files onto your computer a readable .json file an
 <input id="myLocal5858" type="button" value="Save to local storage" onclick="{
    ( async function (){									    
        const saveResults = await model4949.save('localstorage://'+document.getElementById('myFileName').value)								    
-       alert(JSON.stringify(saveResults))
+      // alert(JSON.stringify(saveResults))
+       document.getElementById('myText02').value = JSON.stringify(saveResults)
+	document.getElementById('myDiv4949').innerHTML += JSON.stringify(JSON.parse(saveResults), null, 3)   								     
    })()  // inline async function									    
 }">
 
 	
 	
-<input id="myLocal5858" type="button" value="Show Data" onclick="{
-   ( async function (){									    
-       const saveResults = await model4949.save('localstorage://'+document.getElementById('myFileName').value)								    
-           document.getElementById('myText02').value = JSON.stringify(saveResults)
-   })()  // inline async function									    
-}">
+
 
 	
 <input id="myLocal5858" type="button" value="Show Weights" onclick="{
@@ -106,7 +105,8 @@ CAREFUL HERE. this generates 2 files onto your computer a readable .json file an
 <input id="myFile5858" type="button" value="Save to downloads" onclick="{	
    ( async function (){									    
           const saveResults2 = await model4949.save('downloads://'+document.getElementById('myFileName').value);							    
-          alert(JSON.stringify(saveResults2))
+          document.getElementById('myText02').value = JSON.stringify(saveResults2)									
+	document.getElementById('myDiv4949').innerHTML += JSON.stringify(JSON.parse(saveResults2), null, 3)  
    })()  // inline async function								     
 }"><br>	
 	
