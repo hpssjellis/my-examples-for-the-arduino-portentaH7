@@ -1,5 +1,5 @@
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.1.0"> </script> 
-
+<h2 align=center>Rocksetta Digital example </h2>
 <h3 align=center>TensorflowJS model creat, train then export to your computer to be converted to run on an Arduino</h3>
 
 <textarea type="text" id="myText01" rows="30" cols="80" wrap="false"></textarea>
@@ -60,12 +60,41 @@ Batches <input id="myInNumber" type="number" value="3000">
 										     
 
     // Model Prediction
-    const myPredictArray = await model4949.predict(training_data).data()
-                                                                                    
-    document.getElementById('myDiv4949').innerHTML += '[0,0] = ' + myPredictArray[0].toFixed(4) +'<br>'
-    document.getElementById('myDiv4949').innerHTML += '[1,0] = ' + myPredictArray[1].toFixed(4) +'<br>'
-    document.getElementById('myDiv4949').innerHTML += '[0,1] = ' + myPredictArray[2].toFixed(4) +'<br>'
-    document.getElementById('myDiv4949').innerHTML += '[1,1] = ' + myPredictArray[3].toFixed(4) +'<br>'
+					      
+										      
+    const xTestArray = [0,0,1,1,0,0,0,1]
+    const xTestData  = tf.tensor2d(xTestArray, shape=[1,8],'int32')                                                                         
+    const myPredictArray = await model4949.predict(xTestData).data()   
+    
+    console.log('myPredictArray')       
+    console.log(myPredictArray)                                                                           
+    document.getElementById('myDiv4949').innerHTML += 'Using the input code ' + xTestArray +'<br>'
+                                                                                  
+    document.getElementById('myDiv4949').innerHTML += ' <ul>Sensors for this fixed demo'+
+    '<li>light : 0 = Off<li>Rangefinder: 0 = No object detected'+
+    '<li>Air Moisture: 1 = Ok level <li>Soil Moisture:  1 = Ok Level'+
+    '<li>CO2: 0,0 = Too low'+
+    '<li>Temperature:  0,1 = Low but OK'+
+    '</ul><br>'
+                                                                                  
+    document.getElementById('myDiv4949').innerHTML += 'Note: For the output: 0 means off and 1 = on<br><br>'
+    document.getElementById('myDiv4949').innerHTML += '<b>Send a text '+ Math.round(myPredictArray[0]) +'</b><br>'
+    document.getElementById('myDiv4949').innerHTML += '<b>Fan '+ Math.round(myPredictArray[1]) +'</b><br>'
+    document.getElementById('myDiv4949').innerHTML += '<b>Heat lamp '+ Math.round(myPredictArray[2]) +'</b><br>'
+    document.getElementById('myDiv4949').innerHTML += '<b>Water '+ Math.round(myPredictArray[3]) +'</b><br><br>'
+    document.getElementById('myDiv4949').innerHTML += 'In practice this test would happen continuously turning devices on and off as needed<br>'
+    document.getElementById('myDiv4949').innerHTML += '<b>Note: You would actually train on hundreds of examples not just these 6, do not look too close at the results :)</b><br>'
+
+ 									      
+										      
+										      
+										      
+										      
+										      
+										      
+										      
+										      
+										      
 										     
     const endTime2 = new Date().getTime()
     document.getElementById('myDiv4949').innerHTML += 'Duration ' + ((endTime2-startTime2)/1000).toFixed(0) +' seconds <br>'											     
