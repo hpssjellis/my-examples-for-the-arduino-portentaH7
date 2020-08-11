@@ -1,10 +1,10 @@
 # Machine Learning on Micro-controllers. Specifically the new $100 Dual Core Arduino Portenta H7
 
 
-1. [a01-tensorflowLite-hello_world.md](a01-tensorflowLite-hello_world.md) shows how to get the default example working by changing LED_BUILTIN to pin 5 a PWM pin
+1. [a01-tensorflowLite-hello_world.md](a01-tensorflowLite-hello_world.md) shows how to get the default example working by changing LED_BUILTIN to pin 5 a PWM pin. Because of Serial print sensitivity this program only loads to the M7 core for me.
 
 
-2. [a02-EloquentTinyML-to-M4.ino](a02-EloquentTinyML-to-M4.ino) Note: uses version 0.0.2 and new library is coming out soon. This loads to both the M7 core and the M4 core. The serial plotter only works for the M7 core. On either core the LED connected with a resistor from D5 to ground pulses. Reminder to have it work on the M4 core you need in a blank setup the following code
+2. [a02-EloquentTinyML-to-M4.ino](a02-EloquentTinyML-to-M4.ino) Note: uses version 0.0.2 and new library is coming out soon. This loads to both the M7 core and the M4 core. The serial plotter only works for the M7 core. On either core the LED connected with a resistor from D5 to ground pulses. Reminder to have it work on the M4 core you need in  to run this  blank setup code on the M7 core so that it only loads the M4 core the following code
 
 ```
 void setup() {
@@ -17,7 +17,7 @@ void loop() {
 
 ```
 
-3. [a03-eloquentTineML-from-github.ino](a03-eloquentTineML-from-github.ino) Uses the new EloquentTinyML from the github. Need to manually update the library manually.
+3. [a03-eloquentTineML-from-github.ino](a03-eloquentTineML-from-github.ino) Uses the new EloquentTinyML from the github. Need to manually update the library.
 
 .
 
