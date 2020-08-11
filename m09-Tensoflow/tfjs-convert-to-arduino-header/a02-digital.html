@@ -2,6 +2,40 @@
 <h2 align=center>Rocksetta Digital example </h2>
 <h3 align=center>TensorflowJS model creat, train then export to your computer to be converted to run on an Arduino</h3>
 
+
+<div style="font-size:15px; background-color:lightyellow; width:88%;  border:5px solid blue; padding:5px; margin:5px;"> 
+Using 8 digital inputs (Think Bits) and 4 digital outputs, say from an IoT device such as an internet connected Arduino or similiar IoT sensor Actuator arrangement.<br><br>
+ 
+This example shows how to take a small set of sensor inputs and actuator outputs  train a Neural Network and then 
+ continuously monitor your IoT setup.<br><br>
+ 
+ <b>Note: This is a theoretical setup, in actual practice I am sure it would be much harder to train and fine tune.</b> See my 
+ <a href="https://github.com/hpssjellis/particle.io-photon-high-school-robotics">Robotics Github</a> with a long list of video tutorials.
+ 
+Like the xOr example the inputs and outputs will be a series of ones and zeros, say for a smart garden<br>
+ <ul>Sensors
+  <li>light 1 bit: 0 no light, 1 light
+  <li>Rangefinder  1 bit: 0 no one, 1 entry detected
+  <li>Air Moisture  1 bit: 0 low air moisture, 1 Ok level
+  <li>Soil Moisture  1 bit: 0 too dry, 1 Ok
+  <li>CO2  2 bit: 0,0 too low, 0,1 low OK, 1,0 high OK, 1,1 Too High
+  <li>Temperature  2 bit: 0,0 too low, 0,1 low OK, 1,0 high OK, 1,1 Too High
+ </ul><br>
+ 
+ <ul>Actuators
+  <li> pre-defined text 1 bit: 0 don't send, 1 send
+  <li>Fan  1 bit: 0 off, 1 on
+  <li>Heat Lamp  1 bit:  0 off, 1 on
+  <li>Water  1 bit: 0 off, 1 on
+
+ </ul><br>
+ 
+ 
+ 
+ 
+</div><br>
+
+
 <textarea type="text" id="myText01" rows="30" cols="80" wrap="false"></textarea>
 <textarea type="text" id="myText02" rows="30" cols="80" wrap="false"></textarea><br> 
 
