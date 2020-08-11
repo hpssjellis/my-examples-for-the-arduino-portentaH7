@@ -23,23 +23,31 @@ Batches <input id="myInNumber" type="number" value="3000">
     // ------------------------- Start model deffinition and set training data. Change this for your model -------------------------------										      
 										      
 										      
-    model4949.add(tf.layers.dense({inputShape: [2],  units: 10, activation: 'sigmoid',}) );  // 2 inputs to 10 hidden layer nodes
-    model4949.add(tf.layers.dense({inputShape: [10], units: 1,  activation: 'sigmoid',}) );  // from the 10 hidden layer nodes to 1 output layer 
-    const myOptimizer = tf.train.sgd(0.5); 
-										      
-    model4949.compile({optimizer: myOptimizer, loss: 'meanSquaredError'});    
-										      
-    const training_data = tf.tensor2d([[0,0],[0,1],[1,0],[1,1]]);   // array defines shape
-    const target_data = tf.tensor2d([0,1,1,0],[4,1]);               // needs shape defined
 
+    model.add(tf.layers.dense({ units: 30, activation: 'sigmoid', inputShape: [8], }) );  // 8 inputs to 30 hidden layer nodes
+    model.add(tf.layers.dense({ units: 4,  activation: 'sigmoid', }) );  // from the 30 hidden layer nodes to 4 output layer                                                                                  
+    const myOptimizer = tf.train.sgd(0.5); 
+                                                                                               
+    model.compile({optimizer: myOptimizer, loss: 'meanSquaredError'});    
+    const xTrainingData   = tf.tensor2d([0,0,0,0,0,0,0,0,   0,1,0,1,0,1,0,1,   1,0,1,0,1,0,1,0,   0,0,0,1,1,1,0,1,   0,0,0,1,1,1,1,1,   1,0,1,0,0,1,1,0], shape=[6,8],'int32');      
+    const yTrainingTarget = tf.tensor2d([0,0,1,1,           1,0,0,0,           0,1,0,0,           0,1,1,0,           1,1,0,0,           1,0,1,1        ], shape=[6,4],'int32');          
+
+    console.log('xTrainingData')
+    xTrainingData.print()
+    console.log('yTrainingTarget')                                                                                 
+    yTrainingTarget.print()
+                                                                     										      
+										      
    // ------------------------- End model deffinition and set training data. Change this for your model -------------------------------										      
+										      
+										      
 										      
 										      
 										      
 										    										     
 // Model Training
-    var myFit = await  model4949.fit(training_data,  target_data, {
-        batchSize : 4,
+    var myFit = await  model4949.fit(xTraining_data,  yTrainingTarget, {
+        batchSize : 48,
         epochs    : document.getElementById('myInNumber').value,                                                                      
         callbacks:  { 
           onEpochEnd: async (epoch, logs) => {                                                                                         
