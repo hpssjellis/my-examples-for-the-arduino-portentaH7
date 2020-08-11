@@ -2,7 +2,7 @@
 My examples for the new Arduino Pro board the Portenta H7
 
 
-The playlist of all my Portenta Videos and other interesting videos at 
+The playlist of all my Portenta Videos and other interesting videos at (Note: as of Aug 11, 2020 I havn't made any videos yet, just trying to get all the code working) 
 
 [https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
 
