@@ -66,7 +66,7 @@ Batches <input id="myInNumber" type="number" value="3000">
     myWeights = []
     myWeights = model4949.getWeights()
     document.getElementById('myText01').value = myWeights									      
-    document.getElementById('myDiv4949').innerHTML += JSON.stringify(JSON.parse(model4949.getWeights()), null, 3)   
+   // document.getElementById('myDiv4949').innerHTML += JSON.stringify(JSON.parse(model4949.getWeights()), null, 3)   
 										     
   }
 
@@ -96,7 +96,7 @@ Also for each file check that you are saving it to the same folder. 	<br>
    ( async function (){									    
           const saveResults2 = await model4949.save('downloads://'+document.getElementById('myFileName').value);							    
           document.getElementById('myText02').value = JSON.stringify(saveResults2)									
-	document.getElementById('myDiv4949').innerHTML += JSON.stringify(JSON.parse(saveResults2), null, 3)  
+	  //document.getElementById('myDiv4949').innerHTML += JSON.stringify(JSON.parse(saveResults2), null, 3)  
    })()  // inline async function								     
 }"><br>	
 
