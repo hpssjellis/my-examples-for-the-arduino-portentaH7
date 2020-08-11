@@ -88,7 +88,7 @@ might want to add at the top of the header .h file
 #pragma once
 ```
 
-To view the final tflite file (not the header file). Could also do this command with the .json or .pb models and they will look different
+To view the final tflite file (not the header file). You could also do this command with the .json or .pb models and they will look different. When asked, click open in browser.
 ```
 netron model.tflite
 
