@@ -24,11 +24,11 @@ Batches <input id="myInNumber" type="number" value="3000">
 										      
 										      
 
-    model.add(tf.layers.dense({ units: 30, activation: 'sigmoid', inputShape: [8], }) );  // 8 inputs to 30 hidden layer nodes
-    model.add(tf.layers.dense({ units: 4,  activation: 'sigmoid', }) );  // from the 30 hidden layer nodes to 4 output layer                                                                                  
+    model4949.add(tf.layers.dense({ units: 30, activation: 'sigmoid', inputShape: [8], }) );  // 8 inputs to 30 hidden layer nodes
+    model4949.add(tf.layers.dense({ units: 4,  activation: 'sigmoid', }) );  // from the 30 hidden layer nodes to 4 output layer                                                                                  
     const myOptimizer = tf.train.sgd(0.5); 
                                                                                                
-    model.compile({optimizer: myOptimizer, loss: 'meanSquaredError'});    
+    model4949.compile({optimizer: myOptimizer, loss: 'meanSquaredError'});    
     const xTrainingData   = tf.tensor2d([0,0,0,0,0,0,0,0,   0,1,0,1,0,1,0,1,   1,0,1,0,1,0,1,0,   0,0,0,1,1,1,0,1,   0,0,0,1,1,1,1,1,   1,0,1,0,0,1,1,0], shape=[6,8],'int32');      
     const yTrainingTarget = tf.tensor2d([0,0,1,1,           1,0,0,0,           0,1,0,0,           0,1,1,0,           1,1,0,0,           1,0,1,1        ], shape=[6,4],'int32');          
 
@@ -38,7 +38,7 @@ Batches <input id="myInNumber" type="number" value="3000">
     yTrainingTarget.print()
                                                                      										      
 										      
-   // ------------------------- End model deffinition and set training data. Change this for your model -------------------------------										      
+   // ------------------------- End model definition and set training data. Change this for your model -------------------------------										      
 										      
 										      
 										      
