@@ -21,6 +21,7 @@ It is not a well made webpage, but it shows how to design a Machine Learning mod
 ``` 
 pip install tf-nightly 
 pip install tensorflowjs
+pip install netron
 ```
 
 4. Check if xxd installed ``` xxd --help ```
@@ -87,7 +88,11 @@ might want to add at the top of the header .h file
 #pragma once
 ```
 
+To view the final tflite file (not the header file). Could also do this command with the .json or .pb models and they will look different
+```
+netron model.tflite
 
+```
 
 
 
