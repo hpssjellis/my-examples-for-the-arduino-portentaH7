@@ -4,6 +4,7 @@
 ## Note: As of Aug 9th, 2020 I am still working on getting this fully working.
 
 
+Note: Link to the index for these models at https://hpssjellis.github.io/my-examples-for-the-arduino-portentaH7/m09-Tensoflow/tfjs-convert-to-arduino-header/index.html
 
 Note: The above webpage that makes a TensorflowJS very simple model can be viewed directly from this Github by following this link
 
