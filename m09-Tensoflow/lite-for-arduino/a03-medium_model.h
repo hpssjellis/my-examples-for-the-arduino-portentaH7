@@ -1,3 +1,50 @@
+/*
+
+ A shape dection test model made using version Tensorflowjs version 2.1.0 of
+ https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/beginner-keras/27keras-medium-image.html
+
+    model = tf.sequential(); // no const so that it is a global variable 
+                                                                                                                                                                        
+    model.add(tf.layers.conv2d({                                                                                                                                            
+        inputShape: [32, 32, 1],                                                                                                                                                  
+        kernelSize: 2,                                                                                                                                                          
+        filters: 4,                                                                                                                                                             
+        strides: 8,                                                                                                                                                             
+        activation: 'relu',                                                                                                                                                     
+        kernelInitializer: 'varianceScaling'                                                                                                                                    
+    }));                                                                                                                                                                    
+                                                                                                                                                                        
+    model.add(tf.layers.conv2d({ kernelSize: 2, filters: 4, strides: 8, activation: 'relu', kernelInitializer: 'varianceScaling' }));                                                                                                                                                                                                               
+    model.add(tf.layers.flatten());                                                                                                                                         
+    model.add(tf.layers.dense({ units: 30, kernelInitializer: 'varianceScaling', activation: 'softmax' }));                                                                 
+    model.add(tf.layers.dense({ units: 4, activation: 'linear' }) ); 
+                                          
+
+
+    const myLearningRate = Number.parseFloat(document.getElementById('myLearn').value)     
+    const myOptimizer = tf.train.sgd(myLearningRate);               
+    model.compile({optimizer: myOptimizer, loss: 'meanSquaredError'});   
+
+
+
+
+
+
+//running the prediction
+  const myPredictArray = await model.predict(tf.tensor4d(document.getElementById('myAsk').value.split(','), myShape, 'int32')).data()                                                                                                                                      
+
+
+  const myPredictArray = await model.predict(tf.tensor4d(document.getElementById('myAsk').value.split(','), myShape, 'int32')).data()    
+
+
+
+
+
+*/
+
+
+
+
 #pragma once
 
 const unsigned char model_tflite[] = {
