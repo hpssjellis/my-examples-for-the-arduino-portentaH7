@@ -7,7 +7,7 @@
 <textarea type="text" id="myText02" rows="30" cols="80" wrap="false"></textarea><br> 
 
 Batches <input id="myInNumber" type="number" value="3000"> 
-Number of 100 unit layers <input id="myNumberLayers" type="number" value="3"> 
+Number of 100 unit layers <input id="myNumberLayers" type="number" value="1"> 
 
 
 <input id="myButton4949" type="button" value="Tensorflowjs xOr using layers" onclick="{
@@ -25,8 +25,8 @@ Number of 100 unit layers <input id="myNumberLayers" type="number" value="3">
 										      
 										      
     model4949.add(tf.layers.dense({inputShape: [2],  units: 100, activation: 'sigmoid',}) );  // 2 inputs to 100 hidden layer nodes 
-    for (let myInt=0; myInt <= document.getElementById('myNumbeLayers').value; myInt++){
-     model4949.add(tf.layers.dense({inputShape: [100], units: 100,  activation: 'sigmoid',}) );  // from the 100 hidden layer nodes to 100 output layer 
+    for (let myInt=0; myInt <= document.getElementById('myNumberLayers').value; myInt++){
+       model4949.add(tf.layers.dense({inputShape: [100], units: 100,  activation: 'sigmoid',}) );  // from the 100 hidden layer nodes to 100 output layer 
     }
     model4949.add(tf.layers.dense({inputShape: [100], units: 1,  activation: 'sigmoid',}) );  // from the 100 hidden layer nodes to 1 output layer 
     
