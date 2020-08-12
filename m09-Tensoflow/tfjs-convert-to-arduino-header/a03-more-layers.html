@@ -8,6 +8,7 @@
 
 Batches <input id="myInNumber" type="number" value="3000"> 
 Number of 100 unit layers <input id="myNumberLayers" type="number" value="1"> 
+Number of 100 unit layers <input id="myOp" type="text" value="0.05"> 
 
 
 <input id="myButton4949" type="button" value="Tensorflowjs xOr using layers" onclick="{
@@ -30,7 +31,7 @@ Number of 100 unit layers <input id="myNumberLayers" type="number" value="1">
     }
     model4949.add(tf.layers.dense({inputShape: [100], units: 1,  activation: 'sigmoid',}) );  // from the 100 hidden layer nodes to 1 output layer 
     
-    const myOptimizer = tf.train.sgd(0.5); 
+    const myOptimizer = tf.train.sgd(document.getElementById('myOp').value); 
 										      
     model4949.compile({optimizer: myOptimizer, loss: 'meanSquaredError'});    
 										      
