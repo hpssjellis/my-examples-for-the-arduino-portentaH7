@@ -6,7 +6,7 @@ The playlist of all my Portenta Videos and other interesting videos at (Note: as
 
 [https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
 
-[![particle.io photon high school robotics](image-video/portenta02.jpg)](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
+[![particle.io photon high school robotics](image-video/portenta02.jpg | width=300)](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
 
 #### Please subscribe to my youtube channel as I am just below the 1000 needed subscribers.
 
@@ -74,7 +74,7 @@ So Far what is working:
 
 9. [my09-tensorflow-machine-learning-link.md](my09-tensorflow-machine-learning-link.md)  Read my opinions in that folder. I did get the TensorflowLite Hello_world working on the serial-plotter. Now I am able to convert my TensorflowJS Vanilla Javascript Machine Learning models to a C header file format for the Arduino. Check out this page. https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/tree/master/m09-Tensoflow/tfjs-convert-to-arduino-header 
 
-![Crash test SeeeduinoXIAO and PortentaH7 both cores](images-videos/crashTest01.png)
+![Crash test SeeeduinoXIAO and PortentaH7 both cores](images-videos/crashTest01.png | width=300)
 
 
 
