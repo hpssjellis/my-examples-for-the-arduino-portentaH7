@@ -74,7 +74,9 @@ So Far what is working:
 
 9. [my09-tensorflow-machine-learning-link.md](my09-tensorflow-machine-learning-link.md)  Read my opinions in that folder. I did get the TensorflowLite Hello_world working on the serial-plotter. Now I am able to convert my TensorflowJS Vanilla Javascript Machine Learning models to a C header file format for the Arduino. Check out this page. https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/tree/master/m09-Tensoflow/tfjs-convert-to-arduino-header 
 
-![Crash test SeeeduinoXIAO and PortentaH7 both cores](images-videos/crashTest01.png | width=300px)
+
+<img src="images-videos/crashTest01.png" alt="Crash test SeeeduinoXIAO and PortentaH7 both cores" width = 300px />
+
 
 
 
