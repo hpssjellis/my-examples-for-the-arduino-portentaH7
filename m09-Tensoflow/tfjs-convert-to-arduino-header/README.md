@@ -103,5 +103,11 @@ netron model.tflite
 
 
 
+I have some saved models but they are probably a version that is not up to date
+
+https://github.com/hpssjellis/beginner-tensorflowjs-examples-in-javascript/tree/master/saved-models
+
+
+
 
 
