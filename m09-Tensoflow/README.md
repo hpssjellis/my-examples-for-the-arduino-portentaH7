@@ -17,7 +17,7 @@ void loop() {
 
 ```
 
-3. [a03-eloquentTineML-from-github.ino](a03-eloquentTineML-from-github.ino) Uses the new EloquentTinyML from the github. Need to manually update the library.
+3. [a03-eloquentTinyML-from-github.ino](a03-eloquentTineML-from-github.ino) Uses the new EloquentTinyML from the github. Need to manually update the library.
 
 .
 
