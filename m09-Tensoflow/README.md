@@ -23,7 +23,7 @@ void loop() {
 Note: The above EloquentTinyML library is great, except I never like using libraries that are based on Google LIbraries, that extra layer of installed libraries means certain pain when Google updates there library. So from now on I will try to use only the arduino_TensorflowLite libary.
 
 
-4. [a04-digital.ino](a04.digital.ino) *DRAFT* present issue as it stilluses a library. 8 digital inputs of on or off become 4 deciaml outputs from 0-1 1 being fully on and 0 fully off. Uses the model in the lite-for-arduino folder called digital_model.h
+4. [a04-digital.ino](a04.digital.ino) *DRAFT* present issue as it stilluses a library. Also only M7 core as it uses Serial.print. Has 8 digital inputs of on or off become 4 deciaml outputs from 0-1 1 being fully on and 0 fully off. Uses the model in the lite-for-arduino folder called digital_model.h
 
 5. [a05-myNetron.ino](a05-myNetron.ino). Note: Only for M7 core as it uses Serial.print. The netron program shows model data for other types of Tensorflow models but not c header files. (A simple python program can convert a c header file to a tflite file). So without Python load this program on your Portenta and load a model frm the lite-for-arduino file and see information about the model. note: models array must be called  "unsigned char model_tflite[] = {"
 
