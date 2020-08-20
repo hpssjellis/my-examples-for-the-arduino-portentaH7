@@ -24,11 +24,12 @@ A fully loaded Gitpod can be built here https://gitpod.io/#github.com/hpssjellis
 (If taking this option many of the below commands are automated.)
 
 
-3. Install Tensorflow nightly build and Tensorflowjs
+3. Install Tensorflow nightly build and Tensorflowjs. The arduino-cli is in a new thing I am trying.
 ``` 
 pip install tf-nightly 
 pip install tensorflowjs
 pip install netron
+brew install arduino-cli
 ```
 
 4. Check if xxd installed ``` xxd --help ```
