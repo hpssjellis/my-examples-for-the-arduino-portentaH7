@@ -5,6 +5,8 @@
 This TensorflowLite C++ API should be usefull
 https://www.tensorflow.org/lite/api_docs/cc/class/tflite/impl/interpreter?hl=cs
 
+Note: PortentaH7 has only one arduino library, but the Nano 33 BLE has a library connected with the Portenta and a library for the nRF528x boards. The nRF528x boards only work with my code. 
+
 
 1. [a01-tensorflowLite-hello_world.md](a01-tensorflowLite-hello_world.md) shows how to get the default example working by changing LED_BUILTIN to pin 5 a PWM pin. Because of Serial print sensitivity this program only loads to the M7 core for me.
 
