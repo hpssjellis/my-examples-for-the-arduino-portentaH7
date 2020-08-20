@@ -1,6 +1,11 @@
 # Machine Learning on Micro-controllers. Specifically the new $100 Dual Core Arduino Portenta H7
 
 
+
+This TensorflowLite C++ API should be usefull
+https://www.tensorflow.org/lite/api_docs/cc/class/tflite/impl/interpreter?hl=cs
+
+
 1. [a01-tensorflowLite-hello_world.md](a01-tensorflowLite-hello_world.md) shows how to get the default example working by changing LED_BUILTIN to pin 5 a PWM pin. Because of Serial print sensitivity this program only loads to the M7 core for me.
 
 
