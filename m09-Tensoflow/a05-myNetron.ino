@@ -170,9 +170,42 @@ unsigned int model_tflite_len = 1608;
 
 
 
+#define DEBUG_SERIAL_OBJECT (Serial)  //debug print gets messed up without this
+
+
+// On Arduino platforms, we set up a serial port and write to it for debug
+// logging.
+extern "C" void DebugLog(const char* s) {
+  static bool is_initialized = false;
+  if (!is_initialized) {
+    DEBUG_SERIAL_OBJECT.begin(9600);
+    is_initialized = true;
+  }
+  DEBUG_SERIAL_OBJECT.print(s);
+}
+
+
+
 // Globals, used for compatibility with Arduino-style sketches.
 
 namespace { // Start namespace----------------------------------------------------------
+
+
+///  ErrorReporter foo;
+///  foo.Report("test %d", 5);
+///  va_list args;
+///  foo.Report("test %d", args); // where args is va_list
+
+// Hopefully this negates the error reporter???
+class ErrorReporter {
+ public:
+  virtual ~ErrorReporter() {}
+  virtual int Report(const char* format, va_list args) = 0;
+  int Report(const char* format, ...);
+  int ReportError(void*, const char* format, ...);
+};
+
+
   
 tflite::ErrorReporter* error_reporter = nullptr;
 
