@@ -1,6 +1,6 @@
 
-// This allows only one file for Arduino IDE
-// #include "model.h"  // the following should be in it's own tab. 
+// This allows only one file for Arduino IDE, but you should seperate the following
+// #include "model.h"  // the following should be in it's own tab. Then uncomment this
 
 /////////////////////////////////// cut and paste to model.h tab /////////////////////////////////////////////////////////////////
 
@@ -149,14 +149,13 @@ unsigned int model_tflite_len = 1608;
 
 
 //////////////////////////////////// end cut and paste to model.h tab ///////////////////////////////////////////////////////////////
+
+
 #include <TensorFlowLite.h>
 #include "Arduino.h"
 
 
-
 /*================= Start Really Advanced Area ===============================*/
-
-
 
 #include "tensorflow/lite/micro/all_ops_resolver.h"
 //#include "tensorflow/lite/micro/kernels/micro_ops.h"
@@ -171,82 +170,28 @@ unsigned int model_tflite_len = 1608;
 
 
 
-
-
-
-
-
-
-/*
-
-#ifndef TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_OUTPUT_HANDLER_H_
-#define TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_OUTPUT_HANDLER_H_
-
-
-
-// Called by the main loop to produce some output based on the x and y values
-void HandleOutput(tflite::ErrorReporter* error_reporter, float x_value,
-                  float y_value);
-
-#endif  // TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_OUTPUT_HANDLER_H_
-
-
-*/
-
-
-
-
-#ifndef TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_MAIN_FUNCTIONS_H_
-#define TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_MAIN_FUNCTIONS_H_
-
-// Expose a C friendly interface for main functions.
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-// Initializes all data needed for the example. The name is important, and needs
-// to be setup() for Arduino compatibility.
-void setup();
-
-// Runs one iteration of data gathering and inference. This should be called
-// repeatedly from the application code. The name needs to be loop() for Arduino
-// compatibility.
-void loop();
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif  // TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_MAIN_FUNCTIONS_H_
-
-
-
-
-/*================= End Really Advanced Area ===============================*/
-
-
-
-
-
-
-
-/*================= Start Advanced Area ===============================*/
-
-
 // Globals, used for compatibility with Arduino-style sketches.
-namespace {
+
+namespace { // Start namespace----------------------------------------------------------
+  
 tflite::ErrorReporter* error_reporter = nullptr;
+
 const tflite::Model* model = nullptr;
+
 tflite::MicroInterpreter* interpreter = nullptr;
+
 TfLiteTensor* input = nullptr;
+
 TfLiteTensor* output = nullptr;
-int inference_count = 0;
 
 // Create an area of memory to use for input, output, and intermediate arrays.
 constexpr int kTensorArenaSize = 2 * 1024;  // I like 20 * 1024;
 
 uint8_t tensor_arena[kTensorArenaSize];
-}  // namespace
+
+
+
+}  // END namespace----------------------------------------------------------
 
 
 
@@ -257,68 +202,7 @@ uint8_t tensor_arena[kTensorArenaSize];
 
 
 
-// This is tuned so that a full cycle takes ~4 seconds on an Arduino MKRZERO.
-const int kInferencesPerCycle = 1000;
 
-
-
-
-
-
-
-
-
-
-// The name of this function is important for Arduino compatibility.
-void setup() {
-  Serial.begin(9600);
-  // Set up logging. Google style is to avoid globals or statics because of
-  // lifetime uncertainty, but since this has a trivial destructor it's okay.
-  // NOLINTNEXTLINE(runtime-global-variables)
-  static tflite::MicroErrorReporter micro_error_reporter;
-  error_reporter = &micro_error_reporter;
-
-  // Map the model into a usable data structure. This doesn't involve any
-  // copying or parsing, it's a very lightweight operation.
-
-
-  
- // model = tflite::GetModel(g_model);  // name important
-  model = tflite::GetModel(model_tflite);  // name from the tflite converter
-
-
-  
-  if (model->version() != TFLITE_SCHEMA_VERSION) {
-    TF_LITE_REPORT_ERROR(error_reporter,
-                         "Model provided is schema version %d not equal "
-                         "to supported version %d.",
-                         model->version(), TFLITE_SCHEMA_VERSION);
-    return;
-  }
-
-  // This pulls in all the operation implementations we need.
-  // NOLINTNEXTLINE(runtime-global-variables)
-  static tflite::AllOpsResolver resolver;
-
-  // Build an interpreter to run the model with.
-  static tflite::MicroInterpreter static_interpreter(
-      model, resolver, tensor_arena, kTensorArenaSize, error_reporter);
-  interpreter = &static_interpreter;
-
-  // Allocate memory from the tensor_arena for the model's tensors.
-  TfLiteStatus allocate_status = interpreter->AllocateTensors();
-  if (allocate_status != kTfLiteOk) {
-    TF_LITE_REPORT_ERROR(error_reporter, "AllocateTensors() failed");
-    return;
-  }
-
-  // Obtain pointers to the model's input and output tensors.
-  input = interpreter->input(0);
-  output = interpreter->output(0);
-
-  // Keep track of how many inferences we have performed.
-  inference_count = 0;
-}
 
 
 // helper function to convert tensor type integer to a string
@@ -341,6 +225,82 @@ String myTypeIntToString(int myType){
    return myTensorType;
   
 }
+
+
+
+
+
+
+
+void setup() {
+  Serial.begin(9600);
+
+
+  // NOLINTNEXTLINE(runtime-global-variables)
+  
+  static tflite::MicroErrorReporter micro_error_reporter;
+  error_reporter = &micro_error_reporter;  // lets not do this
+
+  // Map the model into a usable data structure. This doesn't involve any
+  // copying or parsing, it's a very lightweight operation.
+
+
+  model = tflite::GetModel(model_tflite);  // name from the tflite converter model.h file
+
+
+  
+  if (model->version() != TFLITE_SCHEMA_VERSION) {
+    TF_LITE_REPORT_ERROR(error_reporter,
+                         "Model provided is schema version %d not equal "
+                         "to supported version %d.",
+                         model->version(), TFLITE_SCHEMA_VERSION);
+    return;
+  }
+
+  // This pulls in all the operation implementations we need.
+  // NOLINTNEXTLINE(runtime-global-variables)
+  
+  static tflite::AllOpsResolver resolver;
+
+
+  /* // replace the above line if you know each operation to save space
+   * 
+  
+  static tflite::MicroMutableOpResolver<5> micro_op_resolver;  // NOLINT
+  micro_op_resolver.AddBuiltin(tflite::BuiltinOperator_DEPTHWISE_CONV_2D,tflite::ops::micro::Register_DEPTHWISE_CONV_2D() );
+  micro_op_resolver.AddBuiltin(tflite::BuiltinOperator_MAX_POOL_2D,tflite::ops::micro::Register_MAX_POOL_2D() );
+  micro_op_resolver.AddBuiltin(tflite::BuiltinOperator_CONV_2D,tflite::ops::micro::Register_CONV_2D() );
+  micro_op_resolver.AddBuiltin(tflite::BuiltinOperator_FULLY_CONNECTED,tflite::ops::micro::Register_FULLY_CONNECTED() );
+  micro_op_resolver.AddBuiltin(tflite::BuiltinOperator_SOFTMAX,tflite::ops::micro::Register_SOFTMAX() );
+
+
+
+   * 
+   */
+
+
+
+  // Build an interpreter to run the model with.
+  static tflite::MicroInterpreter static_interpreter(model, resolver, tensor_arena, kTensorArenaSize, error_reporter);
+  
+  interpreter = &static_interpreter;
+
+  // Allocate memory from the tensor_arena for the model's tensors.
+  TfLiteStatus allocate_status = interpreter->AllocateTensors();
+  
+  if (allocate_status != kTfLiteOk) {
+    TF_LITE_REPORT_ERROR(error_reporter, "AllocateTensors() failed");
+    return;
+  }
+
+  // Obtain pointers to the model's input and output tensors.
+  input = interpreter->input(0);
+  output = interpreter->output(0);
+
+
+}
+
+
 
 
 
@@ -369,8 +329,8 @@ void loop() {
    Serial.println(  );
    Serial.println("-----------------------------------------------------------" );
 
-  int myTotalBytes = 0;
-  for (size_t tensor_index = 0; tensor_index < interpreter->tensors_size(); tensor_index++) {
+   int myTotalBytes = 0;
+   for (size_t tensor_index = 0; tensor_index < interpreter->tensors_size(); tensor_index++) {
     TfLiteTensor* tensor = interpreter->tensor(static_cast<int>(tensor_index));
     Serial.print("Layer index: " + String(tensor_index) );
     Serial.print(",  Type: " + String(tensor->type)+ ": "+ myTypeIntToString(tensor->type) );
@@ -388,8 +348,6 @@ void loop() {
 
    Serial.println("-----------------------------------------------------------" );
 
-  
-   
    Serial.println("                     output->type: " + String(output->type) + " = " + myTypeIntToString(output->type));
    Serial.println("               output->dims->size: " + String(output->dims->size) );
    
@@ -404,22 +362,6 @@ void loop() {
    Serial.println("-----------------------------------------------------------" );  
    Serial.println();
   
-
-
-
-  // Output the results. A custom HandleOutput function can be implemented
-  // for each supported hardware target.
-  //HandleOutput(error_reporter, x_val, y_val);
-
-  // Increment the inference_counter, and reset it if we have reached
-  // the total number per cycle
-  inference_count += 1;
-  if (inference_count >= kInferencesPerCycle) inference_count = 0;
-
-  //TfLiteTensor* input = interpreter.input(0);
-
-
-
 
   delay(3000);
   
