@@ -570,5 +570,3 @@ Serial.println("  constexpr int kTensorArenaSize: " + String(kTensorArenaSize) )
   
 
 }
-
-
