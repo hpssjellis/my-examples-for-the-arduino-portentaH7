@@ -350,7 +350,7 @@ namespace { // Start namespace--------------------------------------------------
 /*================= Start Smart Area ================================*/
 
 
-void modelSetup(){
+void modelSetup(const unsigned char theModel[]){
 
   // NOLINTNEXTLINE(runtime-global-variables)
   
@@ -362,7 +362,7 @@ void modelSetup(){
    // copying or parsing, it's a very lightweight operation.
 
 
-   model = tflite::GetModel(model_tflite);  // name from the tflite converter model.h file
+   model = tflite::GetModel(theModel);  // name from the tflite converter model.h file
 
   
   if (model->version() != TFLITE_SCHEMA_VERSION) {
@@ -438,9 +438,10 @@ int myCounter = 0;
 
 
 void setup() {
+  
   Serial.begin(9600);
   pinMode(7, OUTPUT);
-  modelSetup();
+  modelSetup(model_tflite);  // name of the model in the tab model.h
   
 }
 
@@ -472,4 +473,3 @@ void loop() {
 
 
 /*================= End Maker Area ======================================*/
-
