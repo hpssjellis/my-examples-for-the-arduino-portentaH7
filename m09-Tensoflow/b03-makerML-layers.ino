@@ -474,6 +474,30 @@ float modelPredict(int32 myInput[]){   // like tensorflowJS  const myPredictArra
 #define NUMBER_OF_OUTPUTS 1
 int myLed = LED_BUILTIN;   // or 7 or 5 or LEDB etc
 
+
+
+// helper function to convert tensor type integer to a string
+String myTypeIntToString(int myType){
+  
+  String myTensorType = "Not Set";    
+   if (myType == 0){myTensorType  = "kTfLiteNoType"; }  
+   if (myType == 1){myTensorType  = "kTfLiteFloat32"; }  
+   if (myType == 2){myTensorType  = "kTfLiteInt32"; }   
+   if (myType == 3){myTensorType  = "kTfLiteUInt8"; }   
+   if (myType == 4){myTensorType  = "kTfLiteInt64"; }   
+   if (myType == 5){myTensorType  = "kTfLiteString"; }  
+   if (myType == 6){myTensorType  = "kTfLiteBool"; }    
+   if (myType == 7){myTensorType  = "kTfLiteInt16"; }    
+   if (myType == 8){myTensorType  = "kTfLiteComplex64"; }    
+   if (myType == 9){myTensorType  = "kTfLiteInt8"; }    
+   if (myType == 10){myTensorType = "kTfLiteFloat16"; }    
+   if (myType == 11){myTensorType = "kTfLiteFloat64"; }   
+   if (myType == 12){myTensorType = "kTfLiteComplex128"; }  
+   return myTensorType;
+  
+}
+
+
 void setup() {
    randomSeed(analogRead(A0));
    Serial.begin(9600);
