@@ -435,12 +435,12 @@ float modelPredict(float myInput){   // like tensorflowJS  const myPredictArray 
 
 
 int myCounter = 0;
-
+int myLed = LED_BUILTIN;   //or 7 or 5 or LED_BUILTIN or LEDB
 
 void setup() {
   
   Serial.begin(9600);
-  pinMode(7, OUTPUT);
+  pinMode(myLed, OUTPUT);
   modelSetup(model_tflite);  // name of the model in the tab model.h
   
 }
@@ -465,7 +465,7 @@ void loop() {
     // y=1 LED is fully on. The LED's brightness can range from 0-255.
     int brightness = (int)(127.5f * (predicted+1));
 
-    analogWrite(7, brightness);  
+    analogWrite(myLed, brightness);  
     delay(3); // slows the process down a bit to see the sine wave
 
   
