@@ -150,12 +150,12 @@ unsigned int model_tflite_len = 1608;
 
 //////////////////////////////////// end cut and paste to model.h tab ///////////////////////////////////////////////////////////////
 
-
-#include <TensorFlowLite.h>
 #include "Arduino.h"
+#include <TensorFlowLite.h>
 
 
-/*================= Start Really Advanced Area ===============================*/
+
+/*================= Start Advanced Area ===============================*/
 
 #include "tensorflow/lite/micro/all_ops_resolver.h"
 //#include "tensorflow/lite/micro/kernels/micro_ops.h"
@@ -169,28 +169,98 @@ unsigned int model_tflite_len = 1608;
 //#include "tensorflow/lite/c/c_api.h" // has interesting funcitons, not in main library
 
 
+// Start Debug.cc information    ----------------------------------------------------------
 
-#define DEBUG_SERIAL_OBJECT (Serial)  //debug print gets messed up without this
+ #if  defined (CORE_CM7)  ||  defined (YOUR_BOARD1) // CORE_CM7 is for the PortentaH7 outer core
+ 
+    // do abosolutely nothing the default works
+    
+ #elif defined (CORE_CM4)  || defined (NANO_33_BLE) ||  defined (YOUR_BOARD2)  // CORE_CM4 is for the PortentaH7 inner core
+ 
+     #define DEBUG_SERIAL_OBJECT (Serial) 
+
+     extern "C" void DebugLog(const char* s) {
+        static bool is_initialized = false;
+        if (!is_initialized) {
+           DEBUG_SERIAL_OBJECT.begin(9600);
+          is_initialized = true;
+        }
+        DEBUG_SERIAL_OBJECT.print(s);
+     }
+
+ #elif defined (__SAM3X8E__)  ||  defined (YOUR_BOARD3) 
+
+     #define DEBUG_SERIAL_OBJECT (SerialUSB) 
+
+     extern "C" void DebugLog(const char* s) {
+        static bool is_initialized = false;
+        if (!is_initialized) {
+           DEBUG_SERIAL_OBJECT.begin(9600);
+          is_initialized = true;
+        }
+        DEBUG_SERIAL_OBJECT.print(s);
+     }
+
+ #else
+   // don't do any debugging until you figure out your board    
+   extern "C" void DebugLog(const char* s) {
+     // Do not log debug info
+   } 
+ #endif
 
 
-// On Arduino platforms, we set up a serial port and write to it for debug
-// logging.
+/*
+ * seeed_XIAO_m0.build.board=SEEED_XIAO_M0
+ * 
+ * nano_33_iot.build.board=SAMD_NANO_33_IOT
+ * 
+//potentiall the default
+
 extern "C" void DebugLog(const char* s) {
-  static bool is_initialized = false;
-  if (!is_initialized) {
-    DEBUG_SERIAL_OBJECT.begin(9600);
-    is_initialized = true;
-  }
-  DEBUG_SERIAL_OBJECT.print(s);
+  asm("mov r0, #0x04\n"  // SYS_WRITE0
+      "mov r1, %[str]\n"
+      "bkpt #0xAB\n"
+      :
+      : [ str ] "r"(s)
+      : "r0", "r1");
 }
 
+
+or this for mbed
+
+#include <mbed.h>
+
+// On mbed platforms, we set up a serial port and write to it for debug logging.
+extern "C" void DebugLog(const char* s) {
+  static Serial pc(USBTX, USBRX);
+  pc.printf("%s", s);
+}
+
+
+
+or
+
+#include <stdio.h>
+
+extern "C" void DebugLog(const char* s) { puts(s); }
+
+or
+
+
+#include <cstdio>
+extern "C" void DebugLog(const char* s) { printf("%s", s); }
+
+*/
+
+// End Debug.cc information    ----------------------------------------------------------
 
 
 // Globals, used for compatibility with Arduino-style sketches.
 
 namespace { // Start namespace----------------------------------------------------------
 
-
+/*
+ * 
 ///  ErrorReporter foo;
 ///  foo.Report("test %d", 5);
 ///  va_list args;
@@ -205,7 +275,7 @@ class ErrorReporter {
   int ReportError(void*, const char* format, ...);
 };
 
-
+*/
   
 tflite::ErrorReporter* error_reporter = nullptr;
 
