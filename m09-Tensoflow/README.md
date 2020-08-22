@@ -37,7 +37,7 @@ Note: The above EloquentTinyML library is great, except I never like using libra
 
 5. [deprecated/a05-myNetron.ino](deprecated/a05-myNetron.ino). Note: Only for M7 core as it uses Serial.print. The netron program shows model data for other types of Tensorflow models but not c header files. (A simple python program can convert a c header file to a tflite file). So without Python load this program on your Portenta and load a model frm the lite-for-arduino file and see information about the model. note: models array must be called  "unsigned char model_tflite[] = {"
 
-
+6/ [deprecated/a06_rocksetta_hello_world.ino](deprecated/a06_rocksetta_hello_world.ino) This file is starting to be how I would like the ML programs to be. Does not call an extra libary that has to be maintained only uses the Arduino_tensorflowlite library but is reasonably easy.
 
 
 
