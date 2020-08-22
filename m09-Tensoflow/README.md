@@ -8,10 +8,13 @@ https://www.tensorflow.org/lite/api_docs/cc/class/tflite/impl/interpreter?hl=cs
 Note: PortentaH7 has only one arduino library, but the Nano 33 BLE has a library connected with the Portenta and a library for the nRF528x boards. The nRF528x boards only work with my code. 
 
 
-1. [a01-tensorflowLite-hello_world.md](a01-tensorflowLite-hello_world.md) shows how to get the default example working by changing LED_BUILTIN to pin 5 a PWM pin. Because of Serial print sensitivity this program only loads to the M7 core for me.
+
+# These have already been deprecated in favour of the B series above
+
+1. [deprecated/a01-tensorflowLite-hello_world.md](deprecated/a01-tensorflowLite-hello_world.md) shows how to get the default example working by changing LED_BUILTIN to pin 5 a PWM pin. Because of Serial print sensitivity this program only loads to the M7 core for me.
 
 
-2. [a02-EloquentTinyML-to-M4.ino](a02-EloquentTinyML-to-M4.ino) Note: uses version 0.0.2 and new library is coming out soon. This loads to both the M7 core and the M4 core. The serial plotter only works for the M7 core. On either core the LED connected with a resistor from D5 to ground pulses. Reminder to have it work on the M4 core you need in  to run this  blank setup code on the M7 core so that it only loads the M4 core the following code
+2. [deprecated/a02-EloquentTinyML-to-M4.ino](deprecated/a02-EloquentTinyML-to-M4.ino) Note: uses version 0.0.2 and new library is coming out soon. This loads to both the M7 core and the M4 core. The serial plotter only works for the M7 core. On either core the LED connected with a resistor from D5 to ground pulses. Reminder to have it work on the M4 core you need in  to run this  blank setup code on the M7 core so that it only loads the M4 core the following code
 
 ```
 void setup() {
@@ -24,15 +27,15 @@ void loop() {
 
 ```
 
-3. [a03-eloquentTinyML-from-github.ino](a03-eloquentTineML-from-github.ino) Uses the new EloquentTinyML from the github. Need to manually update the library.
+3. [deprecated/a03-eloquentTinyML-from-github.ino](deprecated/a03-eloquentTineML-from-github.ino) Uses the new EloquentTinyML from the github. Need to manually update the library.
 
 
 Note: The above EloquentTinyML library is great, except I never like using libraries that are based on Google LIbraries, that extra layer of installed libraries means certain pain when Google updates there library. So from now on I will try to use only the arduino_TensorflowLite libary.
 
 
-4. [a04-digital.ino](a04.digital.ino) *DRAFT* present issue as it stilluses a library. Also only M7 core as it uses Serial.print. Has 8 digital inputs of on or off become 4 deciaml outputs from 0-1 1 being fully on and 0 fully off. Uses the model in the lite-for-arduino folder called digital_model.h
+4. [deprecated/a04-digital.ino](deprecated/a04.digital.ino) *DRAFT* present issue as it stilluses a library. Also only M7 core as it uses Serial.print. Has 8 digital inputs of on or off become 4 deciaml outputs from 0-1 1 being fully on and 0 fully off. Uses the model in the lite-for-arduino folder called digital_model.h
 
-5. [a05-myNetron.ino](a05-myNetron.ino). Note: Only for M7 core as it uses Serial.print. The netron program shows model data for other types of Tensorflow models but not c header files. (A simple python program can convert a c header file to a tflite file). So without Python load this program on your Portenta and load a model frm the lite-for-arduino file and see information about the model. note: models array must be called  "unsigned char model_tflite[] = {"
+5. [deprecated/a05-myNetron.ino](deprecated/a05-myNetron.ino). Note: Only for M7 core as it uses Serial.print. The netron program shows model data for other types of Tensorflow models but not c header files. (A simple python program can convert a c header file to a tflite file). So without Python load this program on your Portenta and load a model frm the lite-for-arduino file and see information about the model. note: models array must be called  "unsigned char model_tflite[] = {"
 
 
 
