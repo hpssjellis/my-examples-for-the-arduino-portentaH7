@@ -16,7 +16,21 @@ Note: PortentaH7 has only one arduino library, but the Nano 33 BLE has a library
 
 3. [b03_makerML_layers.ino](b03-makerML-layers.ino) This program gives information about the model that has been loaded and tests if the model can be loaded. It does not do a prediction so knowing input and output dimensions or types is not needed. The program should actually assist in showing types and dimensions. More work is needed here. Output is on the serial monitor. minimal blinking is done in this program.
 
-4. [b04_makerML_template.ino]() Draft template to start your own program based on when I am happy with the original demo b01_makerML_hello_world.ino. 
+4. [b04_makerML_template.ino]() Draft template to start your own program based on when I am happy with the original demo b01_makerML_hello_world.ino. Expects you to have a model.h tab already made with code in this format
+
+```
+/// model.h tab
+
+#pragma once
+
+const unsigned char model_tflite[] = {
+  0x1c, 0x00, 0x00, 0x00, 0x54, 0x46, 0x4c, 0x33, 0x00, 0x00, 0x12, 0x00,
+  ...
+  0xfc, 0xff, 0xff, 0xff, 0x04, 0x00, 0x04, 0x00, 0x04, 0x00, 0x00, 0x00
+};
+unsigned int model_tflite_len = 1608;
+
+```
 
 
 
