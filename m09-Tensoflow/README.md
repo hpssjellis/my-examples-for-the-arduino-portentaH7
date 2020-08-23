@@ -8,6 +8,17 @@ https://www.tensorflow.org/lite/api_docs/cc/class/tflite/impl/interpreter?hl=cs
 Note: PortentaH7 has only one arduino library, but the Nano 33 BLE has a library connected with the Portenta and a library for the nRF528x boards. The nRF528x boards only work with my code. 
 
 
+# Try the following files. As of August 22nd, 2020:
+
+1. [b01_makerML_hello_world.ino](b01_makerML_hello_world.ino) This will be the base, single file demo of the sine wave program to test on your board. Note the model.h file is built into this sketch to simplify uploading. It is your choice if you want to move it to a new tab and include that tab into your program. Probably best to test if it works first. The onbopard LED should blink and the serial plotter should show a sine wave.
+
+2. [b02_makerML_xor.ino](b02_makerML_xor.ino) This is my example xOr logic program. The TensorflowJS 20keras-xOr.html example is [here](https://www.rocksetta.com/tensorflowjs/beginner-keras/20keras-xOr.html) and the conversion of the saved model to a model.h file is [here](https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/tree/master/m09-Tensoflow/tfjs-convert-to-arduino-header). If the inputs are both HIGH or both LOW the output should be near 0. If either input is HIGH and the other LOW the ouput should be close to 1.
+
+3. [b03_makerML_layers.ino](b03-makerML-layers.ino) This program gives information about the model that has been loaded and tests if the model can be loaded. It does not do a prediction so knowing input and output dimensions or types is not needed. The program should actually assist in showing types and dimensions. More work is needed here. Output is on the serial monitor. minimal blinking is done in this program.
+
+4. [b04_makerML_template.ino]() Draft template to start your own program based on when I am happy with the original demo b01_makerML_hello_world.ino. 
+
+
 
 # These have already been deprecated in favour of the B series above
 
