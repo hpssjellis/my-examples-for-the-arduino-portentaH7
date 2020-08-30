@@ -496,6 +496,7 @@ void modelPredict(){
 }
 
 
+
 /*================= End Smart Area ======================================*/
 
 
@@ -518,14 +519,14 @@ void setup() {
 void loop() {
 
     // https://www.tensorflow.org/lite/api_docs/cc/class/tflite/impl/interpreter
-    // interpreter is a pointer to Tensor data
+    // interpreter is a pointer to Tensor data note () then []
     
-    interpreter->input(0)->data.f[0] = rand() % 2;  // number either 0 or 1
-    interpreter->input(0)->data.f[1] = rand() % 2;
+    interpreter->input(0)->data.f[0] = 1.0;   // fill the input array 
+    interpreter->input(0)->data.f[1] = 0.0;   
 
-    modelPredict();
+    modelPredict();  // run the prediction
     
-    if (interpreter->output(0)->data.f[0] >= 0.5){
+    if (interpreter->output(0)->data.f[0] >= 0.5){  // interpret the output array
        digitalWrite(myLed, LOW); // grounds the LED turns it on only on portenta and nano 33 BLE
     } else {  
        digitalWrite(myLed, HIGH); //  turns it off only on portenta and nano 33 BLE
@@ -533,10 +534,18 @@ void loop() {
 
     Serial.println("Input A: " +  String(interpreter->input(0)->data.f[0]) + ", Input B: " +  String(interpreter->input(0)->data.f[1]) + "\t predicted: " + String(interpreter->output(0)->data.f[0],6)  );
 
-    Serial.println("Hidden Layers: " +  String( interpreter->tensors_size() )   );
-
-
-    
+    Serial.println();
+    Serial.println("Just getting information from the model. Delete once working." );
+    Serial.println("constexpr int kTensorArenaSize: " + String(kTensorArenaSize) );
+    Serial.println("interpreter->arena_used_bytes(): " + String(interpreter->arena_used_bytes()) );     
+    Serial.println("Hidden Layers: " +  String( interpreter->tensors_size() )   );  
+    Serial.println("input type: " + String(interpreter->input(0)->type) + ", Dimensions: " + String(interpreter->input(0)->dims->size) );
+    Serial.println("output type: " + String(interpreter->output(0)->type) + ", Dimensions: " + String(interpreter->output(0)->dims->size) );
+   //type: 0=kTfLiteNoType,  1=kTfLiteFloat32,   2=kTfLiteInt32, 3=kTfLiteUInt8,    4=kTfLiteInt64,   5=kTfLiteString,     6=kTfLiteBool, 
+   //type: 7=kTfLiteInt16,   8=kTfLiteComplex64, 9=kTfLiteInt8, 10=kTfLiteFloat16, 11=kTfLiteFloat64, 12=kTfLiteComplex128  
+    Serial.println("--------------------------" );
+    Serial.println();
+   
     delay(3000); // slows things down
 
 }
