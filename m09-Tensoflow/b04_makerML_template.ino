@@ -5,9 +5,6 @@
  *  Getting started with Machine Learning using only the Arduino_TensorflowLite library
  *  no extra libraries
  *  
- *  Getting started with Machine Learning using only the Arduino_TensorflowLite library
- *  no extra libraries
- *  
  *  Copyright 2019 The TensorFlow Authors. All Rights Reserved.
  *  
  *  Changes made August 2020 by
@@ -509,6 +506,7 @@ void modelPredict(){
 
 
 int myLed = LED_BUILTIN;   // or 7 or 5 or LEDB etc
+String myLedState = "Not Set";
 
 void setup() {
    randomSeed(analogRead(A0));
@@ -524,19 +522,31 @@ void loop() {
 
     // https://www.tensorflow.org/lite/api_docs/cc/class/tflite/impl/interpreter
     // interpreter is a pointer to Tensor data note () then []
-    
-    interpreter->input(0)->data.f[0] = 1.0;   // fill the input array 
-    interpreter->input(0)->data.f[1] = 0.0;   
+
+// The following lines show to to do a basic input set, prediction output read
+   
+    interpreter->input(0)->data.f[0] =  rand() % 2;  // fill the input array 
+    interpreter->input(0)->data.f[1] =  rand() % 2;  
+
+    //Important to print the inputs before the predic
+    Serial.println("Input A: " +  String(interpreter->input(0)->data.f[0]) + ", Input B: " +  String(interpreter->input(0)->data.f[1]));
 
     modelPredict();  // run the prediction
     
     if (interpreter->output(0)->data.f[0] >= 0.5){  // interpret the output array
        digitalWrite(myLed, LOW); // grounds the LED turns it on only on portenta and nano 33 BLE
+       myLedState = "On";
     } else {  
        digitalWrite(myLed, HIGH); //  turns it off only on portenta and nano 33 BLE
+       myLedState = "Off";
     }
 
-    Serial.println("Input A: " +  String(interpreter->input(0)->data.f[0]) + ", Input B: " +  String(interpreter->input(0)->data.f[1]) + "\t predicted: " + String(interpreter->output(0)->data.f[0],6)  );
+
+
+
+
+
+    Serial.println("Predicted: " + String(interpreter->output(0)->data.f[0],6) +", so the LED is: " + String(myLedState) );
 
     Serial.println();
     Serial.println("Just getting information from the model. Delete once working." );
@@ -547,9 +557,12 @@ void loop() {
     Serial.println("output type: " + String(interpreter->output(0)->type) + ", Dimensions: " + String(interpreter->output(0)->dims->size) );
    //type: 0=kTfLiteNoType,  1=kTfLiteFloat32,   2=kTfLiteInt32, 3=kTfLiteUInt8,    4=kTfLiteInt64,   5=kTfLiteString,     6=kTfLiteBool, 
    //type: 7=kTfLiteInt16,   8=kTfLiteComplex64, 9=kTfLiteInt8, 10=kTfLiteFloat16, 11=kTfLiteFloat64, 12=kTfLiteComplex128  
+
+
     Serial.println("--------------------------" );
     Serial.println();
-   
+
+
     delay(3000); // slows things down
 
 }
