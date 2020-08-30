@@ -1,5 +1,9 @@
 /* 
- *  makerML_hellow_world.ino
+ *  makerML_template.ino
+ *  made with Arduino_TensorFlowLite version 2.1.0-ALPHA-precompiled
+ *  
+ *  Getting started with Machine Learning using only the Arduino_TensorflowLite library
+ *  no extra libraries
  *  
  *  Getting started with Machine Learning using only the Arduino_TensorflowLite library
  *  no extra libraries
