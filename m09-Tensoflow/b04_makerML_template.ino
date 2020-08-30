@@ -329,6 +329,10 @@ unsigned int model_tflite_len = 3048;
 #include "Arduino.h"
 #include <TensorFlowLite.h>
 
+// Create an area of memory to use for input, output, and intermediate arrays.
+constexpr int kTensorArenaSize = 20 * 1024;  // Original was 2 * 1024;
+uint8_t tensor_arena[kTensorArenaSize];
+
 
 /*================= Start Advanced Area ===============================*/
 
@@ -404,9 +408,7 @@ namespace { // Start namespace--------------------------------------------------
    tflite::MicroInterpreter* interpreter = nullptr;
    TfLiteTensor* input = nullptr;
    TfLiteTensor* output = nullptr;
-   // Create an area of memory to use for input, output, and intermediate arrays.
-   constexpr int kTensorArenaSize = 20 * 1024;  // Original was 2 * 1024;
-   uint8_t tensor_arena[kTensorArenaSize];
+
 
 }  // END namespace----------------------------------------------------------
 
@@ -507,6 +509,7 @@ void setup() {
    randomSeed(analogRead(A0));
    Serial.begin(115200);      // 9600
    pinMode(myLed, OUTPUT);   
+   
    modelSetup(model_tflite);    
 
 }
@@ -516,6 +519,7 @@ void loop() {
 
     // https://www.tensorflow.org/lite/api_docs/cc/class/tflite/impl/interpreter
     // interpreter is a pointer to Tensor data
+    
     interpreter->input(0)->data.f[0] = rand() % 2;  // number either 0 or 1
     interpreter->input(0)->data.f[1] = rand() % 2;
 
@@ -529,7 +533,7 @@ void loop() {
 
     Serial.println("Input A: " +  String(interpreter->input(0)->data.f[0]) + ", Input B: " +  String(interpreter->input(0)->data.f[1]) + "\t predicted: " + String(interpreter->output(0)->data.f[0],6)  );
 
-    //Serial.println("Hidden Layers: " +  String( interpreter->tensors_size() )   );
+    Serial.println("Hidden Layers: " +  String( interpreter->tensors_size() )   );
 
 
     
