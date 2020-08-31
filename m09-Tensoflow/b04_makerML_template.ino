@@ -65,7 +65,7 @@
 // A few important global variables
 
 // Create an area of memory to use for input, output, and intermediate arrays.
-constexpr int kTensorArenaSize = 20 * 1024;  // Original was 2 * 1024;
+constexpr int kTensorArenaSize = 15 * 1024;  // Original was 2*1024; Large Board likes 20*1024
 uint8_t tensor_arena[kTensorArenaSize];
 
 //TfLiteStatus invoke_status;
