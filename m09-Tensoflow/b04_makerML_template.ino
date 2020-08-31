@@ -56,7 +56,7 @@
  */
 
 
-#include "model.h"  // name of the tabbed file containing your machine learning model
+#include "b04-model-xor.h"  // name of the tabbed file containing your machine learning model
 
 
 #include "Arduino.h"
