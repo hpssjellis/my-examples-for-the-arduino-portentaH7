@@ -263,12 +263,14 @@ void loop() {
 
     // The following lines show how to to do a basic input set, prediction, output read.
 
-
-    /* 
      
-    interpreter->input(0)->data.f[0] =  rand() % 2;  // fill the input array 
-    interpreter->input(0)->data.f[1] =  rand() % 2;  
+/*     
+    float myA =  rand() % 2;  // random number either 0 or 1 
+    float myB =  rand() % 2;  
 
+    float myInput[2] = {myA, myB };              // set an array variable
+    interpreter->input(0)->data.f = myInput;     // point the tensor to the array.
+    
     //Important to print the inputs before the predic
     Serial.println("Input A: " +  String(interpreter->input(0)->data.f[0]) + ", Input B: " +  String(interpreter->input(0)->data.f[1]));
 
@@ -284,8 +286,8 @@ void loop() {
 
     Serial.println("Predicted: " + String(interpreter->output(0)->data.f[0],6) +", so the LED is: " + String(myLedState) );
     Serial.println();
-
-   */
+*/
+   
     
     Serial.println("Just getting information from the model. Delete once working." );
     Serial.println("constexpr int kTensorArenaSize: " + String(kTensorArenaSize) );
@@ -302,6 +304,3 @@ void loop() {
     delay(3000); // slows things down
 
 }
-
-
-
