@@ -1,5 +1,5 @@
 /* 
- *  makerML_template.ino
+ *  b05_makerML_medium_image.ino
  *  made with Arduino_TensorFlowLite version 2.1.0-ALPHA-precompiled
  *  
  *  Getting started with Machine Learning using only the Arduino_TensorflowLite library
@@ -56,7 +56,7 @@
  */
 
 
-#include "model.h"  // name of the tabbed file containing your machine learning model
+#include "b05_medium_image_model.h"  // name of the tabbed file containing your machine learning model
 
 
 #include "Arduino.h"
