@@ -33,7 +33,11 @@ unsigned int model_tflite_len = 1608;
 
 ```
 
-5. [b05_makerML_medium_image.ino](b05_makerML_medium_image.ino) A medium image entered as an array of numbers representing colors. Use the pre-trained model [b05_medium_image_model.h](b05_medium_image_model.h) loaded as a tabbed file in the arduino editor.
+5. [b05_makerML_medium_image.ino](b05_makerML_medium_image.ino) A medium image entered as an array of numbers representing colors. Use the pre-trained model [b05_medium_image_model.h](b05_medium_image_model.h) loaded as a tabbed file in the arduino editor. The TensorflowJS helper page is at  https://www.rocksetta.com/tensorflowjs/beginner-keras/27keras-medium-image.html
+
+
+
+6. []()    Tensorflowjs helper page at https://www.rocksetta.com/tensorflowjs/beginner-keras/24keras-one-hot.html
 
 
 
