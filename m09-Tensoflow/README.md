@@ -16,7 +16,7 @@ Note: PortentaH7 has only one arduino library, but the Nano 33 BLE has a library
 
 3. [b03_makerML_layers.ino](b03-makerML-layers.ino) This program gives information about the model that has been loaded and tests if the model can be loaded. It does not do a prediction so knowing input and output dimensions or types is not needed. The program should actually assist in showing types and dimensions. More work is needed here. Output is on the serial monitor. minimal blinking is done in this program.
 
-4. [b04_makerML_template.ino]() Draft template to start your own program based on when I am happy with the original demo b01_makerML_hello_world.ino. Expects you to have a model.h tab already made with code in this format
+4. [b04_makerML_template.ino](b04_makerML_template.ino) Template to start your own program, with a few minor improvements from the above programs. Instead of passing inputs to the modelPrediction, we simply assign the inputs to the main pointer called interpreter->input(0)->data.f[0] (Looks intimidating but is really useful. The main API uses the interpreter [TF Micro C++ API here](https://www.tensorflow.org/lite/api_docs/cc/class/tflite/impl/interpreter)). This program expects you to have a model.h tab already made with code in the c header format format. You can find the simple xOr version called model.h or many more in the folder called [lite-for-arduino](https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/tree/master/m09-Tensoflow/lite-for-arduino)
 
 ```
 /// model.h tab
