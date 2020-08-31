@@ -40,6 +40,10 @@ unsigned int model_tflite_len = 1608;
 6. [b06_makerML_one_hot.ino](b06_makerML_one_hot.ino). This was not very successful. The training set was probably too small. Basically it works to show one hot training but the final trained model is not vey good. Reminder to load the model.     Tensorflowjs helper page at https://www.rocksetta.com/tensorflowjs/beginner-keras/24keras-one-hot.html
 
 
+7. [b07_m4_rpc_m7_print.ino](b07_m4_rpc_m7_print.ino) This is exciting, getting the inner M4 core to do the machine learning while the outer M7 core handles the serial print by using RPC calls. Note uses the same mode.h file as the above programs [b04-model-xor.h](b04-model-xor.h). Next I need to see how big a model I can fit on the M4 core.
+
+
+
 
 ..
 
