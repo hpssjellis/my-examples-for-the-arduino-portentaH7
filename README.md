@@ -60,7 +60,7 @@ So Far what is working:
 2. "D" [my02d-dual-core-RPC-timer.ino](my02d-dual-core-RPC-timer.ino) Another advanced file that I would leave until you are more comfortable with the Portenta this one uses and interval instead of the delay.
 
 
-
+2. "E" [my02e-easier-dual.ino](my02e-easier-dual.ino) Easier Dual RPC programming that fully seperates the M4 and M7 core programs but still in one file. A very small delay added to the M7 core while the M4 core has a long delay to slow things donw enough to see what is happening. Means more code to write, but much easier to understand and to build from.
 
 
 
