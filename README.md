@@ -93,7 +93,7 @@ So Far what is working:
 12. [my12-serial1-crash.ino](my12-serial1-crash.ino). The portenta sends crash information through the Serial1 RX and TX pins. This program allows you to load a serial1 monitoring programon another 3.3V arduino (Note: must use protective resistors if using an older 5V arduino). The easier approach is to connect a TTL USB cable to Gnd, RX and TX but I don't have one of those cables.
 
 
-
+13. [my13_uart_m4_m7_print.ino](my13_uart_m4_m7_print.ino) Similar to the crash report that uses another arduino to catch the serial1 UART TX and TR and GND print output. This program allows UART print from either the M7 or M4 cores. Great for debugging the M4 core. Uses ``` _UART1_.println("Hi");``` which on the M7 is the same as Serial1.println("Hi"); and on the M4 core is Serial.println("hi"); The program also tests for Portenta or not and programs for each of 2 boards 3 cores.
 
 
 
