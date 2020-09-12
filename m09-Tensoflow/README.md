@@ -10,28 +10,18 @@ Note: PortentaH7 has only one arduino library, but the Nano 33 BLE has a library
 
 # Try the following files. As of August 22nd, 2020:
 
+
+
+0. [b00_template/b04_makerML_template.ino](b00_template/b04_makerML_template.ino) MakerML template. This will be the latest template that seperates the model from the sketch and has been made to work on as many Arduinos as possible. This is a 2 file program, but most of the examples below combine the model with the sketch so that one program can be easily emailed, downloaded, loaded etc. For any of the examples once working it is fairly easy to seperate the model.
+
+
 1. [b01_makerML_hello_world.ino](b01_makerML_hello_world.ino) This will be the base, single file demo of the sine wave program to test on your board. Note the model.h file is built into this sketch to simplify uploading. It is your choice if you want to move it to a new tab and include that tab into your program. Probably best to test if it works first. The onboard LED should blink and the serial plotter should show a sine wave.
 
 2. [b02_makerML_xor.ino](b02_makerML_xor.ino) This is my example xOr logic program. The TensorflowJS 20keras-xOr.html example is [here](https://www.rocksetta.com/tensorflowjs/beginner-keras/20keras-xOr.html) and the conversion of the saved model to a model.h file is [here](https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/tree/master/m09-Tensoflow/tfjs-convert-to-arduino-header). If the inputs are both HIGH or both LOW the output should be near 0. If either input is HIGH and the other LOW the ouput should be close to 1.
 
 3. [b03_makerML_layers.ino](b03-makerML-layers.ino) This program gives information about the model that has been loaded and tests if the model can be loaded. It does not do a prediction so knowing input and output dimensions or types is not needed. The program should actually assist in showing types and dimensions. More work is needed here. Output is on the serial monitor. minimal blinking is done in this program.
 
-4. [b04_makerML_template.ino](b04_makerML_template.ino) Template to start your own program, with a few minor improvements from the above programs. Instead of passing inputs to the modelPrediction, we assign the inputs to the main pointer called interpreter->input(0)->data.f[0] (Looks intimidating but is really useful. The main API uses the interpreter [TF Micro C++ API here](https://www.tensorflow.org/lite/api_docs/cc/class/tflite/impl/interpreter)). This program expects you to have a [b04-model-xor.h](b04-model-xor.h) tab already made with code in the c header format. You can find the simple xOr version called model.h or many more in the folder called [lite-for-arduino](https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/tree/master/m09-Tensoflow/lite-for-arduino). Here is how a model.h tab file should look.
-
-
-```
-/// model.h tab
-
-#pragma once
-
-const unsigned char model_tflite[] = {
-  0x1c, 0x00, 0x00, 0x00, 0x54, 0x46, 0x4c, 0x33, 0x00, 0x00, 0x12, 0x00,
-  ...
-  0xfc, 0xff, 0xff, 0xff, 0x04, 0x00, 0x04, 0x00, 0x04, 0x00, 0x00, 0x00
-};
-unsigned int model_tflite_len = 1608;
-
-```
+4. Moved.
 
 5. [b05_makerML_medium_image.ino](b05_makerML_medium_image.ino) A medium image entered as an array of numbers representing colors. Use the pre-trained model [b05_medium_image_model.h](b05_medium_image_model.h) loaded as a tabbed file in the arduino editor. The TensorflowJS helper page is at  https://www.rocksetta.com/tensorflowjs/beginner-keras/27keras-medium-image.html
 
