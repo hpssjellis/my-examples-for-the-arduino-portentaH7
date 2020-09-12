@@ -50,6 +50,10 @@ So Far what is working:
 
 1. [my01-BlinkM7.ino](my01-BlinkM7.ino) Get the Portenta H7 Blinking with it's weird on board LED's connected to 3V3 so you have to send LOW to turn it on. Great for the board health (can't send 5V to it and break the LED), but crappy for anyone use to HIGH turns LED's on.
 
+
+### note: the my02 group is farily advanced, best to skip to my03
+ The changes were add -fexceptions to the cflags.txt and cxxflags.txt files in the board location  AppData\Local\Arduino15\packages\arduino-beta\hardware\mbed\1.2.2\variants\PORTENTA_H7_M4
+
 2. "A" [my02a-dual-core.ino](my02-dual-core.ino) Proud of this. I have taken the Pro Tutorial and made it more smooth. This code can be flashed to either core and randomly sets blue and green onboard LED flashing. This is the way to write dual core code.  Pro Tutorial at  https://www.arduino.cc/pro/hardware/product/portenta-h7 then go to there tutorials
 
 2. "B" [my02b-dual-core-RPC.ino](my02-dual-core-RPC.ino) An advanced program.  The M4 core cannot print to Serial, so this advanced example uses RPC (Remote Procedure Call) to send a print command from the M4 core to the M7 core to print to serial. Note: You must change a compiler directive for the M4 core, add -fexceptions to the cflags.txt and cxxflags.txt files in the board location  AppData\Local\Arduino15\packages\arduino-beta\hardware\mbed\1.2.2\variants\PORTENTA_H7_M4
@@ -62,7 +66,11 @@ So Far what is working:
 
 2. "E" [my02e-easier-dual.ino](my02e-easier-dual.ino) Easier Dual RPC programming that fully seperates the M4 and M7 core programs but still in one file. A very small delay added to the M7 core while the M4 core has a long delay to slow things donw enough to see what is happening. Means more code to write, but much easier to understand and to build from.
 
+2. "F" [my02f_easy_m4_rpc_print.ino](my02f_easy_m4_rpc_print.ino) This is my new favorite RPC. It redirects regular Serial.println from the M4 core to the M7 as regular Serial.println, by using ``` #define Serial RPC1  ``` but only for the M4 core.
 
+
+### Note: End advanced RPC stuff that requires a few changes to your library
+ The changes were add -fexceptions to the cflags.txt and cxxflags.txt files in the board location  AppData\Local\Arduino15\packages\arduino-beta\hardware\mbed\1.2.2\variants\PORTENTA_H7_M4
 
 3. [my03-BLE-LED-control.ino](my03-BLE-LED-control.ino) All this does is activate the onboard LED using BLE. I use the nrf-connect androd app, but any BlueTooth connectivity app should be able to turn on and off your LED.
 
