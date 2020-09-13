@@ -27,9 +27,8 @@ Note: PortentaH7 has only one arduino library, but the Nano 33 BLE has a library
 #### 3
 [b03_makerML_layers.ino](b03-makerML-layers.ino) This program gives information about the model that has been loaded and tests if the model can be loaded. It does not do a prediction so knowing input and output dimensions or types is not needed. The program should actually assist in showing types and dimensions. More work is needed here. Output is on the serial monitor. minimal blinking is done in this program.
 
-#### 4
-Moved to 
-#### 0
+#### 4 
+Moved to number 0
 
 
 #### 5
