@@ -106,6 +106,8 @@ So Far what is working:
 
 14. [my14_8x8_thermal_Array.ino](my14_8x8_thermal_Array.ino) Finally starting to make cool things. This $52 USD Thermal 8x8 array can sense who has a temperature. The program flashes the onboard LED when it senses a temperaturre change, but if the highest temperature is above a set threshold (I used 39 degrees celcius), it flashes continuously for about 20 seconds. The serial monitor is not needed but gives average array temperature and highest recorded temperature. Prints about 3 times until it settles down again. Uses the AMG8831 sensor at [AMG8833 IR 88 Thermal Imager Array Temperature Sensor Module 8x8 Infrared Camera Sensor](https://www.amazon.com/s?k=AMG8833+IR+88+Thermal+Imager+Array+Temperature+Sensor+Module+8x8+Infrared+Camera+Sensor&ref=nb_sb_noss) that is a generic search I used [this one](https://www.amazon.com/AMG8833-Thermal-Imager-Temperature-Infrared/dp/B07YZRGVB9/ref=sr_1_1?dchild=1&keywords=AMG8833+IR+8+*+8+Thermal+Imager+Array+Temperature+Sensor+Module+8x8+Infrared+Camera+Sensor&qid=1600007347&sr=8-1)
 
+![AMG8833 IR 88 Thermal Imager Array Temperature Sensor Module 8x8 Infrared Camera Sensor](image-video/portenta-thermal-8x8-03.png)
+
 
 
 ## Portenta H7 Pinout documentation:
