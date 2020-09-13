@@ -41,7 +41,7 @@ Moved to number 0
 
 
 #### 7
-[b07_m4_rpc_m7_print.ino](b07_m4_rpc_m7_print.ino) This is exciting, getting the inner M4 core to do the machine learning while the outer M7 core handles the serial print by using RPC calls. Note uses the same mode.h file as the above programs [b04-model-xor.h](b04-model-xor.h). Next I need to see how big a model I can fit on the M4 core.
+[b07_m4_rpc_m7_print.ino](b07_m4_rpc_m7_print.ino) This is exciting, getting the inner M4 core to do the machine learning while the outer M7 core handles the serial print by using RPC calls. Note uses the same model.h file as the above programs [b04-model-xor.h](b04-model-xor.h). Next I need to see how big a model I can fit on the M4 core.
 
 
 
