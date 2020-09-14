@@ -1,6 +1,13 @@
 /***************************************************************************
  * 
  * my14_8x8_thermal_Array.ino
+ * Connections on Portenta H7
+ * GND, 3V3, SCL, SDA connections from Portenta to Thermal array. 
+ * Portenta ---> Thermal Array
+ *    GND   --->   GND
+ *    3V3   --->   VIN
+ *    SCL   --->   SCL
+ *    SDA   --->   SDA
  * 
  * Using the AMG8833 IR 88 Thermal Imager Array Temperature Sensor Module 8x8 Infrared Camera Sensor 
  * From Amazon.com about $52 
