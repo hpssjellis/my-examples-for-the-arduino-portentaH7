@@ -153,3 +153,8 @@ Lots more info in this pdf file: https://content.arduino.cc/assets/Pinout-Porten
 https://github.com/trimchess/portenta_basics
 
 https://www.arduino.cc/pro/tutorials/portenta-h7
+
+
+#### links
+
+The battery connector  https://www.digikey.com/product-detail/en/jst-sales-america-inc/BM03B-ACHSS-GAN-TF-LF-SN/455-2203-1-ND/1647795
