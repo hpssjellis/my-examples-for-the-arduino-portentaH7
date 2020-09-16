@@ -10,6 +10,8 @@ https://hpssjellis.github.io/my-examples-for-the-arduino-portentaH7/m09-Tensoflo
 It needs work. I have to put a sving folder and then list all the images we have found. Then I will have to convert the saved model to a c header file and then try to get it working. Should be fun.
 
 
+Also I think this does not work on Mac cell phones and computers. I have a beter webcam program that should just need to convert it.
+
 
 
 
