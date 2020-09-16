@@ -21,12 +21,12 @@ int wow = 2;   // just seems to need an integer
 // See connection images on github at 
 //   https://github.com/hpssjellis/particle.io-photon-high-school-robotics/tree/master/a15-serial-SPI
 
-
-// VIN
-// GND
-// MOSI A5
-// MISO A4
-// SCK A3
+// Pixy2 --> Portenta
+// VIN   --> +5 
+// GND   --> GND
+// MOSI --> MOSI
+// MISO --> MISO
+// SCK --> CK  ?
 
 
 Pixy2 pixy;                          // Create our pixy object
