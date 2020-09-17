@@ -12,5 +12,7 @@ A save button is near the bottom of the page.
 
 The dense-layers folder has a build webpage at 
 
-dense-layers/index.html
+https://hpssjellis.github.io/my-examples-for-the-arduino-portentaH7/m09-Tensoflow/tfjs-models/dense-layers/index.html
+
+
 
