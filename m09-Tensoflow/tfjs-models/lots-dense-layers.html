@@ -1,0 +1,112 @@
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.1.0"> </script> 
+
+<h2 align=center>Rocksetta xOr example </h2>
+<h3 align>TensorflowJS model create, train then export to your computer to be converted to run on an Arduino</h3>
+
+<textarea type="text" id="myText01" rows="30" cols="80" wrap="false"></textarea>
+<textarea type="text" id="myText02" rows="30" cols="80" wrap="false"></textarea><br> 
+
+Batches: <input id="myInNumber" type="number" value="1500"> 
+, Number of 100 unit layers: <input id="myNumberLayers" type="number" value="1"> 
+, Optimization SGD: <input id="myOp" type="text" value="1.75">,  
+
+
+<input id="myButton4949" type="button" value="Tensorflowjs xOr using layers" onclick="{
+										      
+ const startTime2 = new Date().getTime()
+ document.getElementById('myDiv4949').innerHTML = '<br>'
+ document.getElementById('myButton4949').style.backgroundColor = 'red'  
+                                                                            
+                                                                            
+  async function myGo() {
+    model4949 = tf.sequential(); // make it global
+
+
+    // ------------------------- Start model deffinition and set training data. Change this for your model -------------------------------										      
+										      
+										      
+    model4949.add(tf.layers.dense({inputShape: [2],  units: 100, activation: 'sigmoid',}) );  // 2 inputs to 100 hidden layer nodes 
+    for (let myInt=0; myInt <= document.getElementById('myNumberLayers').value-2; myInt++){
+       model4949.add(tf.layers.dense({inputShape: [100], units: 100,  activation: 'sigmoid',}) );  // from the 100 hidden layer nodes to 100 output layer 
+    }
+    model4949.add(tf.layers.dense({inputShape: [100], units: 1,  activation: 'sigmoid',}) );  // from the 100 hidden layer nodes to 1 output layer 
+    
+    const myOptimizer = tf.train.sgd(document.getElementById('myOp').value); 
+										      
+    model4949.compile({optimizer: myOptimizer, loss: 'meanSquaredError'});    
+										      
+    const training_data = tf.tensor2d([[0,0],[0,1],[1,0],[1,1]]);   // array defines shape
+    const target_data = tf.tensor2d([0,1,1,0],[4,1]);               // needs shape defined
+
+   // ------------------------- End model deffinition and set training data. Change this for your model -------------------------------										      
+										      
+										      
+										      
+										    										     
+// Model Training
+    var myFit = await  model4949.fit(training_data,  target_data, {
+        batchSize : 4,
+        epochs    : document.getElementById('myInNumber').value,                                                                      
+        callbacks:  { 
+          onEpochEnd: async (epoch, logs) => {                                                                                         
+            document.getElementById('myDiv4949').innerHTML = 'Epoch # ' + (epoch+1) + '/' +document.getElementById('myInNumber').value+ ', Loss: ' + logs.loss + '<br><br>'
+            await tf.nextFrame();  // This improves UI responsiveness during training.  
+          }    // end onEpochEnd callback 
+        }      // end all callbacks                                                              
+      })       // end model.fit   										      
+										      
+										     
+
+    // Model Prediction
+    const myPredictArray = await model4949.predict(training_data).data()
+                                                                                    
+    document.getElementById('myDiv4949').innerHTML += '[0,0] = ' + myPredictArray[0].toFixed(4) +'<br>'
+    document.getElementById('myDiv4949').innerHTML += '[1,0] = ' + myPredictArray[1].toFixed(4) +'<br>'
+    document.getElementById('myDiv4949').innerHTML += '[0,1] = ' + myPredictArray[2].toFixed(4) +'<br>'
+    document.getElementById('myDiv4949').innerHTML += '[1,1] = ' + myPredictArray[3].toFixed(4) +'<br>'
+										     
+    const endTime2 = new Date().getTime()
+    document.getElementById('myDiv4949').innerHTML += 'Duration ' + ((endTime2-startTime2)/1000).toFixed(0) +' seconds <br>'											     
+										     
+    document.getElementById('myButton4949').style.backgroundColor = 'lightgray'                                                             
+    myWeights = []
+    myWeights = model4949.getWeights()
+    document.getElementById('myText01').value = myWeights									      
+   // document.getElementById('myDiv4949').innerHTML += JSON.stringify(JSON.parse(model4949.getWeights()), null, 3) 
+         
+    await model4949.summary(null,null,x => {document.getElementById('myDiv4949').innerHTML += x + '<br>'});
+										     
+  }
+
+  setTimeout(function(){  myGo() }, 10);   // wait a bit for the GUI to update
+
+}"><br>
+Click the above button and wait the few minutes for it to build and train your model.<br> 
+Then click the below save to downloads. More info here to convert this file to Arduino useable <a href="https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/tree/master/m09-Tensoflow/tfjs-convert-to-arduino-header">here</a><br><br>
+ <br><br>
+
+Local or Download file name <input type="text" id="myFileName" value="model"> 
+CAREFUL HERE. This generates 2 files onto your computer a readable .json file and a .bin file of weights. 
+You have to tell the browser when it complains to allow both files to be downloaded. 
+Also for each file check that you are saving it to the same folder. 	<br>	
+	
+
+	
+<input id="myLocal5858" type="button" value="Show Weights" onclick="{
+   ( async function (){									    
+    myWeights = []
+    myWeights = model4949.getWeights()
+    document.getElementById('myText02').value = myWeights
+   })()  // inline async function									    
+}">
+	
+<input id="myFile5858" type="button" value="Save As..." onclick="{	
+   ( async function (){									    
+          const saveResults2 = await model4949.save('downloads://'+document.getElementById('myFileName').value);							    
+          document.getElementById('myText02').value = JSON.stringify(saveResults2)									
+	  //document.getElementById('myDiv4949').innerHTML += JSON.stringify(JSON.parse(saveResults2), null, 3)  
+	  await model4949.summary(null,null,x => {document.getElementById('myDiv4949').innerHTML += x + '<br>'});
+   })()  // inline async function								     
+}"><br>	
+
+<div id='myDiv4949'>...</div><br>
