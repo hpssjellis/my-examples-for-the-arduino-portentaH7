@@ -6,26 +6,44 @@
  Test page for loading multiple images of different sizes, force them to 64 x 48, and then load the data into a tensor as the xTrainingData for a Neural Network.<br> 
 (Labels would have to be dealt with using a coordinated text file! I am not doing that)<br><br>
 
-<textarea id="myURLs" rows="22" cols="140">https://store-cdn.arduino.cc/usa/catalog/product/cache/1/image/1040x660/604a3538c15e081937dbfbd20aa60aad/a/b/abx00042_featured_3.jpg,
+<textarea id="myURLs" rows="22" cols="140">
+
+https://store-cdn.arduino.cc/usa/catalog/product/cache/1/image/1040x660/604a3538c15e081937dbfbd20aa60aad/a/b/abx00042_featured_3.jpg,
 https://store-cdn.arduino.cc/usa/catalog/product/cache/1/image/1000x750/f8876a31b63532bbba4e781c30024a0a/a/b/abx00042_iso_3.jpg, 
 https://hackaday.com/wp-content/uploads/2020/01/portenta_feat2.jpg?w=800,
 https://www.mouser.ca/images/marketingid/2020/df/101443878.jpg?v=073020.0910g,
- 
 https://i0.wp.com/iotbyhvm.ooo/wp-content/uploads/2020/01/Arduino-Portenta-H7.jpg?resize=800%2C445&ssl=1, 
+	
 https://i2.wp.com/unboxing-tomorrow.com/wp-content/uploads/2020/06/VOXML20200622-ArduinoProThumbnail_1280x720.jpg?resize=1024%2C576&ssl=1, 
 https://i2.wp.com/unboxing-tomorrow.com/wp-content/uploads/2020/06/VOXML20200623-PortentaDefaultSketch-853x480-1.jpg?w=853&ssl=1, 
 https://i2.wp.com/unboxing-tomorrow.com/wp-content/uploads/2020/06/VOXML20200623-PortentaBlink-853x480-1.jpg?w=853&ssl=1, 
 https://iot-industrial-devices.com/wp-content/uploads/2020/01/arduino-portena-h7.jpg, 
- 
+	
+	
+	
+	
+	
+	
+	
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/soccer-ball-0.jpg,
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/soccer-ball-9.jpg, 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/random/ran3.png,
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/random/ran4.jpg,
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/circle01.png, 
+	
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/circle02.png, 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/circle03.png, 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/circle04.png, 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/circle05.png, 
 https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/orange.png, 
+	
 https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/white.png, 
- 
 https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/rectangle01.png, 
 https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/rectangle02.png, 
 https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/rectangle03.png, 
 https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/rectangle04.png,
+	
 https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/circle-rectangle.png,
- 
 https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/random/ran1.jpg,
 https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/random/ran2.jpg 
 
@@ -33,14 +51,21 @@ https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-
   
   
   
-  
 </textarea>
 <br><br>So Labels are one hot encoded: PortentaH7, Seeeduino XIAO, other board, no board<br>
 To make your life easier have all the portentaH7 images first, then XIAO, then other , then not boards: dogs cats fish etc. Might get large fast.
-<textarea id="myLabels" rows="5" cols="120">0,1,0,0,     0,1,0,0,   1,0,0,0,   1,0,0,0,    0,1,0,0,    0,1,0,0,    0,1,0,0,  
-0,1,0,0,    0,1,0,0,    0,1,0,0,   1,0,0,0,   1,0,0,0,    0,0,0,1,    0,0,0,1,  
-0,0,0,1,    0,0,0,1,    0,1,0,0,    0,1,0,1                                       
-</textarea>
+<textarea id="myLabels" rows="5" cols="120">
+	
+0,0,0,1,   0,0,0,1,   0,0,0,1,   0,0,0,1,   0,0,0,1,
+0,0,0,1,   0,0,0,1,   0,0,0,1,   0,0,0,1,
+	
+	
+	
+0,0,0,1,   0,0,0,1,   0,0,0,1,   0,0,0,1,   0,0,0,1,
+0,0,0,1,   0,0,0,1,   0,0,0,1,   0,0,0,1,   0,0,0,1, 
+0,0,0,1,   0,0,0,1,   0,0,0,1,   0,0,0,1,   0,0,0,1,    
+0,0,0,1,   0,0,0,1,   0,0,0,1                                       
+</textarea>   // note: need to remove the comma from the last one!!
 <br>
 <input type="button" value="load Images" onclick="myLoadImage()">
 
