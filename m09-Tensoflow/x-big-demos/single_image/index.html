@@ -5,7 +5,8 @@
 <!-- the online version that these examples were made with  -->
 
 <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.4"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.2"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.2"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.3.0"></script>
 
 
 
@@ -601,7 +602,13 @@ Click here to see the working HTML code.
 </textarea><br>
 
 
-
+<input id="myFile5858" type="button" value="Save to downloads" onclick="{	
+   ( async function (){									    
+          const saveResults2 = await model.save('downloads://model.json');							    
+       //   document.getElementById('myText02').value = JSON.stringify(saveResults2)									
+	//document.getElementById('myDiv4949').innerHTML += JSON.stringify(JSON.parse(saveResults2), null, 3)  
+   })()  // inline async function								     
+}"><br>	
 
 
 
