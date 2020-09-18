@@ -1,1 +1,10 @@
-zdfg
+https://store-cdn.arduino.cc/usa/catalog/product/cache/1/image/1040x660/604a3538c15e081937dbfbd20aa60aad/a/b/abx00042_featured_3.jpg,
+https://store-cdn.arduino.cc/usa/catalog/product/cache/1/image/1000x750/f8876a31b63532bbba4e781c30024a0a/a/b/abx00042_iso_3.jpg, 
+https://hackaday.com/wp-content/uploads/2020/01/portenta_feat2.jpg?w=800,
+https://www.mouser.ca/images/marketingid/2020/df/101443878.jpg?v=073020.0910g,
+ 
+https://i0.wp.com/iotbyhvm.ooo/wp-content/uploads/2020/01/Arduino-Portenta-H7.jpg?resize=800%2C445&ssl=1, 
+https://i2.wp.com/unboxing-tomorrow.com/wp-content/uploads/2020/06/VOXML20200622-ArduinoProThumbnail_1280x720.jpg?resize=1024%2C576&ssl=1, 
+https://i2.wp.com/unboxing-tomorrow.com/wp-content/uploads/2020/06/VOXML20200623-PortentaDefaultSketch-853x480-1.jpg?w=853&ssl=1, 
+https://i2.wp.com/unboxing-tomorrow.com/wp-content/uploads/2020/06/VOXML20200623-PortentaBlink-853x480-1.jpg?w=853&ssl=1, 
+https://iot-industrial-devices.com/wp-content/uploads/2020/01/arduino-portena-h7.jpg, 
