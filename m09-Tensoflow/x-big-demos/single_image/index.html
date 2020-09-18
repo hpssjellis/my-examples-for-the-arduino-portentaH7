@@ -3,7 +3,8 @@
  
  
  
- Test page for loading multiple images of different sizes, force them to 64 x 48, and then load the data into a tensor as the xTrainingData for a Neural Network.<br> (Labels would have to be dealt with using a coordinated text file!)<br><br>
+ Test page for loading multiple images of different sizes, force them to 64 x 48, and then load the data into a tensor as the xTrainingData for a Neural Network.<br> 
+(Labels would have to be dealt with using a coordinated text file! I am not doing that)<br><br>
 
 <textarea id="myURLs" rows="22" cols="140">https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/soccer-ball-0.jpg,
 https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/soccer-ball-9.jpg, 
@@ -34,7 +35,7 @@ https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-
   
   
 </textarea>
-<br>Labels are one hot encoded: PortentaH7, Seeeduino XIAO, other board, no board<br>
+<br><br>So Labels are one hot encoded: PortentaH7, Seeeduino XIAO, other board, no board<br>
 To make your life easier have all the portentaH7 images first, then XIAO, then other , then not boards: dogs cats fish etc. Might get large fast.
 <textarea id="myLabels" rows="5" cols="120">0,1,0,0,     0,1,0,0,   1,0,0,0,   1,0,0,0,    0,1,0,0,    0,1,0,0,    0,1,0,0,  
 0,1,0,0,    0,1,0,0,    0,1,0,0,   1,0,0,0,   1,0,0,0,    0,0,0,1,    0,0,0,1,  
