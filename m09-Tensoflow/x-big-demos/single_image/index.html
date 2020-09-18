@@ -1,76 +1,11 @@
-
-<!--   *******************************Start: What source js file to use? ****************************************************   -->
-
-
-<!-- the online version that these examples were made with  -->
-
-<!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.4"></script> -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.2"></script>-->
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.3.0"></script>
-
-
-
-
-
-<!-- the newest version script tag is below but by using it all the examples may not work 
-
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
-
--->
-
-
-
-<!-- Or you could download the newest version, save it as myNewDownloadedTensorflow.js and use the link below and work completely offline using a tag similar to
-
-
-<script src="myNewDownloadedTensorflow.js"></script>
-
--->
-
- <!-- Note: often nice to load the readable version of the src file. Remember to match the numbers to whatever the newest version is.
-
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.4/dist/tf.js"></script>
-
---> 
-
-
-
-<!--   *******************************Stop: What source js file to use? ****************************************************   -->
-
-
-
-    
-    
-<h2 align=center>Convolutional Keras Layers Full Image Neural Network.</h2>
-
-
-
-
-
-
-<div style="font-size:15px; background-color:lightyellow; width:88%;  border:5px solid blue; padding:5px; margin:5px;"> 
-Keras Image and Video Convolutional Layer Neural Network.<br><br>
-So I tried real simple text based image analysis, but the reality is that images are 24 bit rgb style and Tensorflowjs
- with it's floating point math can handle the larger amount of data. <br><br>
-
- So lets try to do something similar to the last page and train the model with full images loaded from this web domain
- 
-REMEMBER: THIS IS PROOF OF CONCEPT, IT WILL NEED MANY MORE IMAGES TO GET GOOD RESULTS!
-</div><br>
-
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.3.0"> </script> 
 
  
- 
- 
-
-
-<div id="myDiv7979Code"> 
  
  
  Test page for loading multiple images of different sizes, force them to 64 x 48, and then load the data into a tensor as the xTrainingData for a Neural Network.<br> (Labels would have to be dealt with using a coordinated text file!)<br><br>
 
-<textarea id="myURLs" rows=22 cols=140>
-https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/soccer-ball-0.jpg,
+<textarea id="myURLs" rows="22" cols="140">https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/soccer-ball-0.jpg,
 https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/soccer-ball-9.jpg, 
 https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/random/ran3.png,
 https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/random/ran4.jpg,
@@ -100,15 +35,14 @@ https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-
   
 </textarea>
 <br>Labels are one hot encoded no shape, circle, triangle, rectangle<br>
-<textarea id="myLabels" rows=5 cols=120>
-0,1,0,0,     0,1,0,0,   1,0,0,0,   1,0,0,0,    0,1,0,0,    0,1,0,0,    0,1,0,0,  
+<textarea id="myLabels" rows="5" cols="120">0,1,0,0,     0,1,0,0,   1,0,0,0,   1,0,0,0,    0,1,0,0,    0,1,0,0,    0,1,0,0,  
 0,1,0,0,    0,1,0,0,    0,1,0,0,   1,0,0,0,   1,0,0,0,    0,0,0,1,    0,0,0,1,  
 0,0,0,1,    0,0,0,1,    0,1,0,0,    0,1,0,1                                       
 </textarea>
 <br>
-<input type=button value="load Images" onclick="myLoadImage()">
+<input type="button" value="load Images" onclick="myLoadImage()">
 
-<input type=button value="Data to Tensor (Check console) " onclick="{
+<input type="button" value="Data to Tensor (Check console) " onclick="{
   myFinalMakeTensor()
 }">
  
@@ -116,23 +50,23 @@ https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-
  
 <br> All images below fixed 100 x 100 and pixelated if low resolution<br>
  
-<br><canvas id="myCanvas" style="background-color:lightgray;" width="1000" height="101" style="border: 1px solid #ddd; image-rendering: pixelated; interpolation-mode: nearest-neighbor;"></canvas> <br>
+<br><canvas id="myCanvas" style="background-color:lightgray;" width="1000" height="101"></canvas> <br>
 
 <br>
  
  
 
 Test or change this data <br>
-<textarea id="myAsk2" rows=4 cols=100 wrap=false>https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/ball02.png</textarea><br>
+<textarea id="myAsk2" rows="4" cols="100" wrap="false">https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/ball02.png</textarea><br>
 
  
   <br>
-Learning Rate: <input type=text value="0.02" id="myLearningRate" size="7"> <br>
+Learning Rate: <input type="text" value="0.02" id="myLearningRate" size="7"> <br>
  
-BatchSize: <input type=number value="18" id="myBatchSize" size="7"> <br>
+BatchSize: <input type="number" value="18" id="myBatchSize" size="7"> <br>
  
  
-Epochs: <input type=number value="1400" id="myEpochs"> <br>
+Epochs: <input type="number" value="1400" id="myEpochs"> <br>
  
 <input id="myButton7979" type="button" value="Train images and test" onclick="{ 
                                                                                     
@@ -203,10 +137,10 @@ model.compile({optimizer: myOptimizer, loss: 'meanSquaredError'});
                                                                                                                                                                       
 
                                                                                                                                                                        
-}" > 
+}"> 
  
  
- <input type=button value="Load Image to test" onclick="{ 
+ <input type="button" value="Load Image to test" onclick="{ 
  //myTestArray.length = 0   // attempt to reset the array
  (async function(){
    await myTestLoad(document.getElementById('myAsk2').value) 
@@ -217,7 +151,7 @@ model.compile({optimizer: myOptimizer, loss: 'meanSquaredError'});
 }"> 
  
  
-<input  type="button" id="myButtonTest" value="Re-Test" onclick="{  
+<input type="button" id="myButtonTest" value="Re-Test" onclick="{  
   (async function () {  
     
   //mySingleLoad = async function(myFileName2, newX, newY, loop) {                                                               
@@ -243,27 +177,27 @@ model.compile({optimizer: myOptimizer, loss: 'meanSquaredError'});
     
                                                              
  })()   // end the inline async function
-}" >
+}">
  
  
- Reshaped image --> <canvas id="myReshapeCanvas" width="64" height="48" style="border: 1px solid #ddd; "></canvas> <br> 
+ Reshaped image --&gt; <canvas id="myReshapeCanvas" width="64" height="48" style="border: 1px solid #ddd; "></canvas> <br> 
  
- <video  id="myVideo" width="160" height="120" style="border: 1px solid #ddd;"></video><br>
+ <video id="myVideo" width="160" height="120" style="border: 1px solid #ddd;"></video><br>
 
  
  
  
  
 
-<select size=1 id="myCheck">
- <option value='environment'>Rear Mobile Camera
- <option value='user'>Front Mobile Camera
-</select>
-<input type=button value="Activate WebCam" onclick="{getVideo()}"> <br>
-<input type=button value="get Pic" onclick="{takeSnapshot()}">
-Take snapshot every <input type=number id="myInterval"  value="3000" size=5> milliseconds
-<input type=button value="Auto" onclick="{takeAuto()}">
-<input type=button value="Stop Auto" onclick="{clearInterval(myStoredInterval)}">
+<select size="1" id="myCheck">
+ <option value="environment">Rear Mobile Camera
+ </option><option value="user">Front Mobile Camera
+</option></select>
+<input type="button" value="Activate WebCam" onclick="{getVideo()}"> <br>
+<input type="button" value="get Pic" onclick="{takeSnapshot()}">
+Take snapshot every <input type="number" id="myInterval" value="3000" size="5"> milliseconds
+<input type="button" value="Auto" onclick="{takeAuto()}">
+<input type="button" value="Stop Auto" onclick="{clearInterval(myStoredInterval)}">
  
 
 
@@ -278,7 +212,7 @@ Take snapshot every <input type=number id="myInterval"  value="3000" size=5> mil
  
  <!--  ************* The entire next line can be replaced with the <script> tag for a more conventional approch. ****************** -->
 
-<style id="myButton124"  onload="{document.getElementById('myButton124').click()}"  onclick="{
+<style id="myButton124" onload="{document.getElementById('myButton124').click()}" onclick="{
                                                                                              
                                                                                              
                                                                                              
@@ -335,7 +269,7 @@ myMultiLoad = async function(myImageArray) {
   let myRows = 0;
   let myLoopStore = 0;
   for (var myLoop = 0; myLoop <= myImageArray.length - 1; myLoop++) {
-    if (myLoop % 10 == 0 && myLoop != 0) {
+    if (myLoop % 10 == 0 &amp;&amp; myLoop != 0) {
       myRows += 101;
       myLoopStore = myLoop;
       newY2 = myRows;
@@ -556,133 +490,24 @@ myLoadImage = async function() {
 
 
 
-                                                                                             
-                                                                                             
-                                                                                             
-
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
-</div>
-<div id='myDiv7979'>...</div><br>
-
-
-
-<input id="myUpdate7979" type=button value="Update and Run" style="visibility:hidden;" onclick="{
-
-   // first remove first and last line since they are injected
-  myFred = document.getElementById('myTextarea7979').value.split('\n')
-  myFred.pop()
-  myFred.push('')
-  myFred.shift()
-  myFred.shift()
-  myJoe = myFred.join('\n')
-
-  document.getElementById('myDiv7979Code').innerHTML =    myJoe 
-  document.getElementById('myButton7979').click()
-                                             
-}"><br>
-
-
-<textarea id="myTextarea7979"  wrap="off"  style= "font-size:15px; color:white; background-color:black; width:90%;"   rows=2 onclick="{
-  if (myOnce7979){
-     myTextGrow('myTextarea7979', 'myDiv7979Code')
-     document.getElementById('myUpdate7979').style.visibility = 'visible'
-     myOnce7979 = false
-  }
-}">
-Click here to see the working HTML code.
-</textarea><br>
-
-
-<input id="myFile5858" type="button" value="Save to downloads" onclick="{	
+ <br><br><input id="myFile5858" type="button" value="Save to downloads" onclick="{	
    ( async function (){									    
-          const saveResults2 = await model.save('downloads://model.json');							    
-       //   document.getElementById('myText02').value = JSON.stringify(saveResults2)									
-	//document.getElementById('myDiv4949').innerHTML += JSON.stringify(JSON.parse(saveResults2), null, 3)  
+          const saveResults2 = await model.save('downloads://model');	   // attaches json onto the ending						    
+          document.getElementById('myText02').value = JSON.stringify(saveResults2)									
+	document.getElementById('myDiv7979').innerHTML += JSON.stringify(JSON.parse(saveResults2), null, 3)  
    })()  // inline async function								     
-}"><br>	
-
-
-
-
-<br><br><br><hr><br><br><br><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-This <a href="https://github.com/hpssjellis/beginner-tensorflowjs-examples-in-javascript">Github</a>, ...  
-this <a href="https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/">Github Website Version</a>, ... 
-this <a href="http://rocksetta.com/tensorflowjs/">Hosted Website Version</a>, ... 
-<a href="https://js.tensorflow.org/">Tensorflowjs</a> <br> <br>
-
-
-
-By Jeremy Ellis <br>
-Twitter<a href="https://twitter.com/@rocksetta">@rocksetta</a><br>
-Website <a href="http://rocksetta.com">http://rocksetta.com</a><br>
-Use at your own risk!
-    
-    
-    
+}"><br>	                                                                                            
+                                                                                             
+                                                                                             
 
 
  
  
  
-
-<!--  Following is a helper functions  to grow the textareas  -->
-
-<script>
-
-myOnce7979 = true    // so textareas are only clicked once
-myOnce124 = true  
-
-function myTextGrow(myT, myB){
-   var myCursorStart = document.getElementById(myT).selectionStart
-   var myCursorEnd = document.getElementById(myT).selectionEnd
-
-   myDivName = myB.replace('Code','')
-   document.getElementById(myT).value = '\x3Cscript src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.3.0"> \x3C/script> \n\n' + document.getElementById(myB).innerHTML 
-   document.getElementById(myT).value += '<div id=\''+myDivName+'\'>...</div><br>'     
-   setTimeout(function() {
-      while (  document.getElementById(myT).clientHeight < document.getElementById(myT).scrollHeight){                                                                                                                                               
-          document.getElementById(myT).rows += 3; 
-      } 
-   }, 100)
-
-  document.getElementById(myT).selectionStart = myCursorStart
-  document.getElementById(myT).selectionEnd = myCursorEnd
-
-}  
-
-
-</script>  
  
  
-</body>
+<textarea id="myText02" rows=4 cols=80 nowrap></textarea>
+ 
+ 
+ 
+<div id='myDiv7979'>...</div><br>
