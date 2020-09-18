@@ -1,0 +1,507 @@
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.2"> </script> 
+
+ 
+ 
+ 
+ Test page for loading multiple images of different sizes, force them to 64 x 48, and then load the data into a tensor as the xTrainingData for a Neural Network.<br> (Labels would have to be dealt with using a coordinated text file!)<br><br>
+
+<textarea id="myURLs" rows="22" cols="140">https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/soccer-ball-0.jpg,
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/soccer-ball-9.jpg, 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/random/ran3.png,
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/random/ran4.jpg,
+ 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/circle01.png, 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/circle02.png, 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/circle03.png, 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/circle04.png, 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/circle05.png, 
+ 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/orange.png, 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/white.png, 
+ 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/rectangle01.png, 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/rectangle02.png, 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/rectangle03.png, 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/rectangle04.png,
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/circle-rectangle.png,
+ 
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/random/ran1.jpg,
+https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/random/ran2.jpg 
+
+
+  
+  
+  
+  
+</textarea>
+<br>Labels are one hot encoded no shape, circle, triangle, rectangle<br>
+<textarea id="myLabels" rows="5" cols="120">0,1,0,0,     0,1,0,0,   1,0,0,0,   1,0,0,0,    0,1,0,0,    0,1,0,0,    0,1,0,0,  
+0,1,0,0,    0,1,0,0,    0,1,0,0,   1,0,0,0,   1,0,0,0,    0,0,0,1,    0,0,0,1,  
+0,0,0,1,    0,0,0,1,    0,1,0,0,    0,1,0,1                                       
+</textarea>
+<br>
+<input type="button" value="load Images" onclick="myLoadImage()">
+
+<input type="button" value="Data to Tensor (Check console) " onclick="{
+  myFinalMakeTensor()
+}">
+ 
+ 
+ 
+<br> All images below fixed 100 x 100 and pixelated if low resolution<br>
+ 
+<br><canvas id="myCanvas" style="background-color:lightgray;" width="1000" height="101"></canvas> <br>
+
+<br>
+ 
+ 
+
+Test or change this data <br>
+<textarea id="myAsk2" rows="4" cols="100" wrap="false">https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/soccer/ball02.png</textarea><br>
+
+ 
+  <br>
+Learning Rate: <input type="text" value="0.02" id="myLearningRate" size="7"> <br>
+ 
+BatchSize: <input type="number" value="18" id="myBatchSize" size="7"> <br>
+ 
+ 
+Epochs: <input type="number" value="1400" id="myEpochs"> <br>
+ 
+<input id="myButton7979" type="button" value="Train images and test" onclick="{ 
+                                                                                    
+document.getElementById('myButton7979').style.backgroundColor = 'red' 
+
+                                                                             
+                                                                              
+                                                                              
+                                                                              
+//const xs = tf.tensor4d([ ], shape=[8, 64, 48, 1], 'int32');    // 8 input images that are 64 x 48 with RGB colors)                                                                                                                                                     
+                                                                                                                                                                        
+// Labels of how many lines in each image. I can make much more images just few here for simplicity 
+
+const ysArray =  document.getElementById('myLabels').value.split(',')                                                                             
+                                                                              
+//const ys = tf.tensor2d([0,1,0,0,    0,1,0,0,    0,1,0,0,    0,1,0,0,    0,1,0,0,    0,1,0,0,    1,0,0,0,   1,0,0,0 ], shape=[8, 4], 'int32');        // 8 images 4 dimension                                                                                                                  
+const ys = tf.tensor2d(ysArray, shape=[ysArray.length/4, 4], 'int32');        // 8 images 4 dimension                                                                                                                  
+                                                                                                                                                                       
+                                                                                                                                                                        
+model = tf.sequential();                                                                                                                                          
+                                                                                                                                                                        
+model.add(tf.layers.conv2d({                                                                                                                                            
+    inputShape: [64, 48, 3],                                                                                                                                                  
+    kernelSize: 2,                                                                                                                                                          
+    filters: 4,                                                                                                                                                             
+    strides: 8,                                                                                                                                                             
+    activation: 'relu',                                                                                                                                                     
+    kernelInitializer: 'varianceScaling'                                                                                                                                    
+}));                                                                                                                                                                    
+                                                                                                                                                                        
+model.add(tf.layers.conv2d({ kernelSize: 2, filters: 4, strides: 8, activation: 'relu', kernelInitializer: 'varianceScaling' }));                                       
+                                                                                                                                                                        
+model.add(tf.layers.flatten());                                                                                                                                         
+model.add(tf.layers.dense({ units: 30, kernelInitializer: 'varianceScaling', activation: 'softmax' }));                                                                 
+model.add(tf.layers.dense({ units: 4, activation: 'linear' }) ); 
+ 
+                                                                              
+                                                                              
+const myOptimizer = tf.train.sgd(parseFloat(document.getElementById('myLearningRate').value));               
+model.compile({optimizer: myOptimizer, loss: 'meanSquaredError'}); 
+                                                                              
+//model.compile({optimizer: 'sgd', loss: 'meanSquaredError'});   // this worked well. What is it's default learning rate???
+                                                                              
+//document.getElementById('myButton7979').style.backgroundColor = 'red'   
+                                                                              
+(async function() { // inline async so we can use promises and await                                                                                                   
+                                                                                                                                                                        
+                                                                                                                   
+    var myFit = await model.fit(xs, ys, { 
+      batchSize: parseInt(document.getElementById('myBatchSize').value), 
+      epochs : parseInt(document.getElementById('myEpochs').value), 
+      callbacks :  {  
+                                                                              
+          onBatchEnd: async (batch, logs) => {                                                               
+              await tf.nextFrame();  // This improves UI responsiveness during training.  
+          },       
+                                                                              
+         onEpochEnd: async (epoch, logs) => {                                            
+              document.getElementById('myDiv7979').innerHTML = 'Loss after Epoch ' + epoch + '/'+document.getElementById('myEpochs').value+' : ' + logs.loss +' <br><br>'                                                               
+         }   
+                                                                              
+      }  // end all callbacks                                                                        
+    });  // end model.fit                                                                                                              
+    
+  await document.getElementById('myButtonTest').click() 
+  document.getElementById('myButton7979').style.backgroundColor = 'yellow'                                                                               
+})()
+                                                                                                                                                                      
+
+                                                                                                                                                                       
+}"> 
+ 
+ 
+ <input type="button" value="Load Image to test" onclick="{ 
+ //myTestArray.length = 0   // attempt to reset the array
+ (async function(){
+   await myTestLoad(document.getElementById('myAsk2').value) 
+ 
+   // console.log('Checking myTestArray:'+ await myTestArray[0])   // strangely needed for this program to work. Go figure?
+ //alert(await myTestArray)
+ })()
+}"> 
+ 
+ 
+<input type="button" id="myButtonTest" value="Re-Test" onclick="{  
+  (async function () {  
+    
+  //mySingleLoad = async function(myFileName2, newX, newY, loop) {                                                               
+                                                                 
+    var canvasReshape = document.getElementById('myReshapeCanvas'); // 64 x 48
+    var ctxReshape = canvasReshape.getContext('2d');   /// assume image has already been loaded
+    var imageData = ctxReshape.getImageData(0,0,canvasReshape.width,canvasReshape.height);
+    var data = imageData.data;
+    const latestTensor2 = tf.browser.fromPixels(imageData, 3);     // this time get rid of the alpha component
+    myTestArray = latestTensor2.dataSync()                // bit goofy but easier for me to convert the tensor to an array to make the nest tensor
+
+    console.log('myTestArray two'+await myTestArray[0])
+    const xsTesting =   tf.tensor4d(myTestArray, shape=[1, 64, 48, 3], 'int32')                                              
+    //xsTesting.print(true)                                                             
+    const myPredictArray = await model.predict(xsTesting).data()       
+    //const myPredictArray = await model.predict(tf.tensor4d(myTestDataArray, [1, 64, 48, 3], 'int32')).data()                                                                                                                                      
+   // document.getElementById('myDiv7979').innerHTML = 'Input '+document.getElementById('myAsk2').value+'<br><br> Output = <br>'                                                                                                                                    
+    document.getElementById('myDiv7979').innerHTML  = 'Output for image URL: ' + document.getElementById('myAsk2').value + ' <br>'
+    document.getElementById('myDiv7979').innerHTML += '<b>No Shape ' + await Math.round(myPredictArray[0]*100) +'%</b><br>'          
+    document.getElementById('myDiv7979').innerHTML += '<b>Circle ' + await Math.round(myPredictArray[1]*100) +'%</b><br>'        
+    document.getElementById('myDiv7979').innerHTML += '<b>Triangle ' + await Math.round(myPredictArray[2]*100) +'%</b><br>'        
+    document.getElementById('myDiv7979').innerHTML += '<b>Rectangle ' + await Math.round(myPredictArray[3]*100) +'%</b><br>'    
+    
+                                                             
+ })()   // end the inline async function
+}">
+ 
+ 
+ Reshaped image --&gt; <canvas id="myReshapeCanvas" width="64" height="48" style="border: 1px solid #ddd; "></canvas> <br> 
+ 
+ <video id="myVideo" width="160" height="120" style="border: 1px solid #ddd;"></video><br>
+
+ 
+ 
+ 
+ 
+
+<select size="1" id="myCheck">
+ <option value="environment">Rear Mobile Camera
+ </option><option value="user">Front Mobile Camera
+</option></select>
+<input type="button" value="Activate WebCam" onclick="{getVideo()}"> <br>
+<input type="button" value="get Pic" onclick="{takeSnapshot()}">
+Take snapshot every <input type="number" id="myInterval" value="3000" size="5"> milliseconds
+<input type="button" value="Auto" onclick="{takeAuto()}">
+<input type="button" value="Stop Auto" onclick="{clearInterval(myStoredInterval)}">
+ 
+
+
+ 
+ 
+ 
+
+ 
+
+
+ <!-- ************* Next we define the Javascript inside a web element so that the page can be refreshed dynamically **************-->
+ 
+ <!--  ************* The entire next line can be replaced with the <script> tag for a more conventional approch. ****************** -->
+
+<style id="myButton124" onload="{document.getElementById('myButton124').click()}" onclick="{
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+   
+                                                                                             
+                                                                                             
+                                                                                             
+  ////////////////////////////////////////// START LOAD IMAGE ///////////////////////////////////////////////////////////
+
+///////////////////// As soon as you start using real images the coding gets much more complex
+///////////////////// Mainly becuase each pixel of colour is 4 data points Red, Green, Blue and Alpha
+///////////////////// Where Alpha is the amount of transparency
+myTestArray = []
+myTestArray[0] = 0
+myTestDataArray = []                                                                                             
+                                                                                             
+myMainData = []; // stores imageData as an array
+//mySpecial = 0; // count loops for when a new row is needed
+myShape = [];
+myNewCanvasHeight = 101
+
+myFinalMakeTensor = async function() {
+  //console.log(myMainData)
+  // var energy = myMainData.join();
+  var myNewArray4 = myMainData.join().split(','); // trick to flatten the array
+  // console.log(myNewArray4);
+
+  var canvasReshape = document.getElementById('myReshapeCanvas');
+
+  const myMainTensor = tf.tensor4d(myNewArray4,(shape = [myMainData.length, canvasReshape.width, canvasReshape.height, 4]),'int32');
+ // xs = tf.tensor4d(myNewArray4,(shape = [myMainData.length, canvasReshape.width, canvasReshape.height, 4]),'int32');
+
+  // document.getElementById('myTensorArea').value =   JSON.stringify(myMainTensor.dataSync() , null, 3)
+
+  //document.getElementById('myTensorArea').value =   myMainTensor.dataSync()
+ // console.log('Before Change')                                                                                           
+ // myMainTensor.print(true);
+                                                                                             
+xs = myMainTensor.slice([0, 0, 0, 0], [-1, -1, -1, 3]);                                                                                           
+  
+  myMainTensor.dispose()
+ // console.log('After Change')  
+                                                                                             
+  xs.print(true);                                                                                           
+                                                                                             
+  myMainData.length = 0;
+  myMainData = [];
+};
+
+myMultiLoad = async function(myImageArray) {
+  let newX2 = 0;
+  let newY2 = 0;
+  let myRows = 0;
+  let myLoopStore = 0;
+  for (var myLoop = 0; myLoop <= myImageArray.length - 1; myLoop++) {
+    if (myLoop % 10 == 0 &amp;&amp; myLoop != 0) {
+      myRows += 101;
+      myLoopStore = myLoop;
+      newY2 = myRows;
+      myNewCanvasHeight = myRows                                                                                       
+    }
+    //console.log(myImageArray[myLoop])
+    //newX2 = ((myLoop - myLoopStore)*100) + myLoop
+    newX2 = (myLoop - myLoopStore) * 101;
+    //console.log(newX2+ ', '+ newY2)
+    mySingleLoad(myImageArray[myLoop], newX2, newY2, myLoop);
+  }
+};
+mySingleLoad = async function(myFileName2, newX, newY, loop) {
+  if (myFileName2 != null) {
+    var img = new Image();
+    img.src = myFileName2;
+    img.crossOrigin = 'Anonymous';
+
+    var canvasReshape = document.getElementById('myReshapeCanvas'); // 64 x 48
+    var ctxReshape = canvasReshape.getContext('2d');
+
+    var canvas = document.getElementById('myCanvas'); // 1000 x 1000
+    var ctx = canvas.getContext('2d');
+    canvas.height = myNewCanvasHeight + 101
+                                                                                             
+                                                                                             
+    ////////////////////////////////////////  trick to make the image pixelated when scaled   //////////////////////////////////
+    ctx.imageSmoothingEnabled = false;
+    ctx.webkitImageSmoothingEnabled = false;
+    ctx.mozImageSmoothingEnabled = false;
+    ctx.msImageSmoothingEnabled = false;
+    ctx.oImageSmoothingEnabled = false;
+
+    img.onload = function() {
+      //document.getElementById('myX').value  += '\n\n'
+      ctxReshape.drawImage(img,0,0,img.width,img.height,0,0,canvasReshape.width,canvasReshape.height);
+
+      //console.log('canvasReshape.width: '+canvasReshape.width)
+
+      var imageData = ctxReshape.getImageData(0,0,canvasReshape.width,canvasReshape.height);
+
+      //myMainData[loop] =  imageData;
+     // console.log(imageData);
+      var data = imageData.data;
+      myMainData[loop] = data;
+
+      const latestTensor = tf.browser.fromPixels(imageData, 4);
+      // not sure how to drop the alpha channel so I just included it
+
+      // tf.stack([myMainTensor, latestTensor]);
+      // wow = tf.concat3d([myMainTensor , latestTensor])
+      // myMainTensor.concat3d(latestTensor)
+
+     // latestTensor.print(true);
+      document.getElementById('myDiv7979').innerHTML = latestTensor.dataSync()                                                                                       
+      myShape = latestTensor.shape;
+     // console.log('myShape: ' + myShape);
+
+      /*
+    
+    // to force black and white images
+    
+    for (var i = 0; i < data.length; i += 4) {
+      var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+      data[i]     = avg; // red
+      data[i + 1] = avg; // green
+     data[i + 2] = avg; // blue
+     
+    }  // end for loop
+   // console.log(data) 
+     */
+
+      // ctx.rect(newX,newY,newX+100,newY+100);
+      // ctx.stroke();
+
+      // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, newX, newY, 100, 100);
+      // img.style.display = 'none';
+      // img.style.display = 'inline';
+    };
+  }
+};
+
+myLoadImage = async function() {
+  // const myFileName = prompt('Enter the URL of your stored data', 'https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/t4png.png, https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/t5png.png, https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/t6png.png, https://hpssjellis.github.io/beginner-tensorflowjs-examples-in-javascript/saved-models/t7png.png');
+  //const myFileNameArray =   myFileName.split(',')
+  const myFileNameArray = document.getElementById('myURLs').value.split(',');
+
+  //if (myFileNameArray.length >= 2 ){
+
+  myMultiLoad(myFileNameArray);
+
+  //} else {
+  // mySingleLoad(myFileName, 0, 0, mySpecial)
+  //         mySpecial += 1
+
+  //} // end if  null
+};
+
+                                                                                             
+                                                                                             
+                                                                                             
+ myTestLoad = async function(myFileName3) {
+  if (myFileName3 != null) {
+    var img = new Image();
+    img.src = myFileName3;
+    img.crossOrigin = 'Anonymous';
+
+    var canvasReshape = document.getElementById('myReshapeCanvas'); // 64 x 48
+    var ctxReshape = canvasReshape.getContext('2d');
+
+
+                                                                                             
+                                                                                             
+
+
+    img.onload = function() {
+
+      ctxReshape.drawImage(img,0,0,img.width,img.height,0,0,canvasReshape.width,canvasReshape.height);
+
+     // console.log('canvasReshape.width: '+canvasReshape.width)
+
+     // var imageData = ctxReshape.getImageData(0,0,canvasReshape.width,canvasReshape.height);
+
+
+     // console.log(imageData);
+     // var data = imageData.data;
+     // myMainData[loop] = data;
+
+     // const latestTensor2 = tf.browser.fromPixels(imageData, 3);     // this time get rid of the alpha component
+    // myTestArray = latestTensor2.dataSync() 
+    };
+  }
+                                                                                          
+                                                                                           
+                                                                                             
+};                                                                                            
+                                                                                             
+
+                                                                                             
+///////////////////////////////////// webcam stuff /////////////////////////////////////                                                                                             
+ 
+                                                                                             
+  var myVideoStream = document.getElementById('myVideo')     // make it a global variable
+  var myStoredInterval = 0
+
+   // navigator.getMedia({video: true, audio: false},
+   //  navigator.getMedia({video: { facingMode: 'environment' }, audio: false},
+                                                                                             
+  getVideo = async function() {  
+  //const myCheckElement = document.getElementById('myCheck').checked
+
+  //const myCamera = 'environment'  // rear facing only if mobile
+  const myCamera = await document.getElementById('myCheck').value
+  //if (myCheckElement){  
+   // alert('worked inside if statment ')                                                                                           
+   // myCamera = 'user'  // forward facing
+  //}
+                                                                                        
+  navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+  navigator.getMedia({video: { facingMode: myCamera }, audio: false},
+                     
+    function(stream) {
+      myVideoStream.srcObject = stream   
+      myVideoStream.play();
+  }, 
+                     
+   function(error) {
+     alert('webcam not working');
+  });
+}
+
+                                                                                             
+  takeSnapshot = async function(){                                                                                           
+   var myCanvasElement = document.getElementById('myReshapeCanvas');
+   var myCTX = myCanvasElement.getContext('2d');
+   myCTX.drawImage(myVideoStream, 0, 0, myCanvasElement.width, myCanvasElement.height);
+}
+
+                                                                                             
+  takeAuto = async function(){                                                                                           
+     await takeSnapshot() // get snapshot right away then wait and repeat
+     await document.getElementById('myButtonTest').click()      
+    clearInterval(myStoredInterval)
+    myStoredInterval = setInterval(async function(){                                                                                         
+       await takeSnapshot()
+       await document.getElementById('myButtonTest').click()                                                                                       
+   }, document.getElementById('myInterval').value);        
+}
+  
+                                                                      
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+////////////////////////////////////////// END LOAD IMAGE ///////////////////////////////////////////////////////////
+                                                                                           
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+}"></style>
+<!-- If you replaced the <style> tag with a <script> tag don't forget to change the above line to just </script>  -->
+                                                                 
+
+
+
+                                                                                             
+                                                                                             
+                                                                                             
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<div id='myDiv7979'>...</div><br>
