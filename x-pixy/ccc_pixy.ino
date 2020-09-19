@@ -1,5 +1,4 @@
-//
-//
+// minor update by Jeremy Ellis
 // begin license header
 //
 // This file is part of Pixy CMUcam5 or "Pixy" for short
@@ -52,5 +51,7 @@ void loop()
       Serial.print(": ");
       pixy.ccc.blocks[i].print();
     }
-  }  
+  } 
+  Serial.println("working ");
+  delay(1000); 
 }
