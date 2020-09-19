@@ -5,8 +5,16 @@ Note: The pixy library for the arduino does not work out of the box, you have to
 
 I think SCK on the Portenta is CK
 
-PortenaH7 --> Pixy2
-VIN --> 
+PortenaH7 --> Pixy2  
++5V --> VIN  
+GND --> GND
+D10 --> MISO   
+D9  --> SCK   
+D8  --> MOSI   
+
+
+
+
 
 ![wire connectors](https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/raw/master/image-video/pixy2-wiring.png)
 
