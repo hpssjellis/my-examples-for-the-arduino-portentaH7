@@ -21,7 +21,7 @@ D8  --> MOSI
 
 ![PortenaH7 Pinout](../image-video/bothPinout.png)
 
-
+First load a01_ccc_pixy.ino just to see if the Pixy2 is connected correctly. Bit confusing to program so best to use the pixymon program to visually program the pixy. https://pixycam.com/downloads-pixy2/ looking for pixymon V2
 
 ![Pixy working](../image-video/pixy-combined.jpg)
 
