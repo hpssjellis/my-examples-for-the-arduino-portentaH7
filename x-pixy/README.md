@@ -20,3 +20,7 @@ D8  --> MOSI
 
 
 ![PortenaH7 Pinout](https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/raw/master/image-video/bothPinout.png)
+
+
+
+![Pixy working](../image-video/pixy-combined.jpg)
