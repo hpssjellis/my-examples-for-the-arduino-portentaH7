@@ -1,4 +1,4 @@
-// minor update by Jeremy Ellis
+//
 // begin license header
 //
 // This file is part of Pixy CMUcam5 or "Pixy" for short
@@ -24,34 +24,31 @@
 
 // This is the main Pixy object 
 Pixy2 pixy;
+int myLoop = 0;
 
 void setup()
 {
   Serial.begin(115200);
-  Serial.print("Starting...\n");
-  
   pixy.init();
+  delay(2000); // wait for serial to get going
+  Serial.println("Pixy2 data colection, only interested in main block #0 ");
+  Serial.println("Results printed as an array for loading into a Machine Learning model");
 }
 
 void loop()
 { 
   int i; 
-  // grab blocks!
+  myLoop ++;
   pixy.ccc.getBlocks();
   
-  // If there are detect blocks, print them!
-  if (pixy.ccc.numBlocks)
-  {
-    Serial.print("Detected ");
-    Serial.println(pixy.ccc.numBlocks);
-    for (i=0; i<pixy.ccc.numBlocks; i++)
-    {
-      Serial.print("  block ");
-      Serial.print(i);
-      Serial.print(": ");
-      pixy.ccc.blocks[i].print();
-    }
+  // are there any blocks!
+  if (pixy.ccc.numBlocks){
+     // pixy.ccc.blocks[0].print();     
+      Serial.print("["+String(pixy.ccc.blocks[0].m_x)+","+String(pixy.ccc.blocks[0].m_y)+"],");  
+      if (myLoop % 10 == 0){  
+         Serial.println();
+      }
   } 
-  Serial.println("working ");
-  delay(1000); 
+
+  delay(200); // slow it down
 }
