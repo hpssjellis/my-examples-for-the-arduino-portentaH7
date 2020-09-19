@@ -24,4 +24,7 @@ D8  --> MOSI
 
 
 ![Pixy working](../image-video/pixy-combined.jpg)
-![Pixymon](../image-video/pixymon.jpg)
+
+What the windows program that can see what the arduino sees.
+
+![Pixymon](../image-video/pixymon.png)
