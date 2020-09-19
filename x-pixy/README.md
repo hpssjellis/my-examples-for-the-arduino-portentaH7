@@ -16,10 +16,10 @@ D8  --> MOSI
 
 
 
-![wire connectors](https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/raw/master/image-video/pixy2-wiring.png)
+![wire connectors](../image-video/pixy2-wiring.png)
 
 
-![PortenaH7 Pinout](https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/raw/master/image-video/bothPinout.png)
+![PortenaH7 Pinout](../image-video/bothPinout.png)
 
 
 
