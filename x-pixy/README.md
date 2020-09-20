@@ -43,7 +43,7 @@ Using the program [a02-pixy-data.ino](a02-pixy-data.ino) I am getting data kind 
 
 
 
-The [a03-pixy-data-smoothed.ino](a03-pixy-data-smoothed.ino) file organizes the data a bit giving zeros first then waiting for movement then giving zeros when the movement has stopped. Pixy is very sensitive to room lighting. This was hard to get good data. Listed is serval atems at a zero
+The [a03-pixy-data-smoothed.ino](a03-pixy-data-smoothed.ino) file organizes the data a bit giving zeros first then waiting for movement then giving zeros when the movement has stopped. Pixy is very sensitive to room lighting. This was hard to get good data. Listed below is the fairly good data while I was drawing a zero in the air. Other letters will take longer to draw.
    
 [0,0],[0,0],[117,105],[106,94],[127,92],[140,104],[134,109],[116,110],[102,93],[111,87],[124,95],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],  
 [0,0],[0,0],[102,88],[101,78],[104,73],[115,76],[126,85],[124,94],[115,94],[110,91],[117,92],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],  
