@@ -18,3 +18,23 @@ Note: These work for esp32 boards
    #endif
 
 ```
+
+
+
+for platformIO
+
+drag arduino installed libraries to the libeary folder "copy Folder"
+
+then change the patformio.ini file src_dir to the location of examples. bypasses the default src-->main.cpp. 
+for my esp32 have to touch the mode button when it tres to upload.
+
+```
+[platformio]
+src_dir = lib\\TensorFlowLite_ESP32\\examples\\person_detection
+
+[env:nodemcu-32s]
+platform = espressif32
+board = nodemcu-32s
+framework = arduino
+```
+
