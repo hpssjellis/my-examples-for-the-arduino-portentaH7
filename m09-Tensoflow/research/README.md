@@ -5,6 +5,8 @@ Note: These work for esp32 boards
 
 ```
 
+#include <TensorFlowLite_ESP32.h>
+
    #if  defined (ESP32) 
    Serial.println("Hello ESP32");
 
