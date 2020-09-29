@@ -19,3 +19,16 @@ use the processing.txt sketch and change line 37 ish about your port used. takes
 
 
 Here is a good blog: https://processing.org/download/support.html
+
+
+
+
+
+
+
+
+# other referencces
+
+https://circuitdigest.com/microcontroller-projects/how-to-use-ov7670-camera-module-with-arduino
+
+
