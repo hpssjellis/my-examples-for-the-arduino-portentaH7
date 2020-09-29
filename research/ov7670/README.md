@@ -7,7 +7,7 @@ good links
 
 
 
-Here is the processing program that helps you view the data from the camera https://blog.arduino.cc/2020/06/24/machine-vision-with-low-cost-camera-modules/
+Here is the processing program that helps you view the data from the camera https://processing.org/download/support.html
 
 use the processing.txt sketch and change line 37 ish about your port used. takes about 6 seconds to load.
 
@@ -18,7 +18,8 @@ use the processing.txt sketch and change line 37 ish about your port used. takes
 
 
 
-Here is a good blog: https://processing.org/download/support.html
+Here is a good blog: 
+https://blog.arduino.cc/2020/06/24/machine-vision-with-low-cost-camera-modules/
 
 
 
