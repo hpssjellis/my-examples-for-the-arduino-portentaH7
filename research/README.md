@@ -17,5 +17,5 @@ I will just do a stream of concsiousness while I fly through my examples.
 
 1. Running the new example RPC --> serialpassthrough_RPC
 
-seriously needs some comments and explaining to do. I run the code on M7, it says M4 is passing reular serial (What magic is this, where is the code that magically got installed on M4). I run serial.println("hi") on M4 and nothing happens.
+seriously needs some comments and explaining to do. I run the code on M7, it says M4 is passing reular serial (What magic is this, where is the code that magically got installed on M4). I run serial.println("hi") on M4 and nothing happens. If the first code is writing to both M7 and M$ I want to know how. also I need an example of how to print from M4 
 
