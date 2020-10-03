@@ -23,11 +23,11 @@
 #include <SPI.h>
 #include <WiFi.h>
 
-#include "arduino_secrets.h" 
+//#include "arduino_secrets.h" 
 ///////please enter your sensitive data in the Secret tab/arduino_secrets.h
 //or comment the above include line and uncomment the 2 lines below. It is less secure but easier
 
-//#define SECRET_SSID "youtNetwork"
+#define SECRET_SSID "youtNetwork"
 #define SECRET_PASS "yourPassword"
 
 
