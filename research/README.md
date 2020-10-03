@@ -15,7 +15,7 @@ I will just do a stream of concsiousness while I fly through my examples.
 
 
 ## Working
-[../my00-dual-clean.ino](../my00-dual-clean.ino)
+[../my00-dual-clean.ino](../my00-dual-clean.ino), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../)
 
 
 ## Issues
