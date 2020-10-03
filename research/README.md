@@ -29,6 +29,53 @@ my02d-dual-core-RPC-timer.ino
 
 my04-BLE-LED-multi-control.ino
 
+my07-analog-test.ino
+
+
+my08-mbed-blink.ino
+
+
+---------------------------------------------- Start Machine Learning Programs ---------------------------------
+my09-tensorflow-machine-learning-link.md
+
+b04_makerML_template.ino with  tabbed file b04_model_xor.h
+
+b01_makerML_hello_world.ino
+
+b02_makerML_xor.ino
+
+b03_makerML_layers.ino
+
+b05_makerML_medium_image.ino
+
+b05_medium_image_model.h
+
+b06_makerML_one_hot.ino
+
+b06_model_one_hot.h
+
+
+
+---------------------------------------------- End Machine Learning Programs ---------------------------------
+
+b07_m4_rpc_m7_print.ino
+
+
+my10-DAC-to-ADC.ino
+
+
+my11-servo.ino
+
+
+my12-serial1-crash.ino
+
+
+my13_uart_m4_m7_print.ino
+
+
+my14_8x8_thermal_Array.ino
+
+
 
 
 
