@@ -1,6 +1,6 @@
 Just lots of not working things in this folder.
 
-Note: Try the new mbed board version  for the Nano33BLE and PortentaH7
+Note: Try the new mbed board version 1.2.3 for the Nano33BLE and PortentaH7
 
 Not official yet so will need to put in your preferences comma seperated list 
 
