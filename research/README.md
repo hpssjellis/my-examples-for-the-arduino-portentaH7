@@ -17,8 +17,8 @@ I will just do a stream of concsiousness while I fly through my examples.
 
 1. While not relevant to just this version: unlike most arduino boards this board install (write at the end of the installation) has something that requires admin access. At school it installs, I can compie but I think uploading to the Portenta does not work, while uploading to the Nano33BLE works.
 
-2. Running the example RPC --> serialpassthrough_RPC   
-### I just don't understand this at all. I should, but I don't
+2. Running the example RPC --> serialpassthrough_RPC     *I just don't understand this at all. I should, but I don't*
+
 
 
 
