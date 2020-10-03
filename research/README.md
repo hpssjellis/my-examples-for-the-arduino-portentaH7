@@ -15,7 +15,22 @@ I will just do a stream of concsiousness while I fly through my examples.
 
 
 ## Working
-[../my00-dual-clean.ino](../my00-dual-clean.ino), [../my01-BlinkM7.ino](../my01-BlinkM7.ino), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../)
+[../my00-dual-clean.ino](../my00-dual-clean.ino), [../my01-BlinkM7.ino](../my01-BlinkM7.ino), [../my02a-dual-core.ino](../my02a-dual-core.ino),   [../my02e-easier-dual.ino](../my02e-easier-dual.ino), [../my03-BLE-LED-control.ino](../my03-BLE-LED-control.ino), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../),
+
+
+
+## waiting to test later
+
+my02b-dual-core-RPC.ino
+
+my02c-dual-core-RPC-variable.ino
+
+my02d-dual-core-RPC-timer.ino
+
+my04-BLE-LED-multi-control.ino
+
+
+
 
 
 ## Issues
