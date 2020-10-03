@@ -13,21 +13,32 @@ https://github.com/arduino/ArduinoCore-mbed/issues
 
 I will just do a stream of concsiousness while I fly through my examples.
 
+# Issues
 
-## Working
-[../my00-dual-clean.ino](../my00-dual-clean.ino), [../my01-BlinkM7.ino](../my01-BlinkM7.ino), [../my02a-dual-core.ino](../my02a-dual-core.ino),   [../my02e-easier-dual.ino](../my02e-easier-dual.ino), [../my03-BLE-LED-control.ino](../my03-BLE-LED-control.ino), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../),
+1. While not relevant to just this version: unlike most arduino boards this board install (write at the end of the installation) has something that requires admin access. At school it installs, I can compie but I think uploading to the Portenta does not work, while uploading to the Nano33BLE works.
+
+2. Running the example RPC --> serialpassthrough_RPC   
+### I just don't understand this at all. I should, but I don't
 
 
 
-## waiting to test later
 
-my02b-dual-core-RPC.ino
 
-my02c-dual-core-RPC-variable.ino
 
-my02d-dual-core-RPC-timer.ino
 
-my04-BLE-LED-multi-control.ino
+
+## Working Examples
+[../my00-dual-clean.ino](../my00-dual-clean.ino), [../my01-BlinkM7.ino](../my01-BlinkM7.ino) works on either core seperately , [../my02a-dual-core.ino](../my02a-dual-core.ino),   [../my02e-easier-dual.ino](../my02e-easier-dual.ino), [../my03-BLE-LED-control.ino](../my03-BLE-LED-control.ino)  works on either core seperately , [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../),
+
+
+
+
+
+## Testing Now
+
+my05-Web-server.ino
+
+my06_LED_onboard_setRGB.ino
 
 my07-analog-test.ino
 
@@ -78,12 +89,15 @@ my14_8x8_thermal_Array.ino
 
 
 
+## waiting to test later
+
+my02b-dual-core-RPC.ino
+
+my02c-dual-core-RPC-variable.ino
+
+my02d-dual-core-RPC-timer.ino
+
+my04-BLE-LED-multi-control.ino
 
 
-# Issues
-
-1. While not relevant to just this version: unlike most arduino boards this board install (write at the end of the installation) has something that requires admin access. At school it installs, I can compie but I think uploading to the Portenta does not work, while uploading to the Nano33BLE works.
-
-2. Running the example RPC --> serialpassthrough_RPC   
-### I just don't understand this at all. I should, but I don't
 
