@@ -19,7 +19,7 @@ I will just do a stream of concsiousness while I fly through my examples.
 
 2. Running the example RPC --> serialpassthrough_RPC     *I just don't understand this at all. I should, but I don't*
 
-
+3. not working my wifi example [../my05-Web-server.ino](../my05-Web-server.ino)
 
 .
 
