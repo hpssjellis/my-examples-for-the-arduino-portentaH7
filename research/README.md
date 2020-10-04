@@ -120,19 +120,16 @@ b06_model_one_hot.h
 
 
 
-my10-DAC-to-ADC.ino
 
 
-my11-servo.ino
 
 
-my12-serial1-crash.ino
 
 
-my13_uart_m4_m7_print.ino
 
 
-my14_8x8_thermal_Array.ino
+
+
 
 
 
@@ -148,4 +145,14 @@ my02d-dual-core-RPC-timer.ino
 my04-BLE-LED-multi-control.ino
 
 b07_m4_rpc_m7_print.ino
+
+my12-serial1-crash.ino
+
+my13_uart_m4_m7_print.ino   Not needed as much now with RPC working
+
+my11-servo.ino     Left it at school will have to do it later
+
+my14_8x8_thermal_Array.ino
+
+
 
