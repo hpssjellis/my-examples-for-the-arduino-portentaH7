@@ -63,7 +63,7 @@ Since the Library is in the libraries folder
 1. [../my08-mbed-blink.ino](../my08-mbed-blink.ino)  works on either core seperately , 
 
 
-1. [../](../),   
+1. [../my10-DAC-to-ADC.ino](../my10-DAC-to-ADC.ino) did not test on M4, but DAC must be A0, for reading A6 and D6 worked, but A5 and D5 did not,   
 1. [../](../),   
 1. [../](../),   
 1. [../](../),   
