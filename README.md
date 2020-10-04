@@ -2,6 +2,12 @@
 My examples for the new Arduino Pro board the Portenta H7
 
 
+## Oct 4th, 202
+
+I just tested ~19 of these programs and put my results at [research/README.md](research/README.md) I fixed a few mistakes and got DAC working. The reason I tested everything is there is a new version of the mbed board software for the PortentaH7 coming out soon.
+
+
+
 The playlist of all my Portenta Videos and other interesting videos at (Note: as of Aug 11, 2020 I havn't made any videos yet, just trying to get all the code working) 
 
 [https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
