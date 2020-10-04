@@ -42,7 +42,7 @@ void loop() {
   int myRandomNumber  = rand() % 1024;  // a random number between 0 and 1023
   myDac(myRandomNumber);
   Serial.println("----------------------");
-  delay(1000); // wait a few seconds
+  delay(3000); // wait a few seconds
 
 }
 
