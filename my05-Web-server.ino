@@ -20,15 +20,25 @@
  created 25 Nov 2012
  by Tom Igoe
  */
-#include <SPI.h>
-#include <WiFi.h>
 
-//#include "arduino_secrets.h" 
-///////please enter your sensitive data in the Secret tab/arduino_secrets.h
-//or comment the above include line and uncomment the 2 lines below. It is less secure but easier
 
-#define SECRET_SSID "youtNetwork"
-#define SECRET_PASS "yourPassword"
+#include "Arduino.h"
+#include "WiFi.h"
+
+
+
+
+
+// Choose either the following arduino_secrets.h tab and bracket out the next 2 lines after it
+// That route is more secure.
+// Or just change the lines below for your Network and Password. Eaier but not as secure
+// Since if you share this file it will have your info on it
+
+//#include "arduino_secrets.h"   // more safe
+#define SECRET_SSID "YourNetwork"
+#define SECRET_PASS "YourNetPass"
+
+
 
 
 
@@ -41,6 +51,7 @@ WiFiServer server(80);
 
 void setup() {
   Serial.begin(9600);      // initialize serial communication
+  Serial.println("Wait a bit sometimes this takes a while");
   pinMode(LED_BUILTIN, OUTPUT);      // set the LED pin mode
   pinMode(LEDB, OUTPUT);      // set the LED pin mode
   digitalWrite(LEDB, LOW);  
