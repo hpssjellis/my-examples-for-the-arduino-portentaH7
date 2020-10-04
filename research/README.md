@@ -60,7 +60,7 @@ Since the Library is in the libraries folder
 1. [../my05-Web-server.ino](../my05-Web-server.ino) Possibly only from the M7 core, I even tried RPC,  
 1. [../my06_LED_onboard_setRGB.ino](../my06_LED_onboard_setRGB.ino) works on either core seperately ,   
 1. [../my07-analog-test.ino](../my07-analog-test.ino) works on both cores, minor change to get RPC working see [my02f](../my02f_easy_m4_rpc_print.ino),   
-1. [../](../), 
+1. [../my08-mbed-blink.ino](../my08-mbed-blink.ino)  works on either core seperately , 
 
 
 1. [../](../),   
@@ -92,10 +92,6 @@ Since the Library is in the libraries folder
 
 
 
-my07-analog-test.ino
-
-
-my08-mbed-blink.ino
 
 
 ---------------------------------------------- Start Machine Learning Programs ---------------------------------
@@ -121,7 +117,7 @@ b06_model_one_hot.h
 
 ---------------------------------------------- End Machine Learning Programs ---------------------------------
 
-b07_m4_rpc_m7_print.ino
+
 
 
 my10-DAC-to-ADC.ino
@@ -151,5 +147,5 @@ my02d-dual-core-RPC-timer.ino
 
 my04-BLE-LED-multi-control.ino
 
-
+b07_m4_rpc_m7_print.ino
 
