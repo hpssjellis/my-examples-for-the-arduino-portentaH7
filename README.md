@@ -77,6 +77,9 @@ So Far what is working:
 #### 2f
 [my02f_easy_m4_rpc_print.ino](my02f_easy_m4_rpc_print.ino) This is my new favorite RPC. It redirects regular Serial.println from the M4 core to the M7 as regular Serial.println, by using ``` #define Serial RPC1  ``` but only for the M4 core.
 
+#### 2g
+[my02g-analogRead-m4-rpc.ino](my02g-analogRead-m4-rpc.ino). Showing how to do analogRead of A0 to A6 but on the M4 core. Also found that delayMicrosecond(1234); was needed between each Serial.println(); statement for RPC to fully work. 
+
 
 ### Note: End advanced RPC stuff that requires a few changes to your library
  The changes were add -fexceptions to the cflags.txt and cxxflags.txt files in the board location  AppData\Local\Arduino15\packages\arduino-beta\hardware\mbed\1.2.2\variants\PORTENTA_H7_M4
