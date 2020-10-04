@@ -41,11 +41,33 @@ Moved to number 0
 
 
 #### 7
-[b07_m4_rpc_m7_print.ino](b07_m4_rpc_m7_print.ino) This is exciting, getting the inner M4 core to do the machine learning while the outer M7 core handles the serial print by using RPC calls. Note uses the same model.h file as the above programs [b04-model-xor.h](b04-model-xor.h). Next I need to see how big a model I can fit on the M4 core.
+[b07_m4_rpc_m7_print.ino](b07_m4_rpc_m7_print.ino) This is exciting, getting the inner M4 core to do the machine learning while the outer M7 core handles the serial print by using RPC calls. This one actually changes the Serial.println to RPC1.println, see next example for an easier technique Next I need to see how big a model I can fit on the M4 core.
 
 
 #### 8
 [b08-rpc-m4-hello-world-sine.ino](b08-rpc-m4-hello-world-sine.ino) Same as [b01_makerML_hello_world.ino](b01_makerML_hello_world.ino) but with code to run RPC on M7 and the Hello world sine wave on M4. Bit advanced.
+Note: If you have lots  of Serial.println then put a delay(2); infront of it. also Serial.begin() takes no integer.
+
+Key feactures
+
+```
+
+#ifdef CORE_CM4    // Start M4 programming
+
+#define Serial RPC1  // So the M4 regular serial prints to RPC
+
+void setup(){  
+  pinMode(LED_BUILTIN, OUTPUT);
+  Serial.begin();   // note no speed 9600 or 115200, since it is now RPC1
+}
+
+void loop() {
+  delay(2); Serial.println("Your print stuff");
+}
+
+#endif;
+
+```
 
 ..
 
