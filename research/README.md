@@ -70,8 +70,11 @@ Since the Library is in the libraries folder
 1. [../](../),  
 
 
-1. [../](../),   
-1. [../](../),   
+# Machine Learning Files
+
+
+1. [../m09-Tensoflow/b00_template](../m09-Tensoflow/b00_template) works on M7 only,   
+1. [../m09-Tensoflow/b01_makerML_hello_world.ino](../m09-Tensoflow/b01_makerML_hello_world.ino) fixed up some issues not related to this new version 1.2.3 build,   
 1. [../](../),   
 1. [../](../),   
 1. [../](../),  
@@ -81,7 +84,7 @@ Since the Library is in the libraries folder
 1. [../](../),   
 1. [../](../),   
 1. [../](../),   
-1. [../](../),  
+1. [../m09-Tensoflow/b08-rpc-m4-hello-world-sine.ino](../m09-Tensoflow/b08-rpc-m4-hello-world-sine.ino) This runs the serial plotter using the TFLITE hello world sine wave but from the M4 core using RPC. A bit advanced,  
 
 
 
