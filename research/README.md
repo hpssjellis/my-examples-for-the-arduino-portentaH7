@@ -59,7 +59,7 @@ Since the Library is in the libraries folder
 [../my03-BLE-LED-control.ino](../my03-BLE-LED-control.ino)  works on either core seperately ,  
 [../my05-Web-server.ino](../my05-Web-server.ino) Possibly only from the M7 core, I even tried RPC,  
 [../my06_LED_onboard_setRGB.ino](../my06_LED_onboard_setRGB.ino) works on either core seperately ,   
-[../](../),   
+[../my07-analog-test.ino](../my07-analog-test.ino) works on both cores, minor change to get RPC working see [../my02f_easy_m4_rpc_print.ino](../my02f_easy_m4_rpc_print.ino),   
 [../](../), 
 
 
