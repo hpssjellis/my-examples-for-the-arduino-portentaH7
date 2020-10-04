@@ -6,7 +6,7 @@
  *
  * Connect Pin 3V3 to AREF
  * Connect Pin A6 (DAC) to A0
- * Connect Pin A6 (DAC) to Pin 3 (D3)
+ * Connect Pin A6 (DAC) to Pin 6 (D6)
  *   
  *
  *  Update August 3rd, 2020
