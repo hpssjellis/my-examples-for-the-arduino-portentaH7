@@ -75,7 +75,7 @@ Since the Library is in the libraries folder
 
 1. [../m09-Tensoflow/b00_template](../m09-Tensoflow/b00_template) works on M7 only,   
 1. [../m09-Tensoflow/b01_makerML_hello_world.ino](../m09-Tensoflow/b01_makerML_hello_world.ino) fixed up some issues not related to this new version 1.2.3 build,   
-1. [../](../),   
+1. [../m09-Tensoflow/b02_makerML_xor.ino](../m09-Tensoflow/b02_makerML_xor.ino) Runs on both cores, Led flashes, of course no serial for M4,   
 1. [../](../),   
 1. [../](../),  
 
