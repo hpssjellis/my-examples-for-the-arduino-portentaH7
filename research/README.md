@@ -64,10 +64,7 @@ Since the Library is in the libraries folder
 
 
 1. [../my10-DAC-to-ADC.ino](../my10-DAC-to-ADC.ino) did not test on M4, but DAC must be A0, for reading A6 and D6 worked, but A5 and D5 did not,   
-1. [../](../),   
-1. [../](../),   
-1. [../](../),   
-1. [../](../),  
+
 
 
 # Machine Learning Files
@@ -98,21 +95,11 @@ Since the Library is in the libraries folder
 ---------------------------------------------- Start Machine Learning Programs ---------------------------------
 my09-tensorflow-machine-learning-link.md
 
-b04_makerML_template.ino with  tabbed file b04_model_xor.h
 
-b01_makerML_hello_world.ino
-
-b02_makerML_xor.ino
 
 b03_makerML_layers.ino
 
-b05_makerML_medium_image.ino
 
-b05_medium_image_model.h
-
-b06_makerML_one_hot.ino
-
-b06_model_one_hot.h
 
 
 
