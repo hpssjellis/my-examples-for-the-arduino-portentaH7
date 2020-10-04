@@ -42,7 +42,7 @@ void loop() {
   int myRandomNumber  = rand() % 1024;  // a random number between 0 and 1023
   myDac(myRandomNumber);
   Serial.println("----------------------");
-  delay(3000); // wait a few seconds
+  delay(1000); // wait a few seconds
 
 }
 
@@ -54,7 +54,7 @@ void myDac(int myDacSet){
   Serial.print(myDacSet);
 
   Serial.print(", A5: ");
-  Serial.print(analogRead(A6));
+  Serial.print(analogRead(A5));
 
   Serial.print(", Pin(D5): ");
   Serial.println(digitalRead(5));
