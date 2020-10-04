@@ -73,6 +73,7 @@ Since the Library is in the libraries folder
 1. [../m09-Tensoflow/b00_template](../m09-Tensoflow/b00_template) works on M7 only,   
 1. [../m09-Tensoflow/b01_makerML_hello_world.ino](../m09-Tensoflow/b01_makerML_hello_world.ino) fixed up some issues not related to this new version 1.2.3 build,   
 1. [../m09-Tensoflow/b02_makerML_xor.ino](../m09-Tensoflow/b02_makerML_xor.ino) Runs on both cores, Led flashes, of course no serial for M4,   
+1. [../m09-Tensoflow/b03_makerML_layers.ino](../m09-Tensoflow/b03_makerML_layers.ino) Only tested on M7 as it has lots of serial commands.,   
 1. [../m09-Tensoflow/b05_makerML_medium_image.ino](../m09-Tensoflow/b05_makerML_medium_image.ino) works on M7 merged the 2 files,   
 1. [../m09-Tensoflow/b06_makerML_one_hot.ino](../m09-Tensoflow/b06_makerML_one_hot.ino) Worked fine on M7, I combined the tabbed file,  
 
