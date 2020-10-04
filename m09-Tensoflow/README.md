@@ -37,7 +37,7 @@ Moved to number 0
 
 
 #### 6
-[b06_makerML_one_hot.ino](b06_makerML_one_hot.ino). This was not very successful. The training set was probably too small. Basically it works to show one hot training but the final trained model is not vey good. Reminder to load the model.     Tensorflowjs helper page at https://www.rocksetta.com/tensorflowjs/beginner-keras/24keras-one-hot.html
+[b06_makerML_one_hot.ino](b06_makerML_one_hot.ino). This was not very successful. The training set was probably too small. Basically it works to show one hot training but the final trained model is not vey good. I have combined the model in the same file for simplicity, you are welcome to move it to it's own tab.     Tensorflowjs helper page at https://www.rocksetta.com/tensorflowjs/beginner-keras/24keras-one-hot.html
 
 
 #### 7
