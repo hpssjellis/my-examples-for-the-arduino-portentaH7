@@ -49,32 +49,40 @@ Since the Library is in the libraries folder
 
 
 ## Working Examples
-[../my00-dual-clean.ino](../my00-dual-clean.ino),  
-[../my01-BlinkM7.ino](../my01-BlinkM7.ino) works on either core seperately ,  
-[../my02a-dual-core.ino](../my02a-dual-core.ino),  
-[../my02e-easier-dual.ino](../my02e-easier-dual.ino),  
-[../my02f_easy_m4_rpc_print.ino](../my02f_easy_m4_rpc_print.ino),   
+1. [../my00-dual-clean.ino](../my00-dual-clean.ino),  
+1. [../my01-BlinkM7.ino](../my01-BlinkM7.ino) works on either core seperately ,  
+1. [../my02a-dual-core.ino](../my02a-dual-core.ino),  
+1. [../my02e-easier-dual.ino](../my02e-easier-dual.ino),  
+1. [../my02f_easy_m4_rpc_print.ino](../my02f_easy_m4_rpc_print.ino),   
 
 
-[../my03-BLE-LED-control.ino](../my03-BLE-LED-control.ino)  works on either core seperately ,  
-[../my05-Web-server.ino](../my05-Web-server.ino) Possibly only from the M7 core, I even tried RPC,  
-[../my06_LED_onboard_setRGB.ino](../my06_LED_onboard_setRGB.ino) works on either core seperately ,   
-[../my07-analog-test.ino](../my07-analog-test.ino) works on both cores, minor change to get RPC working see [../my02f_easy_m4_rpc_print.ino](../my02f_easy_m4_rpc_print.ino),   
-[../](../), 
+1. [../my03-BLE-LED-control.ino](../my03-BLE-LED-control.ino)  works on either core seperately ,  
+1. [../my05-Web-server.ino](../my05-Web-server.ino) Possibly only from the M7 core, I even tried RPC,  
+1. [../my06_LED_onboard_setRGB.ino](../my06_LED_onboard_setRGB.ino) works on either core seperately ,   
+1. [../my07-analog-test.ino](../my07-analog-test.ino) works on both cores, minor change to get RPC working see [myo2f](../my02f_easy_m4_rpc_print.ino),   
+1. [../](../), 
 
 
-[../](../),   
-[../](../),   
-[../](../),   
-[../](../),   
-[../](../),  
+1. [../](../),   
+1. [../](../),   
+1. [../](../),   
+1. [../](../),   
+1. [../](../),  
 
 
-[../](../),   
-[../](../),   
-[../](../),   
-[../](../),   
-[../](../),   
+1. [../](../),   
+1. [../](../),   
+1. [../](../),   
+1. [../](../),   
+1. [../](../),  
+
+
+1. [../](../),   
+1. [../](../),   
+1. [../](../),   
+1. [../](../),   
+1. [../](../),  
+
 
 
 
