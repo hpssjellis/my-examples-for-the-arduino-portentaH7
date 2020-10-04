@@ -95,7 +95,7 @@ So Far what is working:
 [my06_LED_onboard_setRGB.ino](my06_LED_onboard_setRGB.ino) a fairly advanced program that allows complete control of the on-board LED's.
 
 #### 7
-[my07-analog-test.ino](my07-analog-test.ino) Jusat a program that quicly prints out all the analogRead pins A0-A6
+[my07-analog-test.ino](my07-analog-test.ino) Just a program that quickly prints out all the analogRead pins A0-A6
 
 #### 8
 [my08-mbed-blink.ino](my08-mbed-blink.ino)   starting to use the mbed compiler, fairly different from arduino code.
