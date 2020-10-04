@@ -80,10 +80,8 @@ Since the Library is in the libraries folder
 1. [../m09-Tensoflow/b06_makerML_one_hot.ino](../m09-Tensoflow/b06_makerML_one_hot.ino) Worked fine on M7, I combined the tabbed file,  
 
 
-1. [../](../),   
-1. [../](../),   
-1. [../](../),   
-1. [../](../),   
+ 
+1. [../b07_m4_rpc_m7_print.ino](../b07_m4_rpc_m7_print.ino) uses rpci1 to show the M4 serial printworks, combined the files, the next one is better,   
 1. [../m09-Tensoflow/b08-rpc-m4-hello-world-sine.ino](../m09-Tensoflow/b08-rpc-m4-hello-world-sine.ino) This runs the serial plotter using the TFLITE hello world sine wave but from the M4 core using RPC. A bit advanced,  
 
 
