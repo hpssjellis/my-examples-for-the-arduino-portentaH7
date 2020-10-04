@@ -49,7 +49,32 @@ Since the Library is in the libraries folder
 
 
 ## Working Examples
-[../my00-dual-clean.ino](../my00-dual-clean.ino), [../my01-BlinkM7.ino](../my01-BlinkM7.ino) works on either core seperately , [../my02a-dual-core.ino](../my02a-dual-core.ino),   [../my02e-easier-dual.ino](../my02e-easier-dual.ino), [../my03-BLE-LED-control.ino](../my03-BLE-LED-control.ino)  works on either core seperately , [../my05-Web-server.ino](../my05-Web-server.ino) Possibly only from the M7 core, [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../), [../](../),
+[../my00-dual-clean.ino](../my00-dual-clean.ino),  
+[../my01-BlinkM7.ino](../my01-BlinkM7.ino) works on either core seperately ,  
+[../my02a-dual-core.ino](../my02a-dual-core.ino),  
+[../my02e-easier-dual.ino](../my02e-easier-dual.ino),  
+[../my02f_easy_m4_rpc_print.ino](../my02f_easy_m4_rpc_print.ino),   
+
+
+[../my03-BLE-LED-control.ino](../my03-BLE-LED-control.ino)  works on either core seperately ,  
+[../my05-Web-server.ino](../my05-Web-server.ino) Possibly only from the M7 core, I even tried RPC,  
+[../](../),   
+[../](../),   
+[../](../), 
+
+
+[../](../),   
+[../](../),   
+[../](../),   
+[../](../),   
+[../](../),  
+
+
+[../](../),   
+[../](../),   
+[../](../),   
+[../](../),   
+[../](../),   
 
 
 
