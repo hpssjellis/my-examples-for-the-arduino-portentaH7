@@ -32,7 +32,7 @@ Moved to number 0
 
 
 #### 5
-[b05_makerML_medium_image.ino](b05_makerML_medium_image.ino) A medium image entered as an array of numbers representing colors. Use the pre-trained model [b05_medium_image_model.h](b05_medium_image_model.h) loaded as a tabbed file in the arduino editor. The TensorflowJS helper page is at  https://www.rocksetta.com/tensorflowjs/beginner-keras/27keras-medium-image.html
+[b05_makerML_medium_image.ino](b05_makerML_medium_image.ino) A medium image entered as an array of numbers representing colors. The TensorflowJS helper page is at  https://www.rocksetta.com/tensorflowjs/beginner-keras/27keras-medium-image.html
 
 
 
