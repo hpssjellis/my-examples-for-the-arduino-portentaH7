@@ -458,14 +458,25 @@ void loop() {
     // This uses your model to make a prediction
     float predicted = modelPredict(x_val);
 
-    #ifndef CORE_CM4     // protect the PortentaH7 M4 core from serial print 
-       Serial.println("sin(" +String(x_val)+ ") = " + String(y_val) + "\t predicted: " + String(predicted) );
-    #endif
+    Serial.println("sin(" +String(x_val)+ ") = " + String(y_val) + "\t predicted: " + String(predicted) );
+
 
     // y=1 LED is fully on. The LED's brightness can range from 0-255.
     int brightness = (int)(127.5f * (predicted+1));
 
-    analogWrite(myLed, brightness);  
+     #if  defined (CORE_CM7)  ||  defined (CORE_CM4)
+
+         if (brightness <= 128){
+              digitalWrite(myLed, HIGH);  // means off
+         } else {
+               digitalWrite(myLed, LOW);  // means on             
+         }
+     #else
+         analogWrite(myLed, brightness);  // not on Porttenta
+     #endif 
+
+
+
     delay(3); // slows the process down a bit to see the sine wave
 
   
