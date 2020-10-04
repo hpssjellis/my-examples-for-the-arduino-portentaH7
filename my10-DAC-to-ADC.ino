@@ -1,13 +1,16 @@
 /* 
- * my10-DAC-to-ADC.ino
+ *  my10-DAC-to-ADC.ino
+ *  
  * DAC to ADC for the PortentaH7
  * Digital to Analog Converter (DAC) and  Analog to Digital Converter (ADC)
  * DAC converts a digital signal into analog signal.
  * ADC converts an Analog signal into a digital signal
  *
  * Connect Pin 3V3 to AREF
- * Connect Pin A0 (DAC) to A5
- * Connect Pin A0 (DAC) to Pin 5 (D5)
+ * Connect Pin A0 (DAC) to A6
+ * Connect Pin A0 (DAC) to Pin 6 (D6)
+ *   
+ *   Note: Only having luck reading DAC on A6 and D6
  *   
  *
  *  Update August 3rd, 2020
@@ -28,7 +31,7 @@ void setup() {
   
   analogWriteResolution(10);
   randomSeed(A1);  // grab a random Analog reading 
-  Serial.begin(9600);
+  Serial.begin(115200);
   pinMode(DAC, OUTPUT);
   pinMode(5, INPUT_PULLDOWN);  // set pin D5
   // pinMode(A5, INPUT); You don't have to declare A6 for Analog input, that is the default
@@ -53,10 +56,10 @@ void myDac(int myDacSet){
   Serial.print("DAC on A0 set to: ");
   Serial.print(myDacSet);
 
-  Serial.print(", A5: ");
-  Serial.print(analogRead(A5));
+  Serial.print(", A6: ");
+  Serial.print(analogRead(A6));
 
-  Serial.print(", Pin(D5): ");
-  Serial.println(digitalRead(5));
+  Serial.print(", Pin(D6): ");
+  Serial.println(digitalRead(6));
   
 }
