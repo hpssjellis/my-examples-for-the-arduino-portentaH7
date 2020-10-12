@@ -1,7 +1,8 @@
 /*
-  my01-BlinkM7.ino  for the Portenta H7
+  my01b-blink-serial.ino  for the Portenta H7
 
   Turns on the blue LED on for one second, then off for three seconds, repeatedly.
+  also checks if Serial Printing is working
 
   July 22nd, 2020
   by Jeremy Ellis
