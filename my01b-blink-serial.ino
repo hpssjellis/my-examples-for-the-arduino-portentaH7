@@ -20,7 +20,7 @@ void setup() {
 }
 
 void loop() {
-  Serial.println("Only works on the M7 core, just ignored on the M4 Core, unless you use RPC!")
+  Serial.println("Only works on the M7 core, just ignored on the M4 Core, unless you use RPC!");
   digitalWrite(LEDB, LOW);   // Portenta onboard LED connected to 3V3 so ground it to light
   delay(1000);               // wait for a second
   digitalWrite(LEDB, HIGH);  // turn the LED off by not grounding it, weird eh.
