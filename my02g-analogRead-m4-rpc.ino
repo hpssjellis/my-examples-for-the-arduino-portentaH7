@@ -18,10 +18,11 @@
 */
 
 
-#include "RPC_internal.h"  // comes with the mbed board installation, see note above
 
 #ifdef CORE_CM7   // Start M7 programming
-  
+ 
+#include "RPC_internal.h"  // comes with the mbed board installation
+
 void setup() {
    bootM4(); 
    Serial.begin(115200);
@@ -43,9 +44,9 @@ void loop() {
 
 #ifdef CORE_CM4    // Start M4 programming
 
+#include "RPC_internal.h"  // comes with the mbed board installation
+
 #define Serial RPC1  // So the M4 regular serial prints to RPC
-
-
 
 void setup(){  
   
@@ -56,7 +57,6 @@ void setup(){
 }
 
 void loop() {
-
 
   Serial.println( ); delayMicroseconds(1234);
   Serial.println("A0 Analog Read max = 1023, Actual Value: "+String(analogRead(A0)) ); delayMicroseconds(1234);
