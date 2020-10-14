@@ -34,6 +34,7 @@ void setup() {
 }
 
 void loop() {
+  Serial.print(".");
   // check if a peripheral has been discovered
   BLEDevice peripheral = BLE.available();
 
@@ -102,7 +103,8 @@ void controlLed(BLEDevice peripheral) {
     // while the peripheral is connected
         
         digitalWrite(LEDB, LOW); //weird turns blue on
-        Serial.println("flashing the LED on the device");
+        Serial.print("flashing the LED on the device: ");
+        Serial.println(peripheral.localName());
         ledCharacteristic.writeValue((byte)0x01);
         delay(500);
         ledCharacteristic.writeValue((byte)0x00);
