@@ -33,7 +33,7 @@ void setup() {
   randomSeed(A1);  // grab a random Analog reading 
   Serial.begin(115200);
   pinMode(DAC, OUTPUT);
-  pinMode(5, INPUT_PULLDOWN);  // set pin D5
+  pinMode(6, INPUT_PULLDOWN);  // set pin D6
   // pinMode(A5, INPUT); You don't have to declare A6 for Analog input, that is the default
 
 }
