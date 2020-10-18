@@ -8,18 +8,18 @@ I just tested ~19 of these programs and put my results at [research/README.md](r
 
 
 
-# The playlist of all my Portenta Videos is now live
+# The growing playlist of all my Portenta Videos is now live at
 
 [https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
 
-Click image to view playlist
+Click image below to view the same playlist link as above
 
-[<img src="image-video/portenta02.jpg" alt="High School Robotics" width = 300px />](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
-
-
+[<img src="image-video/raft.jpg" alt="High School Robotics" width = 300px />](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
 
 
-#### Please subscribe to my youtube channel as I am just below the 1000 needed subscribers.
+
+
+#### Please subscribe to my youtube channel and send the link to other Robotics enthusiasts as I am just below the 1000 needed subscribers to make any income.
 
 
 
