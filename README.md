@@ -23,7 +23,7 @@ Click image to view playlist
 
 Click the below image to view playlist
 
-[(http://img.youtube.com/vi/PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw/0.jpg)](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
+[(http://img.youtube.com/vi/bVIdH92dcqg/0.jpg)](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
 
 
 
