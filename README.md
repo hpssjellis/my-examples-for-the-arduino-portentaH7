@@ -19,6 +19,8 @@ Click image below to view the same playlist link as above
 
 #### Please subscribe to my youtube channel and send the link to other Robotics enthusiasts as I am just below the 1000 needed subscribers to make any income.
 
+Note: The Arduino Pro site has much more professional Pro tutroials at https://www.arduino.cc/pro/tutorials/portenta-h7 that lead you through every step of similar examples, however these videos are for people just to quickly get up and running.
+
 
 As of July 24th, 2020 this site is just to get the PortentaH7 working how I like it to work. 
 
