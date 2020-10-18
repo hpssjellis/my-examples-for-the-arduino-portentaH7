@@ -21,11 +21,6 @@ Click image to view playlist
 
 #### Please subscribe to my youtube channel as I am just below the 1000 needed subscribers.
 
-Click the below image to view playlist
-
-[(http://img.youtube.com/vi/bVIdH92dcqg/0.jpg)](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
-
-
 
 
 
@@ -54,11 +49,11 @@ https://github.com/hpssjellis/arduino-high-school-robotics-course
 So Far what is working:
 
 #### 0
-[my00-dual-clean.ino](my00-dual-clean.ino) As the M7 core loads itself and using bootM4() the M4 core, what if one of them has a problem and you are working on the other one? Sometimes you need to clean both cores before you can upload new code to both cores. Or at least clean the other code before uploading new code. 
+[my00-dual-clean.ino](my00-dual-clean.ino) As the M7 core loads itself and using bootM4() the M4 core, what if one of them has a problem and you are working on the other one? Sometimes you need to clean both cores before you can upload new code to both cores. Or at least clean the other code before uploading new code. Video at (here)[https://www.youtube.com/watch?v=EDc_UKpkyfc&list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw&index=3&t=0s]
 
 
 #### 1
-[my01-BlinkM7.ino](my01-BlinkM7.ino) Get the Portenta H7 Blinking with it's weird on board LED's connected to 3V3 so you have to send LOW to turn it on. Great for the board health (can't send 5V to it and break the LED), but crappy for anyone use to HIGH turns LED's on.
+[my01-BlinkM7.ino](my01-BlinkM7.ino) Get the Portenta H7 Blinking with it's weird on board LED's connected to 3V3 so you have to send LOW to turn it on. Great for the board health (can't send 5V to it and break the LED), but crappy for anyone use to HIGH turns LED's on. (Video here)[https://www.youtube.com/watch?v=ZH355owXveo&list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw&index=4&t=0s]
 
 #### 1b
 [my01b-blink-serial.ino](my01b-blink-serial.ino). Always good to test both blink and serial. This code sets M7 to boot M4 as well. If issues make sure M4 is clean.
