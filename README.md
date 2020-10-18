@@ -14,14 +14,10 @@ I just tested ~19 of these programs and put my results at [research/README.md](r
 
 Click image below to view the same playlist link as above
 
-[<img src="image-video/raft.jpg" alt="High School Robotics" width = 300px />](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
-
-
+[<img src="image-video/raft.jpg" alt="Rocksetta Arduino Fast Tutorials" width = 300px />](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
 
 
 #### Please subscribe to my youtube channel and send the link to other Robotics enthusiasts as I am just below the 1000 needed subscribers to make any income.
-
-
 
 
 As of July 24th, 2020 this site is just to get the PortentaH7 working how I like it to work. 
