@@ -21,7 +21,9 @@ Click image to view playlist
 
 #### Please subscribe to my youtube channel as I am just below the 1000 needed subscribers.
 
+Click the below image to view playlist
 
+[(http://img.youtube.com/vi/PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw/0.jpg)](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
 
 
 
