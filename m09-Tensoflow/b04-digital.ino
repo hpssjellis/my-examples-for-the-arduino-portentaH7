@@ -491,30 +491,72 @@ void setup() {
 
 void loop() {
 
+    int myIn1 = rand() % 2;  // either 0 or 1
+    int myIn2 = rand() % 2;  // I would do a for loop but this was easy.
+    int myIn3 = rand() % 2;
+    int myIn4 = rand() % 2;
+    int myIn5 = rand() % 2;
+    int myIn6 = rand() % 2;
+    int myIn7 = rand() % 2;
+    int myIn8 = rand() % 2;
+    int32 input[] = { myIn1, myIn2, myIn3, myIn4, myIn5, myIn6, myIn7, myIn8 };   // 8 inputs.
+     
+    float myOutput[4];   // 4 output floats
+   // float predicted = ml.predict(input, myOutput); // predicted is just the first of the outputs for testing. output has the array
+    
+    //uint8_t itWorked = modelPredict(input, myOutput); // predicted is just the first of the outputs for testing. output has the array
 
-
-  
-   // float input[] = { 0, 0 };   // 2 inputs. 
-    int myInA = rand() % 2;   // either 0 or 1
-    int myInB = rand() % 2;
-    int32 input[] = { myInA, myInB };   // 2 inputs. 
+    //  int32 input[] = { myInA, myInB };   // 2 inputs. 
 
 
     float predicted = modelPredict(input);
-   // float predicted = ml.predict(input);
-    if (predicted >= 0.5){
-       digitalWrite(myLed, LOW); // grounds the LED turns it on only on portenta and nano 33 BLE
-    } else {  
-       digitalWrite(myLed, HIGH); //  turns it off only on portenta and nano 33 BLE
+    myOutput[0] = interpreter->output(0)->data.f[0];
+    myOutput[1] = interpreter->output(0)->data.f[1];
+    myOutput[2] = interpreter->output(0)->data.f[2];
+    myOutput[3] = interpreter->output(0)->data.f[3];
+      
+ //   Serial.println("Mammal     :  " + String(interpreter->output(0)->data.f[0],6) );
+ //   Serial.println("Bird (Aves):  " + String(interpreter->output(0)->data.f[1],6) );
+ //   Serial.println("Reptile    :  " + String(interpreter->output(0)->data.f[2],6) );
+//    Serial.println("Amphibians :  " + String(interpreter->output(0)->data.f[3],6) );
+ //   Serial.println();
+  Serial.println("predicted:" + String(predicted));   // what is predicted ??
+     
+  //  float itWorked = ml.predict(input, myOutput); // predicted is just the first of the outputs for testing. output has the array
+   if (itWorked == 1.0){ 
+
+       
+    if (myOutput[0] >= 0.5){
+       digitalWrite(LEDR, LOW);   // grounds the LED turns it on only on portenta and nano 33 BLE
+       } else {  
+       digitalWrite(LEDR, HIGH);  //  turns it off only on portenta and nano 33 BLE
+    }
+       
+    if (myOutput[1] >= 0.5){
+       digitalWrite(LEDG, LOW);   // grounds the LED turns it on only on portenta and nano 33 BLE
+       } else {  
+       digitalWrite(LEDG, HIGH);  //  turns it off only on portenta and nano 33 BLE
+    }  
+         
+    if (myOutput[2] >= 0.5){
+       digitalWrite(LEDB, LOW);   // grounds the LED turns it on only on portenta and nano 33 BLE
+       } else {  
+       digitalWrite(LEDB, HIGH);  //  turns it off only on portenta and nano 33 BLE
     }
 
+    
+
     // presently serial only works on the M7 core
-   // Serial.println("sin(" +String(x)+ ") = " + String(y) + "\t predicted: " + String(predicted) );
-    Serial.println("Input A: " +  String(input[0]) + ", Input B: " +  String(input[1]) + "\t predicted: " + String(predicted,6) );
+
+       Serial.println("All 8 inputs: " +  String(input[0])+  String(input[1])+  String(input[2])+  String(input[3])+  String(input[4])+ String(input[5])+  String(input[6])+  String(input[7]) ); 
+
+       Serial.println("All 4 predictions, Red:" + String(myOutput[0],4) +", Green:"+ String(myOutput[1],4) +", Blue:"+ String(myOutput[2],4) +", "+ String(myOutput[3],4) );
+       Serial.println("-------------------------------------------------------");
+ }  else {
+      Serial.println("Something bad happened during the prediction."); 
+  }
 
 
-    delay(3000); // slows things down
-
-
+    delay(6000); // slows things down
 }
 
