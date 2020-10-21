@@ -557,9 +557,11 @@ void loop() {
     myOutput[2] = interpreter->output(0)->data.f[2];
     myOutput[3] = interpreter->output(0)->data.f[3];
       
+  //  Serial.println(  String(interpreter->output(0)->data.f[0])  );
 
+    
      
-  // if (predicted == 0){   // the prediction returned results
+
 
        
     if (myOutput[0] >= 0.5){
@@ -583,15 +585,14 @@ void loop() {
     
 
     // presently serial only works on the M7 core
-       Serial.println("Predicted = zero if all is good: " +  String(predicted) ); 
-
+       Serial.println("Zero if all is good, Returned predicted: " +  String(predicted) ); 
+ // Serial.println("All 4 predictions, Red: " + String(interpreter->input(0)->data.f[0],4) +", Green: "+ String(interpreter->input(0)->data.f[1],4) +", Blue: "+ String(interpreter->input(0)->data.f[2],4) +", 4th Item: "+ String(interpreter->input(0)->data.f[3],4) );
+   
        Serial.println("All 8 inputs: " +  String(myInput[0])+  String(myInput[1])+  String(myInput[2])+  String(myInput[3])+  String(myInput[4])+ String(myInput[5])+  String(myInput[6])+  String(myInput[7]) ); 
-
-       Serial.println("All 4 predictions, Red: " + String(myOutput[0],4) +", Green: "+ String(myOutput[1],4) +", Blue: "+ String(myOutput[2],4) +", 4th Item: "+ String(myOutput[3],4) );
+       Serial.println("The 4 predictions, Red: " + String(myOutput[0],4) + ", Green: " + String(myOutput[1],4) + ", Blue: " + String(myOutput[2],4) + ", Other: " + String(myOutput[3],4) );
+ 
        Serial.println("-------------------------------------------------------");
-// }  else {
-     // Serial.println("Something bad happened during the prediction."); 
- // }
+
 
 
     delay(6000); // slows things down
