@@ -443,7 +443,7 @@ void modelSetup(const unsigned char theModel[]){
  
 }
 
-
+/*
 float modelPredict(int32 myInput[]){   // like tensorflowJS  const myPredictArray = await model.predict(xTrainingData).data()  
 // may have to change the types
   
@@ -460,6 +460,39 @@ float modelPredict(int32 myInput[]){   // like tensorflowJS  const myPredictArra
 
   return output->data.f[0];   // may have to edit this
 }
+
+
+
+// Main prediction function
+void modelPredict(){   
+
+  // Run inference, and report any error
+  //TfLiteStatus invoke_status = interpreter->Invoke();
+  // I made the above a global variable
+  myZeroIfPredictionOk = interpreter->Invoke();
+  
+  // if (invoke_status != kTfLiteOk) {
+  //    Serial.print("Error with input: " + String(myInput));
+  // }
+
+
+}
+
+*/
+
+int modelPredict(){   
+  
+  //  input = interpreter->input(0);   // pointer to input
+  //  output = interpreter->output(0);  // pointer to output
+  
+  return interpreter->Invoke();
+}
+
+
+
+
+
+
 
 
 /*================= End Smart Area ======================================*/
@@ -498,17 +531,27 @@ void loop() {
     int myIn6 = rand() % 2;
     int myIn7 = rand() % 2;
     int myIn8 = rand() % 2;
-    int32 input[] = { myIn1, myIn2, myIn3, myIn4, myIn5, myIn6, myIn7, myIn8 };   // 8 inputs.
-     
-    float myOutput[4];   // 4 output floats
-   // float predicted = ml.predict(input, myOutput); // predicted is just the first of the outputs for testing. output has the array
+    int32 myInput[] = { myIn1, myIn2, myIn3, myIn4, myIn5, myIn6, myIn7, myIn8 };   // 8 inputs.
     
-    //uint8_t itWorked = modelPredict(input, myOutput); // predicted is just the first of the outputs for testing. output has the array
-
-    //  int32 input[] = { myInA, myInB };   // 2 inputs. 
-
-
-    float predicted = modelPredict(input);
+  
+    // probably next time I will use a loop to set these
+    interpreter->input(0)->data.f[0] = myInput[0]
+    interpreter->input(0)->data.f[1] = myInput[1]
+    interpreter->input(0)->data.f[2] = myInput[2]
+    interpreter->input(0)->data.f[3] = myInput[3]
+    interpreter->input(0)->data.f[4] = myInput[4]
+    interpreter->input(0)->data.f[5] = myInput[5]
+    interpreter->input(0)->data.f[6] = myInput[6]
+    interpreter->input(0)->data.f[7] = myInput[7]
+  
+  
+  
+  
+    int predicted = modelPredict();
+  
+    float myOutput[4];   // 4 output floats
+  
+    //  use a loop or just use the Pointers???
     myOutput[0] = interpreter->output(0)->data.f[0];
     myOutput[1] = interpreter->output(0)->data.f[1];
     myOutput[2] = interpreter->output(0)->data.f[2];
@@ -519,10 +562,9 @@ void loop() {
  //   Serial.println("Reptile    :  " + String(interpreter->output(0)->data.f[2],6) );
 //    Serial.println("Amphibians :  " + String(interpreter->output(0)->data.f[3],6) );
  //   Serial.println();
-  Serial.println("predicted:" + String(predicted));   // what is predicted ??
+  Serial.println("predicted:" + String(predicted));   // was a prediction successful, zero if good
      
-  //  float itWorked = ml.predict(input, myOutput); // predicted is just the first of the outputs for testing. output has the array
-   if (itWorked == 1.0){ 
+   if (predicted == 0){   // the prediction returned results
 
        
     if (myOutput[0] >= 0.5){
