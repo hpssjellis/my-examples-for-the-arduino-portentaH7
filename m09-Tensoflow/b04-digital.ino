@@ -535,14 +535,14 @@ void loop() {
     
   
     // probably next time I will use a loop to set these
-    interpreter->input(0)->data.f[0] = myInput[0]
-    interpreter->input(0)->data.f[1] = myInput[1]
-    interpreter->input(0)->data.f[2] = myInput[2]
-    interpreter->input(0)->data.f[3] = myInput[3]
-    interpreter->input(0)->data.f[4] = myInput[4]
-    interpreter->input(0)->data.f[5] = myInput[5]
-    interpreter->input(0)->data.f[6] = myInput[6]
-    interpreter->input(0)->data.f[7] = myInput[7]
+    interpreter->input(0)->data.f[0] = myInput[0];
+    interpreter->input(0)->data.f[1] = myInput[1];
+    interpreter->input(0)->data.f[2] = myInput[2];
+    interpreter->input(0)->data.f[3] = myInput[3];
+    interpreter->input(0)->data.f[4] = myInput[4];
+    interpreter->input(0)->data.f[5] = myInput[5];
+    interpreter->input(0)->data.f[6] = myInput[6];
+    interpreter->input(0)->data.f[7] = myInput[7];
   
   
   
@@ -557,12 +557,7 @@ void loop() {
     myOutput[2] = interpreter->output(0)->data.f[2];
     myOutput[3] = interpreter->output(0)->data.f[3];
       
- //   Serial.println("Mammal     :  " + String(interpreter->output(0)->data.f[0],6) );
- //   Serial.println("Bird (Aves):  " + String(interpreter->output(0)->data.f[1],6) );
- //   Serial.println("Reptile    :  " + String(interpreter->output(0)->data.f[2],6) );
-//    Serial.println("Amphibians :  " + String(interpreter->output(0)->data.f[3],6) );
- //   Serial.println();
-  Serial.println("predicted:" + String(predicted));   // was a prediction successful, zero if good
+
      
    if (predicted == 0){   // the prediction returned results
 
@@ -589,9 +584,9 @@ void loop() {
 
     // presently serial only works on the M7 core
 
-       Serial.println("All 8 inputs: " +  String(input[0])+  String(input[1])+  String(input[2])+  String(input[3])+  String(input[4])+ String(input[5])+  String(input[6])+  String(input[7]) ); 
+       Serial.println("All 8 inputs: " +  String(myInput[0])+  String(myInput[1])+  String(myInput[2])+  String(myInput[3])+  String(myInput[4])+ String(myInput[5])+  String(myInput[6])+  String(myInput[7]) ); 
 
-       Serial.println("All 4 predictions, Red:" + String(myOutput[0],4) +", Green:"+ String(myOutput[1],4) +", Blue:"+ String(myOutput[2],4) +", "+ String(myOutput[3],4) );
+       Serial.println("All 4 predictions, Red: " + String(myOutput[0],4) +", Green: "+ String(myOutput[1],4) +", Blue: "+ String(myOutput[2],4) +", 4th Item: "+ String(myOutput[3],4) );
        Serial.println("-------------------------------------------------------");
  }  else {
       Serial.println("Something bad happened during the prediction."); 
@@ -600,4 +595,3 @@ void loop() {
 
     delay(6000); // slows things down
 }
-
