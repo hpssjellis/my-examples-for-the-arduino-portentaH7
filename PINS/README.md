@@ -7,8 +7,7 @@ Information has been pulled from these pages:
 
 
 # OpenMV Vision Shield
-
-https://github.com/openmv/micropython/blob/9992c24f3088e5ebe2138f0651cc962cb9439ef6/ports/stm32/boards/PORTENTA/pins.csv
+https://github.com/openmv/micropython/blob/openmv-1.12/ports/stm32/boards/PORTENTA/pins.csv
 
 https://content.arduino.cc/assets/Schematic-Portenta_Vision_Shield_latest.pdf
 
