@@ -8,6 +8,11 @@ void setup() {
    pinMode(LEDR, OUTPUT);
    pinMode(LEDG, OUTPUT);
    pinMode(LEDB, OUTPUT);
+
+// To turn off to begin with   
+   digitalWrite(LEDB, HIGH);
+   digitalWrite(LEDG, HIGH);
+   digitalWrite(LEDR, HIGH);
    //csv file headers
    Serial.println("Input, Labels");
   
@@ -26,7 +31,8 @@ void loop() {
     int myIn8 = rand() % 2;
     int myInput[] = { myIn1, myIn2, myIn3, myIn4, myIn5, myIn6, myIn7, myIn8 };   // 8 inputs.
  
-    float myOutput[4];   // 4 output floats
+   // float myOutput[4];   // 4 output floats
+    int myOutput[4];   // 4 output floats, but using ints for this
   
     myOutput[0] = rand() % 2;
     myOutput[1] = rand() % 2;
@@ -49,7 +55,7 @@ if (myInput[0] == 1 && myInput[1] == 1 && myInput[2] == 1){
 
 
 // If the last 3 inputs are 1 then make only the last output 1
-if (myInput[0] == 5 && myInput[6] == 1 && myInput[7] == 1){ 
+if (myInput[5] == 1 && myInput[6] == 1 && myInput[7] == 1){ 
     myOutput[0] = 0;
     myOutput[1] = 0;
     myOutput[2] = 0;
@@ -60,12 +66,14 @@ if (myInput[0] == 5 && myInput[6] == 1 && myInput[7] == 1){
    // Now just print the csv file in good format   
 
    Serial.print(String(myInput[0]) +  String(myInput[1]) +  String(myInput[2]) +  String(myInput[3]) +  String(myInput[4]) + String(myInput[5]) +  String(myInput[6]) + String(myInput[7]) ); 
-   Serial.println(", " + String(myOutput[0],4) + String(myOutput[1],4) + String(myOutput[2],4) );
+   Serial.println(", " + String(myOutput[0]) + String(myOutput[1]) + String(myOutput[2]) + String(myOutput[3]) );
      
    //  Serial.print("All 8 inputs: " +  String(myInput[0])+  String(myInput[1])+  String(myInput[2])+  String(myInput[3])+  String(myInput[4])+ String(myInput[5])+  String(myInput[6])+  String(myInput[7]) ); 
  //  Serial.print("The 4 predictions, Red: " + String(myOutput[0],4) + ", Green: " + String(myOutput[1],4) + ", Blue: " + String(myOutput[2],4) );
     
 
-
-    delay(1000); // slows things down
+    digitalWrite(LEDB, LOW);
+    delay(100); // slows things down  
+    digitalWrite(LEDB, HIGH);
+    delay(100); // slows things down  
 }
