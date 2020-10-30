@@ -2,6 +2,11 @@
 My examples for the new Arduino Pro board the Portenta H7
 
 
+## Main Site
+Main Teaching Site that will use this information [https://github.com/hpssjellis/arduino-high-school-robotics-course](https://github.com/hpssjellis/arduino-high-school-robotics-course)
+
+
+
 ## Oct 4th, 2020
 
 I just tested ~19 of these programs and put my results at [research/README.md](research/README.md) I fixed a few mistakes and got DAC working. The reason I tested everything is there is a new version of the mbed board software for the PortentaH7 coming out soon.
