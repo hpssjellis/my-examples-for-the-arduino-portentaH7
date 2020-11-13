@@ -109,6 +109,17 @@ I have some saved models but they are probably a version that is not up to date
 https://github.com/hpssjellis/beginner-tensorflowjs-examples-in-javascript/tree/master/saved-models
 
 
+ConverTing keras back to TFJS try this
 
+```
+#!/bin/bash
+
+#tensorflowjs_converter --input_format=tfjs_layers_model --output_format=keras_saved_model ./model.json ./
+
+
+
+tensorflowjs_converter --output_format=tfjs_layers_model --input_format=keras_saved_model ./ ./
+
+```
 
 
