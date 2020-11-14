@@ -21,7 +21,7 @@ It is not a well made webpage, but it shows how to design a Machine Learning mod
 or
 
 A fully loaded Gitpod can be built here https://gitpod.io/#github.com/hpssjellis/Gitpod-auto-tensorflowJS-to-arduino
-(If taking this option many of the below commands are automated.)
+(If taking this option many of the below commands are automated.) The github for this site is at https://github.com/hpssjellis/Gitpod-auto-tensorflowJS-to-arduino
 
 
 3. Install Tensorflow nightly build and Tensorflowjs. The arduino-cli is in a new thing I am trying.
