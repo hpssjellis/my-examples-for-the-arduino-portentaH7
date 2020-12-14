@@ -8,7 +8,7 @@ https://www.ee.ryerson.ca/~courses/coe718/Data-Sheets/ARM/IS-arm.pdf
 
 https://cheatography.com/ffy00/cheat-sheets/assembly-for-reverse-engeneering/pdf_bw/
 
-
+https://iitd-plos.github.io/col718/ref/arm-instructionset.pdf
 
 
 
