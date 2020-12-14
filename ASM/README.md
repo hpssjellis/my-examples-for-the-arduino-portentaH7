@@ -17,6 +17,9 @@ https://iitd-plos.github.io/col718/ref/arm-instructionset.pdf
 
 # Assembly Tutorials
 
+https://www.tutorialspoint.com/assembly_programming/assembly_tutorial.pdf
+
+
 https://hackr.io/tutorials/learn-assembly-language
 
 
