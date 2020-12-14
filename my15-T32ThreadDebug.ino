@@ -22,7 +22,7 @@ UsbDebugCommInterface  debugComm(&SerialUSB1);
 ThreadDebug            threadDebug(&debugComm, DEBUG_NO_BREAK_IN_SETUP); 
 
 
-int myVar = 6;
+int myLoop = 6;
 
 void setup() {
   Serial.begin(115200);
@@ -33,9 +33,12 @@ void setup() {
 void loop() {
   Serial.println("Serial print works on the M7 core, just ignored on the M4 Core, unless you use RPC!");
   digitalWrite(LEDB, LOW);   // Portenta onboard LED connected to 3V3 so ground it to light
-  delay(1000);               // wait for a second
-  myVar += 1;
-  debugBreak();
+  myLoop += 1;
+    if (myLoop <= 10){
+       delay(1000); // slows things down
+    } else {
+        debugBreak();
+    }
   digitalWrite(LEDB, HIGH);  // turn the LED off by not grounding it, weird eh.
-  delay(3000);               // wait for 3 seconds
+  delay(1000);               // wait for 3 seconds
 }
