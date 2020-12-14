@@ -25,6 +25,10 @@ https://www.whoishostingthis.com/resources/assembly-language/
 
 # Videos
 
+
+https://www.youtube.com/watch?v=j8xkTAVYAxo
+
+
 https://www.youtube.com/watch?v=7vz8VRaArCM
 
 https://www.youtube.com/watch?v=_IF7d_dI_Lc
