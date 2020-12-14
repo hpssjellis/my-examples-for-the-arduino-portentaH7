@@ -16,3 +16,10 @@ https://cheatography.com/ffy00/cheat-sheets/assembly-for-reverse-engeneering/pdf
 <object data="QRC0001_UAL.pdf" type="application/pdf" width="100%"> 
 </object>
 
+.
+
+.
+
+
+
+<embed src="QRC0001_UAL.pdf" type="application/pdf">
