@@ -12,14 +12,3 @@ https://iitd-plos.github.io/col718/ref/arm-instructionset.pdf
 
 
 
-
-<object data="QRC0001_UAL.pdf" type="application/pdf" width="100%"> 
-</object>
-
-.
-
-.
-
-
-
-<embed src="QRC0001_UAL.pdf" type="application/pdf">
