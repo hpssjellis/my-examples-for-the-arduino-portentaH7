@@ -30,7 +30,11 @@
  * 
  * 13. On the terminal line labelled B:: type go loop
  * 
- * 14. Right click to set breakpoint. Then keep clicking "GO"
+ * 14. Right click to set breakpoint. Then keep clicking "GO" 
+ *     or, set myDebug = true if you know where the issue is in your code.
+ *     This breaks your code from the arduino IDE as well
+ *     
+ *     
  * 
  * 15. In the Var --> Watch window type myLoop to see it changing
  * 
@@ -59,7 +63,7 @@ ThreadDebug            threadDebug(&debugComm, DEBUG_NO_BREAK_IN_SETUP);
 ///////////////////// End Add thesse lines to your code //////////////////////////////
 
 
-
+bool myDebug = false; // set to true to insert breakpoint.(stops your code there) 
 int myLoop = 0;
 
 // the setup function runs once when you press reset or power the board
@@ -72,11 +76,11 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
   myLoop += 1;
-  digitalWrite(LEDB, LOW);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(LEDB, LOW);   // turn the Portenta Blue LED on 
   Serial.println("Hi from Portenta");
   delay(100);                       // wait for a second
-  digitalWrite(LEDB, HIGH);    // turn the LED off by making the voltage LOW
+  digitalWrite(LEDB, HIGH);    // turn the Portenta Blue LED off 
   delay(100);                       // wait for a second
   Serial.println("Bye from Portenta");
-  //debugBreak();
+  if (myDebug){debugBreak();} // if myDebug is true will stop code here
 }
