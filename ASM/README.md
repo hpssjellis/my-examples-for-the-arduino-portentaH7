@@ -7,7 +7,7 @@ In no particular order
 https://www.st.com/content/st_com/en/support/learning/stm32-education/stm32-online-training/stm32h7-online-training.html
 
 
-# ARM Portenta Ino
+# ARM Portenta Assembly Inoformation
 [dm00046982-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf](dm00046982-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf)
 
 [dm00237416-stm32f7-series-and-stm32h7-series-cortexm7-processor-programming-manual-stmicroelectronics.pdf](dm00237416-stm32f7-series-and-stm32h7-series-cortexm7-processor-programming-manual-stmicroelectronics.pdf)
