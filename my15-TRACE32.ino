@@ -52,6 +52,8 @@
  * 
  * 16. Right click the Term.View window to clear it.
  * 
+ * 17. Window --> Store Window (Somewhere easy to find to load next time.)
+ * 
  * 
  * 
  * 
@@ -75,7 +77,7 @@ ThreadDebug            threadDebug(&debugComm, DEBUG_NO_BREAK_IN_SETUP);
 ///////////////////// End: Add thesse lines to your code //////////////////////////////
 
 
-bool myDebug = false; // set to true to insert breakpoint.(stops your code there) 
+bool myDebug = true; // set to true to insert breakpoint.(stops your code there) 
 int myLoop = 0;
 
 // the setup function runs once when you press reset or power the board
@@ -88,11 +90,11 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
   myLoop += 1;
-  digitalWrite(LEDB, LOW);   // turn the Portenta Blue LED on 
+  digitalWrite(LEDB, LOW);              // turn the Portenta Blue LED on 
   Serial.println("Hi from Portenta");
-  delay(100);                       // wait for a second
-  digitalWrite(LEDB, HIGH);    // turn the Portenta Blue LED off 
-  delay(100);                       // wait for a second
+  delay(100);                           // wait a bit 
+  digitalWrite(LEDB, HIGH);             // turn the Portenta Blue LED off 
+  delay(100);                           // wait a bit 
   Serial.println("Bye from Portenta");
-  if (myDebug){debugBreak();} // if myDebug is true will stop code here
+  if (myDebug){debugBreak();}           // if myDebug is true will stop code here
 }
