@@ -142,6 +142,14 @@ So Far what is working:
 ![AMG8833 IR 88 Thermal Imager Array Temperature Sensor Module 8x8 Infrared Camera Sensor](image-video/portenta-thermal-8x8-03.png)
 
 
+#### 15
+[my15-TRACE32.ino](my15-TRACE32.ino)  Presntly testing the TRACE32 debugger by [Lauterbach.com](https://www.lauterbach.com/) I will make a video soon. The other my15 sketches werre early attempts. 
+
+
+
+
+
+
 
 #### pinout
 
