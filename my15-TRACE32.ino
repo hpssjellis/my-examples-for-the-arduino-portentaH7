@@ -1,6 +1,19 @@
-/* 1. Download TRACE32 from https://www.lauterbach.com/frames.html?download_demo.html 
+/* 
+ *  my15-TRACE32.ino
+ *  By @rocksetta aka
+ *  Jeremy Ellis
+ *  Use at your own Risk! 
+ *  
+ *  *  This example at https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/blob/master/my15-TRACE32.ino
+ *  
+ *  My resources and links about Assembly languages at https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/tree/master/ASM
+ *  
+ *  1. Download TRACE32 from https://www.lauterbach.com/frames.html?download_demo.html 
  *  Scroll down the long page until you see Arduino Pro 
  *  Download and unzip then create a shortcut of the bin--> windows64-->t32marm.exe file to your desktop. 
+ *  If you use Ubuntu Linux pre download qt5 with this command
+ *  sudo apt-get install qt5-default
+ *  as always with Linux expect port permissions issues.
  *  
  * 2. Pro Arduino Tutorial https://www.arduino.cc/pro/tutorials/portenta-h7/por-ard-trace32
  * 
@@ -33,8 +46,7 @@
  * 14. Right click to set breakpoint. Then keep clicking "GO" 
  *     or, set myDebug = true if you know where the issue is in your code.
  *     This breaks your code from the arduino IDE as well
- *     
- *     
+ *         
  * 
  * 15. In the Var --> Watch window type myLoop to see it changing
  * 
@@ -49,7 +61,7 @@
  */
 
 
-///////////////////// Start Add thesse lines to your code //////////////////////////////
+///////////////////// Start: Add thesse lines to your code //////////////////////////////
 
 
 #include <ThreadDebug.h>
@@ -60,7 +72,7 @@ ThreadDebug            threadDebug(&debugComm, DEBUG_NO_BREAK_IN_SETUP);
 
 
 
-///////////////////// End Add thesse lines to your code //////////////////////////////
+///////////////////// End: Add thesse lines to your code //////////////////////////////
 
 
 bool myDebug = false; // set to true to insert breakpoint.(stops your code there) 
