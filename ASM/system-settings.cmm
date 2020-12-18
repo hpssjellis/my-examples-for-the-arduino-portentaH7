@@ -1,0 +1,103 @@
+// The next serial ports will be used by the GDB FrontEnd startup script
+// if are defined here with non empty values
+
+  GLOBAL &GDBPORT
+  GLOBAL &TERMPORT
+
+  IF OS.NAME()=="Windows"
+  (
+    &GDBPORT=""     ; e.g. &GDBPORT="COM8"
+    &TERMPORT=""    ; e.g. &TERMPORT="COM9"
+  )
+  ELSE IF OS.NAME()=="Linux"
+  (
+    &GDBPORT=""     ; e.g. &GDBPORT="/dev/ttyACM0"
+    &TERMPORT=""    ; e.g. &TERMPORT="/dev/ttyACM1"
+  )
+
+// If &DFUUTIL is not defined here, by default the demos start scripts will search for 
+// Arduino's dfu-util flash programmer at his default location:
+// Windows: ~/AppData/Local/Arduino15/packages/arduino/tools/dfu-util/0.9.0-arduino2/dfu-util.exe
+// Linux: ~/.arduino15/packages/arduino/tools/dfu-util/0.9.0-arduino2/dfu-util
+// Note: in TRACE32 '~' means your user directory
+//
+// In case you have dfu-util in a different path, please define it in &DFUUTIL here below:
+
+  GLOBAL &DFUUTIL
+  &DFUUTIL=""   ; not defined, use default search path  
+  
+  
+// Additional menu to start demos for Portenta H7
+
+  MENU.ReProgram
+  (
+    ADD
+    MENU
+    (
+        POPUP "Portenta H7 Projects"
+        (
+          MENUITEM "[:pfind]Select your Arduino project directory"
+          (
+            CD "*"
+			COPY "~~/demo/arm/hardware/portenta-h7/T32ThreadDebug/start.cmm" start.cmm
+			DO start.cmm MODE=MANUAL
+          )
+		
+		  SEPARATOR
+		
+		  MENUITEM "T32ThreadDebug"
+          (
+            CD.DO "~~/demo/arm/hardware/portenta-h7/T32ThreadDebug/start.cmm" MODE=MANUAL
+          )
+
+          MENUITEM "T32ThreadDebugLogger"
+          (
+            CD.DO "~~/demo/arm/hardware/portenta-h7/T32ThreadDebugLogger/start.cmm" MODE=MANUAL
+          )
+
+          MENUITEM "T32ThreadDebugPrint"
+          (
+            CD.DO "~~/demo/arm/hardware/portenta-h7/T32ThreadDebugPrint/start.cmm" MODE=MANUAL
+          )
+
+		  SEPARATOR
+		  
+          MENUITEM "[:config]Board S/N and License State"
+          (
+            AREA
+            PRINT %COLOR.BLUE ""
+            DODECRYPT "portentah7" "~~/sn.cmm"
+            PRINT %COLOR.BLUE ""
+            PRINT %COLOR.BLUE "Without a valid license, the TRACE32 debugger will only work for few minutes in demo mode."
+            PRINT %COLOR.BLUE "Lauterbach can generate a one-year free license based on the s/n of your Portenta H7 board."
+            PRINT %COLOR.BLUE ""
+            PRINT %COLOR.BLUE "If not registered yet, please register here: https://www.lauterbach.com/4543 "
+            PRINT %COLOR.BLUE "Enter the board serial number, your name and email and you will be sent your license key."
+            PRINT %COLOR.BLUE "Copy & paste the license string in a text file named license.t32, and store it in the main"
+            PRINT %COLOR.BLUE "directory of your TRACE32 installation. Then restart TRACE32."
+            PRINT %COLOR.BLUE "Your license status is visible in LICENSE.state window."
+            PRINT %COLOR.BLUE "You can renew the license 14 days before it expires."
+            PRINT %COLOR.BLUE ""
+            PRIVATE &TUT
+            IF OS.NAME()=="Windows"
+              &TUT=OS.PSD()+"\pdf\tutorial_trace32_gdb_portentah7.pdf"
+            ELSE
+              &TUT=OS.PSD()+"/pdf/tutorial_trace32_gdb_portentah7.pdf"
+            PRINT %COLOR.BLUE "For help please refer to our tutorial in &TUT"
+
+          )
+
+          MENUITEM "[:help]TRACE32 tutorial for Portenta H7"
+          (
+            IF OS.FILE.readable(~~/pdf/tutorial_trace32_gdb_portentah7.pdf)
+              OS.OPEN "~~/pdf/tutorial_trace32_gdb_portentah7.pdf"
+          )
+        )
+     )
+  )
+  
+// T32 Windows Title, will be updated with more info by start.cmm in demo directory 
+
+  TITLE "TRACE32 PowerView front-end debugger for Arm"
+
+  ENDDO

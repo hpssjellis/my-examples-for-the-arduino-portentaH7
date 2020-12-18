@@ -1,0 +1,1183 @@
+; --------------------------------------------------------------------------------
+; @Title: T32ThreadDebug startup script for Arduino Portenta H7 (Cortex-M7)
+; @Description: 
+; Startup script for ARDUINO PORTENTA H7 (core Cortex-M7)
+;   run on Windows and Linux host
+;   support for Arduino Classic IDE and Arduino PRO IDE
+;   required: TRACE32 GDB Frontend, uTrace or CombiProbe
+;
+;   DO start.cmm [FLASH] [MODE=MANUAL|AUTOTIME|AUTOLAST]
+;
+; Script arguments:
+;
+;     FLASH                  force flashing from this script
+
+;     MODE=MANUAL|AUTOTIME|AUTOLAST
+;          MANUAL   = always show a DIALOG to select the Elf file
+;          AUTOTIME = use the most recent Elf file found
+;          AUTOLAST = use the last Elf file selected by the user
+;
+;
+;   N O T E :
+;
+;     If the global macro &GDBPORT is defined in ~~/system-settings.cmm with non empty values
+;     it will be used as communication port for the GDB FrontEnd debug connection
+;
+;     If the global macro &DFUUTIL is defined in ~~/system-settings.cmm with non empty values
+;     it will be used to define the dfu-util flash programming utility position, instead of 
+;     default installation paths used by this script.
+;
+;     If the global macro &TERMPORT is defined in ~~/system-settings.cmm with non empty values
+;     it will be used as communication port for the TERMinal emulator
+;
+;   N O T E :
+;
+;     If the application use a second USB serial port for print, on Windows systems the script will
+;     try to automatically detect it. If found then will automatically open a TERMminal window for it.
+;     The definition of &TERMPORT global macro override automatic port detection
+;
+;;
+;
+; @Keywords: ARM, Cortex-M7,
+; @Author: HLG, MAU, MFE
+; @Board: Arduino Portenta-H7
+; @Chip: STM32H747ZI
+; @Copyright: (C) 1989-2020 Lauterbach GmbH, licensed for use with TRACE32(R) only
+; --------------------------------------------------------------------------------
+TOOLBAR   ON
+STATUSBAR ON
+FramePOS ,,,,Maximized
+WinPAGE.RESet
+WinCLEAR
+MENU.RESet
+RESet
+
+; ------------------------------------------------------------------------------
+; global input parameters
+GLOBAL &GDBPORT
+GLOBAL &TERMPORT
+GLOBAL &DFUUTIL
+
+; ------------------------------------------------------------------------------
+; get input parameters
+LOCAL &param_flash &param_mode
+PRIVATE &parameters
+ENTRY %LINE &parameters
+&param_mode=STRing.SCANAndExtract(STRing.UPpeR("&parameters"),"MODE=","")
+&param_flash=(STRing.SCAN(STRing.UPpeR("&parameters"),"FLASH",0)!=-1)
+
+
+; ------------------------------------------------------------------------------
+; init screen
+WinPOS 0.25 29.214 100. 19. 0. 0. W000
+AREA.view
+SCREEN.ALways
+AREA.CLEAR
+
+LOCAL &flashmode
+LOCAL &gdbComPort &termComPort &portcount &comport1 &comport2
+PRIVATE &inoelf
+
+; ------------------------------------------------------------------------------
+; main check: host OS
+IF (OS.NAME()!="Windows")&&(OS.NAME()!="Linux")
+(
+  DIALOG.OK "OS not supported"
+  ENDDO
+)
+
+; ------------------------------------------------------------------------------
+; menu setup
+IF OS.FILE("~~/system-settings.cmm")
+  DO "~~/system-settings.cmm"
+
+MENU.AddTool "Arduino Files Setup" "[=7N1Sq$6TN16800dvNl$$AB4lZctoIWmecxRKNNfY@l03EZ4HNA7]" "DO "+OS.PPF()+" MODE=MANUAL"
+MENU.AddTool "Start debug session on M7" "[=AN1SxxK$QtW5NV00VfY1$$Eo7ZmInlEOloBxR6UDoEka8tU0RJxW34vd2Bll39W4rn1]" "DO "+OS.PPF()+" MODE=AUTOTIME"
+
+; ------------------------------------------------------------------------------
+; check the MODE parameter
+IF ("&param_mode"!="")&&(!STRing.ComPare("&param_mode","MANUAL"))&&(!STRing.ComPare("&param_mode","AUTOTIME"))&&(!STRing.ComPare("&param_mode","AUTOLAST"))
+  (
+    PRINT %ERROR "Unexpected value for parameter: MODE"
+    PRINT ""
+    PRINT "Usage: DO start.cmm [FLASH] [TERMCOMPORT=<comport>] [MODE=MANUAL|AUTOTIME|AUTOLAST]"
+    PRINT ""
+    PRINT "MODE=MANUAL|AUTOTIME|AUTOLAST"
+    PRINT "     MANUAL   = always show a DIALOG to select the Elf file"
+    PRINT "     AUTOTIME = use the most recent Elf file found"
+    PRINT "     AUTOLAST = use the last Elf file selected by the user"
+    PRINT ""
+    ENDDO
+)
+
+; ------------------------------------------------------------------------------
+; detect the main information
+LOCAL &separator &offset &projectname &filename &elfname &binname
+
+IF OS.NAME()=="Windows"
+  &separator="\"
+ELSE IF OS.NAME()=="Linux"
+  &separator="/"
+
+&offset=STRing.SCANBack(OS.PWD(),"&separator",STRing.LENgth(OS.PWD())-1)
+&projectname=STRing.CUT(OS.PWD(),&offset+1)
+PRINT "Projectname: &projectname"
+
+&filename="&projectname"+".ino"
+PRINT "Filename: &filename"
+
+&binname="&filename"+".bin"
+&elfname="&filename"+".elf"
+PRINT "Elfname: &elfname"
+
+; ------------------------------------------------------------------------------
+; read saved settings if any
+LOCAL &saved_elfM7 &saved_mode
+&saved_elfM7=""
+&saved_mode=""
+
+PRIVATE &uad &line 
+&uad=VERSION.ENVironment(UAD)
+
+IF OS.FILE("&uad/portentah7-settings.cmm")&&("&param_mode"!="MANUAL")
+(
+  OPEN #1 &uad/portentah7-settings.cmm /Read
+  RePeaT
+  (
+    READ #1 %LINE &line
+    IF "&saved_elfM7"==""
+      &saved_elfM7=STRing.SCANAndExtract("&line","ELFM7=","")
+    IF "&saved_mode"==""
+      &saved_mode=STRing.SCANAndExtract("&line","MODE=","")
+  )
+  WHILE (!FILE.EOFLASTREAD())
+  CLOSE #1
+)
+
+; ------------------------------------------------------------------------------
+; check if the saved data are related to the current project
+IF "&saved_elfM7"!=""
+(
+  IF !STRing.ComPare("&projectname",OS.FILE.BASENAME("&saved_elfM7",".ino.elf"))
+  (
+    DIALOG.OK "The saved settings are related to a different project."+CONVert.CHAR(0x0D)+"Switching to MANUAL mode"
+    &param_mode="MANUAL"
+
+    &saved_elfM7=""
+    &saved_mode=""
+  )
+)
+
+; ------------------------------------------------------------------------------
+; by default choose the previously saved way to run the script
+IF "&param_mode"==""
+(
+  IF OS.FILE("&uad/portentah7-settings.cmm")
+  (
+    IF (STRing.ComPare("&saved_mode","MANUAL"))||(STRing.ComPare("&saved_mode","AUTOTIME"))||(STRing.ComPare("&saved_mode","AUTOLAST"))
+    (
+      &param_mode="&saved_mode"
+      PRINT ""
+      PRINT "Selected script execution mode: " %COLOR.BLUE "&saved_mode"
+      PRINT ""
+    )
+  )
+
+  IF "&param_mode"==""
+  (
+    &param_mode="MANUAL"
+    PRINT ""
+    PRINT "Script execution mode: " %COLOR.BLUE "MANUAL"
+    PRINT ""
+  )
+)
+ELSE
+(
+  PRINT ""
+  PRINT "Selected script execution mode: " %COLOR.BLUE "&param_mode"
+  PRINT ""
+)
+
+; ------------------------------------------------------------------------------
+; try if the current MODE is AUTOLAST
+PRIVATE &found
+
+try_again:
+&found=FALSE()
+
+IF STRing.ComPare("&param_mode","AUTOLAST")
+(
+  IF "&saved_elfM7"==""
+  (
+    DIALOG.OK "AUTOLAST mode not possible. Last file Elf unknown."+CONVert.CHAR(0x0D)+"Switching to MANUAL mode"
+    &param_mode="MANUAL"
+  )
+  ELSE
+  (
+    IF OS.FILE(&saved_elfM7)
+    (
+      &found=TRUE()
+      &inoelf="&saved_elfM7"
+      GOSUB CopyInoElf "&inoelf"
+    )
+    ELSE
+    (
+      DIALOG.OK "AUTOLAST mode not possible. Last file Elf not found."+CONVert.CHAR(0x0D)+"Switching to MANUAL mode"
+      &param_mode="MANUAL"
+    )
+  )
+)
+
+; ------------------------------------------------------------------------------
+; find the Elf file if not already found
+IF !&found
+(
+  GOSUB LocateInoElf
+  RETURNVALUES &inoelf
+  IF "&inoelf"==""
+    GOTO try_again
+  ELSE
+    GOSUB CopyInoElf "&inoelf"
+)
+
+; ------------------------------------------------------------------------------
+; CPU setup
+SYStem.Down
+IF PRACTICE.CoMmanD.AVAILable(SYStem.CPU.PortentaH7-CM7)
+  SYStem.CPU PortentaH7-CM7
+ELSE
+  SYStem.CPU STM32H747XI-CM7
+
+; ------------------------------------------------------------------------------
+; check if the bootloader is running on the board
+&flashmode = FALSE()
+IF OS.NAME()=="Windows"
+(
+  GOSUB ArduinoGetComports "035B"
+  &flashmode=("&comport1"!="")
+)
+
+; ------------------------------------------------------------------------------
+; flash the target if required
+IF &param_flash||&flashmode
+  GOSUB FlashSubroutine "&flashmode"
+  
+
+; ------------------------------------------------------------------------------
+; connect to the target
+IF hardware.UTRACE()||hardware.COMBIPROBE()
+(
+  SYStem.CONFIG.DEBUGPORTTYPE SWD
+  SYStem.UP
+)
+ELSE
+(
+
+  IF &param_flash||&flashmode
+    (
+    // After flashing, the board is already resetted
+    )
+  ELSE
+    (
+    // Better to reset before to try a new connection
+    DIALOG.OK "Please reset your Portenta H7 board"+CONVert.CHAR(0x0D)+"then click OK to continue"
+    WAIT 1.s
+    )
+
+  ; search the COM port for GDB debug
+  IF OS.NAME()=="Windows"
+  (
+    IF "&GDBPORT"!=""
+    (
+      &gdbComPort="\\.\&GDBPORT"
+      PRINT "Use GDBPORT=&GDBPORT defined in system-settings.cmm"
+    )
+    ELSE
+    (
+    ; try GDB port autodetection
+    PRINT "Try GDB port auto-detection..."
+    GOSUB ArduinoGetComports "025B"
+    RETURNVALUES &portcount
+
+    PRINT "Found &portcount COM port(s):"
+    if "&comport1"!=""
+      PRINT "Found port &comport1"
+    if "&comport2"!=""
+      PRINT "Found port &comport2"
+
+    SYStem.Down
+    Break.CONFIG.METHOD.Program Onchip
+    SYStem.Option MMUSPACES ON
+    SYStem.PORT &comport1
+
+    ERROR.RESet
+    PRINT "Try GDB debug on port #1 &comport1"
+    SYStem.Mode Attach
+
+    IF ERROR.OCCURRED()
+      (
+      IF "&comport2"!=""
+        (
+        PRIVATE &tmp
+        &tmp="&comport1"
+        &comport1="&comport2"
+        &comport2="&tmp"
+
+        SYStem.Down
+        ERROR.RESet
+        PRINT "Try GDB debug on port #2 &comport1"
+        SYStem.PORT &comport1
+        SYStem.Mode Attach
+
+        IF ERROR.OCCURRED()
+          (
+          DIALOG.OK "Error while connecting to the target on both ports."+CONVert.CHAR(0x0D)+"Please reset the target and try again"
+          END
+          )
+        )
+      ELSE
+        (
+        DIALOG.OK "Error while connecting to the target."+CONVert.CHAR(0x0D)+"Please reset the target and try again"
+        END
+        )
+       )
+
+    &gdbComPort="&comport1"
+    )
+
+  IF "&TERMPORT"!=""
+      &termComPort="\\.\&TERMPORT"
+  ELSE
+      &termComPort="&comport2"
+
+  )
+  ELSE IF OS.NAME()=="Linux"
+  (
+    IF "&GDBPORT"!=""
+    (
+      &gdbComPort="&GDBPORT"
+      PRINT "Use GDBPORT=&GDBPORT defined in system-settings.cmm"
+    )
+    ELSE
+    (
+      DIALOG.OK "GDB Port not defined."+CONVert.CHAR(0x0D)+"Please set it in ~~/system-settings.cmm"
+      ENDDO
+    )
+
+  IF "&TERMPORT"!=""
+      &termComPort="&TERMPORT"
+  )
+
+
+IF !SYSTEM.UP()
+  (
+  SYStem.PORT &gdbComPort
+  Break.CONFIG.METHOD.Program Onchip
+  SYStem.Option MMUSPACES ON
+
+  ERROR.RESet
+  SYStem.Mode Attach
+  IF ERROR.OCCURRED()
+    (
+    DIALOG.OK "Error while connecting to the target."+CONVert.CHAR(0x0D)+"Please reset the target and try again"
+    END
+    )
+  )
+
+
+IF "&termComPort"==""
+  (
+  PRINT "GDB Debugging on port &gdbComPort, no Terminal port available"
+  TITLE "TRACE32 PowerView front-end debugger for Portenta-H7 (core Cortex-M7, gdb port &gdbComPort)"
+  )
+ELSE
+  (
+  PRINT "GDB Debugging on port &gdbComPort, Terminal on port &termComPort"
+  TITLE "TRACE32 PowerView front-end debugger for Portenta-H7 (core Cortex-M7, gdb port &gdbComPort, term port &termComPort)"
+  )
+
+)
+
+; ------------------------------------------------------------------------------
+; load the symbolic information from the Elf file
+Data.LOAD.Elf "./&elfname" /NoCODE
+
+; ------------------------------------------------------------------------------
+; setup the RTOS awareness
+TASK.CONFIG ~~/demo/arm/kernel/rtxarm/v5/rtx.t32
+MENU.ReProgram ~~/demo/arm/kernel/rtxarm/v5/rtx.men
+
+; ------------------------------------------------------------------------------
+; setup the LOGGER trace if available
+IF sYmbol.EXIST(T32_Logger)
+(
+  Trace.METHOD LOGGER
+  LOGGER.RESet
+  LOGGER.AutoArm  ON
+  LOGGER.AutoInit OFF
+  LOGGER.SelfArm  OFF
+  LOGGER.Mode Fifo
+  LOGGER.Mode Create OFF
+  LOGGER.Mode E OFF
+  LOGGER.ADDRESS Var.ADDRESS(T32_Logger)
+  LOGGER.TIMESTAMP UP
+  LOGGER.TimeStamp Up
+  LOGGER.TimeStamp Rate 1000000.  // micros() return 1 uSec timecount
+  LOGGER.OFF
+)
+
+
+
+; ------------------------------------------------------------------------------
+; open some windows
+IF FILE.EXIST(~~~~/win.cmm)
+(
+  DO ~~~~/win.cmm
+)
+ELSE
+(
+  WinPOS 0.25 0.071429 100. 23. 21. 1. W002
+  WinTABS 10. 10. 25.
+  List
+
+  WinPOS 105.13 28.786 44. 22. 0. 0. W003
+  Register.view
+
+  WinPOS 106.13 0.0 88. 8. 9. 1. W001
+  WinTABS 42. 13. 9.
+  TASK.List
+
+  WinPOS 105.88 12.286 89. 10. 5. 0. W004
+  Frame /Args /Locals /Caller
+)
+
+
+; ------------------------------------------------------------------------------
+; open TERM if required
+IF "&termComPort"!=""
+(
+  TERM.RESet
+  TERM.METHOD COM &termComPort 115200 8 NONE 1STOP NONE
+  TERM.Mode VT100
+  WinPOS 105.13 25.357 91. 24. 0. 0. W001
+  TERM.view
+)
+
+
+ENDDO
+
+; --------------------------------------------------------------------------------
+; Subroutine LocateInoElf
+; scan the user temp directory to locate the .elf file corresponding to the Arduino sketch of current directory
+; if found, copy it locally to let T32 load it 
+
+LocateInoElf:
+
+LOCAL &file &count &testpath &ret
+LOCAL &baseCLASSIC &basePRO
+LOCAL &patternCLASSIC &patternPRO
+LOCAL &timeCurrent &timePRO
+LOCAL &elfpathPRO &classicListPrefix
+
+IF OS.NAME()=="Windows"
+(
+  &baseCLASSIC=OS.PHD()+"\AppData\Local\Temp\"
+  &patternCLASSIC="&baseCLASSIC"+"arduino_build_*"
+  &basePRO=".\build\"
+  &patternPRO="&basePRO"+"arduino*"
+  &classicListPrefix="%TEMP%"
+)
+ELSE IF OS.NAME()=="Linux"
+(
+  &baseCLASSIC="/tmp/"
+  &patternCLASSIC="&baseCLASSIC"+"arduino_build_*"
+  &basePRO="./build/"
+  &patternPRO="&basePRO"+"arduino*"
+  &classicListPrefix="/tmp"
+)
+
+&elfpathPRO=""
+
+&count=0
+Var.NEWLOCAL char[5][200] \path
+Var.NEWLOCAL long long int[5] \time
+RePeaT 5.
+(
+  Var.ASSIGN \path[&count] = ""
+  Var.ASSIGN \time[&count] = 0.
+  &count=&count+1
+)
+
+&count=0
+
+; Arduino Classic IDE
+&file=OS.FIRSTFILE(&patternCLASSIC)
+WHILE ("&file"!="")
+(
+  &testpath="&baseCLASSIC"+"&file"+"&separator"+"&elfname"
+
+  IF FILE.EXIST(&testpath)
+  (
+    IF &count<5.
+    (
+      PRIVATE &tmp
+      &tmp=OS.FILE.UnixTime(&testpath)
+      Var.ASSIGN \time[&count] = &tmp
+      IF OS.NAME()=="Windows"
+        &tmp = STRing.Replace("&testpath","\","\\",0.)
+      ELSE
+        &tmp = "&testpath"
+      Var.ASSIGN \path[&count] = "&tmp"
+      &count=&count+1
+      PRINT "Found #"+FORMAT.Decimal(1.,&count)+" : &testpath"
+    )
+    ELSE
+    (
+      DIALOG.OK "More than 5 Elf files built from the Arduino Classic IDE"
+      ENDDO
+    )
+  )
+  &file=OS.NEXTFILE()
+)
+
+; Arduino PRO IDE
+&timePRO=0.
+IF OS.DIR("&basePRO")
+(
+  &file=OS.FIRSTFILE(&patternPRO)
+  &testpath="&basePRO"+"&file"+"&separator"+"&elfname"
+
+  IF FILE.EXIST(&testpath)
+  (
+    &timePRO=OS.FILE.UnixTime(&testpath)
+    &count=&count+1
+    PRINT "Found #"+FORMAT.Decimal(1.,&count)+" : &testpath"
+    &elfpathPRO="&testpath"
+  )
+)
+
+; local copy
+&timeCurrent=0.
+IF FILE.EXIST(~~~~/&elfname)
+  &timeCurrent=OS.FILE.UnixTime(&elfname)
+
+IF &count>1
+  PRINT "ELF file &elfname ambiguous..."
+
+IF STRing.ComPare("&param_mode","MANUAL")
+(
+  GOSUB SelectMultipleChoiceByDialog
+  RETURNVALUES &ret
+)
+ELSE IF STRing.ComPare("&param_mode","AUTOTIME")
+(
+  &ret=""
+  PRIVATE &selected &selectedPos &time
+  IF (&timeCurrent>=&timePRO)
+  (
+    &time = &timeCurrent
+    &selected = "CURRENT"
+  )
+  ELSE
+  (
+    &time = &timePRO
+    &selected = "PRO"
+  )
+
+  &count=0
+  RePeaT 5.
+  (
+    PRIVATE &tmp
+    &tmp = FORMAT.DecimalU(1.,Var.VALUE(\time[&count]))
+    &tmp=&tmp.
+    IF (&tmp>=&time)
+    (
+      &time = &tmp
+      &selected = "CLASSIC"
+      &selectedPos = &count
+    )
+    &count=&count+1
+  )
+
+  ; get results
+  IF STRing.ComPare("&selected","CURRENT")
+  (
+    IF &time!=0
+    (
+      &ret="&elfname"
+      GOSUB UpdateSavedSettings "&ret"
+    )
+    ELSE
+    (
+      DIALOG.OK "AUTOTIME mode not possible. File Elf not found."+CONVert.CHAR(0x0D)+"Switching to MANUAL mode"
+      &param_mode="MANUAL"
+    )
+  )
+  ELSE IF STRing.ComPare("&selected","PRO")
+  (
+    IF &time!=0
+    (
+      &ret="&basePRO"+"&file"+"&separator"+"&elfname"
+      GOSUB UpdateSavedSettings "&ret"
+    )
+    ELSE
+    (
+      DIALOG.OK "AUTOTIME mode not possible. File Elf not found."+CONVert.CHAR(0x0D)+"Switching to MANUAL mode"
+      &param_mode="MANUAL"
+    )
+  )
+  ELSE
+  (
+    IF &time!=0
+    (
+      &ret=Var.STRING(\path[&selectedPos])
+      GOSUB UpdateSavedSettings "&ret"
+    )
+    ELSE
+    (
+      DIALOG.OK "AUTOTIME mode not possible. File Elf not found."+CONVert.CHAR(0x0D)+"Switching to MANUAL mode"
+      &param_mode="MANUAL"
+    )
+  )
+)
+
+RETURN "&ret"
+
+; --------------------------------------------------------------------------------
+; Subroutine SelectMultipleChoiceByDialog
+
+SelectMultipleChoiceByDialog:
+
+LOCAL &result
+LOCAL &classicList &classicSel &proList &proSel &currentList &currentSel
+LOCAL &expand &instr &date &size
+PRIVATE &userChoice
+
+&currentList="not found"
+IF FILE.EXIST(~~~~/&elfname)
+  &currentList="&elfname"
+
+&count=0
+Var.NEWLOCAL char[5][200] \classicCache
+RePeaT 5.
+(
+  Var.ASSIGN \classicCache[&count] = ""
+  &count=&count+1
+)
+
+&classicList="not found"
+&count=0
+RePeaT 5.
+(
+  PRIVATE &tmp
+  &tmp = Var.STRing(\path[&count])
+  IF "&tmp"!=""
+  (
+    PRIVATE &dirname
+    &dirname=OS.FILE.BASENAME("&tmp","&separator&elfname")
+    IF STRing.ComPare("&classicList","not found")
+      &classicList="&classicListPrefix"+"&separator"+"&dirname"
+    ELSE
+      &classicList="&classicList"+","+"&classicListPrefix"+"&separator"+"&dirname"
+    Var.ASSIGN \classicCache[&count] = "&dirname"
+  )
+  &count=&count+1
+)
+
+&proList="not found"
+IF !STRing.ComPare("&elfpathPRO","")
+(
+  PRIVATE &dirname
+  &dirname=OS.FILE.BASENAME("&elfpathPRO","&separator&elfname")
+  &proList="."+"&separator"+"&dirname"
+)
+
+&expand=FALSE()
+&instr="write instructions here"
+&instr="Usage Instructions"+CONVERT.CHAR(10.)
+&instr="&instr"+"  Double-click to select an item from the list and see details (date, size)"+CONVERT.CHAR(10.)
+&instr="&instr"+"  or select an Elf file with the ""File"" button."+CONVERT.CHAR(10.)+CONVERT.CHAR(10.)
+&instr="&instr"+"  Set the mode for the next execution:"+CONVERT.CHAR(10.)
+&instr="&instr"+"    Manual = this dialog"+CONVERT.CHAR(10.)
+&instr="&instr"+"    Auto (time based) = most recent Elf file available"+CONVERT.CHAR(10.)
+&instr="&instr"+"    Auto (last choice) = most recent chosen Elf file"+CONVERT.CHAR(10.)+CONVERT.CHAR(10.)
+&instr="&instr"+"  Set the mode for the debug symbols:"+CONVERT.CHAR(10.)
+&instr="&instr"+"    Just load debug symbols or also flash the program"
+
+; create and open a dialog named "mydialog"
+WinPOS ,,,,,,mydialog
+DIALOG.view
+(&+
+        HEADER "Elf file selection for project directory ...&separator&projectname"
+        POS 2. 0.5 30. 1.
+        TEXT "Elf file: &elfname"
+        POS 30. 0.5 15. 1.
+DATE:   DYNTEXT "&date"
+        POS 49. 0.5 8. 1.
+SIZE:   DYNTEXT "&size"
+        POS 1. 2. 20. 5.
+        BOX "Options"
+        POS 2. 3. 15. 1.
+O.CL:   CHOOSEBOX "Arduino Classic IDE"
+        (&-
+          IF "&classicSel"==""
+            DIALOG.Set SEL "" "&classicList"
+          ELSE
+            DIALOG.Set SEL "&classicSel" "&classicList"
+          GOSUB DateSize
+        )
+O.PRO:  CHOOSEBOX "Arduino PRO IDE"
+        (&-
+          IF "&proSel"==""
+            DIALOG.Set SEL "" "&proList"
+          ELSE
+            DIALOG.Set SEL "&proSel" "&proList"
+          GOSUB DateSize
+        )
+O.CUR:  CHOOSEBOX "current dir"
+        (&-
+          IF "&currentSel"==""
+            DIALOG.Set SEL "" "&currentList"
+          ELSE
+            DIALOG.Set SEL "&currentSel" "&currentList"
+          GOSUB DateSize
+        )
+        POS 22. 2.5 34. 4.
+SEL:    LISTBOX "&currentList"
+        (&-
+          GOSUB DateSize
+        )
+        POS 1. 7. 10. 1.
+        TEXT "User's choice:"
+        POS 12. 7. 44. 1.
+myInputM7: EDIT "" ""
+        POS 46. 8.5 10. 1.
+        BUTTON "[:coloryellow]File..."
+        (
+          WinPOS , , , , , , , , "Open File M7"
+          DIALOG.SetFile.open myInputM7 "~~~~/*.elf"
+        )
+        POS 1. 9.5 55. 3.
+        BOX "Selection mode for the next script execution"
+        POS 2. 10.5 12. 1.
+M.MAN:  CHOOSEBOX "Manual" ""
+        POS 20. 10.5 14. 1.
+M.AU_T: CHOOSEBOX "Auto (time based)" ""
+        POS 41. 10.5 14. 1.
+M.AU_L: CHOOSEBOX "Auto (last choice)" ""
+        POS 1. 12.5 55. 4.
+        BOX "Selection mode for the debug symbols"
+        POS 2. 13.5 40. 1.
+Y.LOAD: CHOOSEBOX "Load debug symbols (program is already in flash)" ""
+        POS 2. 14.5 40. 1.
+Y.FLSH: CHOOSEBOX "Flash program and load debug symbols" ""
+        POS 1. 16.5 1. 1.
+TB1:    TREEBUTTON ""
+        (&-
+           IF &expand
+           (
+             WinRESIZE 57. 18. mydialog
+             &expand=FALSE()
+             DIALOG.Set TB1 "OFF"
+           )
+           ELSE
+           (
+             WinRESIZE 57. 28. mydialog
+             &expand=TRUE()
+             DIALOG.Set TB1 "ON"
+           )
+
+        )
+        POS 2. 16.5 10. 1.
+        TEXTBUTTON "Instructions"
+        (
+           DIALOG.EXecute TB1
+        )
+        POS 46. 16.5 10. 1.
+BOK:    BUTTON "OK" "GOTO myContinueMultiple"
+        POS 1. 18.5 55. 9.
+INFO:   INFOTEXT "&instr" STICKER SUNKEN Variable1 7.
+        CLOSE "GOTO myAbort"
+)
+
+; set default selection
+DIALOG.Set O.CUR
+DIALOG.Set M.MAN
+DIALOG.Set Y.LOAD
+GOSUB DateSize
+
+; set the dialogs size
+WinRESIZE 57. 18. mydialog
+
+waitforDialog:
+STOP
+
+myContinueMultiple:
+
+IF DIALOG.BOOLEAN(M.AU_L)
+  &param_mode="AUTOLAST"
+ELSE IF DIALOG.BOOLEAN(M.AU_T)
+  &param_mode="AUTOTIME"
+ELSE
+  &param_mode="MANUAL"
+
+IF DIALOG.BOOLEAN(Y.FLSH)
+  &param_flash=TRUE()
+ELSE
+  &param_flash=FALSE()
+
+; check any user choice in advance
+&userChoice=DIALOG.STRing(myInputM7)
+IF "&userChoice"!=""
+(
+  ON ERROR GOSUB
+  (
+    DIALOG.OK "Invalid user choice"
+    RETURN
+  )
+  PRIVATE &valid
+  &valid=FALSE()
+  &valid=FILE.EXIST(&userChoice)
+  ON ERROR inherit
+
+  IF !&valid
+  (
+    DIALOG.OK "Please select a valid Elf file"
+    GOTO waitforDialog
+  )
+  ELSE
+    &result="&userChoice"
+)
+ELSE IF DIALOG.BOOLEAN(O.CL)
+(
+  IF ("&classicSel"=="")||(STRing.ComPare("&classicSel","not found"))
+  (
+    DIALOG.OK "Please use double click to select an item" \
+              "or select another file"
+    GOTO waitforDialog
+  )
+  ELSE
+  (
+    GOSUB GetFullName "&classicSel"
+    RETURNVALUES &result
+  )
+)
+ELSE IF DIALOG.BOOLEAN(O.PRO)
+(
+  IF ("&proSel"=="")||(STRing.ComPare("&proSel","not found"))
+  (
+    DIALOG.OK "Please use double click to select an item" \
+              "or select another file"
+    GOTO waitforDialog
+  )
+  ELSE
+    &result="&elfpathPRO"
+)
+ELSE
+(
+  IF ("&currentSel"=="")||(STRing.ComPare("&currentSel","not found"))
+  (
+    DIALOG.OK "Please use double click to select an item" \
+              "or select another file"
+    GOTO waitforDialog
+  )
+  ELSE
+    &result="&currentSel"
+)
+
+; save settings
+PRIVATE &uad
+&uad=VERSION.ENVironment(UAD)
+
+IF FILE.EXIST("&uad/portentah7-settings.cmm")
+  DEL &uad/portentah7-settings.cmm
+
+OPEN #1 &uad/portentah7-settings.cmm /Create
+WRITE #1 "ELFM7="+"&result"
+WRITE #1 "MODE="+"&param_mode"
+CLOSE #1
+
+DIALOG.END
+RETURN "&result"
+
+; --------------------------------------------------------------------------------
+; Subroutine myAbort
+
+myAbort:
+
+DIALOG.END
+DIALOG.OK "Script aborted"
+ENDDO
+
+; --------------------------------------------------------------------------------
+; Subroutine DateSize
+
+DateSize:
+
+IF DIALOG.BOOLEAN(O.CL)
+(
+   &classicSel=DIALOG.STRing(SEL)
+   PRIVATE &tmp
+   GOSUB GetFullName "&classicSel"
+   RETURNVALUES &tmp
+   IF "&tmp"==""
+   (
+     &date="--/--/---- --:--:--"
+     &size="----"
+   )
+   ELSE
+   (
+     &date=OS.FILE.DATE("&tmp")
+     &size=OS.FILE.SIZE("&tmp")
+   )
+)
+ELSE IF DIALOG.BOOLEAN(O.PRO)
+(
+   &proSel=DIALOG.STRing(SEL)
+   IF STRing.ComPare("&proSel","not found")||STRing.ComPare("&proSel","")
+   (
+     &date="--/--/---- --:--:--"
+     &size="----"
+   )
+   ELSE
+   (
+     &date=OS.FILE.DATE(&elfpathPRO)
+     &size=OS.FILE.SIZE(&elfpathPRO)
+   )
+)
+ELSE
+(
+   &currentSel=DIALOG.STRing(SEL)
+   IF STRing.ComPare("&currentSel","not found")||STRing.ComPare("&currentSel","")
+   (
+     &date="--/--/---- --:--:--"
+     &size="----"
+   )
+   ELSE
+   (
+     &date=OS.FILE.DATE(&elfname)
+     &size=OS.FILE.SIZE(&elfname)
+   )
+)
+DIALOG.Set DATE "&date"
+DIALOG.Set SIZE "&size"
+
+RETURN
+
+; --------------------------------------------------------------------------------
+; Subroutine GetFullName
+GetFullName:
+
+PARAMETERS &name
+PRIVATE &count &end &tmp1 &tmp2
+
+&tmp2=""
+&count=0
+&end=FALSE()
+
+WHILE (!&end)&&(&count<5.)
+(
+   &tmp1 = Var.STRING(\classicCache[&count])
+   IF STRing.SCAN("&classicSel","&tmp1",0)!=-1
+   (
+      &tmp2=Var.STRING(\path[&count])
+      &end=TRUE()
+   )
+   &count=&count+1
+)
+
+RETURN "&tmp2"
+
+; --------------------------------------------------------------------------------
+; Subroutine UpdateSavedSettings
+
+UpdateSavedSettings:
+
+PRIVATE &file
+PARAMETERS &file
+
+PRIVATE &uad
+&uad=VERSION.ENVironment(UAD)
+
+IF FILE.EXIST("&uad/portentah7-settings.cmm")
+  DEL &uad/portentah7-settings.cmm
+
+OPEN #1 &uad/portentah7-settings.cmm /Create
+WRITE #1 "ELFM7="+"&file"
+WRITE #1 "MODE="+"&param_mode"
+CLOSE #1
+
+RETURN
+
+; --------------------------------------------------------------------------------
+; Subroutine CopyInoElf
+
+CopyInoElf:
+
+PRIVATE &file &binname &tmp &binpath
+PARAMETERS &file
+
+IF (!STRing.ComPare("&file","&elfname"))&&(!STRing.ComPare("&file",OS.FILE.ABSPATH(&elfname)))
+(
+  PRINT "ELF file &file selected, make local copy"  // for debug symbols
+  COPY &file ~~~~/&elfname
+)
+ELSE
+  PRINT "ELF file &file selected"  // for debug symbols
+
+&binname=STRing.CUT("&elfname",-3)+"bin"
+
+&tmp=OS.FILE.PATH(&file)
+&binpath="&tmp"+"&separator"+"&binname"
+IF FILE.EXIST(&binpath)
+(
+  IF (!STRing.ComPare("&file","&elfname"))&&(!STRing.ComPare("&file",OS.FILE.ABSPATH(&elfname)))
+  (
+    PRINT "BIN file &binname found, make local copy, add FlashButton"  // for flashing
+    COPY &binpath ~~~~/&binname
+  )
+  ELSE
+    PRINT "BIN file &binname found, add FlashButton"  // for flashing
+
+  MENU.AddTool "Arduino Flash Loader for M7" "[=AN19KzK$QtW5NV00VfY1$$kW7plIPtE1lo2xR3UjoE72LXEa$oUklWDf03BxFH8WiR0]" "DO "+OS.PPF()+" FLASH"
+)
+ELSE
+(
+  IF FILE.EXIST(~~~~/&binname)
+    DEL ~~~~/&binname
+)
+
+RETURN
+
+; --------------------------------------------------------------------------------
+; Subroutine FlashSubroutine
+
+FlashSubroutine:
+
+PRIVATE &flashmode &binfile &dfu
+PARAMETERS &flashmode
+&binfile=STRing.CUT("&elfname",-3)+"bin"
+
+IF (OS.FILE.readable(&binfile))
+(
+	PRIVATE &dfu &cmd
+	SYStem.Down
+	PRINT "BIN file ""&binfile"" found"
+
+	WHILE !&flashmode
+	(
+		PRIVATE &yes
+		DIALOG.YesNo "Does the green LED fade on/off?" \
+					 "If not please double click the board reset button, before clicking the YES button" \
+					 "(NO will abort flashing)"
+		ENTRY &yes
+		IF !&yes
+			ENDDO
+
+		&flashmode=TRUE()
+		IF OS.NAME()=="Windows"
+		(
+			GOSUB ArduinoGetComports "035B"
+			&flashmode=("&comport1"!="")
+		)
+		ELSE IF OS.NAME()=="Linux"
+		(
+			PRINT "Serial port for flashing must be available now"
+		)
+	)
+
+	&binfile=OS.FILE.ABSPATH(&binfile)
+
+	IF "&DFUUTIL"==""
+	(
+		IF OS.NAME()=="Windows"
+			&dfu=OS.FILE.ABSPATH("~/AppData/Local/Arduino15/packages/arduino/tools/dfu-util/0.9.0-arduino2/dfu-util.exe")
+		ELSE IF OS.NAME()=="Linux"
+			&dfu=OS.FILE.ABSPATH("~/.arduino15/packages/arduino/tools/dfu-util/0.9.0-arduino2/dfu-util")
+	)
+	ELSE
+	(
+		&dfu=OS.FILE.ABSPATH("&DFUUTIL")
+	)
+
+	IF OS.FILE("&dfu") 
+	(
+		&cmd = """&dfu"" --device 0x2341:0x035b -D ""&binfile"" -a0 --dfuse-address=0x08040000:leave"
+		PRINT %COLOR.GREEN "Flashing..."
+		PRINT "&cmd"
+		OS.Area &cmd
+		PRINT %COLOR.GREEN "...Flashing DONE"
+		WAIT 1.s
+	)
+	ELSE
+	(
+		PRINT %COLOR.RED "Flash programming utility dfu-util not found, can't proceed..."
+		PRINT %COLOR.BLACK "Please define it in ~~/system-settings.cmm."
+		DIALOG.OK "Flash programming utility dfu-util not found, can't proceed..."+CONVert.CHAR(0x0D)+"Please define it in ~~/system-settings.cmm."
+		ENDDO
+	)
+)
+ELSE
+(
+	PRINT %Error "No BIN file available."
+)
+
+RETURN
+
+; --------------------------------------------------------------------------------
+; Subroutine ArduinoGetComports (1 & optionally 2)
+
+ArduinoGetComports:
+PARAMETERS &pid
+PRIVATE    &comport
+
+&portcount=0
+&comport1=""
+&comport2=""
+
+IF "&pid"==""
+	&pid="025B"
+
+IF OS.NAME()=="Windows"
+(
+	PRIVATE &cmd &i &line
+	&cmd="wmic path Win32_PnPEntity Where (DeviceID LIKE 'USB\\VID[_]2341_PID[_]&pid%' and Caption LIKE '%COM%') Get Caption"
+	WinPOS ,,,,,,wmic,Iconic
+	OS.Window &cmd
+	&i=0
+	RePeaT
+	(
+	&line=OS.Window.LINE(wmic,&i)
+	&comport=STRing.CUT(STRing.SCANAndExtract("&line", "(COM",""),-1)
+	&i=&i-1.
+        if "&comport"!=""
+          (
+            &portcount=&portcount+1
+
+            if (&portcount==1)
+              &comport1="&comport"
+            if (&portcount==2)
+              &comport2="&comport"
+          )
+	)
+	WHILE ("&line"!="")
+
+	WinCLEAR wmic
+	IF "&comport1"!=""
+	(
+		PRINT "Found 1st serial port COM&comport1"
+		&comport1="\\.\COM&comport1"
+	)
+	IF "&comport2"!=""
+	(
+		PRINT "Found 2nd serial port COM&comport2"
+		&comport2="\\.\COM&comport2"
+	)
+
+)
+ELSE
+(
+	DIALOG.OK "Automatic Port detection not supported"
+	ENDDO
+)
+RETURN "&portcount"
