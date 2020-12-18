@@ -1,4 +1,4 @@
-Now that the https://www.lauterbach.com/ TRACE32 Debugger comes free withthe Portenta, lets look at a few Assembly Language Cheatsheets. See Arduino Pro Tutorial at https://www.arduino.cc/pro/tutorials/portenta-h7/por-ard-trace32
+Now that the https://www.lauterbach.com/ TRACE32 Debugger comes free with the Portenta, lets look at a few Assembly Language Cheatsheets. See Arduino Pro Tutorial at https://www.arduino.cc/pro/tutorials/portenta-h7/por-ard-trace32
    
 
 
