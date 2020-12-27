@@ -146,7 +146,7 @@ So Far what is working:
 [my15-TRACE32.ino](my15-TRACE32.ino)  Presently testing the TRACE32 debugger by [Lauterbach.com](https://www.lauterbach.com/) Video part2 [here](https://www.youtube.com/watch?v=cqmzTzhpGh0&list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw&index=36), as [Part1 is deprecated](https://www.youtube.com/watch?v=pboPKm5ZDOQ&list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw&index=35) if you have the new [ASM/system-settings.cmm](ASM/system-settings.cmm) file  The other my15 sketches were early attempts and will probably end up in the [old](old) folder. 
 
 #### 16
-[my16-dual-trace32.ino](my16-dual-trace32.ino) So how do you use the free TRACE32 with the inner core. THIS IS STILL IN DRAFT MODE. Theoretically you could use another arduino to capture the M4 RX TX  output, but I am looking for an easier way.
+[my16-dual-trace32.ino](my16-dual-trace32.ino) So how do you use the free TRACE32 with the inner core. THIS IS STILL IN DRAFT MODE. Theoretically you could use another arduino to capture the M4 RX TX  output, but I am looking for an easier way. PRESENTLY THE ARDUINO CODE FOR USING THE M4 CORE IS NOT WORKING WITH TRACE32.
 
 
 
