@@ -97,7 +97,7 @@ enum
 
 int bytesPerFrame;
 
-byte data[320 * 240 * 2]; // QVGA: 320x240 X 2 bytes per pixel (RGB565)
+byte data[160 * 120 * 2]; // QVGA: 320x240 X 2 bytes per pixel (RGB565)
 
 void setup() {
   Serial.begin(921600);
