@@ -78,11 +78,11 @@ ThreadDebug            threadDebug(&debugComm, DEBUG_NO_BREAK_IN_SETUP);
 ///////////////////// End: Add thesse lines to your code //////////////////////////////
 
 
-bool myDebug = true; // set to true to insert breakpoint.(stops your code there) 
+bool myDebug = false; // set to true to insert breakpoint.(stops your code there) 
 
 
 
- int myLoop = 3;
+ int myLoop = 2;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
