@@ -19,40 +19,22 @@
  * 
  * 3. Get Your Portenta SN from the Arduino IDE, Tools-->Board Info (plug in Portenta a select port )
  * 
- * 4. Lisense either now or later at https://www.lauterbach.com/frames.html?register_arduino.php
+ * 4. license either now or later at https://www.lauterbach.com/frames.html?register_arduino.php
  * 
- * Read your replied email for a lisense code.
+ * 5. Read your replied email for a license code. Put the long line of code in a file called license.t32
+ *    Add a new line for each Portenta you own.
+ *    Copy the license.t32 file into the main folder of Trac32
  * 
- * 5. Put the following Thread debug lines in your code, compile and install as usual
+ * 5. Put the following Thread debug lines in your code, compile and flash as usual
  * 
- * 6. Make sure your regular Arduino IDE File --> Preeferences --> Show verbose output during: 
- * set with a check for both  compilation and upload
+ * 6. Load Trace32 and click on "Portenta H7 Projects -->Slect Your Arduino Project Directory"
  * 
- * 7. Find your TEMP build folder and open it in a window to look at the files.
- * note AppData is a hidden part of windows, so best to copy the link from the arduino output. 
+ * 7. Click on "Arduino Classic IDE"--> must double click the temp file --> click OK
  * 
- * 8. Load TRACE32
+ * 8. go loop
  * 
- * 9. Portenta H7 Demos--> T32ThreadDebug --> FILE (use the above link and choose the .elf file)
+ * 9. set a breakpoint if needed
  * 
- * 10. Load Debug symbols (Do not flash as it looks for the wrong .bin file)
- * 
- * 11. reset protenta (Single click)
- * 
- * 12. Insert License data and save if asked
- * 
- * 13. On the terminal line labelled B:: type go loop
- * 
- * 14. Right click to set breakpoint. Then keep clicking "GO" 
- *     or, set myDebug = true if you know where the issue is in your code.
- *     This breaks your code from the arduino IDE as well
- *         
- * 
- * 15. In the Var --> Watch window type myLoop to see it changing
- * 
- * 16. Right click the Term.View window to clear it.
- * 
- * 17. Window --> Store Window (Somewhere easy to find to load next time.)
  * 
  * 
  * 
@@ -70,6 +52,7 @@
 
 USBSerial              SerialUSB1(false, "DebugPort");
 UsbDebugCommInterface  debugComm(&SerialUSB1);
+//ThreadDebug            threadDebug(&debugComm, DEBUG_BREAK_IN_SETUP);
 ThreadDebug            threadDebug(&debugComm, DEBUG_NO_BREAK_IN_SETUP);
 
 
