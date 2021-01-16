@@ -56,6 +56,10 @@ int cutout_get_data(size_t offset, size_t length, float *out_ptr) {
         // grab the value and convert to r/g/b
         uint8_t pixel = frame_buffer[(frame_buffer_row * FRAME_BUFFER_COLS) + frame_buffer_col];
 
+
+        //uint8_t pixel = (pixelTemp>>8) | (pixelTemp<<8);
+        //uint8_t pixel = 255-pixelTemp;
+        
         uint8_t r = pixel;
         uint8_t g = pixel;
         uint8_t b = pixel;
@@ -170,7 +174,7 @@ void loop()
 
 /*   unbracket to grab an image of what the board sees   */
 
-/*
+
     for (size_t ix = 0; ix < features_signal.total_length; ix++) {
         float value[1];
         features_signal.get_data(ix, 1, value);
@@ -180,7 +184,7 @@ void loop()
           ei_printf(", ");
         }
     }
-*/
+
     Serial.println();
     delay(7000);
 }
