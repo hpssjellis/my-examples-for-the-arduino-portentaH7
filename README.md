@@ -148,7 +148,8 @@ So Far what is working:
 #### 16
 [my16-TRACE32-with-assembly-language.ino](my16-TRACE32-with-assembly-language.ino). The new version of Trace32 is ready Jan 11th, 2021. Video available soon, this file is the same as my15, just with some inline assembly code to show how to do some assembly directly in your Arduino code if needed. (Probably a really good idea to stay very far away from any assembly language.)  [New Part 3 TRACE32 video here](https://www.youtube.com/watch?v=_wZrgxLO-Wg&list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw&index=37)
 
-
+### 17 
+[my17-ThreadedTimer.ino](my17-ThreadedTimer.ino)  submitted by Waleed El-Badry example of using potentially parallel timers using the Threadedtimer library by Auden at https://github.com/Aduen/ThreadedTimer Simply download the zipped library and add the library to the Arduino library add zipped file. " A single ThreadedTimer runs in its own Thread and multiple Threaded Timers can run parallel without delaying each other."
 
 
 
