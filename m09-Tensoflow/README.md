@@ -18,14 +18,14 @@ Note: PortentaH7 has only one arduino library, but the Nano 33 BLE has a library
 
 
 #### 1
-[b01_makerML_hello_world.ino](b01_makerML_hello_world.ino) This will be the base, single file demo of the sine wave program to test on your board. Note the model.h file is built into this sketch to simplify uploading. It is your choice if you want to move it to a new tab and include that tab into your program. Probably best to test if it works first. The onboard LED should blink and the serial plotter should show a sine wave.
+[b01_makerML_hello_world.ino](b01_makerML_hello_world.ino) This will be the base, single file demo of the sine wave program to test on your board. Note the model.h file is built into this sketch to simplify uploading. It is your choice if you want to move it to a new tab and include that tab into your program. Probably best to test if it works first. The onboard LED should blink and the serial plotter should show a sine wave. [video here](https://www.youtube.com/watch?v=egrsUlEcjNA&list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw&index=25&t=3s) 
 
 
 #### 2
-[b02_makerML_xor.ino](b02_makerML_xor.ino) This is my example xOr logic program. The TensorflowJS 20keras-xOr.html example is [here](https://www.rocksetta.com/tensorflowjs/beginner-keras/20keras-xOr.html) and the conversion of the saved model to a model.h file is [here](https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/tree/master/m09-Tensoflow/tfjs-convert-to-arduino-header). If the inputs are both HIGH or both LOW the output should be near 0. If either input is HIGH and the other LOW the ouput should be close to 1.
+[b02_makerML_xor.ino](b02_makerML_xor.ino) This is my example xOr logic program. The TensorflowJS 20keras-xOr.html example is [here](https://www.rocksetta.com/tensorflowjs/beginner-keras/20keras-xOr.html) and the conversion of the saved model to a model.h file is [here](https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/tree/master/m09-Tensoflow/tfjs-convert-to-arduino-header). If the inputs are both HIGH or both LOW the output should be near 0. If either input is HIGH and the other LOW the ouput should be close to 1. [video here](https://www.youtube.com/watch?v=pxqgS2x-OJI&list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw&index=26)
 
 #### 3
-[b03_makerML_layers.ino](b03-makerML-layers.ino) This program gives information about the model that has been loaded and tests if the model can be loaded. It does not do a prediction so knowing input and output dimensions or types is not needed. The program should actually assist in showing types and dimensions. More work is needed here. Output is on the serial monitor. minimal blinking is done in this program.
+[b03_makerML_layers.ino](b03-makerML-layers.ino) This program gives information about the model that has been loaded and tests if the model can be loaded. It does not do a prediction so knowing input and output dimensions or types is not needed. The program should actually assist in showing types and dimensions. More work is needed here. Output is on the serial monitor. minimal blinking is done in this program.   [video here](https://www.youtube.com/watch?v=PMHbxf5udmw&list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw&index=27)
 
 #### 4 
 Moved to number 0
