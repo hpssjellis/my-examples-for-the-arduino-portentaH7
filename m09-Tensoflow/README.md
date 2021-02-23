@@ -28,7 +28,9 @@ Note: PortentaH7 has only one arduino library, but the Nano 33 BLE has a library
 [b03_makerML_layers.ino](b03-makerML-layers.ino) This program gives information about the model that has been loaded and tests if the model can be loaded. It does not do a prediction so knowing input and output dimensions or types is not needed. The program should actually assist in showing types and dimensions. More work is needed here. Output is on the serial monitor. minimal blinking is done in this program.   [video here](https://www.youtube.com/watch?v=PMHbxf5udmw&list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw&index=27)
 
 #### 4 
-Moved to number 0
+[b04-digital.ino](b04-digital.ino) Taken from the TensorflowJS Javascript browser version at [https://www.rocksetta.com/tensorflowjs/beginner-keras/23keras-digital.html](https://www.rocksetta.com/tensorflowjs/beginner-keras/23keras-digital.html)
+
+[video here](https://www.youtube.com/watch?v=nNPwjqm2k9A&list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw&index=29&t=2s)
 
 
 #### 5
