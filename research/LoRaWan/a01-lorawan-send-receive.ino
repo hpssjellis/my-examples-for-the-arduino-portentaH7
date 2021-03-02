@@ -13,12 +13,12 @@
 LoRaModem modem;
 
 
-#include "arduino_secrets.h"
+//#include "arduino_secrets.h"
 // Best to use an arduino_secrets.h file but easier here
 
 
-String appEui = "0000000000000000";
-String appKey = "0D48D367653405B2298FE6711633546A";
+String appEui = "0000000000000000";    // you can leave this as it is
+String appKey = "11111111111111111111111111111";  // you have to change this
 
 void setup() {
     
