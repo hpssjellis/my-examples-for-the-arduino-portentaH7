@@ -1,6 +1,15 @@
 Hopefully more people in North America can try to get the LoRa Vision Shield working
 
 
+ ## Connected, to Helium HNT eople Network in the US
+ 
+See [helium-connected.ino](helium-connected.ino) for connection in the US to the Helium Crypto HNT People Network. 
+Must login to the https://console.helium.com/devices  and add your device EUI then the other 2 variables are generated for you.
+
+Basically used all the default settings and only MKRWAN.h 
+
+
+
 My attempt to learn information and make an end Device that I can drive around and see if it connects.
 
 [a01-lorawan-send-receive.ino](a01-lorawan-send-receive.ino)
