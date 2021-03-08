@@ -9,6 +9,10 @@ Must login to the https://console.helium.com/devices  and add your device EUI th
 Basically used all the default settings and only MKRWAN.h 
 
 
+## Mbed examples
+
+SoftwareSerial
+
 
 
 ## Arduino not Portenta examples
