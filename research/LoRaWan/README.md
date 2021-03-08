@@ -10,6 +10,36 @@ Basically used all the default settings and only MKRWAN.h
 
 
 
+
+## Arduino not Portenta examples
+
+https://github.com/navneetnivu07/lora
+
+
+https://www.seeedstudio.com/blog/2019/11/18/lora-and-lorawan-for-arduino-and-raspberry-pi/
+
+
+http://pdacontrolen.com/review-module-rak811-lora-node-at-commands-lorawan-3/
+
+
+https://github.com/navneetnivu07/lora/blob/master/LoRa%20Point%20to%20Point%20Commands.txt
+
+
+
+
+
+
+## At Commands Reference
+
+https://www.compel.ru/pdf-items/rak/pn/rak811/7008b5e14cfb8d82cebabdb784d57018
+
+https://www.st.com/resource/en/application_note/dm00346311-examples-of-at-commands-on-icubelrwan-stmicroelectronics.pdf
+
+
+
+
+
+
 My attempt to learn information and make an end Device that I can drive around and see if it connects.
 
 [a01-lorawan-send-receive.ino](a01-lorawan-send-receive.ino)
