@@ -38,7 +38,7 @@ void setup() {
   //while (!Serial); // we want this to run on USB charger
   
   // change this to your regional band (eg. US915, US915_HYBRID, EU868, AS923, ...)
-  if (!modem.begin(US915_HYBRID)) {
+  if (!modem.begin(US915)) {
     Serial.println("Failed to start module");
     digitalWrite(LEDR, LOW);  // high off for new boards
     digitalWrite(LEDG, HIGH);  
@@ -47,16 +47,12 @@ void setup() {
   };
   delay(5000);
     // For North American basic connections
-  modem.setPort(10);
-  modem.dataRate(3);
-  modem.setADR(true);
+
   
   Serial.println("Your module version is: " + String(modem.version()) );
   Serial.println("Your device EUI is: " + String(modem.deviceEUI()) );
   Serial.println("getDataRate: " + String(modem.getDataRate()) );
-  Serial.println("getADR: " + String(modem.getADR()) );
-  Serial.println("getRX2Freq: " + String(modem.getRX2Freq()) );
-  Serial.println("getRX2DR(): " + String(modem.getRX2DR()) );
+
 
   bool connected = false;
   while (connected == false) {
@@ -80,14 +76,11 @@ void setup() {
   }
   
   // For North American basic connections
-  modem.setPort(10);
-  modem.dataRate(3);
-  modem.setADR(true);
+
   Serial.println("getDevAddr: " + String(modem.getDevAddr()) );
   Serial.println("getNwkSKey: " + String(modem.getNwkSKey()) );
   Serial.println("getAppSKey: " + String(modem.getAppSKey()) );
-  Serial.println("getFCU: " + String(modem.getFCU()) );
-  Serial.println("getFCD: " + String(modem.getFCD()) );
+
 
   
 }
