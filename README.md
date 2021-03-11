@@ -13,6 +13,13 @@ I just tested ~19 of these programs and put my results at [research/README.md](r
 
 
 
+
+## Portenta Basic Pinout
+
+![image-video/basic-portenta-pinout.png](image-video/basic-portenta-pinout.png)
+
+
+
 # The growing playlist of all my Portenta Videos is now live at
 
 [https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw](https://www.youtube.com/playlist?list=PL57Dnr1H_egtm0pi-okmG0iE_X5dROaLw)
