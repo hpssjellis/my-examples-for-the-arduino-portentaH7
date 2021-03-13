@@ -6,6 +6,14 @@ Pull Requests would be appreciated
 Information has been pulled from these pages:
 
 
+# PINS 
+
+Checkout this 
+
+https://github.com/arduino/ArduinoCore-mbed/blob/2cd3540ce2cd2e13450f322747280b7cb018d8af/patches/0026-PortentaH7-fix-mbed-6.1-build.patch#L659-L914
+
+
+
 # OpenMV Vision Shield
 https://github.com/openmv/micropython/blob/openmv-1.12/ports/stm32/boards/PORTENTA/pins.csv
 
