@@ -9,6 +9,18 @@ Must login to the https://console.helium.com/devices  and add your device EUI th
 Basically used all the default settings and only MKRWAN.h 
 
 
+## mbed arduino core defines for LoRaWan arre here
+
+https://github.com/arduino/ArduinoCore-mbed/tree/master/cores/arduino/mbed/components/lora
+
+https://github.com/arduino/ArduinoCore-mbed/blob/master/cores/arduino/mbed/components/lora/COMPONENT_SX1276/SX1276_LoRaRadio.h
+
+https://github.com/arduino/ArduinoCore-mbed/blob/master/cores/arduino/mbed/components/lora/COMPONENT_SX1272/registers/sx1272Regs-LoRa.h
+
+
+
+
+
 ## Mbed examples
 
 SoftwareSerial
