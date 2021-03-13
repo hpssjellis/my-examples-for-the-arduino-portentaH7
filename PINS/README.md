@@ -13,6 +13,14 @@ Checkout this
 https://github.com/arduino/ArduinoCore-mbed/blob/2cd3540ce2cd2e13450f322747280b7cb018d8af/patches/0026-PortentaH7-fix-mbed-6.1-build.patch#L659-L914
 
 
+# Rufus Girard
+https://rufus31415.github.io/arduino-portenta-h7-carrier-board.html
+
+His board image
+
+https://raw.githubusercontent.com/Rufus31415/arduino-pro-portenta-h7-carrier-board/master/images/schematics.svg
+
+
 
 # OpenMV Vision Shield
 https://github.com/openmv/micropython/blob/openmv-1.12/ports/stm32/boards/PORTENTA/pins.csv
