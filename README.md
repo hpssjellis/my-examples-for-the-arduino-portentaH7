@@ -18,9 +18,9 @@ I just tested ~19 of these programs and put my results at [research/README.md](r
 
 ![image-video/basic-portenta-pinout.png](image-video/basic-portenta-pinout.png)
 
-Schematic [here](https://content.arduino.cc/assets/Schematics-ASX00031.pdf)
+Portenta Schematic [here](https://content.arduino.cc/assets/Arduino-PortentaH7-schematic-V1.0.pdf)
 
-Datasheet pdf [here](https://content.arduino.cc/assets/Datasheet-Portenta-Breakout-Board.pdf)
+Portenta full Datasheet pdf [here](https://content.arduino.cc/assets/Pinout-PortentaH7_latest.pdf)
 
 
 
