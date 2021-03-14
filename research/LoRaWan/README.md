@@ -9,6 +9,14 @@ Must login to the https://console.helium.com/devices  and add your device EUI th
 Basically used all the default settings and only MKRWAN.h 
 
 
+## TheThingsIndustries Open Source stack
+
+https://github.com/TheThingsIndustries
+
+
+
+
+
 ## mbed arduino core defines for LoRaWan arre here
 
 https://github.com/arduino/ArduinoCore-mbed/tree/master/cores/arduino/mbed/components/lora
