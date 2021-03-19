@@ -1,104 +1,117 @@
 /*
-* Lorawan continuous attempt to connect
-* by @Rocksetta
-* March 1st, 2021
-* 
-* Assumes you have done the MKRWANFWUpdate_standalone for your zone 
-* US915_HYBRID
-* 
+  Lora Send And Receive
+  This sketch demonstrates how to send and receive data with the MKR WAN 1300/1310 LoRa module.
+  This example code is in the public domain.
 */
 
 #include <MKRWAN.h>
 
 LoRaModem modem;
 
+////////////  Set this either true = reciever or false = sender
+bool myReceiver = false;  // set to false to send message
+bool myExitSendLoop = false;
+String inString = "";
+int val = 0;
 
-//#include "arduino_secrets.h"
-// Best to use an arduino_secrets.h file but easier here
 
-
-String appEui = "0000000000000000";    // you can leave this as it is
-String appKey = "11111111111111111111111111111";  // you have to change this
-
-void setup() {
-    
-   pinMode(LEDR, OUTPUT);
-   pinMode(LEDG, OUTPUT);
-   pinMode(LEDB, OUTPUT);
-   digitalWrite(LEDR, LOW);  // high off for new boards
-   digitalWrite(LEDG, LOW);  
-   digitalWrite(LEDB, LOW);  
-   delay(10000);   // just to give time to load serial monitor
-   digitalWrite(LEDR, HIGH);  // high off for new boards
-   digitalWrite(LEDG, HIGH);  
-   digitalWrite(LEDB, HIGH);  
-
-  
-  Serial.begin(115200);
-  //while (!Serial); // we want this to run on USB charger
-  
-  // change this to your regional band (eg. US915, US915_HYBRID, EU868, AS923, ...)
-  if (!modem.begin(US915_HYBRID)) {
-    Serial.println("Failed to start module");
-    digitalWrite(LEDR, LOW);  // high off for new boards
-    digitalWrite(LEDG, HIGH);  
-    digitalWrite(LEDB, HIGH);  
-    while (1) {}
-  };
-  delay(5000);
-    // For North American basic connections
-  modem.setPort(10);
-  modem.dataRate(3);
-  modem.setADR(true);
-  
+void myPrintMask(){
+ 
+  Serial.println("-------------------------------");
   Serial.println("Your module version is: " + String(modem.version()) );
-  Serial.println("Your device EUI is: " + String(modem.deviceEUI()) );
   Serial.println("getDataRate: " + String(modem.getDataRate()) );
   Serial.println("getADR: " + String(modem.getADR()) );
   Serial.println("getRX2Freq: " + String(modem.getRX2Freq()) );
   Serial.println("getRX2DR(): " + String(modem.getRX2DR()) );
-
-  bool connected = false;
-  while (connected == false) {
-      digitalWrite(LEDR, HIGH);  // high off for new boards
-      digitalWrite(LEDG, HIGH);  
-      digitalWrite(LEDB, LOW); 
-     Serial.println("[LoRaWan] Joining network...");
-     connected = modem.joinOTAA(appEui, appKey);
-     if (connected) {
-         digitalWrite(LEDR, HIGH);  // high off for new boards
-         digitalWrite(LEDG, LOW);  
-         digitalWrite(LEDB, HIGH);  
-         Serial.println("[LoRaWan] Joined network! " + String(connected));
-     } else {
-        digitalWrite(LEDR, HIGH);  // high off for new boards
-        digitalWrite(LEDG, HIGH);  
-        digitalWrite(LEDB, HIGH);  
-        Serial.println("[LoRaWan] Joining network failed, retrying in 3 seconds... "+ String(connected));
-     }
-     delay(3000);
-  }
-  
-  // For North American basic connections
-  modem.setPort(10);
-  modem.dataRate(3);
-  modem.setADR(true);
+   
   Serial.println("getDevAddr: " + String(modem.getDevAddr()) );
   Serial.println("getNwkSKey: " + String(modem.getNwkSKey()) );
   Serial.println("getAppSKey: " + String(modem.getAppSKey()) );
   Serial.println("getFCU: " + String(modem.getFCU()) );
   Serial.println("getFCD: " + String(modem.getFCD()) );
-
+  Serial.println("getChannelMask: " + String(modem.getChannelMask()));
   
+  Serial.println("isChannelEnabled(0): " + String(modem.isChannelEnabled(0)));
+  Serial.println("isChannelEnabled(1): " + String(modem.isChannelEnabled(1)));
+  Serial.println("isChannelEnabled(2): " + String(modem.isChannelEnabled(2)));
+  Serial.println("isChannelEnabled(3): " + String(modem.isChannelEnabled(3)));
+  Serial.println("isChannelEnabled(4): " + String(modem.isChannelEnabled(4)));
+  Serial.println("isChannelEnabled(5): " + String(modem.isChannelEnabled(5)));
+  Serial.println("isChannelEnabled(6): " + String(modem.isChannelEnabled(6)));
+  Serial.println("-------------------------------");
+}
+
+
+
+
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(115200);
+  //while (!Serial); //allow start without serial
+  // change this to your regional band (eg. US915, AS923, ...)
+  if (!modem.begin(US915)) {
+    Serial.println("Failed to start module");
+    while (1) {}
+  };
+
+  myPrintMask(); 
+  
+  Serial.println("Now Disabling all channels and enable channel 2 ");
+  modem.disableChannel(0);
+  modem.disableChannel(1);
+  modem.enableChannel(2);
+  modem.disableChannel(3);
+  modem.disableChannel(4);
+  modem.disableChannel(5);
+  modem.disableChannel(6);
+
+  modem.setPort(10);
+  modem.dataRate(1);
+  modem.setADR(false);
+  
+  myPrintMask(); 
+
+ // modem.minPollInterval(10);
+
 }
 
 void loop() {
-  Serial.println();
-  Serial.println("Enter a message to send to network");
-  Serial.println("(make sure that end-of-line 'NL' is enabled)");
+  myExitSendLoop = false;
+  delay(20000);
+  myPrintMask();
+ 
+  if (myReceiver){
 
-  while (!Serial.available());
-  String msg = Serial.readStringUntil('\n');
+    
+////// all receiver code here
+    Serial.println("This code is the receiver!");
+    int packetSize = modem.parsePacket();
+    if (packetSize){
+         while (modem.available()) {
+             int inChar = modem.read();
+             inString += (char)inChar;
+             val = inString.toInt(); 
+          }
+          inString = ""; 
+          
+      }
+      Serial.println("Received message: ");
+      Serial.println(val);
+    } else {
+
+////// all sender code here
+  delay(5000);      
+  Serial.println("This is the sender code activated");
+  //Serial.println("Enter a message to send to network");
+ // Serial.println("(make sure that end-of-line 'NL' is enabled)");
+
+ // while (!Serial.available());
+ // String msg = Serial.readStringUntil('\n');
+
+ // String msg = "Hello Lora\n";
+  
+  String msg = "231";   // program expecting numbers!
 
   Serial.println();
   Serial.print("Sending: " + msg + " - ");
@@ -120,23 +133,12 @@ void loop() {
     Serial.println("(you may send a limited amount of messages per minute, depending on the signal strength");
     Serial.println("it may vary from 1 message every couple of seconds to 1 message every minute)");
   }
-  digitalWrite(LEDR, HIGH);  // high off for new boards
-  digitalWrite(LEDG, HIGH);  
-  digitalWrite(LEDB, HIGH);  
-  delay(1000);
-  digitalWrite(LEDR, HIGH);  // high off for new boards
-  digitalWrite(LEDG, LOW);  
-  digitalWrite(LEDB, HIGH);  
-  if (!modem.available()) {
+  delay(5000);
+  if (!modem.available() || !myExitSendLoop ) {
     Serial.println("No downlink message received at this time.");
-    digitalWrite(LEDR, HIGH);  // high off for new boards
-    digitalWrite(LEDG, HIGH);  
-    digitalWrite(LEDB, LOW);  
-    delay(1000);
-    digitalWrite(LEDR, HIGH);  // high off for new boards
-    digitalWrite(LEDG, LOW);  
-    digitalWrite(LEDB, HIGH);  
+    myExitSendLoop = true;
     return;
+    
   }
   char rcv[64];
   int i = 0;
@@ -149,5 +151,13 @@ void loop() {
     Serial.print(rcv[j] & 0xF, HEX);
     Serial.print(" ");
   }
+  
   Serial.println();
+  if (myExitSendLoop){
+     myExitSendLoop = false;
+     return;
+    }
+  }
+
+
 }
