@@ -23,6 +23,12 @@ Portenta Schematic [here](https://content.arduino.cc/assets/Arduino-PortentaH7-s
 Portenta full Datasheet pdf [here](https://content.arduino.cc/assets/Pinout-PortentaH7_latest.pdf)
 
 
+STM32H747XIH6  https://www.st.com/en/microcontrollers-microprocessors/stm32h747xi.html#11  
+
+STM32H747XIH6   datasheet https://www.st.com/resource/en/datasheet/stm32h747xi.pdf  
+
+ STM32H747XIH6    video https://www.st.com/en/microcontrollers-microprocessors/stm32h747xi.html#
+
 
 # The growing playlist of all my Portenta Videos is now live at
 
