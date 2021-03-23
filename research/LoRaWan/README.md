@@ -14,6 +14,16 @@ Basically used all the default settings and only MKRWAN.h
 https://github.com/TheThingsIndustries
 
 
+## murata SOC info
+
+https://www.murata.com/en-us/products/connectivitymodule/lpwa/lora
+
+
+
+
+
+
+
 
 
 
