@@ -22,6 +22,8 @@ Portenta Schematic [here](https://content.arduino.cc/assets/Arduino-PortentaH7-s
 
 Portenta full Datasheet pdf [here](https://content.arduino.cc/assets/Pinout-PortentaH7_latest.pdf)
 
+Arduino MBED core github  https://github.com/arduino/ArduinoCore-mbed
+
 
 STM32H747XIH6  https://www.st.com/en/microcontrollers-microprocessors/stm32h747xi.html#11  
 
