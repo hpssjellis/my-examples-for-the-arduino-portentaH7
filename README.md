@@ -1,6 +1,9 @@
 ## my-examples-for-the-arduino-portentaH7
 My examples for the new Arduino Pro board the Portenta H7
 
+## Arduino Library 
+https://github.com/hpssjellis/portenta-pro-community-solutions
+
 
 ## Main Site
 Main Teaching Site that will use this information [https://github.com/hpssjellis/arduino-high-school-robotics-course](https://github.com/hpssjellis/arduino-high-school-robotics-course)
