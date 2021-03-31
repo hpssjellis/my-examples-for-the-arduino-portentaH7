@@ -1,6 +1,6 @@
  // Testing the PWM pins
 
-![portenta-breakout-board.png](portenta-breakout-board.png)
+![portenta-breakout-board.png](portenta-breakout-board-boot.png)
 
 
 Breakout board Schematic [here](https://content.arduino.cc/assets/Schematics-ASX00031.pdf)
