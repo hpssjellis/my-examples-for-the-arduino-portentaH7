@@ -1,0 +1,25 @@
+
+unsigned long mySCL0 = PH_7;
+unsigned long mySDA0 = PH_8;
+unsigned long mySCL1 = PB_6;
+unsigned long mySDA1 = PB_7;
+unsigned long mySCL2 = PH_11;
+unsigned long mySDA2 = PH_12;
+
+
+void setup() {
+  Serial.begin(115200);
+  // put your setup code here, to run once:
+
+}
+
+void loop() {
+  Serial.println("SCL0 PH_7: " + String(mySCL0));
+  Serial.println("SDA0 PH_8: " + String(mySDA0));
+  Serial.println("SCL1 PB_6: " + String(mySCL1));
+  Serial.println("SDA1 PB_7: " + String(mySDA1));
+  Serial.println("SCL2 PH_11: " + String(mySCL2));
+  Serial.println("SDA2 PH_12: " + String(mySDA2));
+  Serial.println("---------------------------");
+  delay(3000);
+}
