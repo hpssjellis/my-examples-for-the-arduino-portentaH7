@@ -157,7 +157,8 @@ void setup( void )
     LoRaRadio.begin(915000000);
 
     LoRaRadio.setFrequency(915000000);
-    LoRaRadio.setTxPower(14);
+    LoRaRadio.setTxPower(14); // no antenna: 2 about 3 inches, 7 about 12 inches
+                               // with antenna: 1 easy 50 m,  need to test more
     LoRaRadio.setBandwidth(LoRaRadio.BW_125);
     LoRaRadio.setSpreadingFactor(LoRaRadio.SF_7);
     LoRaRadio.setCodingRate(LoRaRadio.CR_4_5);
