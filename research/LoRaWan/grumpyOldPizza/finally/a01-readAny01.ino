@@ -69,7 +69,7 @@ Serial.println( (char)LoRaRadio.read() );
 
 */
 
-   int myIncoming = LoRaRadio.parsePacket();
+   int myIncoming = LoRaRadio.parsePacket();   // must grab before read!
   // Serial.println("LoRaRadio.parsePacket(): "+String( myIncoming ) );
   
 Serial.println("LoRaRadio.parsePacket(): "+String( myIncoming ) );
