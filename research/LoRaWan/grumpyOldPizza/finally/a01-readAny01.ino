@@ -1,4 +1,5 @@
 
+
 #include "LoRaRadio.h"
 
 static void myMasterReceiveCallback(void);
@@ -29,8 +30,8 @@ void setup( void ){
     LoRaRadio.setCodingRate(LoRaRadio.CR_4_5);
     LoRaRadio.setLnaBoost(true);
   
-    LoRaRadio.onReceive(myReceive);  .. just telling it about the callback 
-    LoRaRadio.receive(5);    // not much of a wait between receives
+    LoRaRadio.onReceive(myReceive);  // just telling it about the callback 
+    LoRaRadio.receive(0);    // is zero infinite????
 
 }
 
