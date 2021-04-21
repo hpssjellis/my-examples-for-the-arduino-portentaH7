@@ -1,19 +1,8 @@
 
-
 #include "LoRaRadio.h"
 
-static void myMasterReceiveCallback(void);
+static void myReceive(void);
 
-
-static void myReceive(void){
-
-   for (int i = 0; i < LoRaRadio.parsePacket(); i++) {
-        Serial.print((char)LoRaRadio.read());
-   } 
-   Serial.println("");
-  
-   LoRaRadio.receive(5);
-}
 
 
 void setup( void ){
@@ -35,6 +24,26 @@ void setup( void ){
 
 }
 
+
+
+
+
 void loop( void ){
 
 }
+
+
+
+
+
+static void myReceive(void){
+
+   for (int i = 0; i < LoRaRadio.parsePacket(); i++) {
+        Serial.print((char)LoRaRadio.read());
+   } 
+   Serial.println("");
+  
+   LoRaRadio.receive(5);
+}
+
+
