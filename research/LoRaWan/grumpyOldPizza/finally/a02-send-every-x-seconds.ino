@@ -25,5 +25,5 @@ void loop( void ){
        LoRaRadio.write('N');
        LoRaRadio.write('G');
        LoRaRadio.endPacket();
-    delay(20000);              // wait x seconds
+    delay(10000);              // wait x seconds
 }
