@@ -1,14 +1,11 @@
 
 #include "LoRaRadio.h"
 
-static void myReceive(void);
-
-
-
-void setup( void ){
+void setup( void )
+{
     Serial.begin(9600);
     
-    while (!Serial) { }   // non-blocking for the murata module on the Portenta
+    while (!Serial) { }  // non-blocking on Portenta murata module
 
     LoRaRadio.begin(915000000);
 
@@ -18,32 +15,15 @@ void setup( void ){
     LoRaRadio.setSpreadingFactor(LoRaRadio.SF_7);
     LoRaRadio.setCodingRate(LoRaRadio.CR_4_5);
     LoRaRadio.setLnaBoost(true);
-  
-    LoRaRadio.onReceive(myReceive);  // just telling it about the callback 
-    LoRaRadio.receive(0);    // is zero infinite????
 
 }
-
-
-
-
 
 void loop( void ){
-
+    LoRaRadio.beginPacket();
+       LoRaRadio.write('P');
+       LoRaRadio.write('O');
+       LoRaRadio.write('N');
+       LoRaRadio.write('G');
+       LoRaRadio.endPacket();
+    delay(20000);              // wait x seconds
 }
-
-
-
-
-
-static void myReceive(void){
-
-   for (int i = 0; i < LoRaRadio.parsePacket(); i++) {
-        Serial.print((char)LoRaRadio.read());
-   } 
-   Serial.println("");
-  
-   LoRaRadio.receive(5);
-}
-
-
