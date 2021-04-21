@@ -39,10 +39,22 @@ static void myReceive(void){
   
 
 
-            
-   int myIncoming = LoRaRadio.parsePacket();
-  // Serial.println("LoRaRadio.parsePacket(): "+String( myIncoming ) );
+   int myI=0;
 
+char myInArray[64];
+
+  
+  while (LoRaRadio.available()) {
+    myInArray[myI++] = (char)LoRaRadio.read() ;
+  }
+
+byte lastChar = strlen(myInArray)-1;                                  
+ myInArray[lastChar]= '\0';                   
+
+
+Serial.println(myInArray);
+
+/*
 
 Serial.print( (char)LoRaRadio.read() );
 Serial.print( (char)LoRaRadio.read() );
@@ -54,6 +66,13 @@ Serial.print( (char)LoRaRadio.read() );
 Serial.println( (char)LoRaRadio.read() );
 
 
+
+*/
+
+   int myIncoming = LoRaRadio.parsePacket();
+  // Serial.println("LoRaRadio.parsePacket(): "+String( myIncoming ) );
+  
+Serial.println("LoRaRadio.parsePacket(): "+String( myIncoming ) );
    Serial.println("Done");
    Serial.print("(RSSI: ");
    Serial.print(LoRaRadio.packetRssi());
@@ -64,24 +83,6 @@ Serial.println( (char)LoRaRadio.read() );
 
 
 
-/*
-  char myInArray[64];
-  
-  while (LoRaRadio.available()) {
-    myInArray[myIncoming++] = (char)LoRaRadio.read();
-  }
-  Serial.print("Received: ");
-  for (unsigned int j = 0; j < myIncoming; j++) {
-    Serial.print(myInArray[j] >> 4, HEX);
-    Serial.print(myInArray[j] & 0xF, HEX);
-  }
-   //Serial.print(myInArray);
-  
-*/
-   Serial.println("");
-
-  
-  // LoRaRadio.receive(0);  // not sure if we have to call this again.  test
 }
 
 
