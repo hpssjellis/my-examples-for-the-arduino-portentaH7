@@ -20,7 +20,7 @@ void setup( void ){
     LoRaRadio.setLnaBoost(true);
   
     LoRaRadio.onReceive(myReceive);  // just telling it about the callback 
-    LoRaRadio.receive(0);    // is zero infinite????
+    LoRaRadio.receive(0);            // is zero infinite, other upto milliseconds
 
 }
 
@@ -43,7 +43,7 @@ static void myReceive(void){
    } 
    Serial.println("");
   
-   LoRaRadio.receive(5);
+  // LoRaRadio.receive(0);  // not sure if we have to call this again.  test
 }
 
 
