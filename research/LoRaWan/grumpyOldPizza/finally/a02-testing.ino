@@ -24,7 +24,7 @@ void loop( void ){
    //    LoRaRadio.write('N');
    //    LoRaRadio.write('G');
    //    LoRaRadio.endPacket();
-    delay(20000);              // wait x seconds
+    delay(10000);              // wait x seconds
 
  //String msg = Serial.readStringUntil('\n');
  String msg = "Hello-Lora";
@@ -40,13 +40,11 @@ void loop( void ){
 
   int err;
   LoRaRadio.beginPacket();
-  LoRaRadio.print(msg);
-  err = LoRaRadio.endPacket(true);
-  if (err > 0) {
-    Serial.println("Message sent correctly!");
-  } else {
-    Serial.println("Error sending message :(");
-  }
+  LoRaRadio.print(msg);    
+  LoRaRadio.endPacket(); 
+
+  Serial.println("Message sent: "+String(msg));
+
 
 
 
