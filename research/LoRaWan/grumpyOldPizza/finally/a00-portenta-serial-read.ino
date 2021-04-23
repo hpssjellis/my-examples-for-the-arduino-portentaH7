@@ -29,7 +29,7 @@
 //using namespace mbed;  // sometimes needed
 using namespace rtos;
 
-int myLastUart = -1;
+//int myLastUart = -1;
 Thread thread;
 
 UART mySerial3(PJ_8,  PJ_9,  NC, NC); //TX, TR, RTS, CTS  NOTE: NC means not connected
@@ -41,10 +41,7 @@ void myLedBlue_thread(){
    while (true) {
       digitalWrite(LEDB, !digitalRead(LEDB));   //switch on / off
       ThisThread::sleep_for(1000);
-      if (myLastUart >=0) {
-         Serial.println("Last Serial message was from UART:" + String(myLastUart));
-         myLastUart = -1;
-        }
+
       Serial.println(".");
 
    }
@@ -54,8 +51,7 @@ void myLedBlue_thread(){
 void setup(){
     pinMode(LEDB, OUTPUT);   // LEDB = blue, LEDG or LED_BUILTIN = green, LEDR = red 
     Serial.begin(115200);
-    
-    mySerial3.begin(115200); //   check 9600 worked
+    mySerial3.begin(9600);   // not 115200 does not work on Murata module
    
     thread.start(myLedBlue_thread);
 }
@@ -64,7 +60,6 @@ void loop(){
 
   if (mySerial3.available()) {          // If anything comes in Serial0 
      Serial.write(mySerial3.read());   // Read it and send it out Serial (USB)
-     //myLastUart = 3;                   // Helps to know which UART sent the last message
   }
 
 
