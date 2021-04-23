@@ -9,7 +9,7 @@ TimerMillis timerOn;
    int myIncoming ;
    int myRssi     ;
    int mySnr      ;
-   const int myCharMax = 255;
+   const int myCharMax = 64;  // code breaks if sent bigger than this
    char myInArray[myCharMax];
 
 
@@ -17,10 +17,10 @@ TimerMillis timerOn;
 
 
 void callbackOn(void){
-  Serial.println();  
-  Serial.println();  
+  Serial.println();         
+  Serial.println();         
   Serial.println(myInArray);
-  Serial.println("parsePacket(): "+String( myIncoming ) + ", RSSI: " + String(myRssi)+", R: " + String(mySnr) );
+  Serial.println("parsePacket(): "+String( myIncoming ) + ", RSSI: " + String(myRssi)+", SNR: " + String(mySnr) );
 
 }
 
@@ -65,8 +65,9 @@ static void myReceive(void){
    mySnr      = LoRaRadio.packetSnr();
    strncpy(myInArray, "", myCharMax);  // erase the array of chars
    
-  while (LoRaRadio.available()) {
+  while (LoRaRadio.available() ) {
     myInArray[myI++] = (char)LoRaRadio.read() ;
+    if (myI >= myCharMax) {break;}
   }
 
   //byte lastChar = strlen(myInArray)-1;                                  
