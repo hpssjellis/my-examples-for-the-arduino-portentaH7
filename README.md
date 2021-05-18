@@ -111,6 +111,13 @@ So Far what is working:
 #### 2g
 [my02g-analogRead-m4-rpc.ino](my02g-analogRead-m4-rpc.ino). Showing how to do analogRead of A0 to A6 but on the M4 core. Also found that delayMicrosecond(1234); was needed between each Serial.println(); statement for RPC to fully work. 
 
+#### 2h
+[my02h-rpc-from-m4.ino](my02h-rpc-from-m4.ino). Some people have been having troubles with complex varriable passing on the Arduino forum at  https://forum.arduino.cc/t/passing-variable-from-cm7-to-cm4-using-rpc/692026/4  this program just shows that the variable can be on the M4 core and use RPC to be controlled by the M7 core. It also shows storing more than one variable. The issues on the forum are using much more complex systems so not sure if this will be helpfull.
+
+
+
+
+
 
 ### Note: End advanced RPC stuff that requires a few changes to your library
  The changes were add -fexceptions to the cflags.txt and cxxflags.txt files in the board location  AppData\Local\Arduino15\packages\arduino-beta\hardware\mbed\1.2.2\variants\PORTENTA_H7_M4
