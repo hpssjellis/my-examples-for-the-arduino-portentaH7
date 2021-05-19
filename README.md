@@ -185,6 +185,19 @@ So Far what is working:
 [my18-mbed-thread.ino](my18-mbed-thread.ino) My version of mbed threading. Good stuff here.
 
 
+
+
+### 18 
+[my19-ethernet-webserver.ino](my19-ethernet-webserver.ino) Finally Ethernet working on both Linux and Windows. This should work for both the Etherrnet Vision Shield and the Breakout board.
+
+
+
+
+
+
+
+
+
 #### pinout
 
 ## Portenta H7 Pinout documentation:
