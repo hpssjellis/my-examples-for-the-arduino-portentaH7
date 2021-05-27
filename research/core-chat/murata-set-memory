@@ -1,0 +1,38 @@
+/*
+ * v0.0.1-murata-set-memory
+ * 
+ * 
+ * 
+ * 
+ */
+
+const int myBigMax = 5;   // bytes as chars to send
+char myBigInArray[myBigMax];   // max incoming
+
+  
+void setup( void ){
+    Serial.begin(9600);
+    
+    while (!Serial) { }   // non-blocking for the murata module on the Portenta
+
+   
+}
+
+
+void loop( void ){
+  int myI;   
+  while (Serial.available()) {  
+      
+     myBigInArray[myI++] = (char)Serial.read();   // maybe later use HEX
+     if (myI >= myBigMax) {break;}
+  }
+    
+  Serial.write(myBigInArray);
+  strncpy(myBigInArray, "", myBigMax);  // erase the array of chars
+ 
+
+
+  
+}
+
+
