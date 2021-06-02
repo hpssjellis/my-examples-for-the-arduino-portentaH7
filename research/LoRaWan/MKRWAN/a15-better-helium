@@ -15,8 +15,8 @@ bool connected = false;
 // Please enter your sensitive data in the Secret tab or arduino_secrets.h
 // Note: Best to have the App_Device hard coded. Run the program once to see the value.
 //#include "arduino_secrets.h"
-#define SECRET_APP_EUI "000000000000000"
-#define SECRET_APP_KEY "00000000000000000000000"
+#define SECRET_APP_EUI "0000000000000000"
+#define SECRET_APP_KEY "0000000000000000000000000000000"
 
 
 String appEui = SECRET_APP_EUI;   // just strings of the above 
@@ -71,10 +71,10 @@ void setup() {
 
   myPrintMask();
   delay(3000);
-  Serial.println("Now Disabling all channels and enable channel 0 test only for Helium ");
+  Serial.println("Now Disabling all channels and enable channel 1 only for Helium ");
 
-  modem.enableChannel(0);
-  modem.disableChannel(1);
+  modem.disableChannel(0);
+  modem.enableChannel(1);    // only one enabled for Helium
   modem.disableChannel(2);
   modem.disableChannel(3);
   modem.disableChannel(4);
@@ -192,4 +192,5 @@ void myPrintMask(){
   delay(30);
   Serial.println("-------------------------------");
 }
+
 
