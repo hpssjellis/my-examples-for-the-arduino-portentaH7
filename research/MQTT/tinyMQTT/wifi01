@@ -1,0 +1,115 @@
+/*
+
+
+
+ This example is written for a network using WPA encryption. For
+ WEP or WPA, change the Wifi.begin() call accordingly.
+
+ Circuit:
+ * Board with NINA module (Arduino MKR WiFi 1010, MKR VIDOR 4000 and UNO WiFi Rev.2)
+ * LED attached to pin 9
+
+ created 25 Nov 2012
+ by Tom Igoe
+ */
+
+
+#include "Arduino.h"
+#include "WiFi.h"
+
+#include "TinyMqtt.h"   // https://github.com/hsaturn/TinyMqtt
+
+/** Basic Mqtt Broker
+  *
+  *  +-----------------------------+
+  *  | ESP                         |
+  *  |       +--------+            | 
+  *  |       | broker |            | 1883 <--- External client/s
+  *  |       +--------+            |
+  *  |                             |
+  *  +-----------------------------+
+  */
+
+#define PORT 1883
+MqttBroker broker(PORT);
+
+// Choose either the following arduino_secrets.h tab and bracket out the next 2 lines after it
+// That route is more secure.
+// Or just change the lines below for your Network and Password. Eaier but not as secure
+// Since if you share this file it will have your info on it
+
+//#include "arduino_secrets.h"   // more safe
+#define SECRET_SSID "jer20fe"
+#define SECRET_PASS "earlynow"
+
+
+
+char ssid[] = SECRET_SSID;    // Changing the secret strings to a character array
+char pass[] = SECRET_PASS;    
+int keyIndex = 0;              
+
+int status = WL_IDLE_STATUS;
+WiFiServer server(80);
+
+void setup() {
+  Serial.begin(115200);      // initialize serial communication
+  delay(5000);
+  Serial.println("Wait a bit to connect serial monitor");
+  delay(5000);
+  Serial.println("Wait a bit");
+  delay(5000);
+  Serial.println("Wait a bit");
+  
+  pinMode(LED_BUILTIN, OUTPUT);      // set the LED pin mode
+  pinMode(LEDB, OUTPUT);      // set the LED pin mode
+  digitalWrite(LEDB, LOW);  
+
+
+
+  // attempt to connect to Wifi network:
+  while (status != WL_CONNECTED) {
+    Serial.print("Attempting to connect to Network named: ");
+    Serial.println(ssid);                   // print the network name (SSID);
+
+    // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
+    status = WiFi.begin(ssid, pass);
+    // wait 5 seconds for connection:
+    delay(5000);
+  }
+  server.begin();                           // start the web server on port 80
+  printWifiStatus();                        // you're connected now, so print out the status
+  digitalWrite(LEDB, HIGH);  
+  digitalWrite(LED_BUILTIN, LOW); 
+
+
+  broker.begin();
+
+  
+}
+
+
+void loop() {
+
+    broker.loop();
+ 
+}
+
+void printWifiStatus() {
+  // print the SSID of the network you're attached to:
+  Serial.print("SSID: ");
+  Serial.println(WiFi.SSID());
+
+  // print your board's IP address:
+  IPAddress ip = WiFi.localIP();
+  Serial.print("IP Address: ");
+  Serial.println(ip);
+
+  // print the received signal strength:
+  long rssi = WiFi.RSSI();
+  Serial.print("signal strength (RSSI):");
+  Serial.print(rssi);
+  Serial.println(" dBm");
+  // print where to go in a browser:
+  Serial.print("To see this page in action, open a browser to http://");
+  Serial.println(ip);
+}
