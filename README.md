@@ -1,7 +1,8 @@
 ## my-examples-for-the-arduino-portentaH7
 My examples for the new Arduino Pro board the Portenta H7
 
-## Arduino Library 
+## My New Arduino Library 
+Based on these examples and other demos
 https://github.com/hpssjellis/portenta-pro-community-solutions
 
 
