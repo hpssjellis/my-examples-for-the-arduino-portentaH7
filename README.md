@@ -7,7 +7,7 @@ https://github.com/hpssjellis/portenta-pro-community-solutions
 
 
 ## Main Site
-Main Teaching Site that will use this information [https://github.com/hpssjellis/arduino-high-school-robotics-course](https://github.com/hpssjellis/arduino-high-school-robotics-course)
+Main Teaching Site that will use this information [https://github.com/hpssjellis/high-school-robotics-tinyml-machine-learning-curriculum](https://github.com/hpssjellis/high-school-robotics-tinyml-machine-learning-curriculum)
 
 
 
