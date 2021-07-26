@@ -7,7 +7,9 @@ https://github.com/hpssjellis/portenta-pro-community-solutions
 
 
 ## Main Site
-Main Teaching Site that will use this information [https://github.com/hpssjellis/high-school-robotics-tinyml-machine-learning-curriculum](https://github.com/hpssjellis/high-school-robotics-tinyml-machine-learning-curriculum)
+Main Teaching Site that will use this information [https://github.com/hpssjellis/maker100](https://github.com/hpssjellis/maker100)
+
+## main Library for the Portenta [here](https://github.com/hpssjellis/portenta-pro-community-solutions)
 
 
 
