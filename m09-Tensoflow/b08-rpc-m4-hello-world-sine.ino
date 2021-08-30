@@ -330,13 +330,13 @@ unsigned int model_tflite_len = 2640;
 // Start Debug.cc information    ----------------------------------------------------------
 
 
- //  Note: CORE_CM7 deprecated as of MBED 1.3.0 , new names are:  PORTENTA_H7_M7,  ARDUINO_NANO33BLE
- #if  defined (CORE_CM7)   ||  defined (PORTENTA_H7_M7) ||  defined (ARDUINO_NANO33BLE) ||  defined (YOUR_BOARD1) // CORE_CM7 is for the PortentaH7 outer core
+ #if  defined (CORE_CM7)   || defined (CORE_CM4)  || defined (TEENSYDUINO) ||  defined (ARDUINO_NANO33BLE) ||  defined (YOUR_BOARD1) // CORE_CM7 is for the PortentaH7 outer core
  
     // do abosolutely nothing the default works
 
- // Note: CORE_CM4, NANO_33_BLE deprecated as MBED of 1.30, new names: PORTENTA_H7_M4 see above for Nano33BLE   
- #elif defined (CORE_CM4) ||  defined (PORTENTA_H7_M4) || defined (NANO_33_BLE)   ||  defined (YOUR_BOARD2)  // CORE_CM4 is for the PortentaH7 inner core
+ // Note:  NANO_33_BLE deprecated as MBED of 1.30, new name: ARDUINO_NANO33BLE  
+ // Note:  CORE_CM4 MBED of 1.30, moved above  
+ #elif   defined (NANO_33_BLE)   ||  defined (YOUR_BOARD2)  // CORE_CM4 is for the PortentaH7 inner core
  
      #define DEBUG_SERIAL_OBJECT (Serial) 
 
