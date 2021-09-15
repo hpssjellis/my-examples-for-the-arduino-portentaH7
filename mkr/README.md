@@ -7,6 +7,8 @@ Note: Just cause it is a MKR shield doesn't mean it works out of the box with th
 Probably the best link to Arduino's MKR family store  https://store.arduino.cc/usa/arduino/arduino-mkr-family   
 
 
+(Update these old USA links.  USA should be replaced by products in the below link.)
+
 Some to look at:
 
 SD Card   https://www.mouser.ca/new/arduino/arduino-mkr-sd-proto-shield/  
@@ -17,7 +19,7 @@ RGB shield   https://store.arduino.cc/usa/mkr-rgb-shield
 
 GPS shield   https://store.arduino.cc/usa/mkr-gps-shield
 
-IMU Inertia  https://store.arduino.cc/usa/arduino-mkr-imu-shield
+IMU Inertia  https://store.arduino.cc/usa/arduino-mkr-imu-shield    (Presently store only working in Europe/Africa try incognito mode on your browser)
 
 Thermal https://store.arduino.cc/usa/mkr-therm-shield
 
