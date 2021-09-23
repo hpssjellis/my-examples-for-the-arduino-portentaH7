@@ -12,6 +12,7 @@ data sheet   https://content.arduino.cc/assets/ASX00021-ASX00026-Datasheet.pdf
 Not exact just getting ideas
 
 <img src="https://user-images.githubusercontent.com/5605614/134554861-813ae4a7-3dd5-464b-b162-10ebc722c0ec.png" width=800 />
+<img src="https://user-images.githubusercontent.com/5605614/134555899-5b741b35-8513-4d1e-a8ef-49b0c9a2b27c.png" width=800 />
 
 
 
@@ -26,7 +27,10 @@ Not exact just getting ideas
 
 https://store.arduino.cc/usa/portenta-vision-shield
 
-ehternet pdf    https://content.arduino.cc/assets/SL-ASX00021.PDF
+Ethernet pdf    https://content.arduino.cc/assets/SL-ASX00021.PDF
+
+
+
 
 
 
