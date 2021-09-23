@@ -22,3 +22,10 @@ pdf  https://content.arduino.cc/assets/SL-ASX00026.PDF
 https://store.arduino.cc/usa/portenta-vision-shield
 
 ehternet pdf    https://content.arduino.cc/assets/SL-ASX00021.PDF
+
+
+Not exact just getting ideas
+
+<img src="https://user-images.githubusercontent.com/5605614/134554861-813ae4a7-3dd5-464b-b162-10ebc722c0ec.png" width=800 />
+
+
