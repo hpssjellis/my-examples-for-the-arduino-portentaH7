@@ -15,3 +15,18 @@ Breakout Board Datasheet pdf [here](https://content.arduino.cc/assets/Datasheet-
 
 
 
+note: I am tryiing to make my own PCB boards with the HD connectors of the breakout board
+
+Top would have 2 
+
+DF40C-80DS-0.4V(51)
+
+https://www.digikey.ca/en/products/detail/hirose-electric-co-ltd/DF40C-80DS-0-4V-51/1969493?s=N4IgTCBcDaICIDEAsAGAwgWgBwrgZQxQDokA1ACgFYBGAShAF0BfIA
+
+
+and the bottom layer with 2 
+
+DF40C-80DP-0.4V(51)
+
+
+https://www.digikey.ca/en/products/detail/hirose-electric-co-ltd/DF40C-80DP-0-4V-51/1969492?s=N4IgTCBcDaICIDEAsAGAwgWgBwrgBQxQDokA1ACgFYBGAShAF0BfIA
