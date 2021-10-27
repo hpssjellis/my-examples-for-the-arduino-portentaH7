@@ -502,8 +502,8 @@ void setup() {
 
   
   
-  .. modelSetup(model_tflite);
-   modelSetup(&sdram_model_tflite);
+  // modelSetup(model_tflite);
+   modelSetup(*sdram_model_tflite);   // SDRAM pointer to first element in the array
   
 }
 
