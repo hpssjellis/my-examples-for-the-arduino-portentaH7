@@ -24,6 +24,12 @@ I just tested ~19 of these programs and put my results at [research/README.md](r
 
 ![image-video/basic-portenta-pinout.png](image-video/basic-portenta-pinout.png)
 
+
+![image](https://user-images.githubusercontent.com/5605614/141244275-9fbc9248-ead8-400b-8029-134b55621547.png)
+
+
+
+
 Portenta Schematic [here](https://content.arduino.cc/assets/Arduino-PortentaH7-schematic-V1.0.pdf)
 
 Portenta full Datasheet pdf [here](https://content.arduino.cc/assets/Pinout-PortentaH7_latest.pdf)
