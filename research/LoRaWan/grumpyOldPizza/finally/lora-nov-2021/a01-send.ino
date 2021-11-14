@@ -1,72 +1,44 @@
 #include "LoRaRadio.h"
-//#include "TimerMillis.h"
 
-//TimerMillis timerOn;
 
-int myIncoming ;
-int myRssi     ;
-int mySnr      ;
+   int myDelay = 15000;   // 1000 = 1 second
+const int myCharMax = 11;  // not sure why 11 not 10
 
-const int myCharMax = 10; // allows 10 bytes      //64;  code breaks if sent bigger than this
-char myInArray[myCharMax];
-
-//static void myReceive(void);
+ char msg[myCharMax]  = "num6------";  // 10 bytes   
+                  //  = "----------";  // must be this length
 
 
 
 
-//void callbackOn(void){
-
-//}
-
-
-
-void setup( void ){
+void setup( void )
+{
     Serial.begin(9600);
     
-    while (!Serial) { }   // non-blocking for the murata module on the Portenta
+    while (!Serial) { }  // non-blocking on Portenta murata module
 
     LoRaRadio.begin(915000000);
 
     LoRaRadio.setFrequency(915000000);
-    LoRaRadio.setTxPower(1);    //default 14
-    
-    LoRaRadio.setBandwidth(LoRaRadio.BW_125);
-    LoRaRadio.setSpreadingFactor(LoRaRadio.SF_7);
-    LoRaRadio.setCodingRate(LoRaRadio.CR_4_5);
-    LoRaRadio.setLnaBoost(true); 
+    LoRaRadio.setTxPower(1);                      // smallest try -1, default 14,  max ~20
+ 
+    LoRaRadio.setBandwidth(LoRaRadio.BW_125);     // Bandwidth: B W_125   BW_250   BW_500
+    LoRaRadio.setSpreadingFactor(LoRaRadio.SF_7); // Spreading Factor: SF_7   SF_8    SF_9  SF_10 SF_11 SF_12 
+    LoRaRadio.setCodingRate(LoRaRadio.CR_4_5);    // Coding Rate: CR_4_5  CR_4_6  CR_4_7  CR_4_8  
+    LoRaRadio.setLnaBoost(true);
     
     LoRaRadio.setIQInverted(false);  // true gateway send/receive, false node send/receive
     LoRaRadio.setPublicNetwork(false);  //false private network
 
-  
-    LoRaRadio.onReceive(myReceive);  // just telling it about the callback 
-    LoRaRadio.receive(0);            // is zero infinite, other upto milliseconds
-   // timerOn.start(callbackOn,  3000);
-    //timerOn.start(callbackOn, 0, 3000);
 }
-
 
 void loop( void ){
 
-}
+  //String msg = Serial.readStringUntil('\n'); 
+  LoRaRadio.beginPacket();  
+  LoRaRadio.write(msg, sizeof(msg));    
+  LoRaRadio.endPacket(); 
 
-
-static void myReceive(void){  // constantly set to receive
+  Serial.println("Message sent: "+String(msg));
   
-   int myI=0;  
-   myIncoming = LoRaRadio.parsePacket();   // must grab before read! 
-   myRssi     = LoRaRadio.packetRssi();
-   mySnr      = LoRaRadio.packetSnr();
-   strncpy(myInArray, "", myCharMax);  // erase the array of chars
-   
-   while (LoRaRadio.available() ) {
-      myInArray[myI++] = (char)LoRaRadio.read() ;
-      if (myI >= myCharMax) {break;}
-   }
-                         
-   Serial.println();         
-   Serial.println(myInArray);
-   Serial.println("parsePacket(): "+String( myIncoming ) + ", RSSI: " + String(myRssi)+", SNR: " + String(mySnr) );
-
+  delay(myDelay);              // wait x seconds  
 }
