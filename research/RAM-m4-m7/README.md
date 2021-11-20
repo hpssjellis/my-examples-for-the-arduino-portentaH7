@@ -1,5 +1,6 @@
 fast m4 to m7 to communicate between the cores using a shared RAM spacae
 
+When I simplify the code it never works
 
 
 Ideas from 
