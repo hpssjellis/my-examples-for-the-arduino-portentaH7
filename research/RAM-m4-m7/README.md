@@ -1,4 +1,4 @@
-fast m4 to m7 commun using a shared RAM spacae
+fast m4 to m7 to communicate between the cores using a shared RAM spacae
 
 
 
