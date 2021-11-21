@@ -48,26 +48,26 @@ void setup(){
 void M7ThreadFunc(){
   localm7m4 = 777777;
   
-  while (true){
-    Serial.println("================");
-   // digitalWrite(LEDR, LOW);
-    xfr_ptr -> M7toM4 = localm7m4;
-       // delay(100);
+  while (true) {   
+    Serial.println("================= Start Loop =================");
+ 
+    
     localm7m4++;
-        delay(20);
-    Serial.print("Writing M7 to M4, value = "); Serial.println(xfr_ptr -> M7toM4);
-    delay(20);
-   // digitalWrite(LEDB, HIGH);
-    Serial.print("Reading M4 to M7, value = "); Serial.println(xfr_ptr -> M4toM7);
+    xfr_ptr -> M7toM4 = localm7m4;
+    
+    Serial.print("M7 to M4: "); Serial.println(xfr_ptr -> M7toM4);
+    Serial.print("M4 to M7: "); Serial.println(xfr_ptr -> M4toM7);
+    
+    Serial.println("================= End Loop =================");
+ 
+    Serial.println();
 
-    Serial.println("===========");
-   //Serial.println();
-    delay(20);
+    delay(100);
   }
 }
 
 void loop(){
-  //delay(1000);
+
 }
 
 #endif
