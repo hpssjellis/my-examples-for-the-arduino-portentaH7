@@ -49,34 +49,27 @@ void M7ThreadFunc(){
   localm7m4 = 777777;
   
   while (true) {   
- // Serial.println("==============================================");
-   //Serial.println("============================================");
- //Serial.println("1234567890123456789012345678901234567890123456");
-  // Serial.println("abcdefghijklmnopqrstuvwxyABCDEFGHIJKLMNOPQ");
-  // Serial.println("abcdefghijklmnopqrstuvwxyABCDEFGHIJKLMNO");
-  // Serial.println("abcdefghijklmnopqrstuvwxyABCDEFGHI");
- //  Serial.println("abcdefghijklmnopqrstuvwxyAB");
-   Serial.println("abcdefghijklmnop");
-    
+
+  // Serial.println("================= End Loop =================");
+
+    Serial.println("abcdefghijklmno");  // good
+  //Serial.println("abcdefghijklmn");   // freezes M4 communication
+  
     localm7m4++;
     xfr_ptr -> M7toM4 = localm7m4;
     
     Serial.print("M7 to M4: "); Serial.println(xfr_ptr -> M7toM4);
     Serial.print("M4 to M7: "); Serial.println(xfr_ptr -> M4toM7);
     
-  // Serial.println("================= End Loop =================");
+  //Serial.println("================= End Loop =================");
  
- //  Serial.println("abcdefghijklmnopqrstuvwxyABCDEFGHIJKLMNO"); 
- //  Serial.println("abcdefghijklmnopqrstuvwxyABC"); 
-   Serial.println("abcdefghijklmnopqrst"); 
-  // Serial.println("abcdefghijklmnop");
- //Serial.println("1234567890123456789012345678901234567890123456");
-   //Serial.println("============================================");
-   Serial.println();
-   
+    Serial.println("abcdefghijklmnopqrst");   // good
+  //Serial.println("abcdefghijklmnopqrs");    // freezes M4 communication
 
-
+    Serial.println();        // freezes M4 communication if removed
+  
     delay(200);
+ // delayMicroseconds(1234); // Works but serial monitor hard to read
   }
 }
 
@@ -141,7 +134,7 @@ void M4ThreadFunc(){
         myStoreFromM7 =  xfr_ptr -> M7toM4;
         digitalWrite(LEDB, !digitalRead(LEDB)); // flip blue LED on and off
       }
-
+   // delayMicroseconds(20);
   }
 }
 
