@@ -1,6 +1,16 @@
 Strangely the adxl362 does not work with the SPI.h library for the mbed Portenta. 
 
-Seeing if there is a ifx
+
+Very irritating. the main ADXL362 library src file needs this replacement
+```
+   // SPI.setDataMode(SPI_MODE0);	//CPHA = CPOL = 0    MODE = 0
+   SPI.beginTransaction(SPISettings(4000000, MSBFIRST, SPI_MODE0));
+   
+   ```
+   
+   Then raw data seems to work
+
+
 
 
 datasheet for the adxl362  http://dlnmh9ip6v2uc.cloudfront.net/datasheets/BreakoutBoards/ADXL362.pdf
