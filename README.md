@@ -201,7 +201,7 @@ So Far what is working:
 
 
 ### 20
-[my20-aysnc-web-server.ino](my20-aysnc-web-server.ino) Cool async webserver by @khoih-prog 
+[my20-aysnc-web-server.ino](my20-aysnc-web-server.ino) Cool async webserver by @khoih-prog edited by me. Uses his official arduino library  [Portenta_H7_AsyncWebServer](https://github.com/khoih-prog/Portenta_H7_AsyncWebServer)
 
 
 
