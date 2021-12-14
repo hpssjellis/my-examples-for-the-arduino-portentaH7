@@ -51,7 +51,7 @@
 
 #include <Portenta_H7_AsyncWebServer.h>
 
-char ssid[] = "yourSSID7";        // your network SSID (name)
+char ssid[] = "yourSSID";        // your network SSID (name)
 char pass[] = "yourPASSWORD";         // your network password (use for WPA, or use as key for WEP), length must be 8+
 
 int status = WL_IDLE_STATUS;
@@ -59,10 +59,6 @@ int status = WL_IDLE_STATUS;
 AsyncWebServer    server(80);
 
 int reqCount = 0;                // number of requests received
-
-#define LED_OFF             HIGH
-#define LED_ON              LOW
-
 
 #define BUFFER_SIZE         512
 char temp[BUFFER_SIZE];
@@ -110,10 +106,13 @@ body { background-color: #cccccc; Color: #000088; }\
 
 void printWifiStatus(){
 
+  digitalWrite(LEDG, HIGH); // trun off green LED
+  digitalWrite(LEDB, LOW);  // trun on blue LED
   Serial.println("SSID: " + String(WiFi.SSID()) );
 
-  // IPAddress ip = WiFi.localIP();
-  Serial.println("Local IP Address: " + String(WiFi.localIP()) );
+  IPAddress ip = WiFi.localIP();
+  Serial.print("Local IP Address: " );
+  Serial.println(ip);
 
   // long rssi = WiFi.RSSI();
   Serial.println("signal strength (RSSI):" + String(WiFi.RSSI()) + " dBm");
@@ -126,22 +125,22 @@ void setup()
   pinMode(LEDG, OUTPUT);
   pinMode(LEDB, OUTPUT);
   digitalWrite(LEDR, HIGH); // internal LED HIGH is odd, weird!
-  digitalWrite(LEDG, HIGH);
+  digitalWrite(LEDG, LOW);
   digitalWrite(LEDB, HIGH);
 
   Serial.begin(115200);
   //while (!Serial);   // this blocks, better to just wait below
 
   delay(5000);
-  Serial.println("3, serial monitor on?" );
+  Serial.println("3, is serial monitor on?" );
   delay(5000);
-  Serial.println("2, serial monitor on?" );
+  Serial.println("2, is serial monitor on?" );
   delay(5000);
-  Serial.println("1, serial monitor on?" );
+  Serial.println("1, is serial monitor on?" );
 
-  Serial.println("Start Async_AdvancedWebServer on " + String(BOARD_NAME)+ " with " + String(SHIELD_TYPE) );
-  Serial.println("PORTENTA_H7_ASYNC_TCP_VERSION: " + String(PORTENTA_H7_ASYNC_TCP_VERSION));
-  Serial.println("PORTENTA_H7_ASYNC_WEBSERVER_VERSION: " + String(PORTENTA_H7_ASYNC_WEBSERVER_VERSION) );
+  Serial.println(String(BOARD_NAME)+ " with " + String(SHIELD_TYPE) );
+  Serial.println(String(PORTENTA_H7_ASYNC_TCP_VERSION));
+  Serial.println(String(PORTENTA_H7_ASYNC_WEBSERVER_VERSION) );
 
   ///////////////////////////////////
 
@@ -166,10 +165,12 @@ void setup()
   while ( status != WL_CONNECTED){
     
     digitalWrite(LEDG, LOW);
-    delay(500);       
+    Serial.print(".");   
+    delay(2500);    
     // Connect to WPA/WPA2 network
     status = WiFi.status();
     digitalWrite(LEDG, HIGH);
+    delay(2500);       
   }
 
   printWifiStatus();
@@ -206,9 +207,7 @@ void setup()
   //server.onNotFound(handleNotFound);
 
   server.begin();
-  
-  Serial.print(F("HTTP EthernetWebServer is @ IP : "));
-  Serial.println(WiFi.localIP());
+  printWifiStatus();
 }
 
 
