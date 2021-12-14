@@ -8,6 +8,16 @@ Very irritating. the main ADXL362 library src file needs this replacement
    
    ```
    
+   
+   possibly
+   
+   ```
+   
+   // SPI.setDataMode(SPI_MODE0);	//CPHA = CPOL = 0    MODE = 0
+   SPI.beginTransaction(SPISettings(4000000, LSBFIRST, SPI_MODE0));
+   
+   ```
+   
    Then raw data seems to work
 
 
