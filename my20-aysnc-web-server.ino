@@ -51,7 +51,7 @@
 
 #include <Portenta_H7_AsyncWebServer.h>
 
-char ssid[] = "yourSSID";        // your network SSID (name)
+char ssid[] = "yourSSID7";        // your network SSID (name)
 char pass[] = "yourPASSWORD";         // your network password (use for WPA, or use as key for WEP), length must be 8+
 
 int status = WL_IDLE_STATUS;
@@ -68,7 +68,8 @@ int reqCount = 0;                // number of requests received
 char temp[BUFFER_SIZE];
 
 void myServeWebpage(AsyncWebServerRequest *request){
-
+  reqCount += 1;
+  Serial.println("Main Page Loaded: " + String(reqCount)+ " times.");
   int x1 = analogRead(A1);  
  // digitalWrite(LEDG, LED_ON);
 
@@ -173,11 +174,12 @@ void setup()
 
   printWifiStatus();
 
-  ///////////////////////////////////
+  ////////////////////////start async area /////////////////////////////////
 
+
+// NOTE: variables and printing may not work from in these functions!!!
 
   server.on("/", HTTP_GET, [](AsyncWebServerRequest * request){
-    reqCount += 1;
     myServeWebpage(request);
   });
 
@@ -195,6 +197,11 @@ void setup()
      digitalWrite(LEDB, HIGH);  // blue LED off
      myServeWebpage(request);
   });
+
+
+
+///////////////////////////////// end async area /////////////////////////////
+
 
   //server.onNotFound(handleNotFound);
 
