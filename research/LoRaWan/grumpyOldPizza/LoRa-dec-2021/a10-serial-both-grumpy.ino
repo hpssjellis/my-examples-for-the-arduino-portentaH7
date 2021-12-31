@@ -29,6 +29,9 @@ void mySendTimerOn(void){
     }
 
     if (mySendString.length() > 0){
+      if (mySendString.length() > myCharMax){
+        Serial.println("TOO BIG!"); 
+      }
 
       strncpy(mySendArray, "", myCharMax);  // erase the array of chars
       mySendString.toCharArray(mySendArray, mySendString.length());
@@ -103,7 +106,7 @@ void setup( void ){
     LoRaRadio.onReceive(myReceive);  // just telling it about the callback 
     LoRaRadio.receive(0);            // is zero infinite, other upto milliseconds
     mySendTimer.start(mySendTimerOn, 0, 300);   //continuous every interval
-    Serial.println("LoRa Text Messaging");    
+    Serial.println("LoRa Text Messaging V11");    
     Serial.println();
 }
 
