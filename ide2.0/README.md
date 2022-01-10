@@ -18,6 +18,8 @@ Very slow to load (first time)
 Wants access to about 3 different things. Took about 10 minutes first time to load.
 
 
+Using the zipped version, it founhd all my old libraries. Good!
+
 Ran my hello blink program. works fine, why does it say it is not connected?
 
 ![image](https://user-images.githubusercontent.com/5605614/148816022-a0ca4f48-7905-4f09-aca8-fbf4d136a8d2.png)
