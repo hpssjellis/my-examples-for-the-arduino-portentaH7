@@ -25,6 +25,10 @@ Ran my hello blink program. works fine, why does it say it is not connected?
 ![image](https://user-images.githubusercontent.com/5605614/148816022-a0ca4f48-7905-4f09-aca8-fbf4d136a8d2.png)
 
 
-When you compile/upload a program nothing tells you it is running. After a bit this shows up in the bottom left corner
+When you compile/upload a program nothing tells you it is running for about 10 seconds. After a bit this shows up in the bottom left corner
 ![image](https://user-images.githubusercontent.com/5605614/148816489-aa4b784c-aaf2-4e70-bf7c-8ca75e119cf4.png)
+
+Note: On re-compile/upload things are much faster.
+
+
 
