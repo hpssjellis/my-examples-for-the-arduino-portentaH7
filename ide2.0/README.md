@@ -83,5 +83,10 @@ does not compile on Version Arduino IDE V2.0
 The problem looks like it is to do with the EdgeImpulse library, just not sure why the regular IDE can find the files.
 
 
+1. When you unplug a programmed Portenta and then plug it back in it looks like the serial connection has not been extablished, however I think it is fine.
+
+![image](https://user-images.githubusercontent.com/5605614/148836892-d464fa46-1549-4ea5-a041-767432ca0208.png)
+
+
 
 
