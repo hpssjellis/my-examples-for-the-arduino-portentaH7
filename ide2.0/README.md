@@ -92,9 +92,9 @@ The problem looks like it is to do with the EdgeImpulse library, just not sure w
 
 19. Testing speed, on a fast computer my rocksetta ML sine wave took 1 min 16 s to compile. On the V1.18.15 IDE verison it took 1 min 25 seconds but the plotter worked. Most of this code is pre-compiled so doesn't really show much a speed improvement.
 
+20. If in file-->preferences you set Verbose output during compile and upload, then you have a better feel for how the compile is going.
 
-
-
+21. Generally I feel fairly good about the zipped version of the Arduino IDE V2.0.0 Jan 10th, 2022, a few complex things are not working, but it does have a nice modern feel about the program. Slow installation,  
 
 
 
