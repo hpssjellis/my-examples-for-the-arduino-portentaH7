@@ -69,6 +69,10 @@ this needs to be changed. It is too subtle.
 
 ![image](https://user-images.githubusercontent.com/5605614/148826438-100b5699-5761-4e8e-b87b-a7dd35870575.png)
 
+but on V2 it has an issue
+
+![image](https://user-images.githubusercontent.com/5605614/148834571-97fb4ef0-366f-4e5b-a758-0432d210c1e8.png)
+
 
 
 
