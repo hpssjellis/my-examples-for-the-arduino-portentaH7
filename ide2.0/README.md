@@ -61,6 +61,15 @@ which for my library portenta-pro-community-solutions is 23 mouse wheel scrolls 
 1. Weird, just clued in when the upload button is pushed, it DOESN"T change color when you mouse over it. That is the only way that you can tell that the program is compilling. All the other buttons change color slightly when moused over.
 
 
+1. Solution: the V2.0 IDE actually does tell you that the button has been pushed, but it is very subtle. The button does not change when moused over if it has been pushed. For my large program it could take 5 minutes of compiling before anything happens. If you mouse over the upload button, nothing happens meaning it has been pushed.
+
+If you mouse over the button and it slightly gets brighter that means it has not yet been pushed and your program is not compiling.
+
+this needs to be changed. It is too subtle.
+
+![image](https://user-images.githubusercontent.com/5605614/148826438-100b5699-5761-4e8e-b87b-a7dd35870575.png)
+
+
 
 
 
