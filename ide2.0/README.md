@@ -49,7 +49,7 @@ which for my library portenta-pro-community-solutions is 23 mouse wheel scrolls 
 ![image](https://user-images.githubusercontent.com/5605614/148821703-405544d6-7ccd-4a84-9400-9c4a7c63398e.png)
 
 
-1. Ran one of my Machine Learning programs. Pltter works but does not show a line
+1. Ran one of my Machine Learning programs. Plotter works but does not show a line
 
 
 ![image](https://user-images.githubusercontent.com/5605614/148822666-3a366820-4e44-4df3-933e-294f23891f6e.png)
