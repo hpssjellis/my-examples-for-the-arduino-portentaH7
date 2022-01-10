@@ -55,6 +55,12 @@ which for my library portenta-pro-community-solutions is 23 mouse wheel scrolls 
 ![image](https://user-images.githubusercontent.com/5605614/148822666-3a366820-4e44-4df3-933e-294f23891f6e.png)
 
 
+1. I think it is compiling faster than the old version, however no proof that it has started is very irritating. Even if the upload button changed color that would be better than asolutely nothing happening for a while, for my really large Edgeimpulse.com machine learning program nothing has happened for 5 minutes. no idea if it is compilinhg or not.
+
+
+1. Weird, just clued in when the upload button is pushed, it DOESN"T change color when you mouse over it. That is the only way that you can tell that the program is compilling. All the other buttons change color slightly when moused over.
+
+
 
 
 
