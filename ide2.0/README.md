@@ -88,5 +88,13 @@ The problem looks like it is to do with the EdgeImpulse library, just not sure w
 ![image](https://user-images.githubusercontent.com/5605614/148836892-d464fa46-1549-4ea5-a041-767432ca0208.png)
 
 
+18. Still testing multiple programs. Generally things seem positive.
+
+19. Testing speed, on a fast computer my rocksetta ML sine wave took 1 min 16 s to compile. On the V1.18.15 IDE verison it took 1 min 25 seconds but the plotter worked. Most of this code is pre-compiled so doesn't really show much a speed improvement.
+
+
+
+
+
 
 
