@@ -69,11 +69,14 @@ this needs to be changed. It is too subtle.
 
 ![image](https://user-images.githubusercontent.com/5605614/148826438-100b5699-5761-4e8e-b87b-a7dd35870575.png)
 
-but on V2 it has an issue
 
-![image](https://user-images.githubusercontent.com/5605614/148834571-97fb4ef0-366f-4e5b-a758-0432d210c1e8.png)
+1. A complex edge impulse machine learning program compiles fine on IDE 1.18.15. Note: the include file can be any edge impulse vision file but I am using this one [here](https://github.com/hpssjellis/portenta-pro-community-solutions/blob/main/zipped-libraries/edge-Impulse/arduino-exported/Portenta-Camera/ei-ei-v20unknown-1popgoright-2watergoleft-3fast-v2-0-0-arduino-1.0.7.zip) and the example is [here](https://github.com/hpssjellis/portenta-pro-community-solutions/tree/main/examples/dot5-portenta-machine-learning/dot51-portenta-edge-impulse-ml/dot511-vision-shield/dot5113-show-top-classification)
+
+The examples I am testing are in the Portenta-pro-comunity solutions library  
+
+![image](https://user-images.githubusercontent.com/5605614/148832497-87dbf41f-f4c3-4fcd-b91d-14ddee93f096.png)
 
 
-
+does not compile on Version Arduino IDE V2.0
 
 
