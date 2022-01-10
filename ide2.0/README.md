@@ -77,6 +77,11 @@ The examples I am testing are in the Portenta-pro-comunity solutions library
 ![image](https://user-images.githubusercontent.com/5605614/148832497-87dbf41f-f4c3-4fcd-b91d-14ddee93f096.png)
 
 
-does not compile on Version Arduino IDE V2.0
+does not compile on Version Arduino IDE V2.0   
+![image](https://user-images.githubusercontent.com/5605614/148835239-234e67b0-1caa-4d59-ab3d-c72848c31607.png)
+
+The problem looks like it is to do with the EdgeImpulse library, just not sure why the regular IDE can find the files.
+
+
 
 
