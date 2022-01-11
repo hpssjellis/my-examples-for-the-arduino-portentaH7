@@ -96,7 +96,12 @@ The problem looks like it is to do with the EdgeImpulse library, just not sure w
 
 21. Generally I feel fairly good about the zipped version of the Arduino IDE V2.0.0 Jan 10th, 2022, a few complex things are not working, but it does have a nice modern feel about the program. Slow installation,  
 
-22. On 64 bit Linux (ubuntu 18.04), fast download, fast extraction, openned terminal ran ./arduino-ide  loaded fast. Had a bit of an issue finding the latest mbed board 1.6.2 reloaded then it found it. Installed my Portenta-pro-community-solutions library. ran my hello-blink program, compiled fine. did not upload. This is a normal Linux serial issue probably. Muy normal work around is to load with sudo, but it did not load the program. Next step is to allow serial access normal a .sh file loads that for us. Can't find it so need to do some searching.
+22. On 64 bit Linux (ubuntu 18.04), fast download, fast extraction, openned terminal ran ```./arduino-ide```  loaded fast. Had a bit of an issue finding the latest mbed board 1.6.2 reloaded then found it. Installed my ```Portenta-pro-community-solutions``` library. Ran my hello-blink program, compiled fine. did not upload! This is a normal Linux serial permissions issue probably. 
+23. 
+24. My normal work around is to load with sudo, but it did not load the program. Next step is to allow serial access normally a bash.sh file loads that for us. Can't find it so after some searching I managed to make it work. Anyone interested in how that was done?
+
+
+
 
 
 
