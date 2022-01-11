@@ -1,4 +1,4 @@
-Hopefully done#!/bin/bash
+#!/bin/bash
 
 # run the following commands without the #
 # chmod +x arduino-udev-setup.sh
@@ -18,7 +18,7 @@ read
 # Append the arduino udev rules to the folder at /etc/udev/rules.d
 echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="2341", MODE="0666"' | sudo tee -a /etc/udev/rules.d/20-arduino.rules
 
-echo "Hpefully finished correctly."
+echo "H0pefully finished correctly."
 echo "now showing the file"
 echo "enter any key to continue"
 read
