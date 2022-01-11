@@ -97,8 +97,14 @@ The problem looks like it is to do with the EdgeImpulse library, just not sure w
 21. Generally I feel fairly good about the zipped version of the Arduino IDE V2.0.0 Jan 10th, 2022, a few complex things are not working, but it does have a nice modern feel about the program. Slow installation,  
 
 22. On 64 bit Linux (ubuntu 18.04), fast download, fast extraction, openned terminal ran ```./arduino-ide```  loaded fast. Had a bit of an issue finding the latest mbed board 1.6.2 reloaded then found it. Installed my ```Portenta-pro-community-solutions``` library. Ran my hello-blink program, compiled fine. did not upload! This is a normal Linux serial permissions issue probably. 
-23. 
+
 24. My normal work around is to load with sudo, but it did not load the program. Next step is to allow serial access normally a bash.sh file loads that for us. Can't find it so after some searching I managed to make it work. Anyone interested in how that was done?
+
+
+25. So by using super secret Ubuntu skills I got the serial port working. Like always Linux is faster and better in every way. Even my advanced edge impulse machine learning program worked fine on Linux. Which brings up the question why did it die on windows?
+
+
+
 
 
 
