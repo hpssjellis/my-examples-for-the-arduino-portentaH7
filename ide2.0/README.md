@@ -101,7 +101,7 @@ The problem looks like it is to do with the EdgeImpulse library, just not sure w
 24. My normal work around is to load with sudo, but it did not load the program. Next step is to allow serial access normally a bash.sh file loads that for us. Can't find it so after some searching I managed to make it work. Anyone interested in how that was done?
 
 
-25. So by using super secret Ubuntu skills I got the serial port working. Like always Linux is faster and better in every way. Even my advanced edge impulse machine learning program worked fine on Linux. Which brings up the question why did it die on windows?
+25. So by using super secret Ubuntu skills I got the serial port working. Like always Linux is faster and better in every way. Even my advanced edge impulse machine learning program worked fine on Linux. Which brings up the question why did it die on windows? Also Arduino for Linux defaults to verbose mode so you can tell when your sketch is compiling.
 
 
 
