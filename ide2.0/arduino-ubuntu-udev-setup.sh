@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # run the following commands without the #
-# chmod +x arduino-udev-setup.sh
-# sudo ./arduino-udev-setup.sh
+# chmod +x arduino-ubuntu-udev-setup.sh
+# sudo ./arduino-ubuntu-udev-setup.sh
 
 
 
