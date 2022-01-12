@@ -29,7 +29,7 @@ Wants access to about 3 different things. Took about 10 minutes first time to lo
 
 5. Using the zipped version, it found all my old libraries. Good!
 
-6. Ran my hello blink program (dot11-hello-blink - means first sub folder- first program in my library). Works fine, why does it say it is not connected?
+6. Ran my hello blink program ([dot11-hello-blink](https://github.com/hpssjellis/portenta-pro-community-solutions/tree/main/examples/dot1-portentaH7-examples/dot11-hello-blink) - means first sub folder- first program in my library). Works fine, why does it say it is not connected?
 
 ![image](https://user-images.githubusercontent.com/5605614/148816022-a0ca4f48-7905-4f09-aca8-fbf4d136a8d2.png)
 
@@ -119,7 +119,7 @@ The problem looks like it is to do with the EdgeImpulse library, just not sure w
 26. Checking out the plotter again  Regular Portenta PDM example seems to be fine using every color theme. 
  ![image](https://user-images.githubusercontent.com/5605614/149188716-13711d49-3244-4eef-ad34-a53b71a2c409.png)
 
-Trying my dot521 rocksetta hello ml sine program on my Portenta pro community solutions library. 
+Trying my "[dot521 rocksetta hello ml sine](https://github.com/hpssjellis/portenta-pro-community-solutions/tree/main/examples/dot5-portenta-machine-learning/dot52-portenta-rocksetta-ml/dot521-rocksetta-hello-ml-sine)" program on my Portenta pro community solutions library. 
 
 this is not working but could easily be my code that is causing the issue as the PDM example works fine
 ![image](https://user-images.githubusercontent.com/5605614/149188344-2da42c94-dc20-4dcb-8c0a-92049d6f4948.png)
