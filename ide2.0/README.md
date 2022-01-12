@@ -55,7 +55,7 @@ Wants access to about 3 different things. Took about 10 minutes first time to lo
 
 I have many, many libraries, the old version used to remember the location in the examples menu of where you were. V2.0 always puts you at the top of the examples, meaning I have to scroll down ~5 pages of examples to get to my library.
 
-which for my library portenta-pro-community-solutions is 23 mouse wheel scrolls since their is no page down command that works. 
+which for my library [portenta-pro-community-solutions](https://github.com/hpssjellis/portenta-pro-community-solutions) is 23 mouse wheel scrolls since their is no page down command that works. 
 
 ![image](https://user-images.githubusercontent.com/5605614/148821703-405544d6-7ccd-4a84-9400-9c4a7c63398e.png)
 
