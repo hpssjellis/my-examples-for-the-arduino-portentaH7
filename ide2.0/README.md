@@ -1,5 +1,11 @@
 Just trying the new Arduino IDE
 
+A while ago I tried it and I was not that impress3ed, about a month ago I tried it and almost bricked my Portenta. It seemed to permanently block my serial port even on other computers. Placed issue [here](https://github.com/arduino/arduino-ide/issues/692) 
+
+
+# Now testing Arduino IDE 2.0.0-rc3
+
+Generally seems farily good. I have a nack for finding issues. Here is my take on what I have found.
 
 https://www.arduino.cc/en/software
 
@@ -123,6 +129,11 @@ Here is what it looks like on the old 1.8.15 arduino IDE. the issue might be the
 
 
 27.  Weird When going from the standard examples to find my library it only showed the standard examples, no other? Doing a reload.
+
+### Where are the other examples??
+
+![image](https://user-images.githubusercontent.com/5605614/149191540-2c28512f-2586-46fb-ad27-bc376dd15deb.png)
+
 
 On reload it briefly only showed the basic examples, then seemed to load all the examples again.
 
