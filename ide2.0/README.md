@@ -107,16 +107,24 @@ The problem looks like it is to do with the EdgeImpulse library, just not sure w
 
 ## Jan 12th, 2022
 
-26. Checking out the plotter again  Regular Portenta PDM example seems to be fine using every color theme. Trying my dot521 rocksetta hello ml sine program on my Portenta pro community solutions library. 
+26. Checking out the plotter again  Regular Portenta PDM example seems to be fine using every color theme. 
+ ![image](https://user-images.githubusercontent.com/5605614/149188716-13711d49-3244-4eef-ad34-a53b71a2c409.png)
+
+Trying my dot521 rocksetta hello ml sine program on my Portenta pro community solutions library. 
 
 this is not working but could easily be my code that is causing the issue as the PDM example works fine
-
 ![image](https://user-images.githubusercontent.com/5605614/149188344-2da42c94-dc20-4dcb-8c0a-92049d6f4948.png)
+
+Here is what it looks like on the old 1.8.15 arduino IDE. the issue might be the multiple plots
+
+![image](https://user-images.githubusercontent.com/5605614/149189414-2b38fe79-ecf3-429d-825b-851a1d28850c.png)
+
+
 
 
 27.  Weird When going from the standard examples to find my library it only showed the standard examples, no other? Doing a reload.
 
-On reload it briefly only showed the bawsic examples, then seemed to load all the examples again.
+On reload it briefly only showed the basic examples, then seemed to load all the examples again.
 
 
 
