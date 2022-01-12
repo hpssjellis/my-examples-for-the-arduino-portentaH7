@@ -9,10 +9,13 @@ Generally seems farily good. I have a nack for finding issues. Here is my take o
 
 https://www.arduino.cc/en/software
 
+By the way I have many Arduino PortentaH7's as I teach a robotics class. I also have a huge library of examples specifically for this board. In the IDE search for the word "Community" and it should pop up as the ```Portenta Pro Community Solutions```. Every program has a "dot" number so you can find it.
+
+
 1. Zipped file downloads fast
 
 
-1. Installing the zipped file into a sub folder. 
+2. Installing the zipped file into a sub folder. 
 
 ![image](https://user-images.githubusercontent.com/5605614/148804456-0f5f9907-5771-4e81-8c7d-f2ac524983b4.png)
 
@@ -26,7 +29,7 @@ Wants access to about 3 different things. Took about 10 minutes first time to lo
 
 5. Using the zipped version, it found all my old libraries. Good!
 
-6. Ran my hello blink program. works fine, why does it say it is not connected?
+6. Ran my hello blink program (dot11-hello-blink - means first sub folder- first program in my library). Works fine, why does it say it is not connected?
 
 ![image](https://user-images.githubusercontent.com/5605614/148816022-a0ca4f48-7905-4f09-aca8-fbf4d136a8d2.png)
 
