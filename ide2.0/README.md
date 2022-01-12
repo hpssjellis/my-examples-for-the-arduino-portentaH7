@@ -105,7 +105,9 @@ The problem looks like it is to do with the EdgeImpulse library, just not sure w
 
 
 
+## Jan 12th, 2022
 
+Checking out the plotter again
 
 
 
