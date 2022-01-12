@@ -131,7 +131,7 @@ Here is what it looks like on the old 1.8.15 arduino IDE. the issue might be the
 ![image](https://user-images.githubusercontent.com/5605614/149189414-2b38fe79-ecf3-429d-825b-851a1d28850c.png)
 
 
-
+Note: I just tried the plotter on my Ubuntu Linux machine and a multiple plot there also did not work, but does work on the Ubuntu Arduino IDE 1.8.15
 
 27.  Weird When going from the standard examples to find my library it only showed the standard examples, no other? Doing a reload.
 
@@ -144,7 +144,7 @@ On reload it briefly only showed the basic examples, then seemed to load all the
 
 
 
-28. One hack I like on arduino 1.8.15 is that you can load multiple instances of the IDE. That allows multiple serial monitors. On the new Arduino IDE 21.0.03rc you can't load multiple instances. Like always you can still load multiple windows it looks like you can load 2 serial monitors but they both read the same port even if one of them says it is reading the other port.  Too bad that was a nice hack.
+28. One hack I like on arduino 1.8.15 is that you can load multiple instances of the IDE. That allows multiple serial monitors. On the new Arduino IDE 21.0.03rc you can't load multiple instances. Like always you can still load multiple windows it looks like you can load 2 serial monitors but they both read the same port even if one of them says it is reading the other port.  Too bad that was a nice hack, I guess I will have to use putty for multiple serial monitors.
 
 ![image](https://user-images.githubusercontent.com/5605614/149191093-8c463c89-dca7-48c4-b18d-286b226a41d4.png)
 
