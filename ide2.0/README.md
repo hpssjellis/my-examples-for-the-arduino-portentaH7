@@ -3,7 +3,7 @@ Just trying the new Arduino IDE
 A while ago I tried it and I was not that impressed, about a month ago I tried it and almost bricked my Portenta. It seemed to permanently block my serial port even on other computers. Placed issue [here](https://github.com/arduino/arduino-ide/issues/692) Randomly solved it on the forth computer without trying to get into bootloader mode managed to upload a blank sketch, then it was fine.
 
 
-# Now testing Arduino IDE 2.0.0-rc3
+Now testing Arduino IDE 2.0.0-rc3
 
 Generally seems farily good. I have a nack for finding issues. Here is my take on what I have found.
 
@@ -11,6 +11,8 @@ https://www.arduino.cc/en/software
 
 By the way I have many Arduino PortentaH7's as I teach a robotics class. I also have a huge library of examples specifically for this board. In the IDE search for the word "Community" and it should pop up as the ```Portenta Pro Community Solutions```. Every program has a "dot" number so you can find it.
 
+
+## My first look at Arduino IDE 2.0.0-rc3
 
 1. Zipped file downloads fast
 
