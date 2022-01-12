@@ -1,6 +1,6 @@
 Just trying the new Arduino IDE
 
-A while ago I tried it and I was not that impressed, about a month ago I tried it and almost bricked my Portenta. It seemed to permanently block my serial port even on other computers. Placed issue [here](https://github.com/arduino/arduino-ide/issues/692) Randomly solved it on the forth computer without trying to get into bootloader mode managed to upload a blank sketch, then it was fine.
+A while ago I tried the New IDE V2.0 and I was not that impressed, then about a month ago I tried it again and almost bricked my Portenta. It seemed to permanently block my serial port even on other computers. Placed issue [here](https://github.com/arduino/arduino-ide/issues/692) Randomly solved it on the forth computer without trying to get into bootloader mode managed to upload a blank sketch, then it was fine.
 
 
 Now testing Arduino IDE 2.0.0-rc3
