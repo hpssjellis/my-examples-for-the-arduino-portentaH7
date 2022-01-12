@@ -51,7 +51,7 @@ Wants access to about 3 different things. Took about 10 minutes first time to lo
 
 
 
-11. Complaint: (IS now an issue [here](https://github.com/arduino/arduino-ide/issues/747) thanks to @per1234 )
+11. Complaint: (IS now an issue [here](https://github.com/arduino/arduino-ide/issues/747) thanks to [@per1234](https://github.com/per1234) )
 
 I have many, many libraries, the old version used to remember the location in the examples menu of where you were. V2.0 always puts you at the top of the examples, meaning I have to scroll down ~5 pages of examples to get to my library.
 
