@@ -128,7 +128,9 @@ On reload it briefly only showed the basic examples, then seemed to load all the
 
 
 
+28. One hack I like on arduino 1.8.15 is that you can load multiple instances of the IDE. That allows multiple serial monitors. On the new Arduino IDE 21.0.03rc you can't load multiple instances. Like always you can still load multiple windows it looks like you can load 2 serial monitors but they both read the same port even if one of them says it is reading the other port.  Too bad that was a nice hack.
 
+![image](https://user-images.githubusercontent.com/5605614/149191093-8c463c89-dca7-48c4-b18d-286b226a41d4.png)
 
 
 
