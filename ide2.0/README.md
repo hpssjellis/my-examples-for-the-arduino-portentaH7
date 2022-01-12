@@ -7,7 +7,7 @@ Now testing Arduino IDE 2.0.0-rc3
 
 Generally seems farily good. I have a nack for finding issues. Here is my take on what I have found.
 
-https://www.arduino.cc/en/software
+Download Arduino IDE 2.0.0-rc3 at  https://www.arduino.cc/en/software   scroll past the regular Arduino IDE
 
 By the way I have many Arduino PortentaH7's as I teach a robotics class. I also have a huge library of examples specifically for this board. In the IDE search for the word "Community" and it should pop up as the ```Portenta Pro Community Solutions```. Every program has a "dot" number so you can find it.
 
