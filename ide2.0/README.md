@@ -66,7 +66,7 @@ which for my library [portenta-pro-community-solutions](https://github.com/hpssj
 ![image](https://user-images.githubusercontent.com/5605614/148822666-3a366820-4e44-4df3-933e-294f23891f6e.png)
 
 
-13. I think it is compiling faster than the old version, however no proof that it has started is very irritating. Even if the upload button changed color that would be better than asolutely nothing happening for a while, for my really large Edgeimpulse.com machine learning program nothing has happened for 5 minutes. no idea if it is compilinhg or not.
+13. I think it is compiling faster than the old version, however no proof that it has started is very irritating. Even if the upload button changed color that would be better than asolutely nothing happening for a while, for my really large Edgeimpulse.com machine learning program nothing has happened for 5 minutes. no idea if it is compiling or not.
 
 
 14. Weird, just clued in when the upload button is pushed, it DOESN"T change color when you mouse over it. That is the only way that you can tell that the program is compilling. All the other buttons change color slightly when moused over.
@@ -83,7 +83,7 @@ this needs to be changed. It is too subtle.
 
 16. A complex edge impulse machine learning program compiles fine on IDE 1.18.15. Note: the include file can be any edge impulse vision file but I am using this one [here](https://github.com/hpssjellis/portenta-pro-community-solutions/blob/main/zipped-libraries/edge-Impulse/arduino-exported/Portenta-Camera/ei-ei-v20unknown-1popgoright-2watergoleft-3fast-v2-0-0-arduino-1.0.7.zip) and the example is [here](https://github.com/hpssjellis/portenta-pro-community-solutions/tree/main/examples/dot5-portenta-machine-learning/dot51-portenta-edge-impulse-ml/dot511-vision-shield/dot5113-show-top-classification)
 
-The examples I am testing are in the Portenta-pro-comunity solutions library  
+The examples I am testing are in the Portenta-pro-comunity solutions library [dot511-vision-shield](https://github.com/hpssjellis/portenta-pro-community-solutions/tree/main/examples/dot5-portenta-machine-learning/dot51-portenta-edge-impulse-ml/dot511-vision-shield) any of the 5 programs there are having issues and work fine on the old IDE or on Ubuntu
 
 ![image](https://user-images.githubusercontent.com/5605614/148832497-87dbf41f-f4c3-4fcd-b91d-14ddee93f096.png)
 
