@@ -131,7 +131,7 @@ Here is what it looks like on the old 1.8.15 arduino IDE. the issue might be the
 ![image](https://user-images.githubusercontent.com/5605614/149189414-2b38fe79-ecf3-429d-825b-851a1d28850c.png)
 
 
-Note: I just tried the plotter on my Ubuntu Linux machine and a multiple plot there also did not work, but does work on the Ubuntu Arduino IDE 1.8.15
+Note: I just tried the plotter on my Ubuntu Linux machine and a multiple plot there also did not work, but multiple plots works fine on the Ubuntu Arduino IDE 1.8.15
 
 27.  Weird When going from the standard examples to find my library it only showed the standard examples, no other? Doing a reload.
 
