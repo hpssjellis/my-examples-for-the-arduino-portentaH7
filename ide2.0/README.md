@@ -36,7 +36,7 @@ Wants access to about 3 different things. Took about 10 minutes first time to lo
 ![image](https://user-images.githubusercontent.com/5605614/148816022-a0ca4f48-7905-4f09-aca8-fbf4d136a8d2.png)
 
 
-7. When you compile/upload a program nothing tells you it is running for about 10 seconds. After a bit this shows up in the bottom left corner
+7. When you compile/upload a program nothing tells you it is running for about 10 seconds. After a bit this shows up in the bottom left corner. Note fixed this later with file --> preference --> show verbose during compile.   
 ![image](https://user-images.githubusercontent.com/5605614/148816489-aa4b784c-aaf2-4e70-bf7c-8ca75e119cf4.png)
 
 8. Note: On re-compile/upload things are much faster.
