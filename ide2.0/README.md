@@ -1,6 +1,6 @@
 Just trying the new Arduino IDE
 
-A while ago I tried it and I was not that impress3ed, about a month ago I tried it and almost bricked my Portenta. It seemed to permanently block my serial port even on other computers. Placed issue [here](https://github.com/arduino/arduino-ide/issues/692) 
+A while ago I tried it and I was not that impressed, about a month ago I tried it and almost bricked my Portenta. It seemed to permanently block my serial port even on other computers. Placed issue [here](https://github.com/arduino/arduino-ide/issues/692) 
 
 
 # Now testing Arduino IDE 2.0.0-rc3
