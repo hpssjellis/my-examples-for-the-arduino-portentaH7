@@ -151,5 +151,8 @@ On reload it briefly only showed the basic examples, then seemed to load all the
 
 
 
+## Jan 17th, 2022
 
+
+Looks like @per1234 gave me credit for finding part of the plotter issue [here](https://github.com/arduino/arduino-ide/issues/753)
 
