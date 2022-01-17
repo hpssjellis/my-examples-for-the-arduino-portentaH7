@@ -25,8 +25,8 @@ const unsigned long myTimerDurationB = 5000;   // delay to wait for a downlink
 // Please enter your sensitive data in the Secret tab or arduino_secrets.h
 // Note: Best to have the App_Device hard coded. Run the program once to see the value.
 //#include "arduino_secrets.h"
-#define SECRET_APP_EUI "6081F905514BB81C" 
-#define SECRET_APP_KEY "3FA07E1021F610E14E36E4676B505EE8"
+#define SECRET_APP_EUI "0000000000000" 
+#define SECRET_APP_KEY "0000000000000000000000000000000"
 
 
 String appEui = SECRET_APP_EUI;   // just strings of the above 
