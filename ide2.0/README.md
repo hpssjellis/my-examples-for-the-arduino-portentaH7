@@ -156,3 +156,8 @@ On reload it briefly only showed the basic examples, then seemed to load all the
 
 Looks like @per1234 gave me credit for finding part of the plotter issue [here](https://github.com/arduino/arduino-ide/issues/753)
 
+
+## Feb 2nd, 2022
+
+Rumored to not open .h or .cpp files, sorry I havn't tested this yet. Thought I would include it here so I can test it later.
+
