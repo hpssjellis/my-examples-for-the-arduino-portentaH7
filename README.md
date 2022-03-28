@@ -101,26 +101,26 @@ So Far what is working:
 ### note: the my02 group after the first one is farily advanced, best to skip to my03
  The changes were that for RPC you need to add -fexceptions to the cflags.txt and cxxflags.txt files in the board location  AppData\Local\Arduino15\packages\arduino-beta\hardware\mbed\1.2.2\variants\PORTENTA_H7_M4 I have put in a request to have it changed [here](https://github.com/arduino/ArduinoCore-mbed/issues/55) to the ArduinoCore-mbed
 
-#### 2b
+#### 2b  deprecated!
 [my02b-dual-core-RPC.ino](my02b-dual-core-RPC.ino) An advanced program.  The M4 core cannot print to Serial, so this advanced example uses RPC (Remote Procedure Call) to send a print command from the M4 core to the M7 core to print to serial. 
 
-#### 2c
+#### 2c   deprecated!
 [my02c-dual-core-RPC-variable.ino](my02c-dual-core-RPC-variable.ino) Another advanced file that I would leave until you are more comfortable with the Portenta
 
-#### 2d
+#### 2d  deprecated!
 [my02d-dual-core-RPC-timer.ino](my02d-dual-core-RPC-timer.ino) Another advanced file that I would leave until you are more comfortable with the Portenta this one uses and interval instead of the delay.
 
 
-#### 2e
+#### 2e  deprecated!
 [my02e-easier-dual.ino](my02e-easier-dual.ino) Easier Dual RPC programming that fully seperates the M4 and M7 core programs but still in one file. A very small delay added to the M7 core while the M4 core has a long delay to slow things donw enough to see what is happening. Means more code to write, but much easier to understand and to build from.
 
-#### 2f
+#### 2f  deprecated!
 [my02f_easy_m4_rpc_print.ino](my02f_easy_m4_rpc_print.ino) This is my new favorite RPC. It redirects regular Serial.println from the M4 core to the M7 as regular Serial.println, by using ``` #define Serial RPC1  ``` but only for the M4 core.
 
-#### 2g
+#### 2g  deprecated!
 [my02g-analogRead-m4-rpc.ino](my02g-analogRead-m4-rpc.ino). Showing how to do analogRead of A0 to A6 but on the M4 core. Also found that delayMicrosecond(1234); was needed between each Serial.println(); statement for RPC to fully work. 
 
-#### 2h
+#### 2h  deprecated!
 [my02h-rpc-from-m4.ino](my02h-rpc-from-m4.ino). Some people have been having troubles with complex varriable passing on the Arduino forum at  https://forum.arduino.cc/t/passing-variable-from-cm7-to-cm4-using-rpc/692026/4  this program just shows that the variable can be on the M4 core and use RPC to be controlled by the M7 core. It also shows storing more than one variable. The issues on the forum are using much more complex systems so not sure if this will be helpfull.
 
 
