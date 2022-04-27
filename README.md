@@ -206,7 +206,7 @@ So Far what is working:
 
 ![image](https://user-images.githubusercontent.com/5605614/157310082-2a4961e7-6e5c-465e-aa66-2e10a11950d0.png)
 
-
+## huge STM32h7 reference manual [here](https://www.st.com/resource/en/reference_manual/dm00176879-stm32h745755-and-stm32h747757-advanced-armbased-32bit-mcus-stmicroelectronics.pdf)
 
 
 #### pinout
