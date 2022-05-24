@@ -1,0 +1,375 @@
+---
+id: arduino
+hide_title: true
+sidebar_label: Arduino
+slug: /use-the-network/devices/development/arduino/portenta-h7-with-lora-vision-shield/arduino
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+## Arduino Portenta H7 with the LoRa Vision Shield
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+## Introduction to Guide
+
+:::important
+
+Before we begin, please make sure you've followed the steps from the Console
+quickstart [here](/use-the-network/console/quickstart).
+
+:::
+
+## Objective and Requirements
+
+In this guide, you will learn:
+
+- How to setup your environment
+- How to program a basic application that will send packets over the Helium
+  Network
+- Verify real-time packets sent to the Helium Console via Hotspot that's in
+  range
+- Setup a full [Adafruit.io](https://io.adafruit.com/) http connection with a base64 decoder. (Note: CayenneLPP with Adafruit.io is easier to setup but less flexible)
+
+
+For this example, you will need the following:
+
+### Hardware
+
+- [Portenta H7](https://store-usa.arduino.cc/products/portenta-h7)
+- [LoRa Vision Shield](https://store-usa.arduino.cc/products/arduino-portenta-vision-shield-lora%C2%AE)
+- Micro USB Type B Cable -
+  [Example](https://www.amazon.com/AmazonBasics-Male-Micro-Cable-Black/dp/B0719H12WD/ref=sr_1_2_sspa?)
+- U.FL connector for your region. this example will use the US915MHz Antenna 
+  [Example: U.FL IPEX to SMA Connector Antenna 915MHz for Lora Board](https://www.amazon.com/DIYmall-Connector-Antenna-915MHz-Lora32u4/dp/B084KVYBH5)
+  
+### Software
+
+- [Arduino software \(IDE\)](https://www.arduino.cc/en/Main/Software) Old stable version ~Arduino IDE 1.8.19 or new version ~2.0.0RC3  
+- [Helium Console](https://console.helium.com/)
+
+## Hardware Setup
+
+This step will cover adding an antenna to the LoRa Vision Shield.
+
+### Adding the Antenna
+
+The uFL connector is just a push fit on the LoRa board, not the main Portenta board (That uFL connector is for WiFi and BLE). 
+Try not to have to remove and replace the antenna very often. the uFL connectors are rated for 30 connection cycles, so be careful when connecting/disconnecting to not rip the pads off the PCB
+
+
+## Software Setup
+
+### Getting the Arduino IDE
+
+Download and install the latest version of
+[Arduino IDE](https://www.arduino.cc/en/Main/Software) for your preferred OS.
+
+- [Windows](https://www.arduino.cc/en/Guide/Windows)
+- [Linux](https://www.arduino.cc/en/Guide/Linux)
+- [Mac OSX](https://www.arduino.cc/en/Guide/MacOSX)
+
+### Arduino Board Support
+
+The Portenta H7 requires one Arduino board support package. Follow the
+instructions below to install it.
+
+#### Arduino Mbed OS Portenta Boards 
+
+To install, open your Arduino IDE:
+
+1. Navigate to \(**Tools &gt; Boards &gt; Boards Manager...\)**
+2. Search for **Arduino Mbed OS Portenta Boards**
+3. Select the newest version and click Install
+
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/mbed-board-install.png"
+  )}
+/>
+
+
+
+### Arduino Library #1 MKRWAN
+
+To communicate with Helium's LoRaWAN network, we'll need to install an Arduino
+library.
+
+To install, open your Arduino IDE:
+
+1. Navigate to Library Manager \(**Sketch &gt; Include Library &gt; Manage
+   Libraries**\).
+2. In the search box, type **MKRWAN** into the search, select the **MKRWAN** library latest
+   version see image below, and click Install.
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/mkrwan.png"
+  )}
+/>
+
+If you prefer to install the zipped latest file from the github click [MKRWAN](https://github.com/arduino-libraries/MKRWAN) download the zipped file then find the library menu item to install zipped libraries
+
+
+
+
+
+### Arduino Library #2 portenta-pro-community-solutions
+
+To communicate with Helium's LoRaWAN network, we'll need to install an Arduino
+library.
+
+To install, open your Arduino IDE:
+
+1. Navigate to Library Manager \(**Sketch &gt; Include Library &gt; Manage
+   Libraries**\).
+2. In the search box, type **community** into the search, select the **portenta-pro-community-solutions** library latest
+   version see image below, and click Install.
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/portenta-pro-community-solutions-library-install.png"
+  )}
+/>
+
+If you prefer to install the zipped latest file from the github click [portenta-pro-community-solutions](https://github.com/hpssjellis/portenta-pro-community-solutions) download the zipped file then find the library menu item to install zipped libraries
+
+
+### MKRWAN reprogram LoRa board using the MKRWAN example sketch
+MKRWANFWUpdate_standalone make sure you run the serial monitor to fully update the LoRa module with the correct program.
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/mkrwanFWUpdate_standalone-image.png"
+  )}
+/>
+
+
+### Upload Sketch
+
+We're finally ready to upload our sketch to the board. In the Arduino IDE, click
+the right arrow button, or navigate to \(**Sketch &gt; Upload\),** to build and
+upload your new firmware to the board. You should see something similar to the
+image below at the bottom of your Arduino IDE, when the upload is successful.
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/upload-success.png"
+  )}
+/>
+
+### Viewing Serial Output
+
+When your firmware update completes, the board will reset, and begin by joining
+the network. Let's use the Serial Monitor in the Arduino IDE to view the output
+from the board. We first need to select the serial port again, but this time it
+will be a **different port** than the one we selected to communicate with the
+bootloader. Once again, navigate to \(**Tools &gt; Port: Arduino Portenta**\), but make sure the serial device, either COM\# or ttyACM\#, is different!
+Next navigate to \(**Tools &gt; Serial Monitor**\), you should begin to see
+output similar to below.
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/mkrwanFWUpdate_standalone-image.png"
+  )}
+/>
+
+
+### Programming Example Sketch
+
+Now that we have the required Arduino board support and library installed, lets
+program the board with the provided example sketch.
+
+To create a new Arduino sketch, open your Arduino IDE, \(**File &gt; New\).**
+Next, replace the template sketch with the sketch found
+[here](https://github.com/hpssjellis/portenta-pro-community-solutions/blob/main/examples/dot3-portenta-vision-shields/dot33-lorawan-specific/dot334-proof-us915-helium-connect.ino),
+copy and paste the entirety of it or if you have the Portenta-pro-community-solutions library just find example dot334-proof-us915-helium-connect.ino
+
+Next we'll need to fill in the SECRET_APP_EUI\(lsb\), and SECRET_APP_KEY\(msb\), written exactly as you see them from the [Helium Console](https://console.helium.com/)
+Note: On these boards the deviceEUI is fixed per board, so you will have to run the code once, view in the serial monitor what your boards deviceEUI is and enter that in the Helium Console. (the Helium console will randomly give you a deviceEUI (the top one in the list) but you must reset it)
+
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/helium-console-keys.png"
+  )}
+/>
+
+
+### Selecting Board
+
+Next, we need to select the correct board to build for in the Arduino IDE.
+Navigate to \(**Select Tools &gt; Board: &gt; Arduino Mbed OS Portenta Boards &gt; Arduino Portenta H7 \(M7 Core\) \).**
+
+
+### Enter Bootloader Mode
+
+Next, we need to place the board into bootloader mode, which allows us to update
+it with new firmware. To do this, first plug the device into your computer, make
+sure the board is getting power \(you should see a green LED on\). Next,
+quickly double click the reset push button on the top side of the board, you
+should see the green LED slowly blink about one blink per second. If you see this then you have successfully
+entered bootloader mode.
+
+### Selecting Port
+
+We're almost ready to upload our sketch, the very last step is to select the
+correct Serial port in the Arduino IDE. Navigate to \(**Tools &gt; Port:
+Arduino Portenta**\). You will also see either **COM\# or /dev/ttyACM\#**
+depending on whether you are on Windows, Mac, or Linux. If you do not see a
+port, you will need to check if the Arduino drivers have been installed.
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/fixed-dev-eui.png"
+  )}
+/>
+
+
+Now let's head back to [Helium Console](https://console.helium.com) and look at
+our device page, Scroll down to the chart and click the black debug icon to see incoming data, you should see something similar to the screenshot below.
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/helium-debug.png"
+  )}
+/>
+
+Congratulations! You have just transmitted data on the Helium network! The next
+step is to learn how to use your device data to build applications, visit our
+Integrations docs [here](/use-the-network/console/integrations).
+
+
+### Connect to [Adafruit.io](https://io.adafruit.com/)
+
+There are a multitude of IOT sites to choose from, each with it's own methods to setup. 
+You will be much more confident about those other sites once you have setup a complete HTTPS connection with a decoder. 
+(I will show you the very inefficient base64 decoder simply because LoRaWan naturally base 64 encodes your information)
+Note: Using [Adafruit.io](https://io.adafruit.com/) MQTT with CayenneLPP is the fastest and easiest connection, use the prebuilt Adafruit-MQTT from the Helium Inetegrations page and CayenneLPP code for the Arduino, connect the CayenneLPP function and you are active, very powerful but with little naming flexibility.
+
+
+### Setup Adafruit.io Feed and Webhook
+
+Get a free [Adafruit.io login](https://accounts.adafruit.com/users/sign_up) which allows 5 free feeds (A feed is the data sent from a device to Adafruit). Click IO then feeds then add a new feed I call it "led1" but you can call it whatever you like. 
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/adafruit-feed.png"
+  )}
+/>
+
+Next create a base (not a fancy) webhook (menu on the right of your feeds, might have to scroll down) and copy the entire webhook URL. 
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/adafruit-webhook.png"
+  )}
+/>
+
+Webhooks are nice since you can define a duration and they can be used on the web without giving out your main Adafuit KEY, like you would have to if using MQTT.
+
+
+### Setup Helium Console Integration for Adafruit http
+
+Back at the Helium Console Integrations, make a new integration, give it some sensible name like "adafruit-http-integration" and choose the manual http integration.
+
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/helium-adafruit-integration-choice.png"
+  )}
+/>
+
+
+You will be entering: 1. a name for the integration, 2. The adafruit Webhook copied earlier 3. Some JSON code to get data from the decoder. This is at the bottom of the page and strangely replaces the code above it. 
+
+```
+ { "value": {{decoded.payload.value}} }
+ 
+```
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/helium-adafruit-integration-json.png"
+  )}
+/>
+
+
+### Setup Helium Console Function Decoder
+
+At the Helium Console Functions area. Make a new function give it a sensible name like "Adafruit-http-decoder-function". Then copy this code to replace the barebones decoder 
+
+```
+
+ function Decoder(bytes, port, uplink_info) {
+  var decoded={};
+  try{
+  var result = String.fromCharCode.apply(null, bytes);
+  decoded.value = result;
+  return decoded;
+  } catch (err) {
+  return 'Decoder: ' + err.name + " : " + err.message;;
+  }
+ }
+ 
+```
+
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/helium-adafruit-integration-json.png"
+  )}
+/>
+
+
+
+### Setup Helium FLOWS to connect the nodes
+
+At the Helium Console go to the flows menu. On some browsers the flows controller is hard to see. Click the "+" and choose and drag onto the screen the Device, Function and Integration you just made. Close the Flows control by re-clicking the hard to see "+"
+
+Connect the 3 icons: from Device to function decoder to adafruit-integration
+
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/helium-adafruit-flows.png"
+  )}
+/>
+
+
+
+*** View your blue-dot working device
+
+
+Now let's head back to [Helium Console](https://console.helium.com) and look at
+our device page, Scroll down to the chart and click the black debug icon to see incoming data, you should see something similar to the screenshot below. This time the red-dot should be a blue dot showing a successful Helium Adafruit integration.
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/helium-debug-blue.png"
+  )}
+/>
+
+
+*** View your Adafruit.io Data
+
+Now go back to Adafruit.io and view your feeds to see if the data is coming in like you are expecting.
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/adafruit-feed-success.png"
+  )}
+/>
+
+
+*** Make an Adafruit.io dashboard
+
+Not as important but fun to go to Adafruit dashboard and click the setup icon top right and create buckets to view your data in streams and graphs etc. Dashboards and feed can be made public if you want to share them with others who have the shareable link.
+
+<img
+  src={useBaseUrl(
+    "img/use-the-network/devices/development/arduino/portenta/adafruit-dashboard.png"
+  )}
+/>
