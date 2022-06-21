@@ -7,6 +7,12 @@ June 2022
 
 
 
+## GOT IT WORKING!
+
+[camera-v6-better.cpp](camera-v6-better.cpp)  Replace the camera.h code with this file, then the camera works on both the M7 and the M4 core. 
+
+## Following are the issues I had
+
 
 
 Trying to get the camera working on the Portenta M4  core as per this issue on the arduino mbed core
