@@ -1,0 +1,199 @@
+Arduino: 1.8.19 (Windows 10), Board: "Arduino Portenta H7 (M4 core), 1MB M7 + 1MB M4"
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp: In function 'void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef*)':
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:120:27: error: 'DCMI_TIM' was not declared in this scope
+
+     if (htim->Instance == DCMI_TIM) {
+
+                           ^~~~~~~~
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\camera.cpp: In member function 'int Camera::grabFrame(FrameBuffer&, uint32_t)':
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\camera.cpp:609:5: error: 'SCB_InvalidateDCache_by_Addr' was not declared in this scope
+
+     SCB_InvalidateDCache_by_Addr((uint32_t*) framebuffer, framesize);
+
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:120:27: note: suggested alternative: 'DCMI_IRQn'
+
+     if (htim->Instance == DCMI_TIM) {
+
+                           ^~~~~~~~
+
+                           DCMI_IRQn
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:122:9: error: 'DCMI_TIM_CLK_ENABLE' was not declared in this scope
+
+         DCMI_TIM_CLK_ENABLE();
+
+         ^~~~~~~~~~~~~~~~~~~
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:122:9: note: suggested alternative: 'DCMI_DMA_CLK_ENABLE'
+
+         DCMI_TIM_CLK_ENABLE();
+
+         ^~~~~~~~~~~~~~~~~~~
+
+         DCMI_DMA_CLK_ENABLE
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:126:27: error: 'DCMI_TIM_PIN' was not declared in this scope
+
+         hgpio.Pin       = DCMI_TIM_PIN;
+
+                           ^~~~~~~~~~~~
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:126:27: note: suggested alternative: 'DCMI_IT_LINE'
+
+         hgpio.Pin       = DCMI_TIM_PIN;
+
+                           ^~~~~~~~~~~~
+
+                           DCMI_IT_LINE
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:130:27: error: 'DCMI_TIM_AF' was not declared in this scope
+
+         hgpio.Alternate = DCMI_TIM_AF;
+
+                           ^~~~~~~~~~~
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:130:27: note: suggested alternative: 'DCMI_LSM_ALL'
+
+         hgpio.Alternate = DCMI_TIM_AF;
+
+                           ^~~~~~~~~~~
+
+                           DCMI_LSM_ALL
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:131:23: error: 'DCMI_TIM_PORT' was not declared in this scope
+
+         HAL_GPIO_Init(DCMI_TIM_PORT, &hgpio);
+
+                       ^~~~~~~~~~~~~
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:131:23: note: suggested alternative: 'DCMI_IT_ERR'
+
+         HAL_GPIO_Init(DCMI_TIM_PORT, &hgpio);
+
+                       ^~~~~~~~~~~~~
+
+                       DCMI_IT_ERR
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp: In function 'int camera_extclk_config(int)':
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:193:21: error: 'DCMI_TIM_PCLK_FREQ' was not declared in this scope
+
+     uint32_t tclk = DCMI_TIM_PCLK_FREQ() * 2;
+
+                     ^~~~~~~~~~~~~~~~~~
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:193:21: note: suggested alternative: 'OS_TICK_FREQ'
+
+     uint32_t tclk = DCMI_TIM_PCLK_FREQ() * 2;
+
+                     ^~~~~~~~~~~~~~~~~~
+
+                     OS_TICK_FREQ
+
+In file included from C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\cores\arduino/mbed/targets/TARGET_STM/TARGET_STM32H7/STM32Cube_FW/stm32h7xx_hal_conf.h:606:0,
+
+                 from C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\cores\arduino/mbed/targets/TARGET_STM/TARGET_STM32H7/STM32Cube_FW/STM32H7xx_HAL_Driver/stm32h7xx_hal.h:30,
+
+                 from C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\cores\arduino/mbed/targets/TARGET_STM/TARGET_STM32H7/STM32Cube_FW/CMSIS/stm32h7xx.h:223,
+
+                 from C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\cores\arduino/mbed/targets/TARGET_STM/TARGET_STM32H7/cmsis.h:22,
+
+                 from C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\cores\arduino/mbed/targets/TARGET_STM/PinNamesTypes.h:33,
+
+                 from C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\variants\PORTENTA_H7_M4/pinmode_arduino.h:24,
+
+                 from C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\cores\arduino/Arduino.h:26,
+
+                 from C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:19:
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:200:38: error: 'DCMI_TIM_CHANNEL' was not declared in this scope
+
+         __HAL_TIM_SET_COMPARE(&htim, DCMI_TIM_CHANNEL, period / 2);
+
+                                      ^
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\cores\arduino/mbed/targets/TARGET_STM/TARGET_STM32H7/STM32Cube_FW/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.h:1550:6: note: in definition of macro '__HAL_TIM_SET_COMPARE'
+
+   (((__CHANNEL__) == TIM_CHANNEL_1) ? ((__HANDLE__)->Instance->CCR1 = (__COMPARE__)) :\
+
+      ^~~~~~~~~~~
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:200:38: note: suggested alternative: 'STM_PIN_CHANNEL'
+
+         __HAL_TIM_SET_COMPARE(&htim, DCMI_TIM_CHANNEL, period / 2);
+
+                                      ^
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\cores\arduino/mbed/targets/TARGET_STM/TARGET_STM32H7/STM32Cube_FW/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.h:1550:6: note: in definition of macro '__HAL_TIM_SET_COMPARE'
+
+   (((__CHANNEL__) == TIM_CHANNEL_1) ? ((__HANDLE__)->Instance->CCR1 = (__COMPARE__)) :\
+
+      ^~~~~~~~~~~
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:205:35: error: 'DCMI_TIM' was not declared in this scope
+
+     htim.Instance               = DCMI_TIM;
+
+                                   ^~~~~~~~
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:205:35: note: suggested alternative: 'DCMI_IRQn'
+
+     htim.Instance               = DCMI_TIM;
+
+                                   ^~~~~~~~
+
+                                   DCMI_IRQn
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:225:56: error: 'DCMI_TIM_CHANNEL' was not declared in this scope
+
+     || (HAL_TIM_PWM_ConfigChannel(&htim, &TIMOCHandle, DCMI_TIM_CHANNEL) != HAL_OK)
+
+                                                        ^~~~~~~~~~~~~~~~
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:225:56: note: suggested alternative: 'STM_PIN_CHANNEL'
+
+     || (HAL_TIM_PWM_ConfigChannel(&htim, &TIMOCHandle, DCMI_TIM_CHANNEL) != HAL_OK)
+
+                                                        ^~~~~~~~~~~~~~~~
+
+                                                        STM_PIN_CHANNEL
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp: In member function 'bool Camera::begin(int32_t, int32_t, int32_t)':
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:403:26: error: 'DCMI_TIM_FREQUENCY' was not declared in this scope
+
+     camera_extclk_config(DCMI_TIM_FREQUENCY);
+
+                          ^~~~~~~~~~~~~~~~~~
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:403:26: note: suggested alternative: 'DCMI_IT_FRAME'
+
+     camera_extclk_config(DCMI_TIM_FREQUENCY);
+
+                          ^~~~~~~~~~~~~~~~~~
+
+                          DCMI_IT_FRAME
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp: In member function 'int Camera::grabFrame(FrameBuffer&, uint32_t)':
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\cameraOrigina.cpp:609:5: error: 'SCB_InvalidateDCache_by_Addr' was not declared in this scope
+
+     SCB_InvalidateDCache_by_Addr((uint32_t*) framebuffer, framesize);
+
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+exit status 1
+
+Error compiling for board Arduino Portenta H7 (M4 core).
+
+
+
+This report would have more information with
+"Show verbose output during compilation"
+option enabled in File -> Preferences.

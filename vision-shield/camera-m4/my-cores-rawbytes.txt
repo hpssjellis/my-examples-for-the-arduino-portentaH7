@@ -1,0 +1,23 @@
+erros for rawBytes using my core if defines
+
+
+
+Arduino: 1.8.19 (Windows 10), Board: "Arduino Portenta H7 (M4 core), 1MB M7 + 1MB M4"
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\camera.cpp: In member function 'int Camera::grabFrame(FrameBuffer&, uint32_t)':
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\camera.cpp:609:5: error: 'SCB_InvalidateDCache_by_Addr' was not declared in this scope
+
+     SCB_InvalidateDCache_by_Addr((uint32_t*) framebuffer, framesize);
+
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+exit status 1
+
+Error compiling for board Arduino Portenta H7 (M4 core).
+
+
+
+This report would have more information with
+"Show verbose output during compilation"
+option enabled in File -> Preferences.
