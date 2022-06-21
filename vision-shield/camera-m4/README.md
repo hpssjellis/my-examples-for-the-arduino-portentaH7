@@ -14,6 +14,20 @@ Trying to get the camera working on the Portenta M4  core as per this issue on t
 https://github.com/arduino/ArduinoCore-mbed/issues/504
 
 
+
+
+
+Very strange this line did not work
+
+```#if defined(PORTENTA_H7_M7) || defined(PORTENTA_H7_M4)```
+
+however this line was fine
+
+```
+#if  defined (CORE_CM7)  ||  defined (CORE_CM4)
+
+```
+
 Code presently dies here when grabbing the framebuffer
 ```int Camera::grabFrame(FrameBuffer &fb, uint32_t timeout)```
 
@@ -35,7 +49,7 @@ Code presently dies here when grabbing the framebuffer
 
 
 
-That function is in this locaiton
+That function is in this location
 
 ```\cores\arduino\mbed\cmsis\CMSIS_5\CMSIS\TARGET_CORTEX_M\Include\cachel1_armv7.h  ```
 
@@ -75,7 +89,20 @@ __STATIC_FORCEINLINE void SCB_InvalidateDCache_by_Addr (volatile void *addr, int
 
 ```
 
-not sure why the file isnot linked to.
+but I can't seem to link to it for it to run properly. Here is my present error message
+
+```
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\camera.cpp: In member function 'int Camera::grabFrame(FrameBuffer&, uint32_t)':
+
+C:\Arduino-1.8.19\portable\packages\arduino\hardware\mbed_portenta\3.1.1\libraries\Camera\src\camera.cpp:609:5: error: 'SCB_InvalidateDCache_by_Addr' was not declared in this scope
+
+     SCB_InvalidateDCache_by_Addr((uint32_t*) framebuffer, framesize);
+
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+```
 
 
 
