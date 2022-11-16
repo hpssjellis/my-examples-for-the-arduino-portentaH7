@@ -175,7 +175,7 @@ void loop() {
         client.print(F("<script>\n"));
         client.print(F("function saveFileAs() {\n"));
         client.print(F("var myFilename01 = document.getElementById('myText01').value + '.txt';\n"));
-        client.print(F("var myTextBlob = new Blob([document.getElementById('myTextarea01').value], {type:'text/plain'});\n"));
+        client.print(F("var myTextBlob = new Blob([document.getElementById('myTextArea01').value], {type:'text/plain'});\n"));
         client.print(F("var myDownloadLink = document.createElement('a');\n"));
         client.print(F("myDownloadLink.download = myFilename01;\n"));
         client.print(F("myDownloadLink.innerHTML = 'Download File';\n"));
