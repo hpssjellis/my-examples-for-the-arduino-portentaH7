@@ -3,7 +3,7 @@
 
 //    https://www.nayuki.io/page/png-file-chunk-inspector  
 
-  #include <WiFi.h>
+#include <WiFi.h>
 
 char ssid[] = "";    // your network SSID (name)
 char pass[] = "";   // your network password (use for WPA, or use as key for WEP)
@@ -250,12 +250,16 @@ void loop() {
           client.println(c[k]);
        }
    */
+
+   if (mode == 1) {    // show the image
         int k;
-        for (k = 0; k <= 20; k++){
-          client.print(ucOut[k]); client.print(",");
+        for (k = 0; k <= 40; k++){
+          //long hexVal = strtol(numString, NULL, 16);
+          client.print( ucOut[k],HEX ); client.print(",");
        }
+       mode = 0;  // don't show it until button pushed again
 
-
+   }
 
 
   // ucOut
@@ -300,7 +304,7 @@ void loop() {
       } // end if (client.available())
     } // end while (client.connected())
     client.stop();
-    mode=1;
+  
   } // end if (client)
 
 
