@@ -3,6 +3,14 @@
 
 //    https://www.nayuki.io/page/png-file-chunk-inspector  
 
+
+
+// thi sis a red dot
+
+//R0lGODdhAQABAPAAAP8AAAAAACwAAAAAAQABAAACAkQBADs=
+
+
+
 #include <WiFi.h>
 
 char ssid[] = "";    // your network SSID (name)
@@ -253,10 +261,18 @@ void loop() {
 
    if (mode == 1) {    // show the image
         int k;
-        for (k = 0; k <= 40; k++){
-          //long hexVal = strtol(numString, NULL, 16);
-          client.print( ucOut[k],HEX ); client.print(",");
+        String myImage, myNew;
+        for (k = 0; k <= 300; k++){
+          //long hexVal = strtol(numString, NULL, 16);  // convert to base 16
+          //myImage += ucOut[k];
+          //myImage += ltoa(strtol(ucOut[k], NULL, 16), buf, 10);
+          myNew = String(ucOut[k], HEX);
+          myNew.toUpperCase();
+          myImage += myNew;
+         // myImage += ",";
+         // client.print( ucOut[k],HEX ); client.print(",");
        }
+       client.print(myImage);
        mode = 0;  // don't show it until button pushed again
 
    }
