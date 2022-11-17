@@ -1,3 +1,7 @@
+
+Note the highest number  cam## is the latest attpemt, but not necessarily the best attempt.
+
+
 saving from the portenta or Nicla Vision camera to a webpage text file. Potentially then send the image to the cloud.
 
 
