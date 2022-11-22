@@ -1,6 +1,6 @@
-My best ideas so far
+My best ideas so far. 
 
-[a01](ao1.ino)  is trying to edit your code, but always has some compiler issues.
+[a01](ao1.ino)  is trying to edit your code, but always has some compiler issues. This can be tested without the Portenta as the issue is compiling it.
 
 Compile issue at [here](https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/blob/42e591f29604f498ca8ee786af78ac8596856654/research/camera-webserver-save/larry/a01.ino#L113)
 
