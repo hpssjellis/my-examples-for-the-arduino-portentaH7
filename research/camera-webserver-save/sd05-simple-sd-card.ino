@@ -20,6 +20,71 @@ SDMMCBlockDevice block_device;
 mbed::FATFileSystem fs("fs");
 
 
+#include <PNGenc.h>
+
+PNG png; // static instance of the PNG encoder class
+
+
+#define WIDTH 128
+#define HEIGHT 128
+
+uint8_t ucPal[768] = {0,0,0,0,255,0}; // black, green
+uint8_t ucAlphaPal[256] = {0,255}; // first color (black) is fully transparent
+uint8_t ucOut[4096];
+
+
+
+
+
+void makePNG() {
+
+
+  
+int rc, iDataSize, x, y;
+uint8_t ucLine[WIDTH];
+long l;
+
+  
+  l = micros();
+
+  rc = png.open(ucOut, sizeof(ucOut));
+
+  if (rc == PNG_SUCCESS) {
+
+
+        rc = png.encodeBegin(WIDTH, HEIGHT, PNG_PIXEL_INDEXED, 8, ucPal, 3);
+        png.setAlphaPalette(ucAlphaPal);
+        if (rc == PNG_SUCCESS) {
+            for (int y=0; y<HEIGHT && rc == PNG_SUCCESS; y++) {
+              // prepare a line of image to create a red box with an x on a transparent background
+              if (y==0 || y == HEIGHT-1) {
+                memset(ucLine, 1, WIDTH); // top+bottom green lines 
+              } else {
+                memset(ucLine, 0, WIDTH);
+                ucLine[0] = ucLine[WIDTH-1] = 1; // left/right border
+                ucLine[y] = ucLine[WIDTH-1-y] = 1; // X in the middle
+              }
+                rc = png.addLine(ucLine);
+            } // for y
+            iDataSize = png.close();
+            l = micros() - l;
+            Serial.print(iDataSize);
+            Serial.print(" bytes of data written to file in ");
+            Serial.print((int)l);
+            Serial.print(" us\n");
+         }
+           
+  } else {
+    Serial.println("Failed to create PNG");
+  }
+
+
+
+} 
+
+
+
+
 void setup() {
   Serial.begin(115200);
   pinMode(LED_BUILTIN, OUTPUT);
@@ -41,6 +106,14 @@ void setup() {
   }
 
 }
+
+
+void mypng3(){
+  
+;  
+}
+
+
 
 void loop() {
   digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN)); // flips LED on and off
@@ -65,55 +138,16 @@ void loop() {
   FILE *fp = fopen(myFileName, "r");              // "r" read only
      while (!feof(fp)){                           // while not end of file
         c=fgetc(fp);                              // get a character/byte from the file
-        printf("Read from file %02x\n\r",c);    // and show it in hex format
-        //Serial.print((char)c);                    // show it as a text character
+        //printf("Read from file %02x\n\r",c);    // and show it in hex format
+        Serial.print((char)c);                    // show it as a text character
      }
   fclose(fp); 
   Serial.println("------------------------- Done Showing file --------------------------------");
-  Serial.println("------------------------- waiting a minute --------------------------------");
-
+  Serial.println("------------------------- Making a PNG --------------------------------");
+  mypng3()
+  Serial.println("------------------------- Done and waiting 60 s --------------------------------");
   delay(60000);   // wait a bit
   
 }
-
-
-
-void makePNG() {
-int rc, iDataSize, x, y;
-uint8_t ucLine[WIDTH];
-long l;
-
-  
-  l = micros();
-
-  rc = png.open(ucOut, sizeof(ucOut));
-
-  if (rc == PNG_SUCCESS) {
-        rc = png.encodeBegin(WIDTH, HEIGHT, PNG_PIXEL_INDEXED, 8, ucPal, 3);
-        png.setAlphaPalette(ucAlphaPal);
-        if (rc == PNG_SUCCESS) {
-            for (int y=0; y<HEIGHT && rc == PNG_SUCCESS; y++) {
-              // prepare a line of image to create a red box with an x on a transparent background
-              if (y==0 || y == HEIGHT-1) {
-                memset(ucLine, 1, WIDTH); // top+bottom green lines 
-              } else {
-                memset(ucLine, 0, WIDTH);
-                ucLine[0] = ucLine[WIDTH-1] = 1; // left/right border
-                ucLine[y] = ucLine[WIDTH-1-y] = 1; // X in the middle
-              }
-                rc = png.addLine(ucLine);
-            } // for y
-            iDataSize = png.close();
-            l = micros() - l;
-            Serial.print(iDataSize);
-            Serial.print(" bytes of data written to file in ");
-            Serial.print((int)l);
-            Serial.print(" us\n");
-         }
-  } else {
-    Serial.println("Failed to create PNG");
-  }
-} 
-
 
 
