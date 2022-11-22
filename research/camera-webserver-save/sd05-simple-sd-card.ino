@@ -108,11 +108,6 @@ void setup() {
 }
 
 
-void mypng3(){
-  
-;  
-}
-
 
 
 void loop() {
@@ -144,7 +139,7 @@ void loop() {
   fclose(fp); 
   Serial.println("------------------------- Done Showing file --------------------------------");
   Serial.println("------------------------- Making a PNG --------------------------------");
-  mypng3()
+  makePNG();
   Serial.println("------------------------- Done and waiting 60 s --------------------------------");
   delay(60000);   // wait a bit
   
