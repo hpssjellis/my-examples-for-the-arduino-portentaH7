@@ -65,7 +65,7 @@ uint8_t ucOut[4096];
 
 void makePNG() {
 
-  char myPngFileName[] = "fs/myFolder3/my01.png";   // "fs/" needs to be there, think fileSystem
+  char myPngFileName[] = "fs/myFolder4/my01.png";   // "fs/" needs to be there, think fileSystem
   myPngFile = fopen(myPngFileName, "w");          // "a" for append (add to file), "w" write, "r" read ?? 
   int rc, iDataSize, x, y;
   uint8_t ucLine[WIDTH];
@@ -85,7 +85,7 @@ void makePNG() {
 
 
            if (cam.grabFrame(fb, 3000) == 0) {
-              Serial.write(fb.getBuffer(), cam.frameSize());
+              //Serial.write(fb.getBuffer(), cam.frameSize());
 
 
 /*
@@ -221,12 +221,11 @@ void setup() {
 
 
 void loop() {
-  digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN)); // flips LED on and off
-  
+ 
   // Make a folder if needed
-  mkdir("fs/myFolder3",0777);                     // 0777 full access permissions linux style 
+  mkdir("fs/myFolder4",0777);                     // 0777 full access permissions linux style 
    
-  char myFileName[] = "fs/myFolder3/test2.txt";   // "fs/" needs to be there, think fileSystem
+  char myFileName[] = "fs/myFolder4/test2.txt";   // "fs/" needs to be there, think fileSystem
  
   FILE *myFile = fopen(myFileName, "w");          // "a" for append (add to file), "w" write, "r" read ??
  
@@ -250,7 +249,9 @@ void loop() {
   Serial.println("------------------------- Done Showing file --------------------------------");
   Serial.println("------------------------- Making a PNG --------------------------------");
 
+  digitalWrite(LED_BUILTIN, LOW); 
   makePNG();
+  digitalWrite(LED_BUILTIN, HIGH); 
   Serial.println("------------------------- Done and waiting 20 seconds --------------------------------");
   delay(20000);   // wait a bit
   
