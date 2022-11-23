@@ -21,4 +21,15 @@ This line is not working to dump the entire PNG to disk [here](https://github.co
 ```
 
 
+Notes:
 
+This is how the bmp file saving was done [here](https://github.com/arduino-libraries/Arduino_Pro_Tutorials/blob/main/examples/Vision%20Shield%20to%20SD%20Card%20bmp/visionShieldBitmap/visionShieldBitmap.ino)
+
+ ```
+     fwrite(bitmapFileHeader, 1, BITMAP_FILE_HEADER_SIZE, file);
+    fwrite(bitmapDIBHeader, 1, DIB_HEADER_SIZE, file);
+    fwrite(colorMap, 1, PALETTE_SIZE, file);
+    fwrite(imageData, 1, IMAGE_HEIGHT * IMAGE_WIDTH, file);
+
+ 
+ ```
