@@ -26,7 +26,27 @@ Notes:
 This is how the bmp file saving was done [here](https://github.com/arduino-libraries/Arduino_Pro_Tutorials/blob/main/examples/Vision%20Shield%20to%20SD%20Card%20bmp/visionShieldBitmap/visionShieldBitmap.ino)
 
  ```
-     fwrite(bitmapFileHeader, 1, BITMAP_FILE_HEADER_SIZE, file);
+ // Settings for our setup
+#define IMAGE_HEIGHT (unsigned int)240
+#define IMAGE_WIDTH (unsigned int)320
+#define IMAGE_MODE CAMERA_GRAYSCALE
+#define BITS_PER_PIXEL (unsigned int)8
+#define PALETTE_COLORS_AMOUNT (unsigned int)(pow(2, BITS_PER_PIXEL))
+#define PALETTE_SIZE  (unsigned int)(PALETTE_COLORS_AMOUNT * 4) // 4 bytes = 32bit per color (3 bytes RGB and 1 byte 0x00)
+#define IMAGE_PATH "/fs/image.bmp"
+
+// Headers info
+#define BITMAP_FILE_HEADER_SIZE (unsigned int)14 // For storing general information about the bitmap image file
+#define DIB_HEADER_SIZE (unsigned int)40 // For storing information about the image and define the pixel format
+#define HEADER_SIZE (BITMAP_FILE_HEADER_SIZE + DIB_HEADER_SIZE)
+ 
+ ...
+     // Bitmap structure (Head + DIB Head + ColorMap + binary image)
+    unsigned char bitmapFileHeader[BITMAP_FILE_HEADER_SIZE];
+    unsigned char bitmapDIBHeader[DIB_HEADER_SIZE];
+    unsigned char colorMap[PALETTE_SIZE]; // Needed for <= 8bpp grayscale bitmaps   
+ 
+    fwrite(bitmapFileHeader, 1, BITMAP_FILE_HEADER_SIZE, file);
     fwrite(bitmapDIBHeader, 1, DIB_HEADER_SIZE, file);
     fwrite(colorMap, 1, PALETTE_SIZE, file);
     fwrite(imageData, 1, IMAGE_HEIGHT * IMAGE_WIDTH, file);
