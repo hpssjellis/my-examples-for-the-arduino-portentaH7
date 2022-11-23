@@ -35,6 +35,9 @@ Other buffer instantiation options:
 */
 FrameBuffer fb;
 
+// could use heap or Portenta SDRAM
+static uint8_t frame_buffer[320*320] __attribute__((aligned(32)));
+
 
 
 #include "SDMMCBlockDevice.h"
@@ -52,16 +55,8 @@ FILE *myPngFile;
 #define WIDTH 160
 #define HEIGHT 120
 
-// could use heap or Portenta SDRAM
-static uint8_t frame_buffer[WIDTH*HEIGHT] __attribute__((aligned(32)));
-
-
-
-
-
-//uint8_t ucPal[768] = {0,0,0,0,255,0}; // black, green
-uint8_t ucPal[768] = {0,0,0,50,50,50,255,255,255}; // black, grey, white
-uint8_t ucAlphaPal[256] = {255,255,255}; // first color (black) is fully transparent
+uint8_t ucPal[768] = {0,0,0, 255,0,0, 0,255,0, 0,0,255, 255,255,255}; // black, green
+uint8_t ucAlphaPal[256] = {0,255,255,255,255}; // first color (black) is fully transparent
 uint8_t ucOut[4096];
 
 
@@ -70,7 +65,7 @@ uint8_t ucOut[4096];
 
 void makePNG() {
 
-  char myPngFileName[] = "fs/myFolder4/my07-gray.png";   // "fs/" needs to be there, think fileSystem
+  char myPngFileName[] = "fs/myFolder4/my17-alpha.png";   // "fs/" needs to be there, think fileSystem
   myPngFile = fopen(myPngFileName, "w");          // "a" for append (add to file), "w" write, "r" read ?? 
   int rc, iDataSize, x, y;
   uint8_t ucLine[WIDTH];
@@ -84,7 +79,7 @@ void makePNG() {
 
 
        // rc = png.encodeBegin(WIDTH, HEIGHT, PNG_PIXEL_INDEXED, 8, ucPal, 3);
-        rc = png.encodeBegin(WIDTH, HEIGHT, PNG_PIXEL_GRAYSCALE, 2, ucPal, 3);
+        rc = png.encodeBegin(WIDTH, HEIGHT, PNG_PIXEL_GRAYSCALE, 1, ucPal, 3);
         png.setAlphaPalette(ucAlphaPal);
         if (rc == PNG_SUCCESS) {
 
@@ -204,7 +199,7 @@ void setup() {
   
 
   Serial.println("Mounting Camera...");
- //  if (!cam.begin(CAMERA_R320x240, IMAGE_MODE, 30)) {
+  // if (!cam.begin(CAMERA_R320x240, IMAGE_MODE, 30)) {
   if (!cam.begin(CAMERA_R160x120, CAMERA_GRAYSCALE, 30)) {
     Serial.println("No Camera, make sure portenta Vision shield is connected");
   }
