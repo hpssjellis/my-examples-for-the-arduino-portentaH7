@@ -65,7 +65,7 @@ uint8_t ucOut[4096];
 
 void makePNG() {
 
-  char myPngFileName[] = "fs/myFolder320/my01.png";   // "fs/" needs to be there, think fileSystem
+  char myPngFileName[] = "fs/myFolder3/my01.png";   // "fs/" needs to be there, think fileSystem
   myPngFile = fopen(myPngFileName, "w");          // "a" for append (add to file), "w" write, "r" read ?? 
   int rc, iDataSize, x, y;
   uint8_t ucLine[WIDTH];
