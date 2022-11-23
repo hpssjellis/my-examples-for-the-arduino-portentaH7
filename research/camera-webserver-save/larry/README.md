@@ -1,3 +1,8 @@
+Looks like [a03.ino](a03.ino) is working. Thanks for the help. Next issue is the camera framebuffer.
+
+
+
+
 My best ideas so far. 
 
 [a01](ao1.ino)  is trying to edit your code, but always has some compiler issues. This can be tested without the Portenta as the issue is compiling it.
