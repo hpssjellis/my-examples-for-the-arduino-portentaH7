@@ -3,6 +3,15 @@ Looks like [a03.ino](a03.ino) is working. Thanks for the help. Next issue is the
 
 
 
+
+
+
+Ignore this old stuff
+[h05-320-320-gray-8bit-works.ino](h05-320-320-gray-8bit-works.ino)  works 320 x 320 grayscale 8bit on Portenta works, now just have to get the webserver working
+
+
+
+
 My best ideas so far. 
 
 [a01](ao1.ino)  is trying to edit your code, but always has some compiler issues. This can be tested without the Portenta as the issue is compiling it.
