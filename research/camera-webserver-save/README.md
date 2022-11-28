@@ -70,3 +70,12 @@ console.log("32 bit value: "+view2[0].toString(16));
 
 ```
 
+
+
+
+Also showing data on webpages
+
+https://pqina.nl/blog/convert-an-image-to-a-base64-string-with-javascript/
+
+
+
