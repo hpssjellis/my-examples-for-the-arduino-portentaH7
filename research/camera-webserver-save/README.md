@@ -24,6 +24,12 @@ My PNGend which links to the owner Larry
 
 https://github.com/hpssjellis/PNGenc
 
+Another great resource. storing an array of images locally
+
+https://jsfiddle.net/sbhomra/bts3xo5n/
+
+https://www.surinderbhomra.com/Blog/2022/04/14/Storing-An-Array-of-Images-In-localStorage
+
 
 
 Reference Files
