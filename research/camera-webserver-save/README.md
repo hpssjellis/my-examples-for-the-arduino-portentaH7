@@ -46,5 +46,27 @@ Official Arduino Portenta Camera saving to SD card as BMP [here](https://github.
 
 
 
+ArrayBuffer stuff for javascript
+```
 
+var myBuffer = new ArrayBuffer(16);
+
+// DataView that refers to myBuffer object
+var view1 = new DataView(myBuffer);
+
+// Int8Array that refers to myBuffer object
+var view2 = new Int8Array(myBuffer);
+
+// set value to 32 bits
+view1.setInt32(0, 0x76543210);
+
+// console log the 32 bit value
+console.log("32 bit value: "+view1.getInt32(0).toString(16));
+
+// console log  only the 8 bit value
+console.log("8 bit value: "+view1.getInt8(0).toString(16));
+console.log("32 bit value: "+view2[0].toString(16));
+
+
+```
 
