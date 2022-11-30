@@ -1,5 +1,5 @@
 /*
-*  WiFi PNG web save
+*  WiFi BMP to web save
 *  By Jeremy Ellis
 *
 */
