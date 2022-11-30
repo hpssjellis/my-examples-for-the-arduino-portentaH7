@@ -241,8 +241,8 @@ WiFiClient client = server.available();   // listen for incoming clients
              }
     
              if (mode == 3) {
-    
-               saveToClient(imageData)
+                imageData = captureImage();
+                saveToClient(imageData)
   
               }
     
@@ -387,58 +387,40 @@ void saveToClient(unsigned char *imageData){
    
    // these need to be in BASE64 format
   
- 
     client.print(F("<img src=\"data:image/bmp;base64,"));
   
 
- 
-
-
-   // client.write(bitmapFileHeader, BITMAP_FILE_HEADER_SIZE);
-  
+   // client.write(bitmapFileHeader, BITMAP_FILE_HEADER_SIZE);  
    size_t rawLength1 = BITMAP_FILE_HEADER_SIZE;
    char ucBase641[BASE64::encodeLength(rawLength1)];
    BASE64::encode((const uint8_t*)bitmapFileHeader, rawLength1, ucBase641);   
-   client.write( (const char *)ucBase641, BASE64::encodeLength(rawLength1)-1); 
+   client.write( (const char *)ucBase641, BASE64::encodeLength(rawLength1)-1);   // not sure about the -1 ????
   
   
-    //client.write(bitmapDIBHeader, DIB_HEADER_SIZE);
-  
-  
+   //client.write(bitmapDIBHeader, DIB_HEADER_SIZE);  
    size_t rawLength2 = DIB_HEADER_SIZE;
    char ucBase642[BASE64::encodeLength(rawLength2)];
    BASE64::encode((const uint8_t*)bitmapDIBHeader, rawLength2, ucBase642);   
    client.write( (const char *)ucBase642, BASE64::encodeLength(rawLength2)-1); 
   
+  
    // client.write(colorMap, PALETTE_SIZE);
-  
-  
    size_t rawLength3 = PALETTE_SIZE;
    char ucBase643[BASE64::encodeLength(rawLength3)];
    BASE64::encode((const uint8_t*)colorMap, rawLength3, ucBase643);   
    client.write( (const char *)ucBase643, BASE64::encodeLength(rawLength3)-1); 
   
   
-   // client.write(imageData, IMAGE_HEIGHT * IMAGE_WIDTH);  
-  
+   // client.write(imageData, IMAGE_HEIGHT * IMAGE_WIDTH);    
    size_t rawLength4 = IMAGE_HEIGHT * IMAGE_WIDTH;
    char ucBase644[BASE64::encodeLength(rawLength4)];
    BASE64::encode((const uint8_t*)imageData, rawLength4, ucBase644);   
    client.write( (const char *)ucBase644, BASE64::encodeLength(rawLength4)-1); 
   
-  
    
-  client.print(F("\" />"));            
+   client.print(F("\" />"));            
  
- 
- 
-  
-  
-  
-    // Write the bitmap file
 
-    // Close the file stream
-   // fclose(file);
 }
 
 
