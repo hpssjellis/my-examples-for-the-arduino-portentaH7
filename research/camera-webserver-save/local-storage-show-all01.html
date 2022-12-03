@@ -1,0 +1,61 @@
+
+
+<input type="file" id="myFileIn" />
+
+<input type=button value="From File to Local Storage1" onclick="{
+  const myFileIn = document.getElementById('myFileIn').files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
+      localStorage.setItem('wallpaper', base64String);
+      document.getElementById('myImage01').src = `data:image/png;base64,${base64String}`;
+    };
+    reader.readAsDataURL(myFileIn);
+
+}"><br>
+
+<input type=button value="From File to Local Storage2" onclick="{
+  const myFileIn = document.getElementById('myFileIn').files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
+      localStorage.setItem('second', base64String);
+      document.getElementById('myImage01').src = `data:image/png;base64,${base64String}`;
+    };
+    reader.readAsDataURL(myFileIn);
+
+}"><br>
+<input type=button value="From Local Storage0" onclick="{
+
+      base64String = localStorage.getItem(localStorage.key(0));
+      document.getElementById('myImage01').src = `data:image/png;base64,${base64String}`;
+
+
+}"><br>
+<input type=button value="From Local Storage1" onclick="{
+
+      base64String = localStorage.getItem(localStorage.key(1));
+      document.getElementById('myImage01').src = `data:image/png;base64,${base64String}`;
+
+
+}"><br>
+
+<input type=button value="Show All Local" onclick="{
+
+
+  for (myCount = 0 ; myCount < localStorage.length; myCount++){
+     var elem = document.createElement('img');
+     base64String = localStorage.getItem( localStorage.key(myCount) );
+     elem.setAttribute('src', `data:image/png;base64,${base64String}`);
+     elem.setAttribute('height', '76');
+     elem.setAttribute('width', '102');
+     elem.setAttribute('alt', localStorage.key(myCount));
+     document.getElementById('myDiv01').appendChild(elem);
+  }
+
+
+}"><br>
+<div id="myDiv01">...</div>
+
+
+<img src="" id="myImage01" /> <br>
