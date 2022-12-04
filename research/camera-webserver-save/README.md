@@ -14,6 +14,12 @@ OR other ideas
 
 https://joshuatz.com/posts/2020/using-binary-data-with-front-end-javascript-and-the-web/
 
+javascript buffers
+
+https://javascript.info/arraybuffer-binary-arrays
+
+
+
 
 
 Lots of good info
