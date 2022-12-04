@@ -18,6 +18,9 @@ javascript buffers
 
 https://javascript.info/arraybuffer-binary-arrays
 
+awesome youtube about ArrayBuffer File Blob etc
+
+https://www.youtube.com/watch?v=ScZZoHj7mqY
 
 
 
