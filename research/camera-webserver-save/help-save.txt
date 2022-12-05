@@ -1,0 +1,67 @@
+1
+2
+3
+4
+5
+6
+7
+8
+9
+function downloadBase64File(base64Data, contentType, fileName) {
+  const linkSource = `data:${contentType};base64,${base64Data}`;
+  const downloadLink = document.createElement("a");
+  downloadLink.href = linkSource;
+  downloadLink.download = fileName;
+  downloadLink.click();
+}
+ 
+downloadBase64File('base64-image-string', 'image/png', 'test.png');
+
+
+
+
+
+
+
+
+
+
+
+
+
+$image_64 = $data['photo']; //your base64 encoded data
+
+  $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
+
+  $replace = substr($image_64, 0, strpos($image_64, ',')+1); 
+
+// find substring fro replace here eg: data:image/png;base64,
+
+ $image = str_replace($replace, '', $image_64); 
+
+ $image = str_replace(' ', '+', $image); 
+
+ $imageName = Str::random(10).'.'.$extension;
+
+ Storage::disk('public')->put($imageName, base64_decode($image));
+
+
+
+
+
+
+var body = req.rawBody,
+  base64Data = body.replace(/^data:image\/png;base64,/,""),
+  binaryData = new Buffer(base64Data, 'base64').toString('binary');
+
+require("fs").writeFile("out.png", binaryData, "binary", function(err) {
+  console.log(err); // writes out file without error, but it's not a valid image
+});
+
+
+
+
+
+
+
+<a href={`data:application/octet-stream;base64,${this.props.base64image}`} download={"imageName"}>Click to Download the image</a>
