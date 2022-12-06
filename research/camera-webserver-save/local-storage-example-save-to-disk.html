@@ -1,0 +1,138 @@
+
+
+<input type="file" id="myFileIn" />
+
+<input type=button value="From File to Local Storage1" onclick="{
+  const myFileIn = document.getElementById('myFileIn').files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
+      localStorage.setItem('wallpaper', base64String);
+      document.getElementById('myImage01').src = `data:image/png;base64,${base64String}`;
+    };
+    reader.readAsDataURL(myFileIn);
+
+}"><br>
+
+<input type=button value="From File to Local Storage2" onclick="{
+  const myFileIn = document.getElementById('myFileIn').files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
+      localStorage.setItem('second', base64String);
+      document.getElementById('myImage01').src = `data:image/png;base64,${base64String}`;
+    };
+    reader.readAsDataURL(myFileIn);
+
+}"><br>
+<input type=button value="From Local Storage0" onclick="{
+
+      base64String = localStorage.getItem(localStorage.key(0));
+      document.getElementById('myImage01').src = `data:image/png;base64,${base64String}`;
+
+
+}"><br>
+<input type=button value="From Local Storage1" onclick="{
+
+      base64String = localStorage.getItem(localStorage.key(1));
+      document.getElementById('myImage01').src = `data:image/png;base64,${base64String}`;
+
+
+}"><br>
+
+<input type=button value="Show All Local" onclick="{
+  document.getElementById('myDiv01').innerHTML = ''
+  for (myCount = 0 ; myCount < localStorage.length; myCount++){
+     var elem = document.createElement('img');
+     base64String = localStorage.getItem( localStorage.key(myCount) );
+     elem.setAttribute('src', `data:image/png;base64,${base64String}`);
+     elem.setAttribute('height', '76');
+     elem.setAttribute('width', '102');
+     elem.setAttribute('title', localStorage.key(myCount));
+     elem.setAttribute('alt', localStorage.key(myCount));
+     elem.setAttribute('name', localStorage.key(myCount));
+     elem.setAttribute('id', localStorage.key(myCount));
+
+     document.getElementById('myDiv01').appendChild(elem);
+
+  }
+
+}"><br>
+
+
+
+<input type=button value="SaveAll" onclick="{
+
+ // for (myCount = 0 ; myCount < localStorage.length; myCount++){
+
+   let myFilename01 = localStorage.key(0) + '.png';
+  // let myTextBlob = new Blob([localStorage.key(0)], {type:'image/png;base64'});
+   let myTextBlob = new Blob([myFilename01], {type:'text/plain'});
+   let myDownloadLink = document.createElement('a');
+   myDownloadLink.download = myFilename01;
+   myDownloadLink.innerHTML = 'Download File';
+   myDownloadLink.href = window.URL.createObjectURL(myTextBlob);
+   myDownloadLink.click();
+   delete myDownloadLink;
+   delete myTextBlob;
+ // }
+
+}"><br>
+
+
+
+
+<input type=button value="SaveAll3" onclick="{
+
+  for (myCount = 0 ; myCount < localStorage.length; myCount++){
+
+   let myFilename01 = localStorage.key(myCount) + '.png';
+  // let myTextBlob = new Blob([localStorage.key(myCount)], {type:'image/png;base64'});
+   let myTextBlob = new Blob([myFilename01], {type:'text/plain'});
+   let myDownloadLink = document.createElement('a');
+   myDownloadLink.download = myFilename01;
+   myDownloadLink.innerHTML = 'Download File';
+   myDownloadLink.href = window.URL.createObjectURL(myTextBlob);
+   myDownloadLink.click();
+   delete myDownloadLink;
+   delete myTextBlob;
+  }
+
+}"><br>
+
+
+<script>function downloadBase64File(base64Data,contentType,fileName){
+const linkSource = `data:${contentType};base64,${base64Data}`;
+const downloadLink = document.createElement("a");downloadLink.href = linkSource;downloadLink.download = fileName;downloadLink.click();}</script>
+
+
+
+
+
+<input type=button value="Save One" onclick="{
+   let myFilename01 = localStorage.key(0) + '.png';
+
+   base64String = localStorage.getItem( localStorage.key(0) );
+  // convertedToPng = btoa(base64String);
+
+   downloadBase64File(base64String, 'image/png', myFilename01);
+
+}"><br>
+
+
+
+<input type=button value="SaveAll4" onclick="{
+  for (myCount = 0 ; myCount < localStorage.length; myCount++){
+   let myFilename01 = localStorage.key(myCount) + '.png';
+   base64String = localStorage.getItem( localStorage.key(myCount) );
+   downloadBase64File(base64String, 'image/png', myFilename01);
+  }
+}"><br>
+
+
+
+
+<div id="myDiv01">...</div>
+
+
+<img src="" id="myImage01" /> <br>
