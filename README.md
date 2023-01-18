@@ -236,3 +236,7 @@ https://www.arduino.cc/pro/tutorials/portenta-h7
 #### links
 
 The battery connector  https://www.digikey.com/product-detail/en/jst-sales-america-inc/BM03B-ACHSS-GAN-TF-LF-SN/455-2203-1-ND/1647795
+
+
+
+The STM32H747 Datasheet  https://www.st.com/resource/en/datasheet/stm32h747xi.pdf
