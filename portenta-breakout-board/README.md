@@ -30,3 +30,13 @@ DF40C-80DP-0.4V(51)
 
 
 https://www.digikey.ca/en/products/detail/hirose-electric-co-ltd/DF40C-80DP-0-4V-51/1969492?s=N4IgTCBcDaICIDEAsAGAwgWgBwrgBQxQDokA1ACgFYBGAShAF0BfIA
+
+
+
+Folllwing image from thew Arduino Store interactive viewer of the schematic
+
+https://store-usa.arduino.cc/products/arduino-portenta-breakout?selectedStore=us
+
+
+
+![image](https://user-images.githubusercontent.com/5605614/214396435-704730a0-f60d-4372-a578-718114eb3b03.png)
