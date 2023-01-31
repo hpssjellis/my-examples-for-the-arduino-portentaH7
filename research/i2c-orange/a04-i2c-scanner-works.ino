@@ -2,6 +2,12 @@
 // i2c_scanner
 //
 // Modified from https://playground.arduino.cc/Main/I2cScanner/
+// remove autoscroll from the serial monitor
+// connect GND to Breakoutboard GND
+// Connect scanner protenta D12 SCL to breakout board SCL1 
+// Connect D11 SDA to SDA1
+// weird for me it does not work with breakoutboard SDA0 SCL0 and SD2, SCL2
+// That is really good to know.
 // --------------------------------------
 
 #include <Wire.h>
@@ -28,6 +34,8 @@ void loop() {
   nDevices = 0;
   for(address = 1; address < 127; address++ ) 
   {
+    Serial.print(address);
+    Serial.print(", ");
     // The i2c_scanner uses the return value of
     // the Write.endTransmisstion to see if
     // a device did acknowledge to the address.
@@ -36,6 +44,7 @@ void loop() {
 
     if (error == 0)
     {
+      Serial.println();
       Serial.print("I2C device found at address 0x");
       if (address<16) 
         Serial.print("0");
