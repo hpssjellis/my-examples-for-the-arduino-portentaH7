@@ -1,4 +1,4 @@
-/*
+/*  Written by ChatGPT and not working!
 *
 * Master for this I2C will be the Portenta
 * Portenta SDA on D11
