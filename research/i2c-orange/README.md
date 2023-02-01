@@ -1,4 +1,4 @@
-a04 works to scan for I2C devices. With the portenta if I connect it through SCL1 and SDA1 irt fines all three I2C channels. not really sure how it does that.
+# a04 works to scan for I2C devices. With the portenta if I connect it through SCL1 and SDA1 irt fines all three I2C channels. not really sure how it does that.
 
 ```
 Scanning...
@@ -10,7 +10,7 @@ done
 weird only works on SDA1 and SCL1 not 0 or 2 for me
 
 
-A06  works to read what is at an adress. Run A04 to make sure the connection is OK first. DOes not see to use the info from a04 just needs to know that the connection is good.
+# A06  works to read what is at an adress. Run A04 to make sure the connection is OK first. DOes not see to use the info from a04 just needs to know that the connection is good.
 
 Output from A06
 
@@ -75,6 +75,7 @@ F0 | 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0
 
 
 
+# a07 is like a06 but better formatted. Only shows 16 bytes in 10 rows which might be closer to the full PMIC
 
 
 
