@@ -93,3 +93,219 @@ https://github.com/arduino/ArduinoCore-mbed/issues/608
 Note: A useful way to compare binary files is here   https://www.diffnow.com/  
 
 
+
+
+# update Feb 1st, 2023
+
+a08-write-PMIC-nto-great.ino
+
+Starting to get interesting. I took TJakels code and got it working with my code, however it did not seem to change the code dramtically and looks like several registers are locked.
+
+```
+
+PMIC unchanged but broken
+
+
+Starting at address: 8
+
+HEX VALUES
+0x7c, 0x00, 0x11, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x07, 0x00, 0x00, 0x07, 0x00, 0x00, 0x03,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x05, 0x00, 0x00, 0x00, 0x3f, 0x00, 0x00, 0x08, 0x1f, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x06, 0x06, 0x06, 0x00, 0x00, 0x00, 0x06, 0x06, 0x06, 0x00, 0x00, 0x00, 0x0d, 0x0d,
+0x0d, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x68, 0x00, 0xff, 0x00, 0xac, 0x00, 0x20, 0x03, 0x04, 0x02, 0x00, 0x00, 0x00, 0x40, 0x02, 0xab,
+0x00, 0x00, 0x00, 0x00, 0xa0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+One PMIC register changed
+
+Starting at address: 8
+
+HEX VALUES
+0x7c, 0x00, 0x11, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x07, 0x00, 0x00, 0x03,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x05, 0x00, 0x00, 0x00, 0x3f, 0x00, 0x00, 0x00, 0x1f, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x06, 0x06, 0x06, 0x0f, 0x00, 0x00, 0x0a, 0x0a, 0x0a, 0x0f, 0x00, 0x00, 0x0d, 0x0d,
+0x0d, 0x03, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x03, 0x00, 0x00,
+0x0f, 0x00, 0x09, 0x0f, 0x00, 0x00, 0x00, 0x00, 0x21, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01,
+0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0xff, 0x00, 0xac, 0x00, 0x20, 0x03, 0x04, 0x02, 0x00, 0x00, 0x00, 0x40, 0x05, 0x6b,
+0x00, 0x00, 0x00, 0x00, 0xa0, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x20, 0x00,
+
+
+
+```
+
+
+
+```
+
+Wrote 2 bytes to register 0: wrote 7C, read 7C
+Wrote 2 bytes to register 1: wrote 0, read 0
+Wrote 2 bytes to register 2: wrote 11, read 11
+Wrote 2 bytes to register 3: wrote 0, read 0
+Wrote 2 bytes to register 4: wrote 0, read 0
+Wrote 2 bytes to register 5: wrote 0, read 0
+Wrote 2 bytes to register 6: wrote 88, read 80 *** ERROR ***
+Wrote 2 bytes to register 7: wrote 0, read 0
+Wrote 2 bytes to register 8: wrote 0, read 0
+Wrote 2 bytes to register 9: wrote 7, read 7
+Wrote 2 bytes to register A: wrote 0, read 0
+Wrote 2 bytes to register B: wrote 4, read 0 *** ERROR ***
+Wrote 2 bytes to register C: wrote 7, read 7
+Wrote 2 bytes to register D: wrote 4, read 0 *** ERROR ***
+Wrote 2 bytes to register E: wrote 0, read 0
+Wrote 2 bytes to register F: wrote 3, read 3
+Wrote 2 bytes to register 10: wrote 0, read 0
+Wrote 2 bytes to register 11: wrote 0, read 0
+Wrote 2 bytes to register 12: wrote 0, read 0
+Wrote 2 bytes to register 13: wrote 0, read 0
+Wrote 2 bytes to register 14: wrote 0, read 0
+Wrote 2 bytes to register 15: wrote 0, read 0
+Wrote 2 bytes to register 16: wrote 0, read 0
+Wrote 2 bytes to register 17: wrote 0, read 0
+Wrote 2 bytes to register 18: wrote 0, read 0
+Wrote 2 bytes to register 19: wrote 7, read 7
+Wrote 2 bytes to register 1A: wrote 0, read 0
+Wrote 2 bytes to register 1B: wrote 0, read 0
+Wrote 2 bytes to register 1C: wrote 0, read 0
+Wrote 2 bytes to register 1D: wrote 0, read 0
+Wrote 2 bytes to register 1E: wrote 0, read 0
+Wrote 2 bytes to register 1F: wrote 0, read 0
+Wrote 2 bytes to register 20: wrote 0, read 0
+Wrote 2 bytes to register 21: wrote 5, read 5
+Wrote 2 bytes to register 22: wrote 0, read 0
+Wrote 2 bytes to register 23: wrote 0, read 0
+Wrote 2 bytes to register 24: wrote 0, read 0
+Wrote 2 bytes to register 25: wrote 3F, read 3F
+Wrote 2 bytes to register 26: wrote 0, read 0
+Wrote 2 bytes to register 27: wrote 0, read 0
+Wrote 2 bytes to register 28: wrote 8, read 0 *** ERROR ***
+Wrote 2 bytes to register 29: wrote 1F, read 1F
+Wrote 2 bytes to register 2A: wrote 4, read 4
+Wrote 2 bytes to register 2B: wrote 0, read 0
+Wrote 2 bytes to register 2C: wrote 0, read 0
+Wrote 2 bytes to register 2D: wrote 0, read 0
+Wrote 2 bytes to register 2E: wrote 0, read 0
+Wrote 2 bytes to register 2F: wrote 0, read 0
+Wrote 2 bytes to register 30: wrote 0, read 0
+Wrote 2 bytes to register 31: wrote 0, read 0
+Wrote 2 bytes to register 32: wrote 6, read 6
+Wrote 2 bytes to register 33: wrote 6, read 6
+Wrote 2 bytes to register 34: wrote 6, read 6
+Wrote 2 bytes to register 35: wrote F, read F
+Wrote 2 bytes to register 36: wrote 0, read 0
+Wrote 2 bytes to register 37: wrote 0, read 0
+Wrote 2 bytes to register 38: wrote A, read A
+Wrote 2 bytes to register 39: wrote A, read A
+Wrote 2 bytes to register 3A: wrote A, read A
+Wrote 2 bytes to register 3B: wrote F, read F
+Wrote 2 bytes to register 3C: wrote 0, read 0
+Wrote 2 bytes to register 3D: wrote 0, read 0
+Wrote 2 bytes to register 3E: wrote D, read D
+Wrote 2 bytes to register 3F: wrote D, read D
+Wrote 2 bytes to register 40: wrote D, read D
+Wrote 2 bytes to register 41: wrote 3, read 3
+Wrote 2 bytes to register 42: wrote 1, read 1
+Wrote 2 bytes to register 43: wrote 0, read 0
+Wrote 2 bytes to register 44: wrote 0, read 0
+Wrote 2 bytes to register 45: wrote 0, read 0
+Wrote 2 bytes to register 46: wrote 0, read 0
+Wrote 2 bytes to register 47: wrote 0, read 0
+Wrote 2 bytes to register 48: wrote 0, read 0
+Wrote 2 bytes to register 49: wrote 0, read 0
+Wrote 2 bytes to register 4A: wrote 0, read 0
+Wrote 2 bytes to register 4B: wrote 0, read 0
+Wrote 2 bytes to register 4C: wrote 5, read 5
+Wrote 2 bytes to register 4D: wrote 3, read 3
+Wrote 2 bytes to register 4E: wrote 0, read 0
+Wrote 2 bytes to register 4F: wrote 0, read 0
+Wrote 2 bytes to register 50: wrote F, read F
+Wrote 2 bytes to register 51: wrote 0, read 0
+Wrote 2 bytes to register 52: wrote 9, read 9
+Wrote 2 bytes to register 53: wrote F, read F
+Wrote 2 bytes to register 54: wrote 0, read 0
+Wrote 2 bytes to register 55: wrote 0, read 0
+Wrote 2 bytes to register 56: wrote 0, read 0
+Wrote 2 bytes to register 57: wrote 0, read 0
+Wrote 2 bytes to register 58: wrote 21, read 21
+Wrote 2 bytes to register 59: wrote 80, read 80
+Wrote 2 bytes to register 5A: wrote 0, read 0
+Wrote 2 bytes to register 5B: wrote 0, read 0
+Wrote 2 bytes to register 5C: wrote 0, read 0
+Wrote 2 bytes to register 5D: wrote 0, read 0
+Wrote 2 bytes to register 5E: wrote 0, read 0
+Wrote 2 bytes to register 5F: wrote 1, read 1
+Wrote 2 bytes to register 60: wrote 2, read 2
+Wrote 2 bytes to register 61: wrote 0, read 0
+Wrote 2 bytes to register 62: wrote 0, read 0
+Wrote 2 bytes to register 63: wrote 0, read 0
+Wrote 2 bytes to register 64: wrote 0, read 0
+Wrote 2 bytes to register 65: wrote 0, read 0
+Wrote 2 bytes to register 66: wrote 0, read 0
+Wrote 2 bytes to register 67: wrote C, read C
+Wrote 2 bytes to register 68: wrote 0, read 0
+Wrote 2 bytes to register 69: wrote 0, read 0
+Wrote 2 bytes to register 6A: wrote 0, read 0
+Wrote 2 bytes to register 6B: wrote 0, read 0
+Wrote 2 bytes to register 6C: wrote 0, read 0
+Wrote 2 bytes to register 6D: wrote 0, read 0
+Wrote 2 bytes to register 6E: wrote 0, read 0
+Wrote 2 bytes to register 6F: wrote 0, read 0
+Wrote 2 bytes to register 70: wrote 0, read 0
+Wrote 2 bytes to register 71: wrote 0, read 0
+Wrote 2 bytes to register 72: wrote 0, read 0
+Wrote 2 bytes to register 73: wrote 0, read 0
+Wrote 2 bytes to register 74: wrote 0, read 0
+Wrote 2 bytes to register 75: wrote 0, read 0
+Wrote 2 bytes to register 76: wrote 0, read 0
+Wrote 2 bytes to register 77: wrote 0, read 0
+Wrote 2 bytes to register 78: wrote 0, read 0
+Wrote 2 bytes to register 79: wrote 0, read 0
+Wrote 2 bytes to register 7A: wrote 0, read 0
+Wrote 2 bytes to register 7B: wrote 0, read 0
+Wrote 2 bytes to register 7C: wrote 0, read 0
+Wrote 2 bytes to register 7D: wrote 0, read 0
+Wrote 2 bytes to register 7E: wrote 0, read 0
+Wrote 2 bytes to register 7F: wrote 0, read 0
+Wrote 2 bytes to register 80: wrote 68, read 0 *** ERROR ***
+Wrote 2 bytes to register 81: wrote 0, read 0
+Wrote 2 bytes to register 82: wrote FF, read FF
+Wrote 2 bytes to register 83: wrote 0, read 0
+Wrote 2 bytes to register 84: wrote AC, read AC
+Wrote 2 bytes to register 85: wrote 0, read 0
+Wrote 2 bytes to register 86: wrote 20, read 20
+Wrote 2 bytes to register 87: wrote 3, read 3
+Wrote 2 bytes to register 88: wrote 4, read 4
+Wrote 2 bytes to register 89: wrote 2, read 2
+Wrote 2 bytes to register 8A: wrote 0, read 0
+Wrote 2 bytes to register 8B: wrote 0, read 0
+Wrote 2 bytes to register 8C: wrote 0, read 0
+Wrote 2 bytes to register 8D: wrote 40, read 40
+Wrote 2 bytes to register 8E: wrote 5, read 5
+Wrote 2 bytes to register 8F: wrote 6B, read 6B
+Wrote 2 bytes to register 90: wrote 0, read 0
+Wrote 2 bytes to register 91: wrote 0, read 0
+Wrote 2 bytes to register 92: wrote 0, read 0
+Wrote 2 bytes to register 93: wrote 0, read 0
+Wrote 2 bytes to register 94: wrote A0, read A0
+Wrote 2 bytes to register 95: wrote 6, read 6
+Wrote 2 bytes to register 96: wrote 0, read 0
+Wrote 2 bytes to register 97: wrote 0, read 0
+Wrote 2 bytes to register 98: wrote 0, read 0
+Wrote 2 bytes to register 99: wrote 0, read 0
+Wrote 2 bytes to register 9A: wrote 0, read 0
+Wrote 2 bytes to register 9B: wrote 0, read 0
+Wrote 2 bytes to register 9C: wrote 80, read 80
+Wrote 2 bytes to register 9D: wrote 0, read 0
+Wrote 2 bytes to register 9E: wrote 20, read 20
+Wrote 2 bytes to register 9F: wrote 0, read 0
+
+
+```
+
+
+Not yet a solution but it is interesting.
