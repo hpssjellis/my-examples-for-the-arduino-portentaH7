@@ -2,9 +2,10 @@
 *
 * Master for this I2C will be the Portenta
 * Portenta SDA on D11
-Portneta SCL on D12
+* Portenta SCL on D12
 *
-*
+* Then use the breakout board to connect the other Portenta. Presently this is a bit confusing
+* it might work but not really sure
 * 
 * 
 * I2C0 SDA PH_8
