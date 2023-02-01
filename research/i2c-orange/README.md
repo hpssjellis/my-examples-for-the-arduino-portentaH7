@@ -308,4 +308,11 @@ Wrote 2 bytes to register 9F: wrote 0, read 0
 ```
 
 
-Not yet a solution but it is interesting.
+Not yet a solution but it is interesting. Actually might be a solution since the orange light went off, but then when I disconnected it the orange LED came back on. But perhaps that is what happens and I need to get the bootloader burnt without cycling the power.
+
+a09 also works same as the above wit no errors this time.
+
+Still no luck with burning the bootloader
+
+
+
