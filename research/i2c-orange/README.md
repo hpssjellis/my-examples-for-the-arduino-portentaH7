@@ -87,3 +87,8 @@ a01, a02, a03 not working very well yet
 
 
 https://github.com/arduino/ArduinoCore-mbed/issues/608
+
+
+Note: A useful way to compare binary files is here   https://www.diffnow.com/  
+
+
