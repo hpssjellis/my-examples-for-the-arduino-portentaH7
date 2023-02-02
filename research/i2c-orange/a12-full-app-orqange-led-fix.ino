@@ -204,7 +204,10 @@ void setup() {
       myI2cScanner();
   } 
   while(Serial.available()) {  // key has been sent
-     myInChar = Serial.read();
+     char c = Serial.read();
+     if (c == 'Y' ||c == 'y') {
+        myInChar = 'Y';   // the last char is 'n' so this captures the 'Y'
+     }
      Serial.print("Sent from Monitor: ");
      Serial.print(myInChar); // echo character to terminal 
   }
@@ -215,7 +218,7 @@ void setup() {
   Serial.println();  
   readI2C(devAddr, 10, 16);   // 10 rows of 16 bytes
 
-  if (myInChar == 'Y' || myInChar == 'y'){
+  if (myInChar == 'Y'){
        Serial.println("You typed Y or y so"); 
        Serial.println("The PMIC registers will be changed"); 
        Serial.println(); 
