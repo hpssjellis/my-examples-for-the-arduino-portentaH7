@@ -346,4 +346,9 @@ a09 also works same as the above wit no errors this time.
 Still no luck with burning the bootloader
 
 
+a11 is looking better but the old PMIC fix does not seem to be what we need for the newer bootloader
+
+![image](https://user-images.githubusercontent.com/5605614/216230360-04afb979-364f-4f5b-9995-ee825c0983bc.png)
+
+
 
