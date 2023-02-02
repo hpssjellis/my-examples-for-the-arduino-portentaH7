@@ -1,3 +1,9 @@
+// Use at your own risk.
+// For Orange Portenta LED of Hell
+// Needs a carfeul check of the Address written to.
+// see line 244 and beyond.
+
+
 
 #include <Wire.h>
 
@@ -194,7 +200,7 @@ void readI2C(byte devAddr, int m, int n){
 
 
 void setup() {
-  char myInChar;
+  char myInChar = 'N';
   Wire.begin(); //Initialize the I2C bus
   Serial.begin(115200); //Initialize the serial monitor
   while (!Serial){}
@@ -205,12 +211,15 @@ void setup() {
   } 
   while(Serial.available()) {  // key has been sent
      char c = Serial.read();
-     if (c == 'Y' ||c == 'y') {
+     if (c == 'Y' || c == 'y') {
         myInChar = 'Y';   // the last char is 'n' so this captures the 'Y'
      }
-     Serial.print("Sent from Monitor: ");
+     Serial.print(c);     // echo character to terminal 
      Serial.print(myInChar); // echo character to terminal 
-  }
+  }     
+   Serial.println();
+   Serial.print("Sent from Monitor: ");
+   Serial.println(myInChar); // echo character to terminal 
 
   if (myGoodI2C){
   
