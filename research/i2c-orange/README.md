@@ -384,8 +384,10 @@ I have fixed one Portenta, but tried something creative with another one and rea
 
 I never did get some specific line of code working so I just ignored it
 
-```
 
+
+
+```
 
  uint8_t data[2];
   int err;
