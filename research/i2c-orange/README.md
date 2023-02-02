@@ -351,4 +351,74 @@ a12 is looking better but the old PMIC fix does not seem to be what we need for 
 ![image](https://user-images.githubusercontent.com/5605614/216230360-04afb979-364f-4f5b-9995-ee825c0983bc.png)
 
 
+## [a12-full-app-orqange-led-fix.ino](a12-full-app-orqange-led-fix.ino) this sketch works but needs an engineer to look at it and check if all the values make sense starting at line 240. 
+
+I have fixed one Portenta, but tried something creative with another one and really messed it up. Ths lines that I am not sure about for any new Portenta bootloaders are these lines
+
+```
+        writeI2cRocksetta(devAddr, 0x4f, 0x0);// LDO2 to 1.8V //initialize the PMIC registers:
+        writeI2cRocksetta(devAddr, 0x4c, 0xf);// LDO1 to 1.0V
+        writeI2cRocksetta(devAddr, 0x4d, 0xf);
+        writeI2cRocksetta(devAddr, 0x52, 0x9);// LDO3 to 1.2V
+        writeI2cRocksetta(devAddr, 0x53, 0xf);
+        osDelay(10);
+        writeI2cRocksetta(devAddr, 0x9c, (1 << 7) );//0x80 //charger LED off - duty cycle
+        writeI2cRocksetta(devAddr, 0x9e, (1 << 5) );//0x20 // Disable charger led
+        osDelay(10);
+        writeI2cRocksetta(devAddr, 0x42, 2);    // SW3: set 2A as current limit // Helps keeping the rail up at wifi startup
+        osDelay(10);
+        writeI2cRocksetta(devAddr, 0x94, (20 << 3) );//0xA0 // Change VBUS INPUT CURRENT LIMIT to 1.5A
+        writeI2cRocksetta(devAddr, 0x3b, 0xf);// SW2 to 3.3V (SW2_VOLT)
+        
+        /* ATTENTION: if I write this register - the I2C is dead, read ChipID does not work anymore
+         * write this register as the last one!
+         */
+        writeI2cRocksetta(devAddr, 0x35, 0xf);// SW1 to 3.0V (SW1_VOLT)
+        ```
+        
+        Specifically the last line which I think should be 
+        
+        ```writeI2cRocksetta(devAddr, 0x35, 0x3f);```
+
+
+
+I never did get some specific line of code working so I just ignored it
+
+```
+
+
+ uint8_t data[2];
+  int err;
+  err = I2CUser_MemReadEx(PMIC_I2C_SLAVE_ADDR, 0, data, 1);
+  if (err)
+    return err;       //ERROR
+  if (data[0] != 0x7C)
+  {
+    print_log(UART_OUT, "*E: external PMIC not found\r\n");
+    return 0;       //ERROR - incorrect ChipID
+  }
+  
+  ```
+  
+  
+  
+  
+  
+  
+  
+  .
+  
+  
+  .
+  
+  
+  
+  .
+  
+  
+  
+  .
+  
+  
+
 
