@@ -374,15 +374,17 @@ I have fixed one Portenta, but tried something creative with another one and rea
          * write this register as the last one!
          */
         writeI2cRocksetta(devAddr, 0x35, 0xf);// SW1 to 3.0V (SW1_VOLT)
-        ```
+```
         
-        Specifically the last line which I think should be 
+Specifically check the last line which I think should be: 
         
-        ```writeI2cRocksetta(devAddr, 0x35, 0x3f);```
+```
+writeI2cRocksetta(devAddr, 0x35, 0x3f);
+```
 
 
 
-I never did get some specific line of code working so I just ignored it
+I never did get the following specific lines of code working so I just ignored them:
 
 
 
@@ -400,27 +402,10 @@ I never did get some specific line of code working so I just ignored it
     return 0;       //ERROR - incorrect ChipID
   }
   
-  ```
+```
   
   
   
   
   
-  
-  
-  .
-  
-  
-  .
-  
-  
-  
-  .
-  
-  
-  
-  .
-  
-  
-
-
+ 
