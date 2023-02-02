@@ -351,7 +351,7 @@ a12 is looking better but the old PMIC fix does not seem to be what we need for 
 ![image](https://user-images.githubusercontent.com/5605614/216230360-04afb979-364f-4f5b-9995-ee825c0983bc.png)
 
 
-## [a12-full-app-orqange-led-fix.ino](a12-full-app-orqange-led-fix.ino) this sketch works but needs an engineer to look at it and check if all the values make sense starting at line 240. 
+## [a12-full-app-orange-led-fix.ino](a12-full-app-orange-led-fix.ino) this sketch works but needs an engineer to look at it and check if all the values make sense starting at line 240. 
 
 I have fixed one Portenta, but tried something creative with another one and really messed it up. Ths lines that I am not sure about for any new Portenta bootloaders are these lines
 
