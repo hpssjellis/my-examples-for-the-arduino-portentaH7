@@ -18,12 +18,14 @@ bool myResult;
 void setup(){
   Serial.begin(115200);
   while (!Serial) {}  // wait for the Serial monitor
-  myResult = PortentaH7->begin();
+  myResult = PortentaH7.begin();
   Serial.print("PortentaH7.begin(); activated: ");
   Serial.println(myResult);
 
 }
 
-
+void loop(){
+  
+}
 
 //#endif
