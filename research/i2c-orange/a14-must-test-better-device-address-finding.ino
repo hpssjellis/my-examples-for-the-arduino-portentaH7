@@ -150,7 +150,7 @@ void writeI2cRocksetta(byte devAddr2, uint16_t myReg, byte myVal)
 
 void readI2C(byte devAddr3, int m, int n){
   Serial.println();
-  Serial.print("Starting at address: ");
+  Serial.print("Using I2C device address: ");
   Serial.println(devAddr3, HEX);
   Serial.println();
   if (showCount){
