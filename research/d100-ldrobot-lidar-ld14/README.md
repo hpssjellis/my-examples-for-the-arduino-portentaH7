@@ -1,6 +1,9 @@
 # D100 Lidar Kit
 
 
+LDrobot youtube site is at   https://www.youtube.com/@ldrobot840/featured
+
+
 
 Arduino forum here   https://forum.arduino.cc/t/error-compiling-for-board-arduino-mega-or-mega-2560/1119540
 
