@@ -1,6 +1,10 @@
 # D100 Lidar Kit
 
 
+
+Arduino forum here   https://forum.arduino.cc/t/error-compiling-for-board-arduino-mega-or-mega-2560/1119540
+
+
 As far as I can tell the website has no downloads   https://www.ldrobot.com/download/en/124
 
 Found this useful datasheet   https://github.com/ldrobotSensorTeam/DeveloperKit/blob/master/D100Kit.md
