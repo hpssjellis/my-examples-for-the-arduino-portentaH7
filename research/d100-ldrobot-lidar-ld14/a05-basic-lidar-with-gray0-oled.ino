@@ -117,21 +117,37 @@ void setup() {
 
 void loop() {
 
-  display.clearDisplay();
+
+   // display.clearDisplay();
+    display.setCursor(0, 0);
+    display.println("Rocksetta D100 Lidar");
 
   if (IS_OK(lidar.waitPoint())) {
-    float distance = lidar.getCurrentPoint().distance; //distance value in mm unit
-    float angle    = lidar.getCurrentPoint().angle;    //angle value in degree
-    bool  startBit = lidar.getCurrentPoint().startBit; //whether this point is belong to a new scan
-    byte  quality  = lidar.getCurrentPoint().quality;  //quality of the current measurement
+    float distance = lidar.getCurrentPoint().distance; // distance value in mm unit
+    float angle    = lidar.getCurrentPoint().angle;    // angle value in degree
+    bool  startBit = lidar.getCurrentPoint().startBit; // whether this point is belong to a new scan
+    byte  quality  = lidar.getCurrentPoint().quality;  // quality of the current measurement
     
+    int myX = distance*cos(angle);
+    int myY = distance*sin(angle);
+
+    int   myX1Map = map((int)myX, -3000, 3000, 0, 127);  // should be -8000 to 8000 but I just want the close stuff
+    int   myY1Map = map((int)myY, -3000, 3000, 0, 127);
+
     //perform data processing here... 
-  Serial.print(distance);  
+  Serial.print(myX1Map);  
   Serial.print(", ");  
+  Serial.print(myY1Map);  
+  Serial.print(";  ");  
+
+  if (startBit) {
+     Serial.println();  
+  }
 
 
-  display.setCursor(0, 0);
-  display.println("Rocksetta D100 Lidar");
+
+
+  display.drawPixel(myX1Map, myY1Map, quality);
   display.display();
 
 
