@@ -3,6 +3,17 @@
 
 LDrobot youtube site is at   https://www.youtube.com/@ldrobot840/featured
 
+JUST found the sensorteam at 
+
+
+https://gitee.com/ldrobotSensorTeam
+
+
+
+and the main LDRobot github at 
+
+https://github.com/ldrobotSensorTeam
+
 
 
 Arduino forum here   https://forum.arduino.cc/t/error-compiling-for-board-arduino-mega-or-mega-2560/1119540
