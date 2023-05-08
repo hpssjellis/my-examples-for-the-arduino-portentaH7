@@ -15,6 +15,13 @@ and the main LDRobot github at
 https://github.com/ldrobotSensorTeam
 
 
+Arduino code here from LDrobot 
+
+https://github.com/ldrobotsensor/Lidar_LD06_for_Arduino
+
+
+
+
 
 Arduino forum here   https://forum.arduino.cc/t/error-compiling-for-board-arduino-mega-or-mega-2560/1119540
 
