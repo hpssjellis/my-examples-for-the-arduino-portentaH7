@@ -76,3 +76,10 @@ PointCart PointCyl::to_cart(float scale, float origin_x, float origin_y) const {
 
 
 
+here is an interesting take on the rplidar library but without any example code
+
+https://github.com/DanielKalicki/RPLidar_Arduino
+
+
+
+
