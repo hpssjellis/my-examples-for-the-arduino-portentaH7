@@ -53,6 +53,8 @@ void loop() {
       if (myIn8bitB <= 15 ){Serial.print(" ");} // add a space for single digit hex values
       Serial.print(myIn8bitB, HEX); 
 
+      Serial.print("---"); 
+
       // 7th and 8th bytes Data1
       myIn8bitA = Serial1.read();
       myIn8bitB = Serial1.read();
@@ -71,6 +73,8 @@ void loop() {
       if (myIn8bitA <= 15 ){Serial.print(" ");} // add a space for single digit hex values
       Serial.print(myIn8bitA, HEX); 
 
+      Serial.print(" | "); 
+
       // 10th and 11th bytes Data1
       myIn8bitA = Serial1.read();
       myIn8bitB = Serial1.read();
@@ -88,6 +92,8 @@ void loop() {
       Serial.print(" ");
       if (myIn8bitA <= 15 ){Serial.print(" ");} // add a space for single digit hex values
       Serial.print(myIn8bitA, HEX); 
+
+      Serial.print(" | "); 
 
       // 13th and 14th bytes Data1
       myIn8bitA = Serial1.read();
@@ -108,6 +114,7 @@ void loop() {
       Serial.print(myIn8bitA, HEX); 
 
 
+      Serial.print(" | "); 
 
 
 
@@ -120,9 +127,9 @@ void loop() {
       // summary of what we have so far
       Serial.println();
       Serial.println("header:"+String(myHeader)+ ", VerLen:"+String(myVerlen)+ ", Speed:"+String(mySpeed)+ " degrees per second, Start Angle:"+String(myStartAngle) +" 100th of a degree, "   ); 
-      Serial.println("Data1:"+String(myData1)+ " mm, Quality1:"+String(myQuality1) );   
-      Serial.println("Data2:"+String(myData2)+ " mm, Quality2:"+String(myQuality2) );   
-      Serial.println("Data3:"+String(myData3)+ " mm, Quality3:"+String(myQuality3) );   
+      Serial.println("Data1: "+String(myData1)+ " mm, Quality1: "+String(myQuality1) );   
+      Serial.println("Data2: "+String(myData2)+ " mm, Quality2: "+String(myQuality2) );   
+      Serial.println("Data3: "+String(myData3)+ " mm, Quality3: "+String(myQuality3) );   
 
       Serial.println();
     }  // end if startbit
