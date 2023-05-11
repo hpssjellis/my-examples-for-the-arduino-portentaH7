@@ -58,7 +58,7 @@ void loop() {
       // ignore the rest for now.
       // summary of what we have so far
       Serial.println();
-      Serial.println("header:"+String(myHeader)+ "verLen:"+String(myVerlen)+ "Speed:"+String(mySpeed)+ "Start Angle:"+String(myStartAngle)   );  
+      Serial.println("header:"+String(myHeader)+ ", VerLen:"+String(myVerlen)+ ", Speed:"+String(mySpeed)+ " degrees per second, Start Angle:"+String(myStartAngle) +" 100th of a degree, "   );  
       Serial.println();
     }  // end if startbit
 
