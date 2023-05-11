@@ -1,8 +1,9 @@
 
 
+
 byte myIn8bitA, myIn8bitB;
 short myIn16bit;
-int myHeader, myVerlen, mySpeed, myStartAngle, ......data.......,   myEndAngle, myTimeStamp, myCRC;
+int myHeader, myVerlen, mySpeed, myStartAngle, myEndAngle, myTimeStamp, myCRC;
 
 // should be an array but this is easier
 int myData1,myQuality1, myData2,myQuality2, myData3,myQuality3, myData4,myQuality4, myData5,myQuality5, myData6,myQuality6;
@@ -17,7 +18,7 @@ void loop() {
   while (Serial1.available()){
 
     myIn8bitA = Serial1.read();
-    if (myIn8bit == 0x54) {
+    if (myIn8bitA == 0x54) {
       //first byte: header
       myHeader = (int) myIn8bitA;  // who cares.
       Serial.println();
@@ -54,12 +55,12 @@ void loop() {
       Serial.print(myIn8bitB, HEX); 
 
 
-    // ignore the rest for now.
-    // summary of what we have so far
-    Serial.println();
-    Serial.println("header:"+String(myHeader)+ "verLen:"+String(myVerlen)+ "Speed:"+String(mySpeed)+ "Start Angle:"+String(myStartAngle)   );  
-    Serial.println();
-
+      // ignore the rest for now.
+      // summary of what we have so far
+      Serial.println();
+      Serial.println("header:"+String(myHeader)+ "verLen:"+String(myVerlen)+ "Speed:"+String(mySpeed)+ "Start Angle:"+String(myStartAngle)   );  
+      Serial.println();
+    }  // end if startbit
 
   }  // end while
 
