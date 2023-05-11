@@ -53,7 +53,7 @@ void loop() {
       if (myIn8bitB <= 15 ){Serial.print(" ");} // add a space for single digit hex values
       Serial.print(myIn8bitB, HEX); 
 
-      Serial.print("---"); 
+      Serial.print(" ---"); 
 
       // 7th and 8th bytes Data1
       myIn8bitA = Serial1.read();
@@ -73,7 +73,7 @@ void loop() {
       if (myIn8bitA <= 15 ){Serial.print(" ");} // add a space for single digit hex values
       Serial.print(myIn8bitA, HEX); 
 
-      Serial.print(" | "); 
+      Serial.print(" |"); 
 
       // 10th and 11th bytes Data1
       myIn8bitA = Serial1.read();
@@ -93,7 +93,7 @@ void loop() {
       if (myIn8bitA <= 15 ){Serial.print(" ");} // add a space for single digit hex values
       Serial.print(myIn8bitA, HEX); 
 
-      Serial.print(" | "); 
+      Serial.print(" |"); 
 
       // 13th and 14th bytes Data1
       myIn8bitA = Serial1.read();
@@ -114,7 +114,7 @@ void loop() {
       Serial.print(myIn8bitA, HEX); 
 
 
-      Serial.print(" | "); 
+      Serial.print(" |"); 
 
 
 
