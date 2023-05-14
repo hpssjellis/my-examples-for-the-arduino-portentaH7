@@ -34,8 +34,8 @@
 #define OLED_MOSI D8   // blue  DIN (mosi) D8 on Portenta  // D10 on XIAO
 
 // Used for software or hardware SPI
-#define OLED_CS D7   // green D6 Portenta,  try D1 on XIAO // green (dc)  D6  
-#define OLED_DC D6   // orange (cs) D6 Portenta,   try D0 on XIAO
+#define OLED_CS D7   // orange (cs) D7 Portenta,   try D0 on XIAO
+#define OLED_DC D6   // green D6 Portenta,  try D1 on XIAO 
 
 // Used for I2C or SPI
 #define OLED_RESET -1
