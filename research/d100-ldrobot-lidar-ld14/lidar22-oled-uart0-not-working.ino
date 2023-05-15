@@ -260,7 +260,7 @@ void LD06forArduino::Init(const int pin) {
  
  // Serial1.begin(230400, SERIAL_8N1, D7, D6); // NOPE! 
 
-  myUART0.begin(230400);
+  myUART0.begin(115200);
 
 
 }
