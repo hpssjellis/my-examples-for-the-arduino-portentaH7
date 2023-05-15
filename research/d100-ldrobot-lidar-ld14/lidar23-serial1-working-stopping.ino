@@ -1,3 +1,5 @@
+
+
 /*
  * 
  * Must use portenta with Vision Shield Camera and Waveform 128x128 grayscale OLED 
@@ -56,7 +58,7 @@ Adafruit_SSD1327 display(128, 128, &SPI, OLED_DC, OLED_RESET, OLED_CS);
 
 
 
-unsigned long myDelay = 2000;   // non-block delay in milliseconds
+unsigned long myDelay = 200;   // non-block delay in milliseconds
 unsigned long myStart;
 
 
@@ -148,6 +150,7 @@ void loop() {
       display.println("Rocksetta D100 Lidar");
       // Draw a triangle to show the Lidar device
       display.drawTriangle(64,62,60,66,68,66,  255);
+
 
       // Measurements
      
@@ -265,7 +268,9 @@ void LD06forArduino::Init(const int pin) {
  
  // Serial1.begin(230400, SERIAL_8N1, D7, D6); // NOPE! 
 
-   myUART1.begin(230400, SERIAL_8N1);
+// myUART1.begin(230400, SERIAL_8N1);  // works for a second
+myUART1.begin(230400);
+//myUART1.begin(1000000);
 
 }
 
