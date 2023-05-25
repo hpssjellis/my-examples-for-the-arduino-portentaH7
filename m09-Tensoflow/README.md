@@ -1,3 +1,13 @@
+
+
+Note: May 2023.
+
+This code doesnot work with the present version of tensorflowLite, that is at   https://github.com/tensorflow/tflite-micro-arduino-examples
+
+The issue is the file  https://github.com/tensorflow/tflite-micro-arduino-examples/blob/main/src/tensorflow/lite/micro/system_setup.cpp  which only defines the Nano33Ble so work would have to be done to make it work with other boards.  
+
+
+
 # Machine Learning on Micro-controllers. Specifically the new $100 Dual Core Arduino Portenta H7
 
 Note: It seems the Arduino_TensorFlowLite library has disappeared so I put it here [Arduino_TensorFlowLite.zip](Arduino_TensorFlowLite.zip) for you to download and install int eh normal zipped file arduino library install.
