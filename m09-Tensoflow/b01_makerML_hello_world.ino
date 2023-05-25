@@ -20,7 +20,7 @@
 
 
 
-// By putting this model.h file here we can load everything as one file into the arduino IDER.
+// By putting this model.h file here we can load everything as one file into the arduino IDE.
 // Once it is working it is best to seperate this as a model.h file into it's own tabThis allows only one file for Arduino IDE, but you should seperate the following
 // #include "model.h"  // uncomment when below has been put into it's own tab
 
