@@ -7,7 +7,7 @@ Download this version and install the zipped file in your arduino IDE and then t
 
 
 
-------------------old solution-------------------------
+```------------------old solution-------------------------
 This code does not work with the present version of tensorflowLite, that is at   https://github.com/tensorflow/tflite-micro-arduino-examples
 
 The issue is the file  https://github.com/tensorflow/tflite-micro-arduino-examples/blob/main/src/tensorflow/lite/micro/system_setup.cpp  which only defines the Nano33Ble so work would have to be done to make it work with other boards.  
@@ -17,7 +17,7 @@ The issue is the file  https://github.com/tensorflow/tflite-micro-arduino-exampl
 Note: It seems the Arduino_TensorFlowLite library has disappeared so I put it here [Arduino_TensorFlowLite.zip](Arduino_TensorFlowLite.zip) for you to download and install in eh normal zipped file arduino library install.
 
 -------------------- old solution over ---------------------------------------
-
+```
 
 
 
