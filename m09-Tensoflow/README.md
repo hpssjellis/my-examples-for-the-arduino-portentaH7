@@ -7,6 +7,17 @@ Download this version and install the zipped file in your arduino IDE and then t
 
 
 
+.
+
+
+.
+
+
+.
+
+
+
+
 ```------------------old solution-------------------------
 This code does not work with the present version of tensorflowLite, that is at   https://github.com/tensorflow/tflite-micro-arduino-examples
 
