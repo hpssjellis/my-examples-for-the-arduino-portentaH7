@@ -15,9 +15,8 @@ The Arduino version is at  https://github.com/tensorflow/tflite-micro-arduino-ex
 
 Using the fork at   https://github.com/josemqz/tflite-micro-arduino-portenta-h7  person detection now works. Thanks Jose
 
+<img  width="100%" src="https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/assets/5605614/1d3ae9e2-28b3-4afc-8f20-a693915f4d2c">
 
-
-![image](https://github.com/hpssjellis/my-examples-for-the-arduino-portentaH7/assets/5605614/1d3ae9e2-28b3-4afc-8f20-a693915f4d2c)
 
 
 
