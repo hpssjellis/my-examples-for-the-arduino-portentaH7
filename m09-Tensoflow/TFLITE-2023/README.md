@@ -20,10 +20,28 @@ Using the fork at   https://github.com/josemqz/tflite-micro-arduino-portenta-h7 
 
 
 
+.
+
+
+
+.
 
 
 
 
+.
+
+
+
+
+.
+
+
+
+
+
+
+### not as good attempts.
 
 My attempt is here   https://github.com/hpssjellis/TensorFlowLiteRocksetta2023
 
