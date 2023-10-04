@@ -21,3 +21,11 @@ Using the fork at   https://github.com/josemqz/tflite-micro-arduino-portenta-h7 
 
 
 
+
+
+
+
+My attempt is here   https://github.com/hpssjellis/TensorFlowLiteRocksetta2023
+
+and my very old but still working version is here   https://github.com/hpssjellis/RocksettaTinyML
+  
