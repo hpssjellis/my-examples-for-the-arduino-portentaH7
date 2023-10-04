@@ -1,6 +1,6 @@
 # Issue the tFlite github by Google does not transfer to all Arduino's easily
 
-Google tFlite githuyb is at  https://github.com/tensorflow/tflite-micro
+Google tFlite github is at  https://github.com/tensorflow/tflite-micro
 
 
 
