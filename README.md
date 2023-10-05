@@ -1,6 +1,13 @@
 ## my-examples-for-the-arduino-portentaH7
 My examples for the new Arduino Pro board the Portenta H7
 
+
+## Generally this repo is deprecated but I do use it sometimes just to test things. Presently I am testing the tFlite-Micro repo 
+and how to make it work for Arduino The folder I am doing this testing is [m09-Tensoflow/TFLITE-2023](m09-Tensoflow/TFLITE-2023)
+
+
+
+
 ## My New Arduino Library 
 Based on these examples and other demos
 https://github.com/hpssjellis/portenta-pro-community-solutions
