@@ -170,3 +170,5 @@ uint32_t GetCurrentTimeTicks() { return clock(); }
 
 And the nano33BleSense seems to run at least hello_World.
 
+Super strange is when I tried the Portenta. The compiler found my renamed peripherals folder and tried to compile some hal code from it. I have now removed the old pheripherals folder from the librry.
+
