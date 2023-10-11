@@ -10,6 +10,8 @@ Note: May 2023.
 Fixing these examples using the very old TensorflowLite version allows this code to run. [Rocksetta_TensorFlowLite.zip](Rocksetta_TensorFlowLite.zip)
 Download this version and install the zipped file in your arduino IDE and then the following examples should run.
 
+The github for it is at https://github.com/hpssjellis/RocksettaTinyML
+
 
 
 .
