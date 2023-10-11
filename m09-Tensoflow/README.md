@@ -1,5 +1,5 @@
 
-Note September 2023 check out new folder at  [TFLITE-2023](TFLITE-2023/README.md)
+Note September 2023 check out new folder at  [TFLITE-2023](TFLITE-2023/README.md)   I don't really have this working yet.
 
 
 
@@ -10,7 +10,7 @@ Note: May 2023.
 Fixing these examples using the very old TensorflowLite version allows this code to run. [Rocksetta_TensorFlowLite.zip](Rocksetta_TensorFlowLite.zip)
 Download this version and install the zipped file in your arduino IDE and then the following examples should run.
 
-The github for it is at https://github.com/hpssjellis/RocksettaTinyML
+The github for it (or something similar) is at https://github.com/hpssjellis/RocksettaTinyML
 
 
 
